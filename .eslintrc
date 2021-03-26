@@ -7,6 +7,14 @@
       "modules": true
     }
   },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["."],
+        "extensions": [".ts",".tsx"]
+      }
+    }
+  },
   "env": {
     "node": true,
     "browser": true,
