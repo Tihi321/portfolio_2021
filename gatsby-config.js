@@ -1,6 +1,15 @@
 module.exports = {
   siteMetadata: {
     title: "Portfolio 2021",
+    author: {
+      name: "Tihomir Selak",
+      summary: "React, Typescript and Node Developer"
+    },
+    description: "Programming portfolio website",
+    siteUrl: "https://localhost://8000",
+    social: {
+      twitter: "Tihi321"
+    }
   },
   plugins: [
     "gatsby-plugin-styled-components",
@@ -10,27 +19,40 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        icon: "src/images/icon.png",
-      },
+        icon: "src/images/icon.png"
+      }
     },
-    "gatsby-plugin-mdx",
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {
+        extensions: [".mdx", ".md"]
+      }
+    },
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
-        path: "./src/images/",
+        path: `${__dirname}/src/images/`
       },
-      __key: "images",
+      __key: "images"
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "blog",
+        path: `${__dirname}/src/blog/`
+      },
+      __key: "blog"
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "pages",
-        path: "./src/pages/",
+        path: `${__dirname}/src/pages/`
       },
-      __key: "pages",
-    },
-  ],
+      __key: "pages"
+    }
+  ]
 };
