@@ -1,9 +1,12 @@
 import { graphql } from "gatsby";
 import React from "react";
 
-import { TSiteMetaWithBlog } from "../types/query";
+import { getNumber, increment, useSelector, useStore } from "../store";
+import { TSiteMetaWithBlog } from "../definitions/query/home";
 
 const Home = ({ data }: { data: TSiteMetaWithBlog }) => {
+  const number = useSelector(getNumber);
+  const { dispatch } = useStore();
   const siteTitle = data.site.siteMetadata.title;
   const siteDescription = data.site.siteMetadata.description;
   const posts = data.allMdx.edges;
@@ -11,7 +14,9 @@ const Home = ({ data }: { data: TSiteMetaWithBlog }) => {
   return (
     <>
       <h1>{siteTitle}</h1>
+      <p>{number}</p>
       <p>{siteDescription}</p>
+      <button onClick={() => dispatch(increment())}>Button Sample</button>
       <p>{posts.map(post => post.node.frontmatter.title)}</p>
     </>
   );
