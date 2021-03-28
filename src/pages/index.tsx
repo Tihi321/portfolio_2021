@@ -1,11 +1,20 @@
 import { graphql } from "gatsby";
 import React from "react";
+import styled from "styled-components";
 
-import { getNumber, increment, useSelector, useStore } from "../store";
 import { TSiteMetaWithBlog } from "../definitions/query/home";
+import { getTheme, switchTheme, useSelector, useStore } from "../store";
+import { backgroundColor, textColor } from "../themes";
+
+const TitleStyled = styled.h1`
+  margin: 20px 0;
+  padding: 15px;
+  background-color: ${backgroundColor};
+  color: ${textColor};
+`;
 
 const Home = ({ data }: { data: TSiteMetaWithBlog }) => {
-  const number = useSelector(getNumber);
+  const theme = useSelector(getTheme);
   const { dispatch } = useStore();
   const siteTitle = data.site.siteMetadata.title;
   const siteDescription = data.site.siteMetadata.description;
@@ -13,10 +22,10 @@ const Home = ({ data }: { data: TSiteMetaWithBlog }) => {
 
   return (
     <>
-      <h1>{siteTitle}</h1>
-      <p>{number}</p>
+      <TitleStyled>{siteTitle}</TitleStyled>
+      <p>Theme is :{theme}</p>
       <p>{siteDescription}</p>
-      <button onClick={() => dispatch(increment())}>Button Sample</button>
+      <button onClick={() => dispatch(switchTheme())}>switchTheme</button>
       <p>{posts.map(post => post.node.frontmatter.title)}</p>
     </>
   );

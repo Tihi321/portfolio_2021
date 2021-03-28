@@ -1,3 +1,3 @@
-import { State } from "../reducers";
+import { TState } from "../reducers";
 
-export const getNumber = (state: State) => state.number;
+export const getTheme = (state: TState) => state.theme;
