@@ -1,4 +1,9 @@
 import { action } from "@storybook/addon-actions";
+import React, {useState} from "react";
+import styled from "styled-components";
+import { withKnobs } from '@storybook/addon-knobs';
+
+import { ThemeContainer } from "./components/ThemeContainer";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -19,3 +24,35 @@ global.__BASE_PATH__ = "/"
 window.___navigate = pathname => {
   action("NavigateTo:")(pathname)
 }
+
+
+const StoryContainerStyled = styled.div`
+  padding: 50px;
+`;
+
+
+export const decorators = [
+  withKnobs,
+  (Story) => {
+    const [useTheme, setUseTheme] = useState(true);
+
+    const disableTheme = () => setUseTheme(false);
+    const enableTheme = () => setUseTheme(true);
+
+    if (!useTheme) {
+      return (
+        <StoryContainerStyled>
+          <Story disableTheme={disableTheme} enableTheme={enableTheme}/>
+        </StoryContainerStyled>
+      );
+    }
+
+    return (
+      <StoryContainerStyled>
+        <ThemeContainer>
+          <Story disableTheme={disableTheme} enableTheme={enableTheme}/>
+        </ThemeContainer>
+      </StoryContainerStyled>
+    );
+  },
+];

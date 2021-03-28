@@ -1,9 +1,9 @@
-export enum actionTypes {
-  Increment = "increment",
-  Decrement = "decrement"
+export enum EActionTypes {
+  ThemeSet = "themeSet",
+  ThemeSwitch = "themeSwitch"
 }
 
-export type Action = {
-  type: actionTypes;
+export type TAction = {
+  type: EActionTypes;
   payload?: any;
 };

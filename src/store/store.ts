@@ -1,8 +1,8 @@
 import { createReducerContext } from "react-use";
 
-import { initialState, reducer, State } from "./reducers";
+import { initialState, reducer, TState } from "./reducers";
 
-type Selector = (state: State) => any;
+type TSelector = (state: TState) => any;
 
 const [useContextStore, Provider] = createReducerContext(reducer, initialState);
 
@@ -12,7 +12,7 @@ const useStore = () => {
   return { state, dispatch };
 };
 
-const useSelector = (selector: Selector) => {
+const useSelector = (selector: TSelector) => {
   const { state } = useStore();
 
   return selector(state);

@@ -1,9 +1,11 @@
-import { actionTypes } from "./types";
+import { ETheme } from "../reducers";
+import { EActionTypes } from "./types";
 
-export const increment = () => ({
-  type: actionTypes.Increment
+export const setTheme = (theme: ETheme) => ({
+  type: EActionTypes.ThemeSet,
+  payload: theme
 });
 
-export const decrement = () => ({
-  type: actionTypes.Decrement
+export const switchTheme = () => ({
+  type: EActionTypes.ThemeSwitch
 });

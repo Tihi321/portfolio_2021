@@ -1,24 +1,29 @@
-import { Action, actionTypes } from "../actions";
+import { EActionTypes, TAction } from "../actions";
 
-export type State = {
-  number: number;
+export enum ETheme {
+  Dark = "dark",
+  Light = "light"
+}
+
+export type TState = {
+  theme: ETheme;
 };
 
-export const initialState: State = {
-  number: 0
+export const initialState: TState = {
+  theme: ETheme.Light
 };
 
-export const reducer = (state: State, { type, payload }: Action) => {
+export const reducer = (state: TState, { type, payload }: TAction) => {
   switch (type) {
-    case actionTypes.Increment:
+    case EActionTypes.ThemeSet:
       return {
         ...state,
-        number: state.number + 1
+        theme: payload
       };
-    case actionTypes.Decrement:
+    case EActionTypes.ThemeSwitch:
       return {
         ...state,
-        number: state.number - 1
+        theme: state.theme === ETheme.Light ? ETheme.Dark : ETheme.Light
       };
     default:
       throw new Error();
