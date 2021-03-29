@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { backgroundColor } from "../../themes";
 
-export interface BackgroundContainerProps {
+export interface IBackgroundContainerProps {
   children: React.ReactNode;
 }
 
@@ -14,6 +14,6 @@ const BackgroundContainerStyled = styled.div`
 
 export const BackgroundContainer = ({
   children
-}: BackgroundContainerProps): React.ReactElement => (
+}: IBackgroundContainerProps): React.ReactElement => (
   <BackgroundContainerStyled>{children}</BackgroundContainerStyled>
 );
