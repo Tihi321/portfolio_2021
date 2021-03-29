@@ -9,7 +9,7 @@ export interface ThemeContainerProps {
 }
 
 export const ThemeContainer = ({children}: ThemeContainerProps) => {
-  const ColorsId = 'THEME_COLORS';
+  const ColorsId = 'THEME OPTIONS';
 
   const themes = {
     Dark: ETheme.Dark,

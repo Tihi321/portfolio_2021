@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-import { logoBackgroundColor, logoforegroundColor } from "../../themes";
+import { logoBackgroundColor, logoForegroundColor } from "../../themes";
 
 const LogoStyled = styled.svg`
   fill: none;
   width: 126px;
   height: 130px;
   --logo-background-color: ${logoBackgroundColor};
-  --logo-text-color: ${logoforegroundColor};
+  --logo-text-color: ${logoForegroundColor};
 `;
 
 export const Logo = () => (

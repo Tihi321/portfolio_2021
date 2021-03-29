@@ -1,4 +1,4 @@
-import { action } from "@storybook/addon-actions";
+import { action, withActions } from "@storybook/addon-actions";
 import React, {useState} from "react";
 import styled from "styled-components";
 import { withKnobs } from '@storybook/addon-knobs';
@@ -33,6 +33,7 @@ const StoryContainerStyled = styled.div`
 
 export const decorators = [
   withKnobs,
+  withActions,
   (Story) => {
     const [useTheme, setUseTheme] = useState(true);
 

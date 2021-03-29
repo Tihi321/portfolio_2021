@@ -8,5 +8,5 @@ export const darkTheme = {
     tertiary: "#999999",
     fontColor: "#FFFFFF"
   },
-  styles: fonts
+  fonts
 };

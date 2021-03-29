@@ -8,5 +8,5 @@ export const lightTheme = {
     tertiary: "#666666",
     fontColor: "#333333"
   },
-  styles: fonts
+  fonts
 };
