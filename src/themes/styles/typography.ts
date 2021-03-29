@@ -1,3 +1,5 @@
+import { EBreakpoints } from "../types";
+
 export const fonts = {
   fontCode01: {
     fontSize: "12px",
@@ -100,10 +102,16 @@ export const fonts = {
     fontWeight: "light",
     lineHeight: "64px"
   },
-  fontbutton01: {
-    fontSize: "28px",
-    fontFamily: "Lato",
-    fontWeight: "700",
-    lineHeight: "36px"
+  featuredButtonResponsive: {
+    [EBreakpoints.MOBILE]: {
+      fontSize: "16px",
+      fontFamily: "Lato",
+      fontWeight: "700",
+      lineHeight: "22px"
+    },
+    [EBreakpoints.DESKTOP]: {
+      fontSize: "28px",
+      lineHeight: "36px"
+    }
   }
 };

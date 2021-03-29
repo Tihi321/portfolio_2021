@@ -2,13 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 import {
+  EBreakpoints,
   featuredButtonBackgroundColor,
   featuredButtonColor,
-  featuredButtonFontFamily,
-  featuredButtonFontSize,
-  featuredButtonFontWeight,
-  featuredButtonLineHeight
+  featuredButtonResponsiveStyles
 } from "../../themes";
+import { addSelectorArguments, ESide, media } from "../../utils";
 
 export interface IFeaturedButtonProps {
   text: string;
@@ -22,12 +21,12 @@ const ButtonStyled = styled.button`
   cursor: pointer;
   color: ${featuredButtonColor};
   background-color: ${featuredButtonBackgroundColor};
-  font-family: ${featuredButtonFontFamily};
-  font-size: ${featuredButtonFontSize};
-  font-weight: ${featuredButtonFontWeight};
-  line-height: ${featuredButtonLineHeight};
-  @media (max-width: 800px) {
-    display: none;
+  ${addSelectorArguments(featuredButtonResponsiveStyles, EBreakpoints.MOBILE)};
+  ${media(EBreakpoints.DESKTOP, ESide.UP)} {
+    ${addSelectorArguments(
+      featuredButtonResponsiveStyles,
+      EBreakpoints.DESKTOP
+    )}
   }
 `;
 
