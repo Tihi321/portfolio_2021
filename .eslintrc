@@ -209,6 +209,15 @@
   },
   "overrides": [
     {
+      "files": [
+        "**/*.test.ts",
+        "**/*.test.tsx"
+      ],
+      "env": {
+        "jest": true
+      }
+    },
+    {
       "files": ["*.json"],
       "rules": {
           "prettier/prettier": "off",
