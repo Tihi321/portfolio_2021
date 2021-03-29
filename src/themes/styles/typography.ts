@@ -101,9 +101,9 @@ export const fonts = {
     lineHeight: "64px"
   },
   fontbutton01: {
-    fontSize: "14px",
-    fontFamily: "IBM Plex Sans",
-    fontWeight: "600",
-    lineHeight: "16px"
+    fontSize: "28px",
+    fontFamily: "Lato",
+    fontWeight: "700",
+    lineHeight: "36px"
   }
 };
