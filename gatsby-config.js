@@ -14,6 +14,13 @@ const plugins = [
   "gatsby-plugin-sitemap",
   "gatsby-plugin-optimize-svgs",
   {
+    resolve: `gatsby-plugin-google-fonts`,
+    options: {
+      fonts: ["lato:400,700"],
+      display: "swap"
+    }
+  },
+  {
     resolve: "gatsby-plugin-manifest",
     options: {
       icon: "src/assets/images/icon.png"
