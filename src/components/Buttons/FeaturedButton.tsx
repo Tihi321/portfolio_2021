@@ -10,7 +10,7 @@ import {
   featuredButtonLineHeight
 } from "../../themes";
 
-export interface FeaturedButtonProps {
+export interface IFeaturedButtonProps {
   text: string;
   onClick: () => void;
 }
@@ -26,8 +26,11 @@ const ButtonStyled = styled.button`
   font-size: ${featuredButtonFontSize};
   font-weight: ${featuredButtonFontWeight};
   line-height: ${featuredButtonLineHeight};
+  @media (max-width: 800px) {
+    display: none;
+  }
 `;
 
-export const FeaturedButton = ({ text, onClick }: FeaturedButtonProps) => (
+export const FeaturedButton = ({ text, onClick }: IFeaturedButtonProps) => (
   <ButtonStyled onClick={onClick}>{text}</ButtonStyled>
 );
