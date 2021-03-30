@@ -1,16 +1,18 @@
 import { Meta } from "@storybook/react";
 import React from "react";
 
-import { Logo } from "../Logo";
 import { BackgroundContainer } from "../../Containers/BackgroundContainer";
+import { Logo } from "../Logo";
 
-export const LogoComponent = () =>  {
- return <BackgroundContainer><Logo /></BackgroundContainer>;
-}
+export const LogoComponent = () => (
+  <BackgroundContainer>
+    <Logo />
+  </BackgroundContainer>
+);
 
 const meta = {
   title: "Components/Icons",
-  component: Logo,
+  component: Logo
 };
 
 export default meta as Meta;
