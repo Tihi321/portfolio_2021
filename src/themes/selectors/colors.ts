@@ -31,3 +31,4 @@ export const logoBackgroundColor = primaryColor;
 export const logoForegroundColor = backgroundColor;
 export const featuredButtonBackgroundColor = primaryColor;
 export const featuredButtonColor = backgroundColor;
+export const linkColor = secondaryColor;
