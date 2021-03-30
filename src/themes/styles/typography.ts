@@ -1,4 +1,4 @@
-import { EBreakpoints } from "../types";
+import { EBreakpoints } from "../../enums";
 
 export const fonts = {
   fontCode01: {

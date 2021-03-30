@@ -1,5 +1,4 @@
 export * from "./styles/dark";
 export * from "./styles/light";
-export * from "./selectors";
+export * from "./selectors/index";
 export * from "./components/ThemeContainer";
-export * from "./types";
