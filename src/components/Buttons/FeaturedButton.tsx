@@ -9,7 +9,7 @@ import {
 } from "../../themes";
 import { media } from "../../utils";
 
-export interface IFeaturedButtonProps {
+interface IFeaturedButtonProps {
   text: string;
   onClick: () => void;
 }
@@ -22,8 +22,8 @@ const ButtonStyled = styled.button`
   color: ${featuredButtonColor};
   background-color: ${featuredButtonBackgroundColor};
   ${featuredButtonResponsiveFontStyles(EBreakpoints.MOBILE)};
-  ${media(EBreakpoints.DESKTOP, ESide.UP)} {
-    ${featuredButtonResponsiveFontStyles(EBreakpoints.DESKTOP)}
+  ${media(EBreakpoints.LAPTOP, ESide.UP)} {
+    ${featuredButtonResponsiveFontStyles(EBreakpoints.LAPTOP)}
   }
 `;
 

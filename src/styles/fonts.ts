@@ -1,7 +1,7 @@
 import { css } from "styled-components";
 
 import { EBreakpoints } from "../enums";
-import { themeFonts } from "../themes";
+import { EFonts, themeFonts } from "../themes";
 
 const responsiveFontStyles = (key: string, breakpoint: EBreakpoints) => css`
   font-size: ${props => themeFonts(props)[key][breakpoint].fontSize};
@@ -15,4 +15,13 @@ const responsiveFontStyles = (key: string, breakpoint: EBreakpoints) => css`
 `;
 
 export const featuredButtonResponsiveFontStyles = (breakpoint: EBreakpoints) =>
-  responsiveFontStyles("featuredButtonResponsive", breakpoint);
+  responsiveFontStyles(EFonts.FeaturedButtonResponsive, breakpoint);
+
+export const bodyResponsiveFontStyles = (breakpoint: EBreakpoints) =>
+  responsiveFontStyles(EFonts.Body, breakpoint);
+
+export const heading01ResponsiveFontStyles = (breakpoint: EBreakpoints) =>
+  responsiveFontStyles(EFonts.Heading01, breakpoint);
+
+export const heading02ResponsiveFontStyles = (breakpoint: EBreakpoints) =>
+  responsiveFontStyles(EFonts.Heading02, breakpoint);
