@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
+import { EBreakpoints, ESide } from "../../enums";
+import { featuredButtonResponsiveFontStyles } from "../../styles";
 import {
-  EBreakpoints,
   featuredButtonBackgroundColor,
-  featuredButtonColor,
-  featuredButtonResponsiveStyles
+  featuredButtonColor
 } from "../../themes";
-import { addSelectorArguments, ESide, media } from "../../utils";
+import { media } from "../../utils";
 
 export interface IFeaturedButtonProps {
   text: string;
@@ -21,12 +21,9 @@ const ButtonStyled = styled.button`
   cursor: pointer;
   color: ${featuredButtonColor};
   background-color: ${featuredButtonBackgroundColor};
-  ${addSelectorArguments(featuredButtonResponsiveStyles, EBreakpoints.MOBILE)};
+  ${featuredButtonResponsiveFontStyles(EBreakpoints.MOBILE)};
   ${media(EBreakpoints.DESKTOP, ESide.UP)} {
-    ${addSelectorArguments(
-      featuredButtonResponsiveStyles,
-      EBreakpoints.DESKTOP
-    )}
+    ${featuredButtonResponsiveFontStyles(EBreakpoints.DESKTOP)}
   }
 `;
 
