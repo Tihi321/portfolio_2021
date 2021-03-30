@@ -1,9 +1,10 @@
 import { action, withActions } from "@storybook/addon-actions";
-import React, {useState} from "react";
-import styled from "styled-components";
+import React from "react";
 import { withKnobs } from '@storybook/addon-knobs';
 
 import { ThemeContainer } from "./components/ThemeContainer";
+import { Layout } from "../src/components/Containers/Layout";
+import { CoreStylesClass } from "../src/enums";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -26,34 +27,18 @@ window.___navigate = pathname => {
 }
 
 
-const StoryContainerStyled = styled.div`
-  padding: 50px;
-`;
-
-
 export const decorators = [
   withKnobs,
   withActions,
   (Story) => {
-    const [useTheme, setUseTheme] = useState(true);
-
-    const disableTheme = () => setUseTheme(false);
-    const enableTheme = () => setUseTheme(true);
-
-    if (!useTheme) {
-      return (
-        <StoryContainerStyled>
-          <Story disableTheme={disableTheme} enableTheme={enableTheme}/>
-        </StoryContainerStyled>
-      );
-    }
-
     return (
-      <StoryContainerStyled>
-        <ThemeContainer>
-          <Story disableTheme={disableTheme} enableTheme={enableTheme}/>
-        </ThemeContainer>
-      </StoryContainerStyled>
+      <ThemeContainer>
+        <div className={CoreStylesClass}>
+          <Layout>
+              <Story />
+          </Layout>
+        </div>
+      </ThemeContainer>
     );
   },
 ];

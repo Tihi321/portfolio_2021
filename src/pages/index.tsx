@@ -4,12 +4,11 @@ import styled from "styled-components";
 
 import { TSiteMetaWithBlog } from "../definitions/query/home";
 import { getTheme, switchTheme, useSelector, useStore } from "../store";
-import { backgroundColor, textColor } from "../themes";
+import { textColor } from "../themes";
 
 const TitleStyled = styled.h1`
   margin: 20px 0;
   padding: 15px;
-  background-color: ${backgroundColor};
   color: ${textColor};
 `;
 
