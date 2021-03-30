@@ -1,115 +1,57 @@
 import { EBreakpoints } from "../../enums";
 
+export enum EFonts {
+  Body = "body",
+  Heading01 = "heading01",
+  Heading02 = "heading02",
+  FeaturedButtonResponsive = "featuredButtonResponsive"
+}
+
 export const fonts = {
-  fontCode01: {
-    fontSize: "12px",
-    fontFamily: "IBM Plex Mono",
-    fontWeight: "400",
-    lineHeight: "16px"
+  [EFonts.Body]: {
+    [EBreakpoints.MOBILE]: {
+      fontSize: "16px",
+      fontFamily: "Lato",
+      fontWeight: "400",
+      lineHeight: "1.5"
+    },
+    [EBreakpoints.LAPTOP]: {
+      fontSize: "18px",
+      lineHeight: "1.625"
+    }
   },
-  fontCode02: {
-    fontSize: "14px",
-    fontFamily: "IBM Plex Mono",
-    fontWeight: "400",
-    lineHeight: "20px"
+  [EFonts.Heading01]: {
+    [EBreakpoints.MOBILE]: {
+      fontSize: "32px",
+      fontFamily: "Lato",
+      fontWeight: "700",
+      lineHeight: "1.2"
+    },
+    [EBreakpoints.LAPTOP]: {
+      fontSize: "36px",
+      lineHeight: "1.1"
+    }
   },
-  fontLabel01: {
-    fontSize: "12px",
-    fontFamily: "IBM Plex Sans",
-    fontWeight: "400",
-    lineHeight: "16px"
+  [EFonts.Heading02]: {
+    [EBreakpoints.MOBILE]: {
+      fontSize: "22px",
+      fontFamily: "Lato",
+      fontWeight: "700",
+      lineHeight: "1.1"
+    },
+    [EBreakpoints.LAPTOP]: {
+      fontSize: "28px",
+      lineHeight: "1.625"
+    }
   },
-  fontCaption01: {
-    fontSize: "12px",
-    fontFamily: "IBM Plex Sans",
-    fontWeight: "400"
-  },
-  fontHelperText01: {
-    fontSize: "12px",
-    fontFamily: "IBM Plex Sans",
-    fontWeight: "400",
-    lineHeight: "16px"
-  },
-  fontBodyShort01: {
-    fontSize: "14px",
-    fontFamily: "IBM Plex Sans",
-    fontWeight: "400",
-    lineHeight: "18px"
-  },
-  fontBodyLong01: {
-    fontSize: "14px",
-    fontFamily: "IBM Plex Sans",
-    fontWeight: "400",
-    lineHeight: "20px"
-  },
-  fontBodyShort02: {
-    fontSize: "16px",
-    fontFamily: "IBM Plex Sans",
-    fontWeight: "400",
-    lineHeight: "22px"
-  },
-  fontBodyLong02: {
-    fontSize: "16px",
-    fontFamily: "IBM Plex Sans",
-    fontWeight: "400",
-    lineHeight: "24px"
-  },
-  fontProductiveHeading01: {
-    fontSize: "14px",
-    fontFamily: "IBM Plex Sans",
-    fontWeight: "600",
-    lineHeight: "18px"
-  },
-  fontProductiveHeading02: {
-    fontSize: "16px",
-    fontFamily: "IBM Plex Sans",
-    fontWeight: "600",
-    lineHeight: "22px"
-  },
-  fontProductiveHeading02B: {
-    fontSize: "18px",
-    fontFamily: "IBM Plex Sans",
-    fontWeight: "600",
-    lineHeight: "24px"
-  },
-  fontProductiveHeading03: {
-    fontSize: "20px",
-    fontFamily: "IBM Plex Sans",
-    fontWeight: "400",
-    lineHeight: "26px"
-  },
-  fontProductiveHeading04: {
-    fontSize: "28px",
-    fontFamily: "IBM Plex Sans",
-    fontWeight: "400",
-    lineHeight: "36px"
-  },
-  fontProductiveHeading05: {
-    fontSize: "32px",
-    fontFamily: "IBM Plex Sans",
-    fontWeight: "light",
-    lineHeight: "40px"
-  },
-  fontProductiveHeading06: {
-    fontSize: "42px",
-    fontFamily: "IBM Plex Sans",
-    fontWeight: "light",
-    lineHeight: "50px"
-  },
-  fontProductiveHeading07: {
-    fontSize: "54px",
-    fontFamily: "IBM Plex Sans",
-    fontWeight: "light",
-    lineHeight: "64px"
-  },
-  featuredButtonResponsive: {
+  [EFonts.FeaturedButtonResponsive]: {
     [EBreakpoints.MOBILE]: {
       fontSize: "16px",
       fontFamily: "Lato",
       fontWeight: "700",
       lineHeight: "22px"
     },
-    [EBreakpoints.DESKTOP]: {
+    [EBreakpoints.LAPTOP]: {
       fontSize: "28px",
       lineHeight: "36px"
     }
