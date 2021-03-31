@@ -2,7 +2,7 @@ import { createThemeSelector } from "../utils";
 
 const themeColors = props => props.theme.colors;
 
-export const backgroundColor = createThemeSelector(
+export const focusColor = createThemeSelector(
   themeColors,
   colors => colors.focus
 );
@@ -22,13 +22,24 @@ export const tertiaryColor = createThemeSelector(
   colors => colors.tertiary
 );
 
+export const tertiarySemiTransparenColor = createThemeSelector(
+  themeColors,
+  colors => colors.tertiarySemiTransparent
+);
+
 export const textColor = createThemeSelector(
   themeColors,
   colors => colors.fontColor
 );
 
+export const backgroundColor = focusColor;
 export const logoBackgroundColor = primaryColor;
-export const logoForegroundColor = backgroundColor;
+export const logoForegroundColor = focusColor;
 export const featuredButtonBackgroundColor = primaryColor;
-export const featuredButtonColor = backgroundColor;
+export const featuredButtonColor = focusColor;
 export const linkColor = secondaryColor;
+export const blockquoteColor = secondaryColor;
+export const asideColor = secondaryColor;
+export const asideBackgroundColor = tertiarySemiTransparenColor;
+export const markColor = focusColor;
+export const markBackgroundColor = secondaryColor;

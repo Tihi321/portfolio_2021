@@ -15,7 +15,7 @@ const responsiveFontStyles = (key: string, breakpoint: EBreakpoints) => css`
 `;
 
 export const featuredButtonResponsiveFontStyles = (breakpoint: EBreakpoints) =>
-  responsiveFontStyles(EFonts.FeaturedButtonResponsive, breakpoint);
+  responsiveFontStyles(EFonts.FeaturedButton, breakpoint);
 
 export const bodyResponsiveFontStyles = (breakpoint: EBreakpoints) =>
   responsiveFontStyles(EFonts.Body, breakpoint);
@@ -25,3 +25,15 @@ export const heading01ResponsiveFontStyles = (breakpoint: EBreakpoints) =>
 
 export const heading02ResponsiveFontStyles = (breakpoint: EBreakpoints) =>
   responsiveFontStyles(EFonts.Heading02, breakpoint);
+
+export const heading03ResponsiveFontStyles = (breakpoint: EBreakpoints) =>
+  responsiveFontStyles(EFonts.Heading03, breakpoint);
+
+export const heading04ResponsiveFontStyles = (breakpoint: EBreakpoints) =>
+  responsiveFontStyles(EFonts.Heading04, breakpoint);
+
+export const listResponsiveFontStyles = (breakpoint: EBreakpoints) =>
+  responsiveFontStyles(EFonts.List, breakpoint);
+
+export const blockquoteResponsiveFontStyles = (breakpoint: EBreakpoints) =>
+  responsiveFontStyles(EFonts.Blockquote, breakpoint);
