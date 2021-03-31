@@ -1,25 +1,138 @@
 import React from "react";
 
 export const LoremIpum = () => (
-  <section>
-    <h1>This is main title of the post</h1>
-    <div>
-      <p>Last year, I launched <a href="/products/guess-the-throne" >Guess the Throne</a>, a Game of Thrones death pool app. I built it with a friend of mine in two weeks and launched a few just before the final season premiered. We had one goal: achieve product/market fit. Oh boy did we!</p>
-      <p>Below are some of the lessons learned and what we wish we had done differently.</p>
-      <h2>Don't get in the weeds</h2>
-      <p>We coded the bare minimum features for the app. At launch (and after), users couldn't even edit their entry name. That led to a bunch of really funny support emails asking for us to change their name because they created an entry with a very NSFW name 😅.</p>
-      <p>The big takeaway here is that people didn't miss that feature or any of the other features we left out. The faster you get your product in someone's hands the more actionable feedback you'll receive.</p>
-      <h2>Be Scrappy</h2>
-      <p>We launched the app with a $150 marketing budget. Most of our users came from engaging with communities on Reddit, Facebook, forums, podcasts, and Twitch. If you can engage the small communities, that'll lead to more growth and knowledge about your market. I wrote up a blog with how we marketed the app on <a href="/blog/we-launched-a-product-with-150-here-s-what-happened">my website</a> if you'd like to read more.</p>
-      <h2>Ads Aren't Always the Answer for Growth</h2>
-      <p>If you have a small marketing budget I encourage you to think about the cost per conversion before considering ads, especially if your app is free/free to try. For example, we found a fan account on Twitter that had a bunch of followers. We reached out and they said for $20 they'd give us one tweet. We tried it out and the tweet blew up! Loads of people came to our site from that one tweet for a $0.20 cost per user, NOT cost per click.</p>
-      <h2>Have a Monetary Strategy</h2>
-      <p>I will say that we didn't set out to make money off of this app, but once we started receiving thousands of requests per second I could feel my credit card catching fire 😱. By the time it had happened it was too late since we had never thought about making money. We tried making it donation based where we'd donate 50% to charity and 50% to keep the app up, but it only amounted to around $40. The cost for the servers were over $500.</p>
-      <h2>Get your Bearings</h2>
-      <p>This was the first product (after many tries) that took off to become popular. There's a variety of reasons I believe it did, but once you find success expand your lens to see the bigger landscape. Why did it become popular? What made it special? What's next? Don't be afraid to paint in broad strokes once you've found something special.</p>
-      <p>That leads me to today's launch of <a href="https://guesstherose.com/" target="_blank">Guess the Rose</a>! It is a fantasy league for The Bachelor/Bachelorette that we built from the ground up with everything we learned from Guess the Throne. We want to create a suite of fun games for TV shows for people who want to play fantasy, but aren't into sports.</p>
-      <p>Please check it out and sign up if you're a fan of the show! Good luck with your products, think bigger, and stay positive.</p>
-      <p>p.s. We also <a href="https://www.producthunt.com/posts/guess-the-rose" target="_blank" rel="noopener noreferrer" >launched on Product Hunt</a> today so if this post helped you please consider upvoting.</p>
-    </div>
-  </section>
+<section>
+<h1>Honorably merrier slay whilst beast wants Barad-dûr.</h1>
+<p>Foreign starving stuffed winter's World bottom defending fools fellow shreds bedding? Garden Shelob's nspection able held saw maggot encampment ponies stuffed? One does not simply walk into Mordor.</p>
+<h2>Startled invited meet aloft market numerous Elrond?</h2>
+<p>Forming twittering veiled loyal beacons cooking Kili's hair studies crashing distinct parapet. Half Kili's check heavier? All right, then. Keep your secrets.</p>
+<h3>Marshland business Minas Morgul four tracks eager worms.</h3>
+<p>Backs courteous counsel burst conjured studies plate seemed Eärendil! Party Treebeard's ought oaths eggses nab towers midnight country strain s greedy. I was there the day the strength of Men failed.</p>
+<ul>
+ <li>Took's?</li>
+ <li>Oakenshield's.</li>
+ <li>Kingsfoil!</li>
+ <li>Bert.</li>
+ <li>Ring-bearer.</li>
+</ul>
+<ul>
+ <li>Outskirts mines Sméag fires freezes.</li>
+ <li>Absolutely devils tower vulnerable Mithril.</li>
+ <li>Can't buy boys alliances tunnel vale Saruman?</li>
+ <li>Unfair silent resolved deeper plan's rooms brew Moria unspoiled act.</li>
+ <li>Walked beacon oaths blanket Tooks accepted perfected diversion.</li>
+</ul>
+<h3>Pledged acts scattered coast bird Minas Tirith.</h3>
+<p>Months explanation mention undimmed aren't broke Hornblowers roaming threads. You shall be the Fellowship of the Ring. Triumphant Ring-bearer terrible hall.</p>
+<ol>
+ <li>Lower?</li>
+ <li>East-farthing!</li>
+ <li>Bag-end.</li>
+ <li>Dimholt.</li>
+ <li>Sit.</li>
+</ol>
+<ol>
+ <li>Surprise instead agreed hunt city Nazgûl oliphaunt.</li>
+ <li>Massing tempted merely Gibbets hail villain 10000.</li>
+ <li>Try quite Mithrandir industry there'd traveling idly pull orders.</li>
+ <li>Liked Bracegirdles bottles have pony rogue lacerations forging.</li>
+ <li>Been unto fulfilled left Rosie ally looks risked word wisdom.</li>
+</ol>
+<h3>Pool Hornblowers source gathered removed 500 cutting scraped.</h3>
+<p>Farmer mattered distances enormity strong particularly lippy sowing Bru-ra-hroom canniest admire rode. You cannot hide. I see you. There is no life in the void. Only death. Encountered harbor avail stays box Mellon thatched passing devilry assault?</p>
+<table>
+ <thead>
+  <tr>
+   <th></th>
+   <th>Terribly</th>
+   <th>Animals</th>
+   <th>Hope</th>
+   <th>Writing</th>
+   <th>Mine's</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td>Failed</td>
+   <td>presence</td>
+   <td>smells</td>
+   <td>enslaved</td>
+   <td>squeaking</td>
+   <td>gallop</td>
+  </tr>
+  <tr>
+   <td>Course</td>
+   <td>dragon's</td>
+   <td>live</td>
+   <td>monstrous</td>
+   <td>depends</td>
+   <td>grow</td>
+  </tr>
+  <tr>
+   <td>Chicken</td>
+   <td>brats</td>
+   <td>crooked</td>
+   <td>500</td>
+   <td>eating</td>
+   <td>grieve</td>
+  </tr>
+  <tr>
+   <td>Rippling</td>
+   <td>magic</td>
+   <td>certain</td>
+   <td>stick</td>
+   <td>begged</td>
+   <td>tortured</td>
+  </tr>
+  <tr>
+   <td>Moved</td>
+   <td>plain</td>
+   <td>above</td>
+   <td>heading</td>
+   <td>tender</td>
+   <td>watches</td>
+  </tr>
+  <tr>
+   <td>Don't</td>
+   <td>witness</td>
+   <td>vanish</td>
+   <td>wields</td>
+   <td>hallway</td>
+   <td>prong</td>
+  </tr>
+ </tbody>
+ <tfoot>
+  <tr>
+   <td>grant</td>
+   <td>escapes</td>
+   <td>risk</td>
+   <td>needn't</td>
+   <td>size</td>
+   <td>exchange</td>
+  </tr>
+ </tfoot>
+</table>
+<h4>Théodred princeling bleed dishes proposition crop allowed grace.</h4>
+<p>I gave you the chance of aiding me willingly, but you have elected the way of pain! Dwell staying Probably problem ruined appointed wear truth canceled approve canopy wore? Idly lingered snap Narsil.</p>
+<blockquote>
+ <p>The dark fire will not avail you, flame of Udun!</p>
+ <footer>—Freda, <cite>swarming pushing mines outskirts would</cite></footer>
+</blockquote>
+<h5>Drums slain whiff Ingrates speech straight stirs either?</h5>
+<p>One Ring to rule them all. Fours Minas Tirith dry against tight tomatoes rights ghost blazing working. Longer rumor belonging Oakenshield directly sorceress fully?</p>
+<h6>Mainly evacuate slain l adventures sort industry Dwarves.</h6>
+<p>Time forging <time>Lórien</time> pantry. Sport outskirts bare <cite>Saruman Galeton</cite> homage we're. Kingsfoil sailing warmongering <sup>fond</sup>. Pole <mark>twigs fireflies</mark> salvage ferret Rohan's used? Crebain <a>sausages crispy tomatoes</a> fears sunrise. Clouds rabbit <sub>light's</sub> cultured wit Peregrin. <small>12 collared stepped</small> hear archers raining refuge Sigrid. Clothes mountainside <ins>imagine order</ins> colleague Chubbs. <dfn>Evil things years</dfn> long-term Lower spilt. <kbd>C</kbd> Arwen Evenstar achieving silverware candles bestowing? Stomach <var>riding</var> Faramir raised ride green. Between Mithril gnaws state <q>ilk bestow lack homeless</q>. Quietly mark Mordor's downfall lowly <samp>malcontent warmongering bought</samp>. Bottom suck horses <strong>Entwives Sméag</strong> sniveling. Legolas something lose gifted chasm <del>began desire bound rule</del>. Has tart reinforcements faces <code>Iáve Sit</code> thick. Hammer they'd Treebeard's read <em>asked rivers</em> tune. <abbr>Athelas</abbr> trimming ceases riders farming.</p>
+<hr />
+  <dl>
+   <dt>Bows</dt>
+   <dd>Frogmorton marched sight bother belong sickness teaching monstrous amidst.</dd>
+   <dt>Liar</dt>
+   <dd>Shorter hide born fierce dishcloth road cloud Minas Tirith peril?</dd>
+   <dd>Betray ill boy yield pony foundations demon dead Radagast the Brown stream.</dd>
+   <dt>Regained</dt>
+   <dd>Sent young fields mountains stained lose something's Balin morninged either.</dd>
+   <dd>Crash plates underestimate Isildur happy torn they'd bell.</dd>
+   <dd>Head dinner gibbet 10 Girion mind wielding mouse sadness!</dd>
+  </dl>
+</section>
   );
