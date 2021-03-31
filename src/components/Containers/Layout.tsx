@@ -2,11 +2,19 @@ import React from "react";
 import { createGlobalStyle } from "styled-components";
 import { Normalize } from "styled-normalize";
 
-import { coreStyles } from "../../styles";
+import {
+  coreStyles,
+  headingStyles,
+  tableStyles,
+  textStyles
+} from "../../styles";
 import { MaxWidthContainer } from "./MaxWidthContainer";
 
 const CoreStyle = createGlobalStyle`
   ${coreStyles}
+  ${headingStyles}
+  ${textStyles}
+  ${tableStyles}
 `;
 
 interface ILayoutProps {
