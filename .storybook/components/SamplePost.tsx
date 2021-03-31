@@ -8,6 +8,7 @@ export const SamplePost = () => (
       <p>Below are some of the lessons learned and what we wish we had done differently.</p>
       <h2>Don't get in the weeds</h2>
       <p>We coded the bare minimum features for the app. At launch (and after), users couldn't even edit their entry name. That led to a bunch of really funny support emails asking for us to change their name because they created an entry with a very NSFW name 😅.</p>
+      <blockquote>It’s the <code>&lt;blank&gt;</code> for <code>&lt;blank&gt;</code>.</blockquote>
       <p>The big takeaway here is that people didn't miss that feature or any of the other features we left out. The faster you get your product in someone's hands the more actionable feedback you'll receive.</p>
       <h2>Be Scrappy</h2>
       <p>We launched the app with a $150 marketing budget. Most of our users came from engaging with communities on Reddit, Facebook, forums, podcasts, and Twitch. If you can engage the small communities, that'll lead to more growth and knowledge about your market. I wrote up a blog with how we marketed the app on <a href="/blog/we-launched-a-product-with-150-here-s-what-happened">my website</a> if you'd like to read more.</p>

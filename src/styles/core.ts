@@ -6,6 +6,7 @@ import {
   asideColor,
   backgroundColor,
   blockquoteColor,
+  codeBackgroundColor,
   linkColor,
   markBackgroundColor,
   markColor,
@@ -149,6 +150,12 @@ export const textStyles = css`
     ${media(EBreakpoints.LAPTOP, ESide.UP)} {
       padding: 30px;
     }
+  }
+
+  code {
+    background-color: ${codeBackgroundColor};
+    border-radius: 5px;
+    padding: 3px 5px;
   }
 `;
 
