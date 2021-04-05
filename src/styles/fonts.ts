@@ -37,3 +37,6 @@ export const listResponsiveFontStyles = (breakpoint: EBreakpoints) =>
 
 export const blockquoteResponsiveFontStyles = (breakpoint: EBreakpoints) =>
   responsiveFontStyles(EFonts.Blockquote, breakpoint);
+
+export const tagsResponsiveFontStyles = (breakpoint: EBreakpoints) =>
+  responsiveFontStyles(EFonts.Tags, breakpoint);

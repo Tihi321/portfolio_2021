@@ -39,6 +39,7 @@ export const featuredButtonBackgroundColor = primaryColor;
 export const featuredButtonColor = focusColor;
 export const linkColor = secondaryColor;
 export const tagLinkColor = tertiaryColor;
+export const bottomLineBorderColor = tertiarySemiTransparenColor;
 export const featuredTagLinkColor = focusColor;
 export const featuredTagLinkBackgroundColor = secondaryColor;
 export const blockquoteColor = secondaryColor;
