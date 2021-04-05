@@ -73,6 +73,8 @@
     "@typescript-eslint/no-unused-vars": ["error"],
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
+    "react/require-default-props": "off",
+    "@typescript-eslint/react/require-default-props": ["error"],
     "no-console": ["error", { "allow": ["warn", "error"] }],
     "curly": ["warn", "all"],
     "sort-imports": "off",
@@ -91,7 +93,7 @@
     "max-depth": ["error", 4],
     "id-length": ["error", {
       "min": 3,
-      "exceptions": ["i", "j", "id", "fs", "to", "t", "ip", "x", "y", "z", "X", "Y", "Z", "_", "__", "___", "ps", "os", "ID"]
+      "exceptions": ["id", "to"]
     }],
     "no-dupe-keys": "error",
     "no-dupe-else-if": "error",
