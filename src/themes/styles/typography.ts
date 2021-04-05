@@ -8,7 +8,8 @@ export enum EFonts {
   Heading04 = "heading04",
   Blockquote = "blockquote",
   List = "list",
-  FeaturedButton = "featuredButton"
+  FeaturedButton = "featuredButton",
+  Tags = "tags"
 }
 
 export const fonts = {
@@ -80,22 +81,32 @@ export const fonts = {
     [EBreakpoints.MOBILE]: {
       fontSize: "18px",
       fontWeight: "600",
-      lineHeight: "22px"
+      lineHeight: "1.4"
     },
     [EBreakpoints.LAPTOP]: {
       fontSize: "20px",
-      lineHeight: "36px"
+      lineHeight: "1.625"
     }
   },
   [EFonts.FeaturedButton]: {
     [EBreakpoints.MOBILE]: {
       fontSize: "16px",
       fontWeight: "700",
-      lineHeight: "22px"
+      lineHeight: "1.2"
     },
     [EBreakpoints.LAPTOP]: {
       fontSize: "28px",
-      lineHeight: "36px"
+      lineHeight: "1.4"
+    }
+  },
+  [EFonts.Tags]: {
+    [EBreakpoints.MOBILE]: {
+      fontSize: "10px",
+      lineHeight: "1.4"
+    },
+    [EBreakpoints.LAPTOP]: {
+      fontSize: "12px",
+      lineHeight: "1.625"
     }
   }
 };
