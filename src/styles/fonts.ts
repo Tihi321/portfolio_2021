@@ -20,6 +20,9 @@ export const featuredButtonResponsiveFontStyles = (breakpoint: EBreakpoints) =>
 export const bodyResponsiveFontStyles = (breakpoint: EBreakpoints) =>
   responsiveFontStyles(EFonts.Body, breakpoint);
 
+export const featuredHeadingResponsiveFontStyles = (breakpoint: EBreakpoints) =>
+  responsiveFontStyles(EFonts.FeaturedHeading, breakpoint);
+
 export const heading01ResponsiveFontStyles = (breakpoint: EBreakpoints) =>
   responsiveFontStyles(EFonts.Heading01, breakpoint);
 

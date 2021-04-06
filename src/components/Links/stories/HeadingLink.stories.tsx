@@ -3,7 +3,10 @@ import { Meta } from "@storybook/react";
 import React from "react";
 
 import { THeadingSizes } from "../../Common/Heading";
-import { HeadingLink as HeadingLinkComponent } from "../HeadingLink";
+import {
+  FeaturedHeadingLink as FeaturedHeadingLinkComponent,
+  HeadingLink as HeadingLinkComponent
+} from "../HeadingLink";
 
 export const HeadingLink = () => {
   const tagText = text("Tag Text", "Post title", "OPTIONS");
@@ -19,6 +22,12 @@ export const HeadingLink = () => {
       to="./"
     />
   );
+};
+
+export const FeaturedHeadingLink = () => {
+  const tagText = text("Tag Text", "Blog", "OPTIONS");
+
+  return <FeaturedHeadingLinkComponent text={tagText} to="./" />;
 };
 
 const meta = {
