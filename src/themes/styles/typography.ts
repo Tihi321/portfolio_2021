@@ -2,6 +2,7 @@ import { EBreakpoints } from "../../enums";
 
 export enum EFonts {
   Body = "body",
+  FeaturedHeading = "featuredHeading",
   Heading01 = "heading01",
   Heading02 = "heading02",
   Heading03 = "heading03",
@@ -41,6 +42,17 @@ export const fonts = {
     },
     [EBreakpoints.LAPTOP]: {
       fontSize: "36px",
+      lineHeight: "1.2"
+    }
+  },
+  [EFonts.FeaturedHeading]: {
+    [EBreakpoints.MOBILE]: {
+      fontSize: "70px",
+      fontWeight: "700",
+      lineHeight: "1.1"
+    },
+    [EBreakpoints.LAPTOP]: {
+      fontSize: "90px",
       lineHeight: "1.2"
     }
   },
