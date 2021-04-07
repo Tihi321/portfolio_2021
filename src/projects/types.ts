@@ -1,10 +1,10 @@
 export enum EProjectFields {
-  Name = "Name",
-  Type = "Type",
-  Techonolgies = "Tech",
-  Repository = "Repo",
-  Showcase = "Showcase",
-  Tags = "Tags"
+  Name = "name",
+  Type = "type",
+  Techonolgies = "tech",
+  Repository = "repo",
+  Showcase = "showcase",
+  Tags = "tags"
 }
 
 export type TProject = {

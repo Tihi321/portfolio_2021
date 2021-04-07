@@ -2,7 +2,7 @@ import { select, text } from "@storybook/addon-knobs";
 import { Meta } from "@storybook/react";
 import React from "react";
 
-import { THeadingSizes } from "../../Common/Heading";
+import { EHeadingSizes, THeadingSizes } from "../../Common/Heading";
 import {
   FeaturedHeadingLink as FeaturedHeadingLinkComponent,
   HeadingLink as HeadingLinkComponent
@@ -11,7 +11,12 @@ import {
 export const HeadingLink = () => {
   const tagText = text("Tag Text", "Post title", "OPTIONS");
 
-  const sizes = ["large", "medium", "regular", "small"];
+  const sizes = [
+    EHeadingSizes.Large,
+    EHeadingSizes.Medium,
+    EHeadingSizes.Regular,
+    EHeadingSizes.Small
+  ];
 
   const headingSize = select("Size", sizes, sizes[2], "OPTIONS");
 
