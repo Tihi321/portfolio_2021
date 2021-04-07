@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 import { EProjectFields, PROJECTS } from "../../projects";
+import { EFontSizes } from "../../styles";
 import { TagButtons } from "../Buttons/TagButton";
-import { EFontSizes } from "../Containers/FontSizeTheme";
 import { Link } from "../Links/Link";
 import { Paragraph } from "../Text/Paragraph";
 import { BodyRow } from "./BodyRow";

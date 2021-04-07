@@ -2,7 +2,7 @@ import { select, text } from "@storybook/addon-knobs";
 import { Meta } from "@storybook/react";
 import React from "react";
 
-import { EFontSizes, TFontSizes } from "../../Containers/FontSizeTheme";
+import { EFontSizes, TFontSizes } from "../../../styles";
 import { Paragraph as ParagraphComponent } from "../Paragraph";
 
 export const Paragraph = () => {
