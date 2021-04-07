@@ -2,6 +2,7 @@ import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 
+import { IStyledProps } from "../../definitions/styled/styled";
 import { EBreakpoints, ESide } from "../../enums";
 import { resetFontStyles, tagsResponsiveFontStyles } from "../../styles";
 import {
@@ -11,10 +12,9 @@ import {
 } from "../../themes";
 import { media } from "../../utils";
 
-interface ILinkProps {
+interface ILinkProps extends IStyledProps {
   text: string;
   to: string;
-  className?: string;
 }
 
 const TagStyled = styled(Link)`
