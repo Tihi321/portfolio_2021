@@ -5,7 +5,7 @@ import { EProjectFields, PROJECTS } from "../../projects";
 import { EFontSizes } from "../../styles";
 import { TagButtons } from "../Buttons/TagButton";
 import { Link } from "../Links/Link";
-import { Paragraph } from "../Text/Paragraph";
+import { Span } from "../Text/Span";
 import { BodyRow } from "./BodyRow";
 import { HeaderCell } from "./HeaderCell";
 import { HeaderRow } from "./HeaderRow";
@@ -71,7 +71,7 @@ export const ProjectsTable = ({
                         project[EProjectFields.Type]
                       }-${rowIndex}-${cellIndex}}`}
                     >
-                      <Paragraph
+                      <Span
                         text={project[EProjectFields.Type]}
                         size={EFontSizes.Small}
                       />
@@ -126,7 +126,7 @@ export const ProjectsTable = ({
                         project[EProjectFields.Name]
                       }-${rowIndex}-${cellIndex}}`}
                     >
-                      <Paragraph
+                      <Span
                         text={project[EProjectFields.Name]}
                         size={EFontSizes.Regular}
                       />
