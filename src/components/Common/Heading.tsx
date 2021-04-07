@@ -1,11 +1,23 @@
 import React from "react";
 
-export type THeadingSizes = "large" | "medium" | "regular" | "small";
+import { IStyledProps } from "../../definitions/styled/styled";
 
-interface IHeadingProps {
+export enum EHeadingSizes {
+  Large = "large",
+  Medium = "medium",
+  Regular = "regular",
+  Small = "small"
+}
+
+export type THeadingSizes =
+  | EHeadingSizes.Large
+  | EHeadingSizes.Medium
+  | EHeadingSizes.Regular
+  | EHeadingSizes.Small;
+
+interface IHeadingProps extends IStyledProps {
   size: THeadingSizes;
   children: React.ReactNode;
-  className?: string;
 }
 
 const tags = {
