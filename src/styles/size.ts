@@ -56,11 +56,11 @@ const smallStyles = css`
 
 export const fontSizeThemeStyles = props => {
   switch (props.size) {
-    case "large":
+    case EFontSizes.Large:
       return largeStyles;
-    case "medium":
+    case EFontSizes.Medium:
       return mediumStyles;
-    case "small":
+    case EFontSizes.Small:
       return smallStyles;
 
     default:

@@ -8,6 +8,11 @@ export const resetFontStyles = css`
   font-size: 1em;
 `;
 
+export const resetButtonStyles = css`
+  background: none;
+  border: none;
+`;
+
 export const resetLinkStyles = css`
   position: static;
   ${media(EBreakpoints.LAPTOP, ESide.UP)} {

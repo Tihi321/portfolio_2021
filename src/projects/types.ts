@@ -3,7 +3,7 @@ export enum EProjectFields {
   Type = "type",
   Techonolgies = "tech",
   Repository = "repo",
-  Showcase = "showcase",
+  Showcase = "demo",
   Tags = "tags"
 }
 
