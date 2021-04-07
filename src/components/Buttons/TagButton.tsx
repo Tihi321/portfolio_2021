@@ -2,14 +2,14 @@ import React from "react";
 import styled from "styled-components";
 
 import { IStyledProps } from "../../definitions/styled/styled";
-import { EBreakpoints, ESide } from "../../enums";
-import { tagsResponsiveFontStyles } from "../../styles";
-import { tagButtonColor } from "../../themes";
-import { media } from "../../utils";
+import { resetButtonStyles } from "../../styles";
+import { ETagType, TagText } from "../Common/TagText";
+import { ETagContainerType, TagContainer } from "../Containers/TagContainer";
 
 interface ITagButtonProps extends IStyledProps {
   text: string;
   onClick: () => void;
+  active?: boolean;
 }
 
 interface ITagButtonsProps extends IStyledProps {
@@ -18,32 +18,41 @@ interface ITagButtonsProps extends IStyledProps {
 }
 
 const TagButtonStyled = styled.button`
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  font-style: italic;
-  background: none;
-  border: none;
-  color: ${tagButtonColor};
-
-  &:hover {
-    top: 1px;
-  }
-  &::before {
-    content: "#";
-    font-size: 0.7em;
-    padding-right: 2px;
-  }
-
-  ${tagsResponsiveFontStyles(EBreakpoints.MOBILE)};
-  ${media(EBreakpoints.LAPTOP, ESide.UP)} {
-    ${tagsResponsiveFontStyles(EBreakpoints.LAPTOP)}
-  }
+  ${resetButtonStyles}
 `;
 
-export const TagButton = ({ text, onClick, className }: ITagButtonProps) => (
-  <TagButtonStyled className={className} onClick={onClick}>
-    {text}
+export const TagButton = ({
+  text,
+  onClick,
+  className,
+  active = false
+}: ITagButtonProps) => (
+  <TagButtonStyled onClick={onClick}>
+    <TagText
+      text={text}
+      className={className}
+      type={active ? ETagType.Tertiary : ETagType.Primary}
+    />
+  </TagButtonStyled>
+);
+
+export const FeaturedTagButton = ({
+  text,
+  onClick,
+  className,
+  active = false
+}: ITagButtonProps) => (
+  <TagButtonStyled onClick={onClick}>
+    <TagContainer
+      className={className}
+      type={active ? ETagContainerType.Primary : ETagContainerType.Secondary}
+    >
+      <TagText
+        text={text}
+        className={className}
+        type={active ? ETagType.Tertiary : ETagType.Secondary}
+      />
+    </TagContainer>
   </TagButtonStyled>
 );
 

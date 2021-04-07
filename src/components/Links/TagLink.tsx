@@ -3,60 +3,52 @@ import React from "react";
 import styled from "styled-components";
 
 import { IStyledProps } from "../../definitions/styled/styled";
-import { EBreakpoints, ESide } from "../../enums";
-import { resetFontStyles, tagsResponsiveFontStyles } from "../../styles";
-import {
-  featuredTagLinkBackgroundColor,
-  featuredTagLinkColor,
-  tagLinkColor
-} from "../../themes";
-import { media } from "../../utils";
+import { resetFontStyles, resetLinkStyles } from "../../styles";
+import { ETagType, TagText } from "../Common/TagText";
+import { ETagContainerType, TagContainer } from "../Containers/TagContainer";
 
 interface ILinkProps extends IStyledProps {
   text: string;
   to: string;
+  active?: boolean;
 }
 
-const TagStyled = styled(Link)`
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  font-style: italic;
-  &::before {
-    content: "#";
-    font-size: 0.7em;
-    padding-right: 2px;
-  }
-
-  ${tagsResponsiveFontStyles(EBreakpoints.MOBILE)};
-  ${media(EBreakpoints.LAPTOP, ESide.UP)} {
-    ${tagsResponsiveFontStyles(EBreakpoints.LAPTOP)}
-  }
+const LinkStyled = styled(Link)`
+  ${resetFontStyles}
+  ${resetLinkStyles}
 `;
 
-const LinkStyled = styled(TagStyled)`
-  color: ${tagLinkColor};
-`;
-
-const FeaturedLinkStyled = styled(TagStyled)`
-  color: ${featuredTagLinkColor};
-`;
-
-const FeaturedLinkContainerStyled = styled.div`
-  ${resetFontStyles};
-  padding: 2px 5px;
-  border-radius: 5px;
-  background-color: ${featuredTagLinkBackgroundColor};
-`;
-
-export const TagLink = ({ text, to, className }: ILinkProps) => (
+export const TagLink = ({
+  text,
+  to,
+  className,
+  active = false
+}: ILinkProps) => (
   <LinkStyled className={className} to={to}>
-    {text}
+    <TagText
+      text={text}
+      className={className}
+      type={active ? ETagType.Tertiary : ETagType.Primary}
+    />
   </LinkStyled>
 );
 
-export const FeaturedTagLink = ({ text, to, className }: ILinkProps) => (
-  <FeaturedLinkContainerStyled className={className}>
-    <FeaturedLinkStyled to={to}>{text}</FeaturedLinkStyled>
-  </FeaturedLinkContainerStyled>
+export const FeaturedTagLink = ({
+  text,
+  to,
+  className,
+  active = false
+}: ILinkProps) => (
+  <TagContainer
+    className={className}
+    type={active ? ETagContainerType.Primary : ETagContainerType.Secondary}
+  >
+    <LinkStyled className={className} to={to}>
+      <TagText
+        text={text}
+        className={className}
+        type={active ? ETagType.Tertiary : ETagType.Secondary}
+      />
+    </LinkStyled>
+  </TagContainer>
 );
