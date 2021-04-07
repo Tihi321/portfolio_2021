@@ -2,7 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 import { EBreakpoints, ESide } from "../../enums";
-import { featuredButtonResponsiveFontStyles } from "../../styles";
+import {
+  featuredButtonResponsiveFontStyles,
+  resetButtonStyles
+} from "../../styles";
 import {
   featuredButtonBackgroundColor,
   featuredButtonColor
@@ -15,14 +18,17 @@ interface IFeaturedButtonProps {
 }
 
 const ButtonStyled = styled.button`
-  padding: 5px 20px;
-  border-radius: 5px;
-  border: none;
+  ${resetButtonStyles}
+  padding: 10px 20px;
   cursor: pointer;
   color: ${featuredButtonColor};
   background-color: ${featuredButtonBackgroundColor};
+  width: 100%;
   ${featuredButtonResponsiveFontStyles(EBreakpoints.MOBILE)};
   ${media(EBreakpoints.LAPTOP, ESide.UP)} {
+    border-radius: 5px;
+    padding: 5px 20px;
+    width: auto;
     ${featuredButtonResponsiveFontStyles(EBreakpoints.LAPTOP)}
   }
 `;
