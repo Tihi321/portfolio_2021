@@ -86,7 +86,7 @@ export const PROJECTS: TProject[] = [
       link: "https://github.com/infinum/eightshift-boilerplate"
     },
     [EProjectFields.Showcase]: {
-      name: "Documentation",
+      name: "Docs",
       link: "https://infinum.github.io/eightshift-docs/"
     },
     [EProjectFields.Tags]: ["Open Source"]
