@@ -2,16 +2,22 @@ import { select, text } from "@storybook/addon-knobs";
 import { Meta } from "@storybook/react";
 import React from "react";
 
-import { Link as LinkComponent, TLinkSizes } from "../Link";
+import { EFontSizes, TFontSizes } from "../../Containers/FontSizeTheme";
+import { Link as LinkComponent } from "../Link";
 
 export const Link = () => {
   const tagText = text("Link Text", "Node", "OPTIONS");
 
-  const sizes = ["large", "medium", "regular", "small"];
+  const sizes = [
+    EFontSizes.Large,
+    EFontSizes.Medium,
+    EFontSizes.Regular,
+    EFontSizes.Small
+  ];
 
   const linkSize = select("Size", sizes, sizes[2], "OPTIONS");
 
-  return <LinkComponent size={linkSize as TLinkSizes} text={tagText} to="./" />;
+  return <LinkComponent size={linkSize as TFontSizes} text={tagText} to="./" />;
 };
 
 const meta = {
