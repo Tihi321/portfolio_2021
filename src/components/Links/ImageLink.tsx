@@ -2,13 +2,13 @@ import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 
+import { IStyledProps } from "../../definitions/styled/styled";
 import { resetLinkStyles } from "../../styles";
 
-interface IImageLinkProps {
+interface IImageLinkProps extends IStyledProps {
   alt: string;
   to: string;
   src: string;
-  className?: string;
 }
 
 const LinkStyled = styled(Link)`

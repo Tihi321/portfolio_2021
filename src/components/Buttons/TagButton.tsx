@@ -1,15 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 
+import { IStyledProps } from "../../definitions/styled/styled";
 import { EBreakpoints, ESide } from "../../enums";
 import { tagsResponsiveFontStyles } from "../../styles";
 import { tagButtonColor } from "../../themes";
 import { media } from "../../utils";
 
-interface IButtonProps {
+interface ITagButtonProps extends IStyledProps {
   text: string;
   onClick: () => void;
-  className?: string;
+}
+
+interface ITagButtonsProps extends IStyledProps {
+  tags: string[];
+  onClick: (tag: string) => void;
 }
 
 const TagButtonStyled = styled.button`
@@ -36,8 +41,21 @@ const TagButtonStyled = styled.button`
   }
 `;
 
-export const TagButton = ({ text, onClick, className }: IButtonProps) => (
+export const TagButton = ({ text, onClick, className }: ITagButtonProps) => (
   <TagButtonStyled className={className} onClick={onClick}>
     {text}
   </TagButtonStyled>
+);
+
+export const TagButtons = ({ tags, onClick, className }: ITagButtonsProps) => (
+  <>
+    {tags.map((tag, index) => (
+      <TagButton
+        key={`tag--${tag}-${index}`}
+        text={tag}
+        className={className}
+        onClick={() => onClick(tag)}
+      />
+    ))}
+  </>
 );

@@ -2,6 +2,7 @@ import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 
+import { IStyledProps } from "../../definitions/styled/styled";
 import { EBreakpoints, ESide } from "../../enums";
 import {
   featuredHeadingResponsiveFontStyles,
@@ -9,13 +10,12 @@ import {
 } from "../../styles";
 import { linkColor, textColor } from "../../themes";
 import { media } from "../../utils";
-import { Heading, THeadingSizes } from "../Common/Heading";
+import { EHeadingSizes, Heading, THeadingSizes } from "../Common/Heading";
 
-interface IHeadingLinkProps {
+interface IHeadingLinkProps extends IStyledProps {
   text: string;
   to: string;
   size: THeadingSizes;
-  className?: string;
 }
 
 const HeadingLinkStyled = styled(Link)`
@@ -57,5 +57,5 @@ export const FeaturedHeadingLink = ({
   text,
   to
 }: IFeaturedHeadingLinkProps) => (
-  <FeaturedHeadingLinkStyled text={text} to={to} size="large" />
+  <FeaturedHeadingLinkStyled text={text} to={to} size={EHeadingSizes.Large} />
 );
