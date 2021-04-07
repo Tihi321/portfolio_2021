@@ -43,3 +43,11 @@ export const blockquoteResponsiveFontStyles = (breakpoint: EBreakpoints) =>
 
 export const tagsResponsiveFontStyles = (breakpoint: EBreakpoints) =>
   responsiveFontStyles(EFonts.Tags, breakpoint);
+
+export const largeFontThemeResponsiveFontStyles = heading02ResponsiveFontStyles;
+
+export const mediumFontThemeResponsiveFontStyles = heading03ResponsiveFontStyles;
+
+export const regularFontThemeResponsiveFontStyles = heading04ResponsiveFontStyles;
+
+export const smallFontThemeResponsiveFontStyles = bodyResponsiveFontStyles;
