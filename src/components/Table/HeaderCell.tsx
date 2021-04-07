@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { EFontSizes } from "../Containers/FontSizeTheme";
+import { EFontSizes } from "../../styles";
 import { Paragraph } from "../Text/Paragraph";
 
 const HeaderCellStyled = styled.th`

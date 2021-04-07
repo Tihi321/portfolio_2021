@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-import { resetLinkStyles } from "../../styles";
-import { linkColor, textColor } from "../../themes";
 import {
   EFontSizes,
-  FontSizeTheme,
-  IFontSizes
-} from "../Containers/FontSizeTheme";
+  fontSizeThemeStyles,
+  IFontSizes,
+  resetLinkStyles
+} from "../../styles";
+import { linkColor, textColor } from "../../themes";
 
 interface ILinkProps extends IFontSizes {
   text: string;
@@ -28,6 +28,7 @@ const LinkStyled = styled(({ to, children, ...props }) => (
   &:hover {
     color: ${linkColor};
   }
+  ${fontSizeThemeStyles}
 `;
 
 export const Link = ({
@@ -36,7 +37,7 @@ export const Link = ({
   className,
   size = EFontSizes.Regular
 }: ILinkProps) => (
-  <FontSizeTheme Component={LinkStyled} size={size} {...{ to, className }}>
+  <LinkStyled size={size} to={to} className={className}>
     {text}
-  </FontSizeTheme>
+  </LinkStyled>
 );
