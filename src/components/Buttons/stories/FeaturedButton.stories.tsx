@@ -1,15 +1,26 @@
 import { action } from "@storybook/addon-actions";
-import { text } from "@storybook/addon-knobs";
+import { select, text } from "@storybook/addon-knobs";
 import { Meta } from "@storybook/react";
 import React from "react";
 
-import { FeaturedButton as Button } from "../FeaturedButton";
+import {
+  EFeaturedButtonType,
+  FeaturedButton as Button
+} from "../FeaturedButton";
 
 export const FeaturedButton = () => {
   const buttonText = text("Button Text", "Dark", "OPTIONS");
 
+  const types = [EFeaturedButtonType.Regular, EFeaturedButtonType.Wide];
+
+  const buttonType = select("Size", types, types[2], "OPTIONS");
+
   return (
-    <Button text={buttonText} onClick={action("onClick - Featured Button")} />
+    <Button
+      text={buttonText}
+      type={buttonType}
+      onClick={action("onClick - Featured Button")}
+    />
   );
 };
 

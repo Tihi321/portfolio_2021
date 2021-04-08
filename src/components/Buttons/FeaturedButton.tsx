@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+import { IStyledProps } from "../../definitions/styled/styled";
 import { EBreakpoints, ESide } from "../../enums";
 import {
   featuredButtonResponsiveFontStyles,
@@ -12,12 +13,22 @@ import {
 } from "../../themes";
 import { media } from "../../utils";
 
-interface IFeaturedButtonProps {
+export enum EFeaturedButtonType {
+  Regular = "regular",
+  Wide = "wide"
+}
+
+interface IFeaturedButtonProps extends IStyledProps {
   text: string;
+  type?: EFeaturedButtonType;
   onClick: () => void;
 }
 
-const ButtonStyled = styled.button`
+const ButtonStyled = styled(({ children, ...props }) => (
+  <button type="button" {...props}>
+    {children}
+  </button>
+))`
   ${resetButtonStyles}
   padding: 10px 20px;
   cursor: pointer;
@@ -28,11 +39,21 @@ const ButtonStyled = styled.button`
   ${media(EBreakpoints.LAPTOP, ESide.UP)} {
     border-radius: 5px;
     padding: 5px 20px;
-    width: auto;
+    ${props =>
+      props.type &&
+      props.type === EFeaturedButtonType.Regular &&
+      "width: auto;"}
     ${featuredButtonResponsiveFontStyles(EBreakpoints.LAPTOP)}
   }
 `;
 
-export const FeaturedButton = ({ text, onClick }: IFeaturedButtonProps) => (
-  <ButtonStyled onClick={onClick}>{text}</ButtonStyled>
+export const FeaturedButton = ({
+  text,
+  onClick,
+  type = EFeaturedButtonType.Regular,
+  className
+}: IFeaturedButtonProps) => (
+  <ButtonStyled type={type} onClick={onClick} className={className}>
+    {text}
+  </ButtonStyled>
 );
