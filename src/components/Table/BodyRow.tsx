@@ -10,9 +10,8 @@ const RowStyled = styled(Row)`
 
 interface IBodyRowProps {
   children: React.ReactNode;
-  items?: number;
 }
 
-export const BodyRow = ({ children, items }: IBodyRowProps) => (
-  <RowStyled items={items}>{children}</RowStyled>
+export const BodyRow = ({ children }: IBodyRowProps) => (
+  <RowStyled>{children}</RowStyled>
 );

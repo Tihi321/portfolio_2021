@@ -9,9 +9,8 @@ const HeaderRowStyled = styled(Row)`
 
 interface IHeaderRowProps {
   children: React.ReactNode;
-  items?: number;
 }
 
-export const HeaderRow = ({ children, items }: IHeaderRowProps) => (
-  <HeaderRowStyled items={items}>{children}</HeaderRowStyled>
+export const HeaderRow = ({ children }: IHeaderRowProps) => (
+  <HeaderRowStyled>{children}</HeaderRowStyled>
 );

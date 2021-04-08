@@ -1,26 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 
-import { EFontSizes, fontSizeThemeStyles, IFontSizes } from "../../styles";
+import { IStyledProps } from "../../definitions/styled/styled";
+import { ETextSizes, ITextSizes, TextSize } from "../Common/TextSize";
 
-interface ITextProps extends IFontSizes {
+interface ITextProps extends ITextSizes, IStyledProps {
   text: string;
-  className?: string;
 }
 
-const ParagraphStyled = styled(({ children, ...props }) => (
-  <p {...props}>{children}</p>
-))`
+const ParagraphStyled = styled.p`
   padding-bottom: 0;
-  ${fontSizeThemeStyles}
 `;
 
 export const Paragraph = ({
   text,
   className,
-  size = EFontSizes.Regular
+  size = ETextSizes.Regular
 }: ITextProps) => (
-  <ParagraphStyled size={size} className={className}>
-    {text}
+  <ParagraphStyled className={className}>
+    <TextSize size={size}>{text}</TextSize>
   </ParagraphStyled>
 );

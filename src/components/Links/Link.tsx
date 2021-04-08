@@ -1,18 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-import {
-  EFontSizes,
-  fontSizeThemeStyles,
-  IFontSizes,
-  resetLinkStyles
-} from "../../styles";
+import { IStyledProps } from "../../definitions/styled/styled";
+import { resetLinkStyles } from "../../styles";
 import { linkColor, textColor } from "../../themes";
+import { ETextSizes, ITextSizes, TextSize } from "../Common/TextSize";
 
-interface ILinkProps extends IFontSizes {
+interface ILinkProps extends ITextSizes, IStyledProps {
   text: string;
   to: string;
-  className?: string;
 }
 
 const LinkStyled = styled(({ to, children, ...props }) => (
@@ -28,16 +24,15 @@ const LinkStyled = styled(({ to, children, ...props }) => (
   &:hover {
     color: ${linkColor};
   }
-  ${fontSizeThemeStyles}
 `;
 
 export const Link = ({
   text,
   to,
   className,
-  size = EFontSizes.Regular
+  size = ETextSizes.Regular
 }: ILinkProps) => (
-  <LinkStyled size={size} to={to} className={className}>
-    {text}
+  <LinkStyled to={to} className={className}>
+    <TextSize size={size}>{text}</TextSize>
   </LinkStyled>
 );

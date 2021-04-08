@@ -2,38 +2,22 @@ import { select, text } from "@storybook/addon-knobs";
 import { Meta } from "@storybook/react";
 import React from "react";
 
-import { EFontSizes, TFontSizes } from "../../../styles";
+import { ETextSizes, TTextSizes } from "../../Common/TextSize";
 import { Paragraph as ParagraphComponent } from "../Paragraph";
-import { Span as SpanComponent } from "../Span";
 
 export const Paragraph = () => {
   const tagText = text("Text", "Vue Template Vars", "OPTIONS");
 
   const sizes = [
-    EFontSizes.Large,
-    EFontSizes.Medium,
-    EFontSizes.Regular,
-    EFontSizes.Small
+    ETextSizes.Large,
+    ETextSizes.Medium,
+    ETextSizes.Regular,
+    ETextSizes.Small
   ];
 
   const linkSize = select("Size", sizes, sizes[2], "OPTIONS");
 
-  return <ParagraphComponent size={linkSize as TFontSizes} text={tagText} />;
-};
-
-export const Span = () => {
-  const tagText = text("Text", "Vue Template Vars", "OPTIONS");
-
-  const sizes = [
-    EFontSizes.Large,
-    EFontSizes.Medium,
-    EFontSizes.Regular,
-    EFontSizes.Small
-  ];
-
-  const linkSize = select("Size", sizes, sizes[2], "OPTIONS");
-
-  return <SpanComponent size={linkSize as TFontSizes} text={tagText} />;
+  return <ParagraphComponent size={linkSize as TTextSizes} text={tagText} />;
 };
 
 const meta = {

@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { EFontSizes } from "../../styles";
-import { Paragraph } from "../Text/Paragraph";
+import { ETextSizes, TextSize } from "../Common/TextSize";
 
 const HeaderCellStyled = styled.th`
   display: flex;
@@ -10,7 +9,7 @@ const HeaderCellStyled = styled.th`
   justify-content: flex-start;
 `;
 
-const TextStyled = styled(Paragraph)`
+const TextStyled = styled(TextSize)`
   text-transform: uppercase;
 `;
 
@@ -20,6 +19,6 @@ interface IHeaderCellProps {
 
 export const HeaderCell = ({ text }: IHeaderCellProps) => (
   <HeaderCellStyled>
-    <TextStyled text={text} size={EFontSizes.Medium} />
+    <TextStyled size={ETextSizes.Medium}>{text}</TextStyled>
   </HeaderCellStyled>
 );

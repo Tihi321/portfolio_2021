@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-import { EFontSizes, resetButtonStyles } from "../../styles";
+import { resetButtonStyles } from "../../styles";
 import { wideButtonColor } from "../../themes";
-import { Span } from "../Text/Span";
+import { ETextSizes, TextSize } from "../Common/TextSize";
 
 interface IButtonProps {
   text: string;
@@ -18,12 +18,12 @@ const ButtonStyled = styled.button`
   border: 2px solid ${wideButtonColor};
 `;
 
-const TextStyled = styled(Span)`
+const TextStyled = styled(TextSize)`
   color: ${wideButtonColor};
 `;
 
 export const WideButton = ({ text, onClick }: IButtonProps) => (
   <ButtonStyled onClick={onClick}>
-    <TextStyled text={text} size={EFontSizes.Medium} />
+    <TextStyled size={ETextSizes.Medium}>{text}</TextStyled>
   </ButtonStyled>
 );

@@ -1,12 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 
+import { EHeadingSizes } from "../Common/Heading";
 import { BottomLineContainer } from "../Containers/BottomLineContainer";
 import { HeadingLink } from "../Links/HeadingLink";
 import { ImageLink } from "../Links/ImageLink";
 import { TagLink } from "../Links/TagLink";
 
-export type TPostLinkSizes = "regular" | "small";
+export enum EPostLinkSizes {
+  Regular = "regular",
+  Small = "small"
+}
+
+export type TPostLinkSizes = EPostLinkSizes.Regular | EPostLinkSizes.Small;
 
 interface ILinkProps {
   text: string;
@@ -39,14 +45,18 @@ const FeaturedPostLinkContainer = styled.div``;
 export const PostLink = ({
   text,
   to,
-  size = "regular",
+  size = EPostLinkSizes.Regular,
   tags = []
 }: IPostLinkProps) => (
   <BottomLineContainer>
     <HeadingLinkStyled
       text={text}
       to={to}
-      size={size === "regular" ? "medium" : "regular"}
+      size={
+        size === EPostLinkSizes.Regular
+          ? EHeadingSizes.Medium
+          : EHeadingSizes.Regular
+      }
     />
     {tags &&
       tags.map((tag, index) => (
@@ -67,6 +77,6 @@ export const FeaturedPostLink = ({
 }: IFeaturedPostLinkProps) => (
   <FeaturedPostLinkContainer>
     <ImageLinkStyled alt={text} to={to} src={imageLink} />
-    <PostLink text={text} to={to} size="regular" tags={tags} />
+    <PostLink text={text} to={to} size={EPostLinkSizes.Regular} tags={tags} />
   </FeaturedPostLinkContainer>
 );

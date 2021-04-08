@@ -14,7 +14,7 @@ interface IContainerProps extends IStyledProps {
   type?: ETagContainerType.Primary | ETagContainerType.Secondary;
 }
 
-const TagContainerStyled = styled(({ children, ...props }) => (
+const TagContainerStyled = styled(({ children, ...props }: IContainerProps) => (
   <span {...props}>{children}</span>
 ))`
   padding: 2px 5px;

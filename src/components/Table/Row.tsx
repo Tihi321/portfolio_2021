@@ -18,18 +18,15 @@ const RowStyled = styled(({ children, ...props }) => (
   align-items: center;
 
   ${props =>
-    props.items && props.items - 2 > 0
-      ? gridItemsRepeatStyles(props.items - 2)
+    props.children && props.children.length - 2 > 0
+      ? gridItemsRepeatStyles(props.children.length - 2)
       : gridAutoFitRepeatStyles}
 `;
 
 interface IRowProps extends IStyledProps {
   children: React.ReactNode;
-  items?: number;
 }
 
-export const Row = ({ children, className, items }: IRowProps) => (
-  <RowStyled items={items} className={className}>
-    {children}
-  </RowStyled>
+export const Row = ({ children, className }: IRowProps) => (
+  <RowStyled className={className}>{children}</RowStyled>
 );

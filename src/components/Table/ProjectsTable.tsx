@@ -2,10 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 import { EProjectFields, PROJECTS } from "../../projects";
-import { EFontSizes } from "../../styles";
 import { TagButtons } from "../Buttons/TagButton";
+import { ETextSizes, TextSize } from "../Common/TextSize";
 import { Link } from "../Links/Link";
-import { Span } from "../Text/Span";
 import { BodyRow } from "./BodyRow";
 import { HeaderCell } from "./HeaderCell";
 import { HeaderRow } from "./HeaderRow";
@@ -34,7 +33,7 @@ export const ProjectsTable = ({
 }: IProjectsTableProps) => (
   <TableStyled>
     <TableHeadStyled>
-      <HeaderRow items={Object.keys(EProjectFields).length}>
+      <HeaderRow>
         {Object.keys(EProjectFields).map(key => (
           <HeaderCell key={key} text={EProjectFields[key]} />
         ))}
@@ -46,7 +45,6 @@ export const ProjectsTable = ({
           key={`row--${EProjectFields.Name}-${
             project[EProjectFields.Name]
           }-${rowIndex}}`}
-          items={Object.keys(EProjectFields).length}
         >
           {Object.keys(EProjectFields).map((key, cellIndex) => {
             if (project[EProjectFields[key]] !== undefined) {
@@ -71,10 +69,9 @@ export const ProjectsTable = ({
                         project[EProjectFields.Type]
                       }-${rowIndex}-${cellIndex}}`}
                     >
-                      <Span
-                        text={project[EProjectFields.Type]}
-                        size={EFontSizes.Small}
-                      />
+                      <TextSize size={ETextSizes.Small}>
+                        {project[EProjectFields.Type]}
+                      </TextSize>
                     </RowCell>
                   );
                 case EProjectFields.Techonolgies:
@@ -100,7 +97,7 @@ export const ProjectsTable = ({
                       <Link
                         text={project[EProjectFields.Repository].name}
                         to={project[EProjectFields.Repository].link}
-                        size={EFontSizes.Small}
+                        size={ETextSizes.Small}
                       />
                     </RowCell>
                   );
@@ -114,7 +111,7 @@ export const ProjectsTable = ({
                       <Link
                         text={project[EProjectFields.Showcase].name}
                         to={project[EProjectFields.Showcase].link}
-                        size={EFontSizes.Small}
+                        size={ETextSizes.Small}
                       />
                     </RowCell>
                   );
@@ -126,10 +123,9 @@ export const ProjectsTable = ({
                         project[EProjectFields.Name]
                       }-${rowIndex}-${cellIndex}}`}
                     >
-                      <Span
-                        text={project[EProjectFields.Name]}
-                        size={EFontSizes.Regular}
-                      />
+                      <TextSize size={ETextSizes.Regular}>
+                        {project[EProjectFields.Name]}
+                      </TextSize>
                     </RowCell>
                   );
               }
