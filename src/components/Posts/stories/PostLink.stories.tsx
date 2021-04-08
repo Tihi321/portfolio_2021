@@ -5,6 +5,7 @@ import React from "react";
 
 import netwokNodesImage from "../../../assets/images/network-nodes.svg";
 import {
+  EPostLinkSizes,
   FeaturedPostLink as FeaturedPostLinkComponent,
   PostLink as PostLinkComponent,
   TPostLinkSizes
@@ -13,7 +14,7 @@ import {
 export const PostLink = () => {
   const postTitleText = text("Post Title", "Post title text", "OPTIONS");
 
-  const sizes = ["regular", "small"];
+  const sizes = [EPostLinkSizes.Regular, EPostLinkSizes.Small];
 
   const headingSize = select("Size", sizes, sizes[1], "OPTIONS");
 

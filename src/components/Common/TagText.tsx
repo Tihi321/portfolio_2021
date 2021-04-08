@@ -22,7 +22,7 @@ interface ITextProps extends IStyledProps {
   type?: ETagType.Primary | ETagType.Secondary | ETagType.Tertiary;
 }
 
-const TagStyled = styled(({ text, ...props }) => (
+const TagStyled = styled(({ text, ...props }: ITextProps) => (
   <span {...props}>{text}</span>
 ))`
   cursor: pointer;
