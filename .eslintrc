@@ -74,7 +74,6 @@
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
     "react/require-default-props": "off",
-    "@typescript-eslint/react/require-default-props": ["error"],
     "no-console": ["error", { "allow": ["warn", "error"] }],
     "curly": ["warn", "all"],
     "sort-imports": "off",
