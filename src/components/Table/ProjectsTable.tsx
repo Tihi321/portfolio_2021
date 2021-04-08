@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { EProjectFields, PROJECTS } from "../../projects";
-import { TagButtons } from "../Buttons/TagButton";
+import { TagButton } from "../Buttons/TagButton";
 import { ETextSizes, TextSize } from "../Common/TextSize";
 import { Link } from "../Links/Link";
 import { BodyRow } from "./BodyRow";
@@ -56,10 +56,13 @@ export const ProjectsTable = ({
                         EProjectFields.Tags
                       ].join("-")}-${rowIndex}-${cellIndex}}`}
                     >
-                      <TagButtons
-                        tags={project[EProjectFields.Tags]}
-                        onClick={tag => onTagClick(tag)}
-                      />
+                      {project[EProjectFields.Tags].map((tag, index) => (
+                        <TagButton
+                          key={`tag--${tag}-${index}`}
+                          text={tag}
+                          onClick={() => onTagClick(tag)}
+                        />
+                      ))}
                     </RowCell>
                   );
                 case EProjectFields.Type:
@@ -81,10 +84,15 @@ export const ProjectsTable = ({
                         EProjectFields.Techonolgies
                       ].join("-")}-${rowIndex}-${cellIndex}}`}
                     >
-                      <TagButtons
-                        tags={project[EProjectFields.Techonolgies]}
-                        onClick={tech => onTechClick(tech)}
-                      />
+                      {project[EProjectFields.Techonolgies].map(
+                        (tech, index) => (
+                          <TagButton
+                            key={`tech--${tech}-${index}`}
+                            text={tech}
+                            onClick={() => onTechClick(tech)}
+                          />
+                        )
+                      )}
                     </RowCell>
                   );
                 case EProjectFields.Repository:
