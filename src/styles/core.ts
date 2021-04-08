@@ -29,9 +29,13 @@ export const coreStyles = css`
     background-color: ${backgroundColor};
     color: ${textColor};
     margin: 0;
-    padding: 58px 30px;
+    padding: 20px;
     display: flex;
     justify-content: center;
+
+    ${media(EBreakpoints.LAPTOP, ESide.UP)} {
+      padding: 55px 30px;
+    }
   }
 
   body,

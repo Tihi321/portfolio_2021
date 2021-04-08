@@ -12,11 +12,6 @@ interface ITagButtonProps extends IStyledProps {
   active?: boolean;
 }
 
-interface ITagButtonsProps extends IStyledProps {
-  tags: string[];
-  onClick: (tag: string) => void;
-}
-
 const TagButtonStyled = styled.button`
   ${resetButtonStyles}
 `;
@@ -54,17 +49,4 @@ export const FeaturedTagButton = ({
       />
     </TagContainer>
   </TagButtonStyled>
-);
-
-export const TagButtons = ({ tags, onClick, className }: ITagButtonsProps) => (
-  <>
-    {tags.map((tag, index) => (
-      <TagButton
-        key={`tag--${tag}-${index}`}
-        text={tag}
-        className={className}
-        onClick={() => onClick(tag)}
-      />
-    ))}
-  </>
 );
