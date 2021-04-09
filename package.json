@@ -12,6 +12,7 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
+    "info:gatsby": "gatsby info --clipboard",
     "clean": "yarn clean:storybook",
     "clean:gatsby": "gatsby clean",
     "lint-staged": "lint-staged",
@@ -26,8 +27,9 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
+    "@types/react-helmet": "^6.1.0",
     "babel-plugin-styled-components": "^1.12.0",
-    "gatsby": "^3.1.1",
+    "gatsby": "^3.1.2",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-image": "^1.1.2",
     "gatsby-plugin-manifest": "^3.1.0",
@@ -42,7 +44,6 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-responsive": "^8.2.0",
-    "react-use": "^17.2.1",
     "styled-components": "^5.2.1",
     "styled-normalize": "^8.0.7"
   },
