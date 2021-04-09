@@ -3,7 +3,7 @@ import React from "react";
 import { withKnobs } from '@storybook/addon-knobs';
 
 import { ThemeContainer } from "./components/ThemeContainer";
-import { Layout } from "../src/components/Containers/Layout";
+import { StyleLayout } from "../src/components/Containers/StyleLayout";
 import { CoreStylesClass } from "../src/enums";
 
 export const parameters = {
@@ -34,9 +34,9 @@ export const decorators = [
     return (
       <ThemeContainer>
         <div className={CoreStylesClass}>
-          <Layout>
+          <StyleLayout>
               <Story />
-          </Layout>
+          </StyleLayout>
         </div>
       </ThemeContainer>
     );

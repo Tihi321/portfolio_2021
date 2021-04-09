@@ -21,7 +21,7 @@ interface ILayoutProps {
   children: React.ReactNode;
 }
 
-export const Layout = ({ children }: ILayoutProps) => (
+export const StyleLayout = ({ children }: ILayoutProps) => (
   <>
     <Normalize />
     <CoreStyle />
