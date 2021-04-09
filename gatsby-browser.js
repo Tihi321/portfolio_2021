@@ -1,20 +1,15 @@
-const React = require("react");
+import React from "react";
 
-const { Provider } = require("./src/store");
-const { ThemeContainer } = require("./src/themes");
-const { Layout } = require("./src/components/Containers/Layout");
+import { StyleLayout } from "./src/components/Containers/StyleLayout";
+import { Provider } from "./src/store";
+import { ThemeContainer } from "./src/themes";
 
-const wrapRootElement = ({ element }) => (
+export const wrapRootElement = ({ element }) => (
   <Provider>
     <ThemeContainer>{element}</ThemeContainer>
   </Provider>
 );
 
-const wrapPageElement = ({ element, props }) => (
-  <Layout {...props}>{element}</Layout>
+export const wrapPageElement = ({ element, props }) => (
+  <StyleLayout {...props}>{element}</StyleLayout>
 );
-
-module.exports = {
-  wrapRootElement,
-  wrapPageElement
-};
