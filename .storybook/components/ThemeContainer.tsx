@@ -4,11 +4,11 @@ import { select } from '@storybook/addon-knobs';
 import { ETheme } from '../../src/store';
 import { darkTheme, lightTheme } from "../../src/themes";
 
-export interface ThemeContainerProps {
+export interface IThemeContainerProps {
   children: React.ReactNode;
 }
 
-export const ThemeContainer = ({children}: ThemeContainerProps) => {
+export const ThemeContainer = ({children}: IThemeContainerProps) => {
   const ColorsId = 'THEME OPTIONS';
 
   const themes = {

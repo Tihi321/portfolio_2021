@@ -2,6 +2,7 @@ import { graphql } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 
+import { Layout } from "../components/Layout/Layout";
 import { TSiteMetaWithBlog } from "../definitions/query/home";
 import { getTheme, switchTheme, useSelector, useStore } from "../store";
 import { textColor } from "../themes";
@@ -20,13 +21,13 @@ const Home = ({ data }: { data: TSiteMetaWithBlog }) => {
   const posts = data.allMdx.edges;
 
   return (
-    <>
+    <Layout title="Home New">
       <TitleStyled>{siteTitle}</TitleStyled>
       <p>Theme is :{theme}</p>
       <p>{siteDescription}</p>
       <button onClick={() => dispatch(switchTheme())}>switchTheme</button>
       <p>{posts.map(post => post.node.frontmatter.title)}</p>
-    </>
+    </Layout>
   );
 };
 
