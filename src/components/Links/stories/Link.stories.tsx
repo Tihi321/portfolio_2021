@@ -17,7 +17,11 @@ export const Link = () => {
 
   const linkSize = select("Size", sizes, sizes[2], "OPTIONS");
 
-  return <LinkComponent size={linkSize as TTextSizes} text={tagText} to="./" />;
+  return (
+    <LinkComponent size={linkSize as TTextSizes} to="./">
+      {tagText}
+    </LinkComponent>
+  );
 };
 
 const meta = {

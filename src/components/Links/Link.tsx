@@ -1,5 +1,6 @@
+import { Link as GatsbyLink } from "gatsby";
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import { IStyledProps } from "../../definitions/styled/styled";
 import { resetLinkStyles } from "../../styles";
@@ -7,15 +8,11 @@ import { linkColor, textColor } from "../../themes";
 import { ETextSizes, ITextSizes, TextSize } from "../Common/TextSize";
 
 interface ILinkProps extends ITextSizes, IStyledProps {
-  text: string;
+  children: React.ReactNode;
   to: string;
 }
 
-const LinkStyled = styled(({ to, children, ...props }) => (
-  <a src={to} {...props}>
-    {children}
-  </a>
-))`
+const LinkStyles = css`
   ${resetLinkStyles}
   cursor: pointer;
   display: block;
@@ -26,13 +23,36 @@ const LinkStyled = styled(({ to, children, ...props }) => (
   }
 `;
 
+const LinkStyled = styled(({ to, children, ...props }) => (
+  <a src={to} {...props}>
+    {children}
+  </a>
+))`
+  ${LinkStyles}
+`;
+
+const InternalStyled = styled(GatsbyLink)`
+  ${LinkStyles}
+`;
+
 export const Link = ({
-  text,
+  children,
   to,
   className,
   size = ETextSizes.Regular
 }: ILinkProps) => (
   <LinkStyled to={to} className={className}>
-    <TextSize size={size}>{text}</TextSize>
+    <TextSize size={size}>{children}</TextSize>
   </LinkStyled>
+);
+
+export const InternalLink = ({
+  children,
+  to,
+  className,
+  size = ETextSizes.Regular
+}: ILinkProps) => (
+  <InternalStyled to={to} className={className}>
+    <TextSize size={size}>{children}</TextSize>
+  </InternalStyled>
 );
