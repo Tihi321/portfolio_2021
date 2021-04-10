@@ -19,7 +19,7 @@ export enum EFeaturedButtonType {
 }
 
 interface IFeaturedButtonProps extends IStyledProps {
-  text: string;
+  children: React.ReactNode;
   type?: EFeaturedButtonType;
   onClick: () => void;
 }
@@ -38,7 +38,7 @@ const ButtonStyled = styled(({ children, ...props }) => (
   ${featuredButtonResponsiveFontStyles(EBreakpoints.MOBILE)};
   ${media(EBreakpoints.LAPTOP, ESide.UP)} {
     border-radius: 5px;
-    padding: 5px 20px;
+    padding: 5px 15px;
     ${props =>
       props.type &&
       props.type === EFeaturedButtonType.Regular &&
@@ -48,12 +48,12 @@ const ButtonStyled = styled(({ children, ...props }) => (
 `;
 
 export const FeaturedButton = ({
-  text,
+  children,
   onClick,
   type = EFeaturedButtonType.Regular,
   className
 }: IFeaturedButtonProps) => (
   <ButtonStyled type={type} onClick={onClick} className={className}>
-    {text}
+    {children}
   </ButtonStyled>
 );

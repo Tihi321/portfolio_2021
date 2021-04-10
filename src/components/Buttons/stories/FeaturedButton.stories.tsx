@@ -16,11 +16,9 @@ export const FeaturedButton = () => {
   const buttonType = select("Size", types, types[2], "OPTIONS");
 
   return (
-    <Button
-      text={buttonText}
-      type={buttonType}
-      onClick={action("onClick - Featured Button")}
-    />
+    <Button type={buttonType} onClick={action("onClick - Featured Button")}>
+      {buttonText}
+    </Button>
   );
 };
 
