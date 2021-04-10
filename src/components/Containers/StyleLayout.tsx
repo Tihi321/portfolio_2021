@@ -8,6 +8,7 @@ import {
   tableStyles,
   textStyles
 } from "../../styles";
+import { LayoutContainer } from "./LayoutContainer";
 import { MaxWidthContainer } from "./MaxWidthContainer";
 
 const CoreStyle = createGlobalStyle`
@@ -25,6 +26,8 @@ export const StyleLayout = ({ children }: ILayoutProps) => (
   <>
     <Normalize />
     <CoreStyle />
-    <MaxWidthContainer>{children}</MaxWidthContainer>
+    <MaxWidthContainer>
+      <LayoutContainer>{children}</LayoutContainer>
+    </MaxWidthContainer>
   </>
 );
