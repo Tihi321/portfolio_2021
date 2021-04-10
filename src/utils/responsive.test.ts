@@ -1,5 +1,5 @@
 import { Breakpoints, EBreakpoints, ESide } from "../enums";
-import { media } from "./mediaQueries";
+import { media } from "./responsive";
 
 test("It should return correct media string for size in desktop range", () => {
   const mediaString = `@media (min-width: ${
