@@ -1,48 +1,58 @@
-import { graphql, Link, useStaticQuery } from "gatsby";
 import React from "react";
+import styled from "styled-components";
 
-interface ISiteTitleQuery {
-  site: {
-    siteMetadata: {
-      title: string;
-    };
-  };
-}
+import { EBreakpoints, InternalLinks } from "../../enums";
+import { useMediaQuery } from "../../hooks";
+import { getTheme, switchTheme, useSelector, useStore } from "../../store";
+import { media } from "../../utils";
+import { FeaturedButton } from "../Buttons/FeaturedButton";
+import { ETextSizes } from "../Common/TextSize";
+import { Logo } from "../Icons/Logo";
+import { InternalLink } from "../Links/Link";
+
+const HeaderStyled = styled.header`
+  display: flex;
+  justify-content: center;
+
+  ${media(EBreakpoints.TABLET)} {
+    justify-content: space-between;
+  }
+`;
+
+const HeaderLinksGroupStyled = styled.div`
+  display: flex;
+  height: fit-content;
+  align-items: center;
+`;
+
+const BlogLinkStyled = styled(InternalLink)`
+  margin-right: 20px;
+`;
+
+const ThemeButtonStyled = styled(FeaturedButton)`
+  text-transform: capitalize;
+`;
 
 export const Header = () => {
-  const { site }: ISiteTitleQuery = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
+  const theme = useSelector(getTheme);
+  const { dispatch } = useStore();
+  const isTablet = useMediaQuery(EBreakpoints.TABLET);
 
   return (
-    <header>
-      <div>
-        <h1 style={{ margin: 0 }}>
-          <Link
-            to="/"
-            style={{
-              color: `white`,
-              textDecoration: `none`
-            }}
-          >
-            {site.siteMetadata.title}
-          </Link>
-        </h1>
-        <button
-          type="button"
-          onClick={() => {
-            console.log("TOGGLE_THEME");
-          }}
-        >
-          Toggle Theme
-        </button>
-      </div>
-    </header>
+    <HeaderStyled>
+      <InternalLink to={InternalLinks.HOME}>
+        <Logo />
+      </InternalLink>
+      {isTablet && (
+        <HeaderLinksGroupStyled>
+          <BlogLinkStyled size={ETextSizes.Medium} to={InternalLinks.BLOG}>
+            Blog
+          </BlogLinkStyled>
+          <ThemeButtonStyled onClick={() => dispatch(switchTheme())}>
+            {theme}
+          </ThemeButtonStyled>
+        </HeaderLinksGroupStyled>
+      )}
+    </HeaderStyled>
   );
 };

@@ -107,8 +107,8 @@ export const fonts = {
       lineHeight: "1.2"
     },
     [EBreakpoints.LAPTOP]: {
-      fontSize: "28px",
-      lineHeight: "1.4"
+      fontSize: "24px",
+      lineHeight: "1.2"
     }
   },
   [EFonts.Tags]: {
