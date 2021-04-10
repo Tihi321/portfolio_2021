@@ -24,8 +24,14 @@ import {
 } from "./fonts";
 
 export const coreStyles = css`
-  #___gatsby {
+  * {
+    box-sizing: border-box;
+  }
+  #___gatsby,
+  #gatsby-focus-wrapper {
+    display: flex;
     width: 100%;
+    justify-content: center;
   }
   body,
   .${CoreStylesClass} {
@@ -33,6 +39,8 @@ export const coreStyles = css`
     color: ${textColor};
     margin: 0;
     padding: 20px;
+    min-height: 100vh;
+    display: flex;
 
     ${media(EBreakpoints.LAPTOP, ESide.UP)} {
       padding: 55px 30px;
@@ -121,10 +129,10 @@ export const textStyles = css`
     color: ${linkColor};
     text-decoration: none;
     display: inline-block;
-    position: relative;
+    transition: transform 0.1s ease;
 
     &:hover {
-      top: 1px;
+      transform: scale(1.08);
     }
   }
 
