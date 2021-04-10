@@ -6,7 +6,6 @@ import { ContainerWidth } from "../../enums";
 const MaxWidthContainerStyled = styled.div`
   max-width: ${ContainerWidth}px;
   width: 100%;
-  margin: 0 auto;
 `;
 
 interface ILayoutProps {
