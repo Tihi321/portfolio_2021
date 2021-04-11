@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+import { IStyledProps } from "../../definitions";
 import { removeListkStyles } from "../../styles";
 import { FeaturedTagButton } from "../Buttons";
 import { ListTitle } from "./ListTitle";
@@ -16,6 +17,8 @@ const TagListStyled = styled.ul`
   ${removeListkStyles}
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 `;
 
 const ListItemStyled = styled.li`
@@ -26,7 +29,7 @@ const TagButtonStyled = styled(FeaturedTagButton)`
   margin: 0;
 `;
 
-interface ITagListProps {
+interface ITagListProps extends IStyledProps {
   title: string;
   tags: string[];
   selected?: string;
@@ -35,13 +38,14 @@ interface ITagListProps {
 }
 
 export const TagButtonsFeaturedList = ({
+  className,
   tags,
   title,
   selected,
   onTagSelect,
   onClearTagsSelect
 }: ITagListProps) => (
-  <TagButtonsFeaturedListStyled>
+  <TagButtonsFeaturedListStyled className={className}>
     <ListTitle title={title} />
     <TagListStyled>
       {tags.map((tag, index) => (

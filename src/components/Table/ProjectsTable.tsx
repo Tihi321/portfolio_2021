@@ -10,6 +10,11 @@ import { HeaderCell } from "./HeaderCell";
 import { HeaderRow } from "./HeaderRow";
 import { EmptyRowCell, RowCell } from "./RowCell";
 
+export enum EProjectsTableType {
+  Regular = "regular",
+  Compact = "compact"
+}
+
 const TableStyled = styled.table`
   padding: 2px 0;
 `;
@@ -26,18 +31,28 @@ interface IProjectsTableProps {
   onTagSelect: (tag: string) => void;
   onTechSelect: (tech: string) => void;
   projects: TProject[];
+  type?: EProjectsTableType;
 }
 
 export const ProjectsTable = ({
   onTagSelect,
   onTechSelect,
-  projects
+  projects,
+  type = EProjectsTableType.Regular
 }: IProjectsTableProps) => (
   <TableStyled>
     <TableHeadStyled>
       <HeaderRow>
         {Object.keys(EProjectFields).map(key => (
-          <HeaderCell key={key} text={EProjectFields[key]} />
+          <HeaderCell
+            key={key}
+            text={EProjectFields[key]}
+            size={
+              type === EProjectsTableType.Regular
+                ? ETextSizes.Medium
+                : ETextSizes.Regular
+            }
+          />
         ))}
       </HeaderRow>
     </TableHeadStyled>
@@ -135,7 +150,13 @@ export const ProjectsTable = ({
                         project[EProjectFields.Name]
                       }-${rowIndex}-${cellIndex}}`}
                     >
-                      <TextSize size={ETextSizes.Regular}>
+                      <TextSize
+                        size={
+                          type === EProjectsTableType.Regular
+                            ? ETextSizes.Regular
+                            : ETextSizes.Small
+                        }
+                      >
                         {project[EProjectFields.Name]}
                       </TextSize>
                     </RowCell>

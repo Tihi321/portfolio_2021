@@ -1,10 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-import { removeListkStyles, resetButtonStyles } from "../../styles";
-import { textColor } from "../../themes";
+import { IStyledProps } from "../../definitions";
+import { removeListkStyles } from "../../styles";
 import { TagButton } from "../Buttons";
-import { ETextSizes, TextSize } from "../Common";
 import { ListTitle } from "./ListTitle";
 
 const TagButtonsListStyled = styled.div`
@@ -16,29 +15,14 @@ const TagListStyled = styled.ul`
 `;
 
 const ListItemStyled = styled.li`
-  margin-bottom: 5px;
+  margin-bottom: 0;
 `;
 
 const TagButtonStyled = styled(TagButton)`
   padding: 0;
 `;
 
-const ClearAllButtonTextStyled = styled(TextSize)`
-  text-transform: capitalize;
-  font-style: italic;
-  font-weight: 700;
-`;
-
-const ClearAllButtonStyled = styled.button`
-  ${resetButtonStyles}
-  color: ${textColor};
-  cursor: pointer;
-  &:focus {
-    outline: none;
-  }
-`;
-
-interface ITagListProps {
+interface ITagListProps extends IStyledProps {
   title: string;
   tags: string[];
   selected?: string;
@@ -47,13 +31,14 @@ interface ITagListProps {
 }
 
 export const TagButtonsList = ({
+  className,
   tags,
   title,
   selected,
   onTagSelect,
   onClearTagsSelect
 }: ITagListProps) => (
-  <TagButtonsListStyled>
+  <TagButtonsListStyled className={className}>
     <ListTitle title={title} />
     <TagListStyled>
       {tags.map((tag, index) => (
@@ -61,17 +46,12 @@ export const TagButtonsList = ({
           <TagButtonStyled
             text={tag}
             active={selected === tag}
-            onClick={() => onTagSelect(tag)}
+            onClick={() =>
+              tag === selected ? onClearTagsSelect() : onTagSelect(tag)
+            }
           />
         </ListItemStyled>
       ))}
-      <ListItemStyled>
-        <ClearAllButtonStyled onClick={onClearTagsSelect}>
-          <ClearAllButtonTextStyled size={ETextSizes.Tiny}>
-            Clear All {title}
-          </ClearAllButtonTextStyled>
-        </ClearAllButtonStyled>
-      </ListItemStyled>
     </TagListStyled>
   </TagButtonsListStyled>
 );

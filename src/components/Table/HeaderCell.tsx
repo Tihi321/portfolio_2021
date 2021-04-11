@@ -15,10 +15,14 @@ const TextStyled = styled(TextSize)`
 
 interface IHeaderCellProps {
   text: string;
+  size?: ETextSizes;
 }
 
-export const HeaderCell = ({ text }: IHeaderCellProps) => (
+export const HeaderCell = ({
+  text,
+  size = ETextSizes.Medium
+}: IHeaderCellProps) => (
   <HeaderCellStyled>
-    <TextStyled size={ETextSizes.Medium}>{text}</TextStyled>
+    <TextStyled size={size}>{text}</TextStyled>
   </HeaderCellStyled>
 );
