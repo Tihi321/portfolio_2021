@@ -34,9 +34,15 @@ export const decorators = [
     return (
       <ThemeContainer>
         <div className={CoreStylesClass}>
-          <StyleLayout>
-              <Story />
-          </StyleLayout>
+          <div style={{
+            display: "flex",
+            width: "100%",
+            justifyContent: "center"
+          }}>
+            <StyleLayout>
+                <Story />
+            </StyleLayout>
+          </div>
         </div>
       </ThemeContainer>
     );
