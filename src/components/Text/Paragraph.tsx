@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { IStyledProps } from "../../definitions";
-import { ETextSizes, ITextSizes, TextSize } from "../Common/TextSize";
+import { ETextSizes, ITextSizes, TextSize } from "../Common";
 
 interface ITextProps extends ITextSizes, IStyledProps {
   text: string;

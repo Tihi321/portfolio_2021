@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 import { EProjectFields, TProject } from "../../projects";
-import { TagButton } from "../Buttons/TagButton";
-import { ETextSizes, TextSize } from "../Common/TextSize";
-import { Link } from "../Links/Link";
+import { TagButton } from "../Buttons";
+import { ETextSizes, TextSize } from "../Common";
+import { Link } from "../Links";
 import { BodyRow } from "./BodyRow";
 import { HeaderCell } from "./HeaderCell";
 import { HeaderRow } from "./HeaderRow";

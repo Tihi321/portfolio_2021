@@ -1,11 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-import { EHeadingSizes } from "../Common/Heading";
-import { BottomLineContainer } from "../Containers/BottomLineContainer";
-import { HeadingLink } from "../Links/HeadingLink";
-import { ImageLink } from "../Links/ImageLink";
-import { TagLink } from "../Links/TagLink";
+import { EHeadingSizes } from "../Common";
+import { BottomLineContainer } from "../Containers";
+import { HeadingLink, ImageLink, TagLink } from "../Links";
 
 export enum EPostLinkSizes {
   Regular = "regular",

@@ -6,7 +6,7 @@ import { EBreakpoints, ESide } from "../../enums";
 import { resetButtonStyles } from "../../styles";
 import { wideButtonColor } from "../../themes";
 import { media } from "../../utils";
-import { ETextSizes, TextSize } from "../Common/TextSize";
+import { ETextSizes, TextSize } from "../Common";
 
 interface IButtonProps extends IStyledProps {
   text: string;

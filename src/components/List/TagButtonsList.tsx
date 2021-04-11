@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 import { removeListkStyles, resetButtonStyles } from "../../styles";
 import { textColor } from "../../themes";
-import { TagButton } from "../Buttons/TagButton";
-import { ETextSizes, TextSize } from "../Common/TextSize";
+import { TagButton } from "../Buttons";
+import { ETextSizes, TextSize } from "../Common";
 import { ListTitle } from "./ListTitle";
 
 const TagButtonsListStyled = styled.div`

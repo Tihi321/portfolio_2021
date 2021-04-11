@@ -5,7 +5,7 @@ import styled, { css } from "styled-components";
 import { IStyledProps } from "../../definitions";
 import { resetLinkStyles } from "../../styles";
 import { linkColor, textColor } from "../../themes";
-import { ETextSizes, ITextSizes, TextSize } from "../Common/TextSize";
+import { ETextSizes, ITextSizes, TextSize } from "../Common";
 
 interface ILinkProps extends ITextSizes, IStyledProps {
   children: React.ReactNode;

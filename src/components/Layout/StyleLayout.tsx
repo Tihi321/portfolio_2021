@@ -9,8 +9,7 @@ import {
   tableStyles,
   textStyles
 } from "../../styles";
-import { LayoutContainer } from "../Containers/LayoutContainer";
-import { MaxWidthContainer } from "../Containers/MaxWidthContainer";
+import { LayoutContainer, MaxWidthContainer } from "../Containers";
 
 const CoreStyle = createGlobalStyle`
   ${coreStyles}

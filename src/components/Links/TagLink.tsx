@@ -4,8 +4,8 @@ import styled from "styled-components";
 
 import { IStyledProps } from "../../definitions";
 import { resetFontStyles, resetLinkStyles } from "../../styles";
-import { ETagType, TagText } from "../Common/TagText";
-import { ETagContainerType, TagContainer } from "../Containers/TagContainer";
+import { ETagType, TagText } from "../Common";
+import { ETagContainerType, TagContainer } from "../Containers";
 
 interface ILinkProps extends IStyledProps {
   text: string;
