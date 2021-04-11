@@ -7,7 +7,8 @@ import {
   largeFontThemeResponsiveFontStyles,
   mediumFontThemeResponsiveFontStyles,
   regularFontThemeResponsiveFontStyles,
-  smallFontThemeResponsiveFontStyles
+  smallFontThemeResponsiveFontStyles,
+  tinyFontThemeResponsiveFontStyles
 } from "../../styles";
 import { media } from "../../utils";
 
@@ -39,18 +40,22 @@ const smallStyles = css`
   }
 `;
 
+const tinyStyles = css`
+  ${tinyFontThemeResponsiveFontStyles(EBreakpoints.MOBILE)};
+  ${media(EBreakpoints.LAPTOP, ESide.UP)} {
+    ${tinyFontThemeResponsiveFontStyles(EBreakpoints.LAPTOP)}
+  }
+`;
+
 export enum ETextSizes {
   Large = "large",
   Medium = "medium",
   Regular = "regular",
-  Small = "small"
+  Small = "small",
+  Tiny = "tiny"
 }
 
-export type TTextSizes =
-  | ETextSizes.Large
-  | ETextSizes.Medium
-  | ETextSizes.Regular
-  | ETextSizes.Small;
+export type TTextSizes = ETextSizes;
 
 export interface ITextSizes {
   size?: TTextSizes;
@@ -71,6 +76,8 @@ const FontSizesStyled = styled(({ children, ...props }: ITextSizeProps) => (
         return mediumStyles;
       case ETextSizes.Small:
         return smallStyles;
+      case ETextSizes.Tiny:
+        return tinyStyles;
 
       default:
         return regularStyles;

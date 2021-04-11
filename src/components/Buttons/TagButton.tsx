@@ -22,12 +22,8 @@ export const TagButton = ({
   className,
   active = false
 }: ITagButtonProps) => (
-  <TagButtonStyled onClick={onClick}>
-    <TagText
-      text={text}
-      className={className}
-      type={active ? ETagType.Tertiary : ETagType.Primary}
-    />
+  <TagButtonStyled onClick={onClick} className={className}>
+    <TagText text={text} type={active ? ETagType.Tertiary : ETagType.Primary} />
   </TagButtonStyled>
 );
 
@@ -44,7 +40,6 @@ export const FeaturedTagButton = ({
     >
       <TagText
         text={text}
-        className={className}
         type={active ? ETagType.Tertiary : ETagType.Secondary}
       />
     </TagContainer>
