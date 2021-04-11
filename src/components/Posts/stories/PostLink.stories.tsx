@@ -1,4 +1,4 @@
-/// <reference path="../../../definitions/images/svg.d.ts" />
+/// <reference path="../../../definitions/modules/images/svg.d.ts" />
 import { select, text } from "@storybook/addon-knobs";
 import { Meta } from "@storybook/react";
 import React from "react";

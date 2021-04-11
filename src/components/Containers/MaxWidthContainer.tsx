@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+import { IContainerProps } from "../../definitions";
 import { ContainerWidth } from "../../enums";
 
 const MaxWidthContainerStyled = styled.div`
@@ -8,10 +9,6 @@ const MaxWidthContainerStyled = styled.div`
   width: 100%;
 `;
 
-interface ILayoutProps {
-  children: React.ReactNode;
-}
-
-export const MaxWidthContainer = ({ children }: ILayoutProps) => (
+export const MaxWidthContainer = ({ children }: IContainerProps) => (
   <MaxWidthContainerStyled>{children}</MaxWidthContainerStyled>
 );

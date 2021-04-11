@@ -1,12 +1,12 @@
 import React from "react";
 
+import { IContainerProps } from "../../definitions";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { SEO } from "./SEO";
 
-interface ILayoutProps {
+interface ILayoutProps extends IContainerProps {
   title: string;
-  children: React.ReactNode;
 }
 
 export const Layout = ({ children, title }: ILayoutProps) => (

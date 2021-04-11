@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+import { IContainerProps } from "../../definitions";
 import { bottomLineBorderColor } from "../../themes";
 
 const BottomLineContainerStyled = styled.div`
@@ -8,10 +9,6 @@ const BottomLineContainerStyled = styled.div`
   border-bottom: 1px solid ${bottomLineBorderColor};
 `;
 
-interface ILayoutProps {
-  children: React.ReactNode;
-}
-
-export const BottomLineContainer = ({ children }: ILayoutProps) => (
+export const BottomLineContainer = ({ children }: IContainerProps) => (
   <BottomLineContainerStyled>{children}</BottomLineContainerStyled>
 );
