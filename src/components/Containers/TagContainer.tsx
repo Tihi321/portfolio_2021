@@ -11,7 +11,7 @@ export enum ETagContainerType {
 
 interface IContainerProps extends IStyledProps {
   children: React.ReactNode;
-  type?: ETagContainerType.Primary | ETagContainerType.Secondary;
+  type?: ETagContainerType;
 }
 
 const TagContainerStyled = styled(({ children, ...props }: IContainerProps) => (
@@ -21,12 +21,12 @@ const TagContainerStyled = styled(({ children, ...props }: IContainerProps) => (
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  ${props =>
-    props.type === ETagContainerType.Primary &&
-    `background-color: ${featuredTagColor(props)}`}
+  border-width: 1px;
+  border-style: solid;
+  border-color: ${featuredTagColor};
   ${props =>
     props.type === ETagContainerType.Secondary &&
-    `border: 1px solid ${featuredTagColor(props)}`}
+    `background-color: ${featuredTagColor(props)}`}
 `;
 
 export const TagContainer = ({

@@ -14,6 +14,10 @@ interface ITagButtonProps extends IStyledProps {
 
 const TagButtonStyled = styled.button`
   ${resetButtonStyles}
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
 `;
 
 export const TagButton = ({
@@ -36,7 +40,7 @@ export const FeaturedTagButton = ({
   <TagButtonStyled onClick={onClick}>
     <TagContainer
       className={className}
-      type={active ? ETagContainerType.Primary : ETagContainerType.Secondary}
+      type={active && ETagContainerType.Secondary}
     >
       <TagText
         text={text}
