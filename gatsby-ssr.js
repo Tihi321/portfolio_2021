@@ -1,14 +1,16 @@
 import React from "react";
 
-import { StyleLayout } from "./src/components/Layout";
+import { MDXProvider, StyleLayout } from "./src/components/Layout";
 import { CoreStylesClass } from "./src/enums";
 import { Provider } from "./src/store";
 import { ThemeContainer } from "./src/themes";
 
 export const wrapRootElement = ({ element }) => (
-  <Provider>
-    <ThemeContainer>{element}</ThemeContainer>
-  </Provider>
+  <MDXProvider>
+    <Provider>
+      <ThemeContainer>{element}</ThemeContainer>
+    </Provider>
+  </MDXProvider>
 );
 
 export const wrapPageElement = ({ element, props }) => (
