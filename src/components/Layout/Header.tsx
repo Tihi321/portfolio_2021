@@ -5,10 +5,10 @@ import { EBreakpoints, InternalLinks } from "../../enums";
 import { useMediaQuery } from "../../hooks";
 import { getTheme, switchTheme, useSelector, useStore } from "../../store";
 import { media } from "../../utils";
-import { FeaturedButton } from "../Buttons/FeaturedButton";
-import { ETextSizes } from "../Common/TextSize";
-import { Logo } from "../Icons/Logo";
-import { InternalLink } from "../Links/Link";
+import { FeaturedButton } from "../Buttons";
+import { ETextSizes } from "../Common";
+import { Logo } from "../Icons";
+import { InternalLink } from "../Links";
 
 const HeaderStyled = styled.header`
   display: flex;

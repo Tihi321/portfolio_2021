@@ -1,6 +1,6 @@
 import React from "react";
 
-import { StyleLayout } from "./src/components/Layout/StyleLayout";
+import { StyleLayout } from "./src/components/Layout";
 import { CoreStylesClass } from "./src/enums";
 import { Provider } from "./src/store";
 import { ThemeContainer } from "./src/themes";

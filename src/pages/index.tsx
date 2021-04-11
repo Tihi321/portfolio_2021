@@ -2,8 +2,8 @@ import { graphql } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 
-import { Layout } from "../components/Layout/Layout";
-import { InternalLink } from "../components/Links/Link";
+import { Layout } from "../components/Layout";
+import { InternalLink } from "../components/Links";
 import { InternalLinks } from "../enums";
 import { textColor } from "../themes";
 

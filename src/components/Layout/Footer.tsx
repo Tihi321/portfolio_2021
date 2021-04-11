@@ -12,9 +12,9 @@ import {
 import { useMediaQuery } from "../../hooks";
 import { getTheme, switchTheme, useSelector, useStore } from "../../store";
 import { media } from "../../utils";
-import { EFeaturedButtonType, FeaturedButton } from "../Buttons/FeaturedButton";
-import { ETextSizes, TextSize } from "../Common/TextSize";
-import { InternalLink, Link } from "../Links/Link";
+import { EFeaturedButtonType, FeaturedButton } from "../Buttons";
+import { ETextSizes, TextSize } from "../Common";
+import { InternalLink, Link } from "../Links";
 
 const FooterStyled = styled.footer`
   display: flex;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { EZIndex } from "../../enums";
 import { EProjectFields, TProject } from "../../projects";
-import { WideButton } from "../Buttons/WideButton";
+import { WideButton } from "../Buttons";
 import { ProjectList } from "./ProjectList";
 
 const ProjectsListStyled = styled.div`

@@ -10,7 +10,7 @@ import {
 } from "../../styles";
 import { linkColor, textColor } from "../../themes";
 import { media } from "../../utils";
-import { EHeadingSizes, Heading, THeadingSizes } from "../Common/Heading";
+import { EHeadingSizes, Heading, THeadingSizes } from "../Common";
 
 interface IHeadingLinkProps extends IStyledProps {
   text: string;

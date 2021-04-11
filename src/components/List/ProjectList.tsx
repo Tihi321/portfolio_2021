@@ -7,9 +7,8 @@ import { EProjectFields, TProject } from "../../projects";
 import { smallFontThemeResponsiveFontStyles } from "../../styles";
 import { backgroundColor } from "../../themes";
 import { media } from "../../utils";
-import { EFeaturedButtonType, FeaturedButton } from "../Buttons/FeaturedButton";
-import { TagText } from "../Common/TagText";
-import { ETextSizes, TextSize } from "../Common/TextSize";
+import { EFeaturedButtonType, FeaturedButton } from "../Buttons";
+import { ETextSizes, TagText, TextSize } from "../Common";
 import { ListItem } from "./ListItem";
 
 const ProjectListStyled = styled.div`

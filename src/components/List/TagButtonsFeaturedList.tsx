@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { removeListkStyles } from "../../styles";
-import { FeaturedTagButton } from "../Buttons/TagButton";
+import { FeaturedTagButton } from "../Buttons";
 import { ListTitle } from "./ListTitle";
 
 const TagButtonsFeaturedListStyled = styled.div`

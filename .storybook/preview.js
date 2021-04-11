@@ -3,7 +3,7 @@ import React from "react";
 import { withKnobs } from '@storybook/addon-knobs';
 
 import { ThemeContainer } from "./components/ThemeContainer";
-import { StyleLayout } from "../src/components/Layout/StyleLayout";
+import { StyleLayout } from "../src/components/Layout";
 import { CoreStylesClass } from "../src/enums";
 
 export const parameters = {
