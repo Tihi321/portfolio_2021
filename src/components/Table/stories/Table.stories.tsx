@@ -7,8 +7,8 @@ import { ProjectsTable as ProjectsTableComponent } from "../ProjectsTable";
 
 export const ProjectsTable = () => (
   <ProjectsTableComponent
-    onTagClick={action("onTagClick - Projects Table")}
-    onTechClick={action("onTechClick - Projects Table")}
+    onTagSelect={action("onTagSelect - Projects Table")}
+    onTechSelect={action("onTechSelect - Projects Table")}
     projects={PROJECTS}
   />
 );

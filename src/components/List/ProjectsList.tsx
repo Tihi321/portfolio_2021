@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 import { EZIndex } from "../../enums";
-import { TProject } from "../../projects";
+import { EProjectFields, TProject } from "../../projects";
 import { WideButton } from "../Buttons/WideButton";
 import { ProjectList } from "./ProjectList";
 
@@ -32,7 +32,9 @@ export const ProjectsList = ({ projects }: IProjectsListProps) => {
   const [selectedProject, setSelectedProject] = useState(undefined);
 
   const handleSelectedProject = (name: string) => {
-    setSelectedProject(projects.find(project => project.name === name));
+    setSelectedProject(
+      projects.find(project => project[EProjectFields.Name] === name)
+    );
   };
 
   const handleOnClose = () => setSelectedProject(undefined);
@@ -42,11 +44,11 @@ export const ProjectsList = ({ projects }: IProjectsListProps) => {
       {selectedProject ? (
         <ProjectListStyled project={selectedProject} onClose={handleOnClose} />
       ) : (
-        projects.map(({ name }, index) => (
+        projects.map((project, index) => (
           <ProjectButtonStyled
-            key={`project-${name}-${index}`}
-            text={name}
-            onClick={() => handleSelectedProject(name)}
+            key={`project-${project[EProjectFields.Name]}-${index}`}
+            text={project[EProjectFields.Name]}
+            onClick={() => handleSelectedProject(project[EProjectFields.Name])}
           />
         ))
       )}

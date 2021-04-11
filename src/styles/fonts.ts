@@ -51,3 +51,5 @@ export const mediumFontThemeResponsiveFontStyles = heading03ResponsiveFontStyles
 export const regularFontThemeResponsiveFontStyles = heading04ResponsiveFontStyles;
 
 export const smallFontThemeResponsiveFontStyles = bodyResponsiveFontStyles;
+
+export const tinyFontThemeResponsiveFontStyles = tagsResponsiveFontStyles;

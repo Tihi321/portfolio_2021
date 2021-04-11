@@ -23,14 +23,14 @@ const TableBodyStyled = styled.tbody`
 `;
 
 interface IProjectsTableProps {
-  onTagClick: (tag: string) => void;
-  onTechClick: (tech: string) => void;
+  onTagSelect: (tag: string) => void;
+  onTechSelect: (tech: string) => void;
   projects: TProject[];
 }
 
 export const ProjectsTable = ({
-  onTagClick,
-  onTechClick,
+  onTagSelect,
+  onTechSelect,
   projects
 }: IProjectsTableProps) => (
   <TableStyled>
@@ -62,7 +62,7 @@ export const ProjectsTable = ({
                         <TagButton
                           key={`tag--${tag}-${index}`}
                           text={tag}
-                          onClick={() => onTagClick(tag)}
+                          onClick={() => onTagSelect(tag)}
                         />
                       ))}
                     </RowCell>
@@ -91,7 +91,7 @@ export const ProjectsTable = ({
                           <TagButton
                             key={`tech--${tech}-${index}`}
                             text={tech}
-                            onClick={() => onTechClick(tech)}
+                            onClick={() => onTechSelect(tech)}
                           />
                         )
                       )}

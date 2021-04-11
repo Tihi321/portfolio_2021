@@ -15,3 +15,11 @@ export const resetLinkStyles = css`
     transform: unset;
   }
 `;
+
+export const removeListkStyles = css`
+  margin: 0;
+
+  li {
+    list-style: none;
+  }
+`;
