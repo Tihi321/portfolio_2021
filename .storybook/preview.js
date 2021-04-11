@@ -2,9 +2,11 @@ import { action, withActions } from "@storybook/addon-actions";
 import React from "react";
 import { withKnobs } from '@storybook/addon-knobs';
 
-import { ThemeContainer } from "./components/ThemeContainer";
+import { ThemeSwitcher } from "./components/ThemeSwitcher";
 import { StyleLayout } from "../src/components/Layout";
 import { CoreStylesClass } from "../src/enums";
+import { Provider } from '../src/store';
+import { ThemeContainer } from "../src/themes";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -32,19 +34,23 @@ export const decorators = [
   withActions,
   (Story) => {
     return (
-      <ThemeContainer>
-        <div className={CoreStylesClass}>
-          <div style={{
-            display: "flex",
-            width: "100%",
-            justifyContent: "center"
-          }}>
-            <StyleLayout>
-                <Story />
-            </StyleLayout>
-          </div>
-        </div>
-      </ThemeContainer>
+      <Provider>
+        <ThemeSwitcher>
+          <ThemeContainer>
+            <div className={CoreStylesClass}>
+              <div style={{
+                display: "flex",
+                width: "100%",
+                justifyContent: "center"
+              }}>
+                <StyleLayout>
+                    <Story />
+                </StyleLayout>
+              </div>
+            </div>
+          </ThemeContainer>
+        </ThemeSwitcher>
+      </Provider>
     );
   },
 ];

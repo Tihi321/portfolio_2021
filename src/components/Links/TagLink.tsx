@@ -41,7 +41,7 @@ export const FeaturedTagLink = ({
 }: ILinkProps) => (
   <TagContainer
     className={className}
-    type={active ? ETagContainerType.Primary : ETagContainerType.Secondary}
+    type={active && ETagContainerType.Secondary}
   >
     <LinkStyled className={className} to={to}>
       <TagText
