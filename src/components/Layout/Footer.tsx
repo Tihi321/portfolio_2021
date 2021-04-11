@@ -6,6 +6,7 @@ import {
   ContactAddresses,
   EBreakpoints,
   ESide,
+  EZIndex,
   InternalLinks
 } from "../../enums";
 import { useMediaQuery } from "../../hooks";
@@ -55,6 +56,7 @@ const ThemeButtonContainerStyled = styled.div`
   left: 0;
   width: 100%;
   padding: 10px;
+  z-index: ${EZIndex.FOOTER_THEME_BUTTON};
 `;
 
 const ThemeButtonTextStyled = styled(TextSize)`
