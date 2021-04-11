@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { IStyledProps } from "../../definitions";
+import { IContainerProps, IStyledProps } from "../../definitions";
 import { EBreakpoints, ESide } from "../../enums";
 import {
   featuredButtonResponsiveFontStyles,
@@ -18,8 +18,7 @@ export enum EFeaturedButtonType {
   Wide = "wide"
 }
 
-interface IFeaturedButtonProps extends IStyledProps {
-  children: React.ReactNode;
+interface IFeaturedButtonProps extends IStyledProps, IContainerProps {
   type?: EFeaturedButtonType;
   onClick: () => void;
 }

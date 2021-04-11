@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { EProjectFields, PROJECTS } from "../../projects";
+import { EProjectFields, TProject } from "../../projects";
 import { TagButton } from "../Buttons/TagButton";
 import { ETextSizes, TextSize } from "../Common/TextSize";
 import { Link } from "../Links/Link";
@@ -25,11 +25,13 @@ const TableBodyStyled = styled.tbody`
 interface IProjectsTableProps {
   onTagClick: (tag: string) => void;
   onTechClick: (tech: string) => void;
+  projects: TProject[];
 }
 
 export const ProjectsTable = ({
   onTagClick,
-  onTechClick
+  onTechClick,
+  projects
 }: IProjectsTableProps) => (
   <TableStyled>
     <TableHeadStyled>
@@ -40,7 +42,7 @@ export const ProjectsTable = ({
       </HeaderRow>
     </TableHeadStyled>
     <TableBodyStyled>
-      {PROJECTS.map((project, rowIndex) => (
+      {projects.map((project, rowIndex) => (
         <BodyRow
           key={`row--${EProjectFields.Name}-${
             project[EProjectFields.Name]
@@ -103,10 +105,11 @@ export const ProjectsTable = ({
                       }-${rowIndex}-${cellIndex}}`}
                     >
                       <Link
-                        text={project[EProjectFields.Repository].name}
                         to={project[EProjectFields.Repository].link}
                         size={ETextSizes.Small}
-                      />
+                      >
+                        {project[EProjectFields.Repository].name}
+                      </Link>
                     </RowCell>
                   );
                 case EProjectFields.Showcase:
@@ -117,10 +120,11 @@ export const ProjectsTable = ({
                       }-${rowIndex}-${cellIndex}}`}
                     >
                       <Link
-                        text={project[EProjectFields.Showcase].name}
                         to={project[EProjectFields.Showcase].link}
                         size={ETextSizes.Small}
-                      />
+                      >
+                        {project[EProjectFields.Showcase].name}
+                      </Link>
                     </RowCell>
                   );
 

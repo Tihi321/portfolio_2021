@@ -5,6 +5,7 @@ import React from "react";
 
 import { PROJECTS } from "../../../projects";
 import { ProjectList as ProjectListComponent } from "../ProjectList";
+import { ProjectsList as ProjectsListComponent } from "../ProjectsList";
 
 export const ProjectList = () => {
   const index = Array.from(
@@ -21,6 +22,9 @@ export const ProjectList = () => {
     />
   );
 };
+
+export const ProjectsList = () => <ProjectsListComponent projects={PROJECTS} />;
+
 const meta = {
   title: "Components/List"
 };
