@@ -11,6 +11,7 @@ import {
 } from "../../enums";
 import { useMediaQuery } from "../../hooks";
 import { getTheme, switchTheme, useSelector, useStore } from "../../store";
+import { backgroundColor } from "../../themes";
 import { media } from "../../utils";
 import { EFeaturedButtonType, FeaturedButton } from "../Buttons";
 import { ETextSizes, TextSize } from "../Common";
@@ -21,7 +22,7 @@ const FooterStyled = styled.footer`
   box-sizing: content-box;
   flex-direction: column;
   justify-content: center;
-  padding-top: 10px;
+  padding-top: 50px;
   padding-bottom: 50px;
 
   ${media(EBreakpoints.TABLET)} {
@@ -51,6 +52,7 @@ const FooterLinkStyled = styled(Link)`
 `;
 
 const ThemeButtonContainerStyled = styled.div`
+  background-color: ${backgroundColor};
   position: fixed;
   bottom: 0;
   left: 0;

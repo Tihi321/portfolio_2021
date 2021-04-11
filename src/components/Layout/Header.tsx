@@ -13,8 +13,10 @@ import { InternalLink } from "../Links";
 const HeaderStyled = styled.header`
   display: flex;
   justify-content: center;
+  padding-bottom: 40px;
 
   ${media(EBreakpoints.TABLET)} {
+    padding-bottom: 80px;
     justify-content: space-between;
   }
 `;

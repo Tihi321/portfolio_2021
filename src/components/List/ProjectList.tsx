@@ -13,6 +13,7 @@ import { ListItem } from "./ListItem";
 
 const ProjectListStyled = styled.div`
   position: relative;
+  background-color: ${backgroundColor};
 `;
 
 const ListStyled = styled.dl`
@@ -31,7 +32,7 @@ const HeaderStyled = styled.span`
   display: block;
   position: sticky;
   top: 0;
-  padding: 15px 0;
+  padding-bottom: 15px;
   background-color: ${backgroundColor};
 `;
 

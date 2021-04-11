@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
+import { IContainerProps } from "../../definitions";
 import { ETextSizes, TextSize } from "../Common";
 
-interface IProjectListItemProps {
+interface IProjectListItemProps extends IContainerProps {
   text: string;
-  children: React.ReactNode;
 }
 
 const ListItemStyled = styled.span`

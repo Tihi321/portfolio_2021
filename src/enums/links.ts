@@ -6,5 +6,6 @@ export enum ContactAddresses {
 
 export enum InternalLinks {
   HOME = "/",
-  BLOG = "/blog"
+  BLOG = "/blog",
+  WORKS = "/works"
 }
