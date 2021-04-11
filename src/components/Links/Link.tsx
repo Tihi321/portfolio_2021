@@ -2,7 +2,7 @@ import { Link as GatsbyLink } from "gatsby";
 import React from "react";
 import styled, { css } from "styled-components";
 
-import { IStyledProps } from "../../definitions/styled/styled";
+import { IStyledProps } from "../../definitions";
 import { resetLinkStyles } from "../../styles";
 import { linkColor, textColor } from "../../themes";
 import { ETextSizes, ITextSizes, TextSize } from "../Common/TextSize";

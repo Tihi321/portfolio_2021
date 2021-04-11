@@ -1,6 +1,6 @@
 import React from "react";
 
-import { IStyledProps } from "../../definitions/styled/styled";
+import { IStyledProps } from "../../definitions";
 
 export enum EHeadingSizes {
   Large = "large",

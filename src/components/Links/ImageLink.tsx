@@ -2,7 +2,7 @@ import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 
-import { IStyledProps } from "../../definitions/styled/styled";
+import { IStyledProps } from "../../definitions";
 import { resetLinkStyles } from "../../styles";
 
 interface IImageLinkProps extends IStyledProps {

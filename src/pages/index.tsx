@@ -3,7 +3,8 @@ import React from "react";
 import styled from "styled-components";
 
 import { Layout } from "../components/Layout/Layout";
-import { TSiteMetaWithBlog } from "../definitions/query/home";
+import { InternalLink } from "../components/Links/Link";
+import { InternalLinks } from "../enums";
 import { textColor } from "../themes";
 
 const TitleStyled = styled.h1`
@@ -11,6 +12,29 @@ const TitleStyled = styled.h1`
   padding: 15px;
   color: ${textColor};
 `;
+
+type TBlogData = {
+  node: {
+    frontmatter: {
+      date: string;
+      title: string;
+      description: string;
+    };
+    excerpt: string;
+  };
+};
+
+type TSiteMetaWithBlog = {
+  site: {
+    siteMetadata: {
+      description: string;
+      title: string;
+    };
+  };
+  allMdx: {
+    edges: TBlogData[];
+  };
+};
 
 const Home = ({ data }: { data: TSiteMetaWithBlog }) => {
   const siteTitle = data.site.siteMetadata.title;
@@ -20,6 +44,10 @@ const Home = ({ data }: { data: TSiteMetaWithBlog }) => {
   return (
     <Layout title="Home">
       <TitleStyled>{siteTitle}</TitleStyled>
+      <div>
+        Links:
+        <InternalLink to={InternalLinks.WORKS}>Works</InternalLink>
+      </div>
       <p>{siteDescription}</p>
       <p>{posts.map(post => post.node.frontmatter.title)}</p>
     </Layout>

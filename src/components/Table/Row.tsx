@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-import { IStyledProps } from "../../definitions/styled/styled";
+import { IStyledProps } from "../../definitions";
 
 const gridItemsRepeatStyles = items => css`
   grid-template-columns: minmax(100px, 25%) repeat(${items}, minmax(100px, 1fr)) 100px;

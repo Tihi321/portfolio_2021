@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { IStyledProps } from "../../definitions/styled/styled";
+import { IStyledProps } from "../../definitions";
 import { EBreakpoints, ESide } from "../../enums";
 import { tagsResponsiveFontStyles } from "../../styles";
 import {

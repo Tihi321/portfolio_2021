@@ -2,6 +2,7 @@ import React from "react";
 import { createGlobalStyle } from "styled-components";
 import { Normalize } from "styled-normalize";
 
+import { IContainerProps } from "../../definitions";
 import {
   coreStyles,
   headingStyles,
@@ -18,11 +19,7 @@ const CoreStyle = createGlobalStyle`
   ${tableStyles}
 `;
 
-interface ILayoutProps {
-  children: React.ReactNode;
-}
-
-export const StyleLayout = ({ children }: ILayoutProps) => (
+export const StyleLayout = ({ children }: IContainerProps) => (
   <>
     <Normalize />
     <CoreStyle />

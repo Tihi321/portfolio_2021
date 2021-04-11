@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { IStyledProps } from "../../definitions/styled/styled";
+import { IStyledProps } from "../../definitions";
 import { resetButtonStyles } from "../../styles";
 import { ETagType, TagText } from "../Common/TagText";
 import { ETagContainerType, TagContainer } from "../Containers/TagContainer";
