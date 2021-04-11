@@ -1,0 +1,24 @@
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1700 1073">
+  <g clip-path="url(#clip0)">
+    <path fill="#A8DFFA" d="M0 0h1700v1073H0z"/>
+    <path d="M988.518 563.86v60.653c0 85.047-158.886 90.322-158.886 0V298.829" stroke="#000" stroke-width="32.964"/>
+    <path d="M1005 485.405V600.12H896.548L1005 485.405z" fill="#000"/>
+    <circle r="46.479" transform="matrix(-1 0 0 1 829.962 241.801)" stroke="#000" stroke-width="32.964"/>
+    <path d="M668.69 567.873v61.419c0 86.119 160.889 91.459 160.889 0v-329.79" stroke="#000" stroke-width="33.38"/>
+    <path d="M652 488.43v116.161h109.819L652 488.43z" fill="#000"/>
+    <circle cx="829.245" cy="241.755" r="47.065" stroke="#000" stroke-width="33.38"/>
+    <circle cx="81" cy="993" r="228" fill="#0073AA"/>
+    <circle cx="291" cy="993" r="228" fill="#0073AA"/>
+    <circle cx="519" cy="993" r="228" fill="#0073AA"/>
+    <circle cx="747" cy="993" r="228" fill="#0073AA"/>
+    <circle cx="975" cy="993" r="228" fill="#0073AA"/>
+    <circle cx="1203" cy="993" r="228" fill="#0073AA"/>
+    <circle cx="1431" cy="993" r="228" fill="#0073AA"/>
+    <circle cx="1659" cy="993" r="228" fill="#0073AA"/>
+  </g>
+  <defs>
+    <clipPath id="clip0">
+      <path fill="#fff" d="M0 0h1700v1073H0z"/>
+    </clipPath>
+  </defs>
+</svg>
