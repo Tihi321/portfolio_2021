@@ -1,0 +1,35 @@
+---
+title: How to use useMemo React hook
+date: 2019-10-20
+excerpt: How to use useMemo hook and how it can help you with React optimization. How to prevent unnecessary rerendering.
+tags: ["React", "Javascript"]
+featuredImage: images/posts/memo.svg
+publish: true
+---
+
+
+React is built on properties, basically, you can pass to any child component any value. Which means you can pass also another component. And that makes it even more powerful.
+
+But it can also cause some issues. Let’s say you have an input field that you are passing to the child component. In child components, you are mapping through some data and attaching the input field to that data.
+
+
+```Javascript
+items.map((item, index) => (
+  <div className="repeater__options-item" key={item.id}>
+    <CustomInput
+      item={item}
+      index={index}
+      onItemChange={handleItemOnChange}
+    />
+... ))}
+```
+
+Now the issue here is, every time the user interacts with Input, this map is re-rendered, the component is re-rendered and the user loses focus of the input, To solve this we need to use useMemo hook.
+
+```Javascript
+const MemoCustomInput = useMemo(() => CustomInput, []);
+```
+
+It works similarly to useCallback hook. In this example, useMemo takes a function that returns our CustomInput component and that function is called only on first render, ComponentDidMount lifecycle method. So every time the map is re-rendered it takes old component. Use memo is used for optimizations, it is very useful even though it is not as used as useState and useEffect hooks.
+
+Until next time, happy coding.

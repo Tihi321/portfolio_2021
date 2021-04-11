@@ -1,0 +1,72 @@
+---
+title: Custom React Hooks
+date: 2019-09-15
+excerpt: Learn what is the idea behind React Hooks. And how to apply that knowledge to create your own custom hook.
+tags: ["React", "Javascript"]
+featuredImage: images/posts/hooks.svg
+publish: true
+---
+
+
+All right in this quick tip, I will try to explain the idea of hooks. You probably already know about React hooks such as useState or useEffect.
+
+
+```Javascript
+const [showOptions, setShowOptions] = useState(false);
+```
+
+They are pretty simple, useState returns array, the first item is the current state and another one is a function to set a new state. We can destructure that array and name items as we wish. Of course, there is a bit more we can do with useState, but this example perfectly demonstrates the idea of hooks. With hooks, we are removing logic and state outside of the components. Here we have state and callback to use and all logic is somewhere else.
+
+## Our hooks
+
+So let’s say we have a custom form, and we need to create custom validation on that form. Hooks can export the whole logic of the fields somewhere else and use it in the form.
+
+
+```Javascript
+const firstName = useInput({ required: true });
+```
+
+
+In this example, a first name is an object and we can destructure it just like with an array in the previous example. Now we can use firstName on custom input of the form and form components don’t have to know anything about it. Though let’s look behind the scene of the useInput hook.
+
+```Javascript
+export function useInput(props) {
+
+  const [value, setValue] = useState();
+
+  const required = (props && props.required);
+
+  let valid = STATUS_VALID;
+
+  if (required) {
+    valid = someValidation();
+  }
+
+  return {
+    valid,
+    required,
+    value,
+    type: 'input',
+    onInputChange: setValue,
+  };
+}
+```
+
+Here we can see state and validation and some logic, it is not part of the form and we can reuse it on form we wish. Although the idea is simple it is pretty powerful. We can even expand with a different hook.
+
+```Javascript
+export function useCheckbox(props) {
+  const newProps = (props) ? { ...props, type: 'checkbox' } : { type: 'checkbox' };
+  return useInput(newProps);
+}
+```
+
+As a side note we returned an object instead of an array, so destructuring is a bit different if you want to rename the field, here is how.
+
+```Javascript
+const { valid: newValid, required ... } = useInput();
+```
+
+We just renamed valid to newValid.
+
+Until next time, happy coding.
