@@ -8,6 +8,7 @@ export const resetFontStyles = css`
 export const resetButtonStyles = css`
   background: none;
   border: none;
+  padding: 0;
 `;
 
 export const resetLinkStyles = css`

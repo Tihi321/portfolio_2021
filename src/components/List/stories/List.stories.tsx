@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import { PROJECTS } from "../../../projects";
 import { ProjectList as ProjectListComponent } from "../ProjectList";
 import { ProjectsList as ProjectsListComponent } from "../ProjectsList";
+import { TagButtonsFeaturedList as TagButtonsFeaturedListComponent } from "../TagButtonsFeaturedList";
 import { TagButtonsList as TagButtonsListComponent } from "../TagButtonsList";
 
 export const ProjectList = () => {
@@ -33,6 +34,21 @@ export const TagButtonsList = () => {
   return (
     <TagButtonsListComponent
       title="Tags"
+      tags={tags}
+      selected={selectedTag}
+      onTagSelect={tag => setSelectedTag(tag)}
+      onClearTagsSelect={() => setSelectedTag("")}
+    />
+  );
+};
+
+export const TagButtonsFeaturedList = () => {
+  const tags = ["typescript", "node", "javascript"];
+  const [selectedTag, setSelectedTag] = useState("");
+
+  return (
+    <TagButtonsFeaturedListComponent
+      title="Tech"
       tags={tags}
       selected={selectedTag}
       onTagSelect={tag => setSelectedTag(tag)}
