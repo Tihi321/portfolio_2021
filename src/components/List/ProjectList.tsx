@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+import { IStyledProps } from "../../definitions";
 import { EBreakpoints, ESide } from "../../enums";
 import { EProjectFields, TProject } from "../../projects";
 import { smallFontThemeResponsiveFontStyles } from "../../styles";
@@ -35,19 +36,21 @@ const HeaderStyled = styled.span`
   background-color: ${backgroundColor};
 `;
 
-interface IProjectListProps {
+interface IProjectListProps extends IStyledProps {
   onClose: () => void;
   project: TProject;
 }
 
-export const ProjectList = ({ onClose, project }: IProjectListProps) => (
-  <ProjectListStyled>
+export const ProjectList = ({
+  onClose,
+  project,
+  className
+}: IProjectListProps) => (
+  <ProjectListStyled className={className}>
     <HeaderStyled>
-      <FeaturedButton
-        type={EFeaturedButtonType.Wide}
-        onClick={onClose}
-        text="Close"
-      />
+      <FeaturedButton type={EFeaturedButtonType.Wide} onClick={onClose}>
+        Close
+      </FeaturedButton>
     </HeaderStyled>
     <ListStyled>
       {Object.keys(EProjectFields).map((key, cellIndex) => {
