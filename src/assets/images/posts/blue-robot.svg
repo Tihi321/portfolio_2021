@@ -1,0 +1,38 @@
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1700 1073">
+  <g clip-path="url(#clip0)">
+    <path fill="#0073AA" d="M0 0h1700v1073H0z"/>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M1192.73 487.036V869.84l-16.91 16.56H913.361l-16.463-16.122V749.844h.001V486.848c0-79.997 66.224-144.848 147.911-144.848 81.7 0 147.92 64.851 147.92 144.848v.188z" fill="#C4C4C4"/>
+    <rect x="1203.23" y="510.921" width="71.77" height="111.156" rx="11" fill="#C4C4C4"/>
+    <rect x="1216.36" y="625.578" width="44.637" height="222.311" rx="11" fill="#C4C4C4"/>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M1214.43 850.515l-17.17 29.735c-7.7 13.333 1.93 30 17.32 30h48.21c15.39 0 25.02-16.667 17.32-30l-17.17-29.735h-48.51z" fill="#C4C4C4"/>
+    <rect x="815.502" y="510.921" width="71.77" height="111.156" rx="11" fill="#C4C4C4"/>
+    <rect x="828.631" y="625.578" width="44.637" height="222.311" rx="11" fill="#C4C4C4"/>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M826.699 850.515l-17.167 29.735c-7.698 13.333 1.924 30 17.32 30h48.205c15.396 0 25.019-16.667 17.321-30l-17.168-29.735h-48.511z" fill="#C4C4C4"/>
+    <path fill="#0073AA" d="M876.77 490.791h339.593v11.378H876.77zM876.77 463.658h339.593v9.628H876.77z"/>
+    <circle cx="1021.18" cy="409.394" r="27.884" stroke="#0073AA" stroke-width="9"/>
+    <circle cx="1021.18" cy="409.394" r="18.631" stroke="#0073AA" stroke-width="3"/>
+    <circle cx="1100.83" cy="437.401" r="15.754" fill="#0073AA"/>
+    <path stroke="#0073AA" stroke-width="9" d="M919.153 466.855l34.134-66.518"/>
+    <rect x="947.664" y="539.804" width="194.303" height="47.263" rx="10" fill="#0073AA"/>
+    <rect x="947.664" y="599.321" width="194.303" height="47.263" rx="10" fill="#0073AA"/>
+    <path fill="#0073AA" d="M1225.99 473.286h26.257v108.53h-26.257zM837.383 473.286h26.257v108.53h-26.257z"/>
+    <path stroke="#0073AA" stroke-width="10" d="M923.251 767.619l91.899 1.751M923.251 786.875l91.899 1.75M923.251 807.005l91.899 1.751M923.251 827.136l91.899 1.75M923.251 844.64l91.899 1.751"/>
+    <circle cx="1115.71" cy="815.505" r="30.633" fill="#0073AA"/>
+    <circle cx="897" cy="422" r="274" fill="#C4C4C4" fill-opacity=".1"/>
+    <mask id="a" maskUnits="userSpaceOnUse" x="6" y="-34" width="1761" height="1148">
+      <rect x="6" y="-34" width="1761" height="1147.54" rx="68" fill="#A8DFFA" fill-opacity=".1"/>
+    </mask>
+    <g mask="url(#a)">
+      <path fill="url(#pattern0)" d="M-2743.79-197.287h5744.51v1476.38h-5744.51z"/>
+    </g>
+    <rect x="6" y="-34" width="1761" height="1147.54" rx="68" fill="#A8DFFA" fill-opacity=".2"/>
+  </g>
+  <defs>
+    <clipPath id="clip0">
+      <path fill="#fff" d="M0 0h1700v1073H0z"/>
+    </clipPath>
+    <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+      <use xlink:href="#image0" transform="scale(.00055 .00215)"/>
+    </pattern>
+  </defs>
+</svg>
