@@ -3,7 +3,7 @@ import { boolean, select, text } from "@storybook/addon-knobs";
 import { Meta } from "@storybook/react";
 import React from "react";
 
-import netwokNodesImage from "../../../assets/images/posts/network-nodes.svg";
+import netwokNodesImage from "../../../../content/images/network-nodes.svg";
 import { EHeadingSizes, THeadingSizes } from "../../Common/Heading";
 import { ETextSizes, TTextSizes } from "../../Common/TextSize";
 import {
