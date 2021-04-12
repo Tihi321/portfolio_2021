@@ -171,7 +171,7 @@ export const CodeBlock = () => {
     ELanguage.JAVASCRIPT
   ];
 
-  const themeTypes = Object.keys(EThemes).map(key => EThemes[key]);
+  const themeTypes = Object.values(EThemes);
 
   const languagetype = select(
     "Language",

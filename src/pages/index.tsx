@@ -18,7 +18,7 @@ type TBlogData = {
     frontmatter: {
       date: string;
       title: string;
-      description: string;
+      excerpt: string;
     };
     excerpt: string;
   };
@@ -68,7 +68,7 @@ export const query = graphql`
           frontmatter {
             date(formatString: "Do MMMM YYYY")
             title
-            description
+            excerpt
           }
           excerpt
         }

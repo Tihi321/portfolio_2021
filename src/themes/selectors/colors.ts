@@ -1,33 +1,30 @@
-import { createThemeSelector } from "../utils";
+import { createSelector } from "reselect";
 
-const themeColors = props => props.theme.colors;
+const themeColors = state => state.theme.colors;
 
-export const focusColor = createThemeSelector(
-  themeColors,
-  colors => colors.focus
-);
+export const focusColor = createSelector(themeColors, colors => colors.focus);
 
-export const primaryColor = createThemeSelector(
+export const primaryColor = createSelector(
   themeColors,
   colors => colors.primary
 );
 
-export const secondaryColor = createThemeSelector(
+export const secondaryColor = createSelector(
   themeColors,
   colors => colors.secondary
 );
 
-export const tertiaryColor = createThemeSelector(
+export const tertiaryColor = createSelector(
   themeColors,
   colors => colors.tertiary
 );
 
-export const tertiarySemiTransparenColor = createThemeSelector(
+export const tertiarySemiTransparenColor = createSelector(
   themeColors,
   colors => colors.tertiarySemiTransparent
 );
 
-export const textColor = createThemeSelector(
+export const textColor = createSelector(
   themeColors,
   colors => colors.fontColor
 );
