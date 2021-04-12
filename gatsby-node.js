@@ -2,12 +2,22 @@ const { createFilePath } = require("gatsby-source-filesystem");
 const { resolve } = require("path");
 
 const onCreateNode = ({ node, getNode, actions }) => {
-  if (node.internal.type === "MarkdownRemark") {
+  if (node.internal.type === "Mdx") {
     const { createNodeField } = actions;
+    const path = createFilePath({ node, getNode }).replace(/\[(.*?)\]/g, "");
+
+    const slugArray = path.slice(1, -1).split("/");
+
+    createNodeField({
+      node,
+      name: "path",
+      value: path
+    });
+
     createNodeField({
       node,
       name: "slug",
-      value: createFilePath({ node, getNode })
+      value: slugArray[slugArray.length - 1]
     });
   }
 };
@@ -30,7 +40,10 @@ const createPages = async ({ graphql, actions }) => {
             frontmatter {
               title
             }
-            slug
+            fields {
+              path
+              slug
+            }
           }
         }
       }
@@ -39,10 +52,10 @@ const createPages = async ({ graphql, actions }) => {
 
   result.data.allMdx.edges.forEach(({ node }) => {
     createPage({
-      path: node.slug,
+      path: node.fields.path,
       component: resolve("./src/templates/Post.tsx"),
       context: {
-        slug: node.slug,
+        slug: node.fields.slug,
         title: node.frontmatter.title
       }
     });
