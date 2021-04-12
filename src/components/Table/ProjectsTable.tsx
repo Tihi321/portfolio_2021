@@ -43,10 +43,10 @@ export const ProjectsTable = ({
   <TableStyled>
     <TableHeadStyled>
       <HeaderRow>
-        {Object.keys(EProjectFields).map(key => (
+        {Object.values(EProjectFields).map(value => (
           <HeaderCell
-            key={key}
-            text={EProjectFields[key]}
+            key={value}
+            text={value}
             size={
               type === EProjectsTableType.Regular
                 ? ETextSizes.Medium
@@ -63,9 +63,9 @@ export const ProjectsTable = ({
             project[EProjectFields.Name]
           }-${rowIndex}}`}
         >
-          {Object.keys(EProjectFields).map((key, cellIndex) => {
-            if (project[EProjectFields[key]] !== undefined) {
-              switch (EProjectFields[key]) {
+          {Object.values(EProjectFields).map((value, cellIndex) => {
+            if (project[value] !== undefined) {
+              switch (value) {
                 case EProjectFields.Tags:
                   return (
                     <RowCell

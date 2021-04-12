@@ -1,1 +1,1 @@
-export const themeFonts = props => props.theme.fonts;
+export const themeFonts = state => state.theme.fonts;

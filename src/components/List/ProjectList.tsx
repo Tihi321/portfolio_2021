@@ -53,9 +53,9 @@ export const ProjectList = ({
       </FeaturedButton>
     </HeaderStyled>
     <ListStyled>
-      {Object.keys(EProjectFields).map((key, cellIndex) => {
-        if (project[EProjectFields[key]] !== undefined) {
-          switch (EProjectFields[key]) {
+      {Object.values(EProjectFields).map((value, cellIndex) => {
+        if (project[value] !== undefined) {
+          switch (value) {
             case EProjectFields.Tags:
               return (
                 <ListItem
