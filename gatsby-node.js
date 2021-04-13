@@ -7,6 +7,11 @@ const {
 const { getSlugFromPath } = require("./src/utils/slug.ts");
 
 const { createTagURI } = require("./src/utils/tags.ts");
+const {
+  createPagedPageCallback,
+  createPaged
+} = require("./src/utils/pagination.ts");
+const { POSTS_PER_PAGE } = require("./src/enums/pagination.ts");
 
 const createSchemaCustomization = ({ actions, schema }) => {
   const { createTypes } = actions;
@@ -110,8 +115,15 @@ const createPages = async ({ graphql, actions }) => {
     path: createTagURI(tag)
   }));
 
+  const paged = createPaged(allPosts.length, POSTS_PER_PAGE);
+
   allTags.forEach(({ tag, path }) => {
-    createPage({
+    const tagPosts = allPosts.filter(({ tags }) => tags.includes(tag));
+
+    createPagedPageCallback({
+      callback: createPage,
+      postsPerPage: POSTS_PER_PAGE,
+      numOfPosts: tagPosts.length,
       path,
       component: resolve("./src/templates/Category.tsx"),
       context: {
@@ -119,16 +131,22 @@ const createPages = async ({ graphql, actions }) => {
           tag,
           path
         },
-        tags: allTags
+        tags: allTags,
+        paged
       }
     });
   });
 
-  createPage({
+  createPagedPageCallback({
+    callback: createPage,
+    postsPerPage: POSTS_PER_PAGE,
+    numOfPosts: allPosts.length,
+    paged,
     path: "posts",
     component: resolve("./src/templates/Posts.tsx"),
     context: {
-      tags: allTags
+      tags: allTags,
+      paged
     }
   });
 };
