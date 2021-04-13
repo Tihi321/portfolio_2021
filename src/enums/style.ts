@@ -22,6 +22,4 @@ export enum ESide {
   MIDDLE = "middle"
 }
 
-export const ContainerWidth = 860;
-
 export const CoreStylesClass = "core-styles-class";

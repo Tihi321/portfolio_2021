@@ -1,9 +1,9 @@
 ---
 title: Custom WordPress Login Url
 date: 2019-08-20
+tags: ["wordpress", "php"]
+thumbnail: assets/custom-login.svg
 excerpt: In this article, you are going to learn how to quickly change default WordPress login url.
-tags: ["WordPress", "PHP"]
-featuredImage: assets/custom-login.svg
 publish: true
 ---
 
@@ -45,7 +45,7 @@ public function custom_logout_url( string $logout_url, string $redirect ) : stri
 
 Now we can change the name of the wp-login.php file from WordPress root to any custom name, in this example we are going to name it custom-login.php. The last thing is to change all references to the wp-login.php inside of the file to your custom-login.php.
 
-![File Explorer](assets/files.jpg)
+![File Explorer](assets/files.png)
 
 Wp-login.php is a form when the user enters login information, that information is submitted to the same file. So if we would not rename reference to wp-login.php, all user information would be submitted to the file we just renamed and it does not exist anymore.
 
