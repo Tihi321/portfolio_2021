@@ -1,25 +1,25 @@
-import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 
-const MainStyled = styled.main`
-  color: "#232129";
-  padding: "96px";
-  font-family: "-apple-system, Roboto, sans-serif, serif";
-`;
+import { CenterContainer } from "../components/Containers";
+import { Layout } from "../components/Layout";
+import { InternalLink } from "../components/Links";
+import { InternalLinks } from "../enums";
+import { textColor } from "../themes";
 
-const HeadingStyped = styled.h1`
-  margin-top: 0;
-  margin-bottom: 64px;
-  max-width: 320p;
+const TitleStyled = styled.h1`
+  margin: 20px 0;
+  padding: 15px;
+  color: ${textColor};
 `;
 
 const NotFoundPage = () => (
-  <MainStyled>
-    <title>Not found</title>
-    <HeadingStyped>Page not found</HeadingStyped>
-    <Link to="/">Go home</Link>.
-  </MainStyled>
+  <Layout title="Page Not Found">
+    <CenterContainer>
+      <TitleStyled>Page not found</TitleStyled>
+      <InternalLink to={InternalLinks.HOME}>Go home</InternalLink>
+    </CenterContainer>
+  </Layout>
 );
 
 export default NotFoundPage;

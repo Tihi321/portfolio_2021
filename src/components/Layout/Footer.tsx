@@ -3,7 +3,7 @@ import React from "react";
 import styled from "styled-components";
 
 import {
-  ContactAddresses,
+  CONTACT,
   EBreakpoints,
   ESide,
   EZIndex,
@@ -65,7 +65,7 @@ const ThemeButtonTextStyled = styled(TextSize)`
   text-transform: capitalize;
 `;
 
-interface ISiteQuery {
+interface IPageQuery {
   site: {
     siteMetadata: {
       author: {
@@ -76,7 +76,7 @@ interface ISiteQuery {
 }
 
 export const Footer = () => {
-  const { site }: ISiteQuery = useStaticQuery(
+  const { site }: IPageQuery = useStaticQuery(
     graphql`
       query {
         site {
@@ -98,11 +98,9 @@ export const Footer = () => {
   return (
     <FooterStyled>
       <FooterLinksGroupStyled>
-        <FooterLinkStyled to={ContactAddresses.MAIL}>Mail</FooterLinkStyled>
-        <FooterLinkStyled to={ContactAddresses.GITHUB}>Github</FooterLinkStyled>
-        <FooterLinkStyled to={ContactAddresses.LINKEDIN}>
-          Linkedin
-        </FooterLinkStyled>
+        <FooterLinkStyled to={CONTACT.MAIL}>Mail</FooterLinkStyled>
+        <FooterLinkStyled to={CONTACT.GITHUB}>Github</FooterLinkStyled>
+        <FooterLinkStyled to={CONTACT.LINKEDIN}>Linkedin</FooterLinkStyled>
         {isMobile && <InternalLink to={InternalLinks.BLOG}>Blog</InternalLink>}
       </FooterLinksGroupStyled>
       <FooterAuthorStyled>

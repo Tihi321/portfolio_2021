@@ -1,23 +1,30 @@
+const {
+  POSTS_PER_PAGE,
+  CONTACT,
+  META_DATA,
+  AUTHOR_DATA
+} = require("./constants");
+
 const Metadata = {
-  title: "Portfolio 2021",
-  description: "Programming portfolio website",
-  siteUrl: "https://localhost://8000"
+  title: META_DATA.TITLE,
+  description: META_DATA.DESCRIPTION,
+  siteUrl: META_DATA.SITE_URL
 };
 
 const Author = {
-  name: "Tihomir Selak",
-  summary: "React, Typescript and Node Developer"
+  name: AUTHOR_DATA.NAME,
+  summary: AUTHOR_DATA.SUMMARY
 };
 
 const Social = {
-  email: "anhdle14@hotmail.com",
-  github: "anhdle14",
-  linkedin: "anhdle14"
+  email: CONTACT.MAIL,
+  github: CONTACT.GITHUB,
+  linkedin: CONTACT.LINKEDIN
 };
 
 const Setting = {
   pathPrefix: "/",
-  postsPerPage: 4,
+  postsPerPage: POSTS_PER_PAGE,
   isKatex: true
 };
 

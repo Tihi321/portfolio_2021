@@ -6,7 +6,7 @@ interface ISEOProps {
   title: string;
 }
 
-interface ISiteQuery {
+interface IPageQuery {
   site: {
     siteMetadata: {
       title: string;
@@ -19,7 +19,7 @@ interface ISiteQuery {
 }
 
 export const SEO = ({ title }: ISEOProps) => {
-  const { site }: ISiteQuery = useStaticQuery(
+  const { site }: IPageQuery = useStaticQuery(
     graphql`
       query {
         site {
