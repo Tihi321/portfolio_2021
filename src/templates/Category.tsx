@@ -1,18 +1,19 @@
 import { graphql } from "gatsby";
 import React from "react";
 
-import { IPostsPageQuery } from "../definitions";
+import { IPostsPageQuery, IPostsPagination } from "../definitions";
+
+interface IPageContext extends IPostsPagination {
+  tag: string;
+  tags: {
+    tag: string;
+    path: string;
+  }[];
+}
 
 interface IPageProps {
   data: IPostsPageQuery;
-  pageContext: {
-    tag: string;
-    tags: {
-      name: string;
-      path: string;
-    }[];
-    paged: number;
-  };
+  pageContext: IPageContext;
 }
 
 const Category = ({ data, pageContext }: IPageProps) => {
@@ -23,8 +24,13 @@ const Category = ({ data, pageContext }: IPageProps) => {
 };
 
 export const query = graphql`
-  query CategoryQuery($tag: [String]) {
-    allMdx(filter: { frontmatter: { tags: { in: $tag } } }) {
+  query CategoryQuery($tag: [String], $limit: Int, $skip: Int) {
+    posts: allMdx(
+      filter: { frontmatter: { tags: { in: $tag } } }
+      limit: $limit
+      skip: $skip
+      sort: { order: DESC, fields: frontmatter___date }
+    ) {
       edges {
         node {
           frontmatter {

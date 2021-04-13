@@ -1,6 +1,6 @@
 export interface IPostsPageQuery {
   data: {
-    allMdx: {
+    posts: {
       edges: {
         node: {
           frontmatter: {
@@ -20,7 +20,7 @@ export interface IPostsPageQuery {
 }
 export interface IPostPageQuery {
   data: {
-    allMdx: {
+    post: {
       edges: {
         node: {
           frontmatter: {

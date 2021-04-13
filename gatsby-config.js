@@ -49,6 +49,8 @@ const plugins = [
   {
     resolve: "gatsby-plugin-manifest",
     options: {
+      name: "tihomir-selak-portfolio-site",
+      start_url: "/",
       icon: "content/images/icon.png"
     }
   },

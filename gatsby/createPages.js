@@ -1,10 +1,6 @@
 const { resolve, join } = require("path");
 const { POSTS_PER_PAGE } = require("./constants");
-const {
-  createPagedPageCallback,
-  createTagURI,
-  createPaged
-} = require("./utils");
+const { createPagedPageCallback, createTagURI } = require("./utils");
 
 const templatesPath = resolve(__dirname, "../src/templates");
 
@@ -59,7 +55,7 @@ const createPages = async ({ graphql, actions }) => {
         id,
         tags: tags.map(tag => ({
           tag,
-          path: createTagURI(tag)
+          src: createTagURI(tag)
         }))
       }
     });
@@ -69,8 +65,6 @@ const createPages = async ({ graphql, actions }) => {
     tag,
     path: createTagURI(tag)
   }));
-
-  const paged = createPaged(allPosts.length, POSTS_PER_PAGE);
 
   allTags.forEach(({ tag, path }) => {
     const tagPosts = allPosts.filter(({ tags }) => tags.includes(tag));
@@ -83,8 +77,7 @@ const createPages = async ({ graphql, actions }) => {
       component: join(templatesPath, "Category.tsx"),
       context: {
         tag,
-        tags: allTags,
-        paged
+        tags: allTags
       }
     });
   });
@@ -93,12 +86,10 @@ const createPages = async ({ graphql, actions }) => {
     callback: createPage,
     postsPerPage: POSTS_PER_PAGE,
     numOfPosts: allPosts.length,
-    paged,
     path: "posts",
     component: join(templatesPath, "Posts.tsx"),
     context: {
-      tags: allTags,
-      paged
+      tags: allTags
     }
   });
 };

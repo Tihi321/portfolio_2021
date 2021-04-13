@@ -16,20 +16,19 @@ const createPagedPageCallback = ({
   context
 }) => {
   const paged = createPaged(numOfPosts, postsPerPage);
-  range(paged).forEach(page => {
-    if (page > 0) {
-      callback({
-        path: createPaginatedURI(path, page),
-        component,
-        context
-      });
-    } else {
-      callback({
-        path,
-        component,
-        context
-      });
-    }
+  range(paged).forEach(pageNumber => {
+    callback({
+      path: pageNumber > 0 ? createPaginatedURI(path, pageNumber) : path,
+      component,
+      context: {
+        ...context,
+        src: path,
+        limit: postsPerPage,
+        skip: pageNumber * postsPerPage,
+        current: pageNumber + 1,
+        paged
+      }
+    });
   });
 };
 
