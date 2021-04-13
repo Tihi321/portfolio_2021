@@ -1,12 +1,36 @@
 const { createFilePath } = require("gatsby-source-filesystem");
 const { resolve } = require("path");
+const {
+  removePostNameSlugSuffix,
+  trimPathSlashes
+} = require("./src/utils/path.ts");
+const { getSlugFromPath } = require("./src/utils/slug.ts");
+
+const { createTagURI } = require("./src/utils/tags.ts");
+
+const createSchemaCustomization = ({ actions, schema }) => {
+  const { createTypes } = actions;
+  const postTypeDefs = [
+    schema.buildObjectType({
+      name: "Mdx",
+      fields: {
+        title: "String!",
+        date: "Date",
+        tags: "[String!]!",
+        thumbnail: "String!",
+        excerpt: "String!",
+        publish: "Boolean"
+      },
+      interfaces: ["Node"]
+    })
+  ];
+  createTypes(postTypeDefs);
+};
 
 const onCreateNode = ({ node, getNode, actions }) => {
   if (node.internal.type === "Mdx") {
     const { createNodeField } = actions;
-    const path = createFilePath({ node, getNode }).replace(/\[(.*?)\]/g, "");
-
-    const slugArray = path.slice(1, -1).split("/");
+    const path = removePostNameSlugSuffix(createFilePath({ node, getNode }));
 
     createNodeField({
       node,
@@ -17,7 +41,7 @@ const onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       node,
       name: "slug",
-      value: slugArray[slugArray.length - 1]
+      value: getSlugFromPath(trimPathSlashes(path))
     });
   }
 };
@@ -35,34 +59,82 @@ const createPages = async ({ graphql, actions }) => {
   const result = await graphql(`
     query {
       allMdx {
-        edges {
-          node {
-            frontmatter {
-              title
-            }
-            fields {
-              path
-              slug
-            }
+        nodes {
+          fields {
+            path
+            slug
+          }
+          frontmatter {
+            tags
           }
         }
       }
     }
   `);
 
-  result.data.allMdx.edges.forEach(({ node }) => {
+  let postTags = [];
+  let allPosts = [];
+
+  result.data.allMdx.nodes.forEach(
+    ({ fields: { path, slug, title }, frontmatter: { tags } }) => {
+      postTags = [...postTags, ...tags];
+      allPosts = [
+        ...allPosts,
+        {
+          path,
+          slug,
+          title,
+          tags
+        }
+      ];
+    }
+  );
+
+  allPosts.forEach(({ path, slug, title, tags }) => {
     createPage({
-      path: node.fields.path,
+      path,
       component: resolve("./src/templates/Post.tsx"),
       context: {
-        slug: node.fields.slug,
-        title: node.frontmatter.title
+        slug,
+        title,
+        tags: tags.map(tag => ({
+          tag,
+          path: createTagURI(tag)
+        }))
       }
     });
+  });
+
+  const allTags = Array.from(new Set(postTags)).map(tag => ({
+    tag,
+    path: createTagURI(tag)
+  }));
+
+  allTags.forEach(({ tag, path }) => {
+    createPage({
+      path,
+      component: resolve("./src/templates/Category.tsx"),
+      context: {
+        tag: {
+          tag,
+          path
+        },
+        tags: allTags
+      }
+    });
+  });
+
+  createPage({
+    path: "posts",
+    component: resolve("./src/templates/Posts.tsx"),
+    context: {
+      tags: allTags
+    }
   });
 };
 
 module.exports = {
   onCreateNode,
-  createPages
+  createPages,
+  createSchemaCustomization
 };

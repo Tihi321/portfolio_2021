@@ -1,4 +1,5 @@
 const { Metadata, Setting, Author, Social } = require("./config");
+const { ContainerWidth } = require("./src/enums/container.ts");
 
 const { join } = require("path");
 
@@ -60,7 +61,7 @@ const plugins = [
         {
           resolve: "gatsby-remark-images",
           options: {
-            maxWidth: 860
+            maxWidth: ContainerWidth
           }
         }
       ]
