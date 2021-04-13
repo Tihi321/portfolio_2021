@@ -1,12 +1,11 @@
 const { range } = require("lodash");
+const { PAGED_PREFIX } = require("../constants");
 
-const { PAGED_PREFIX } = require("../enums/pagination.ts");
+const createPaginatedURI = (address, pageNumber) =>
+  `${address}?${PAGED_PREFIX}=${pageNumber}`;
 
 const createPaged = (numOfPosts, postsPerPage) =>
   Math.ceil(numOfPosts / postsPerPage);
-
-const createPaginatedURI = (address, paged) =>
-  `${address}?${PAGED_PREFIX}=${paged}`;
 
 const createPagedPageCallback = ({
   callback,
