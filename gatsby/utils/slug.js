@@ -1,3 +1,5 @@
+const removePostNameSlugSuffix = path => path.replace(/\[(.*?)\]/g, "");
+
 const getSlugFromPath = path => {
   const pathArray = path.split("/");
 
@@ -5,5 +7,6 @@ const getSlugFromPath = path => {
 };
 
 module.exports = {
-  getSlugFromPath
+  getSlugFromPath,
+  removePostNameSlugSuffix
 };

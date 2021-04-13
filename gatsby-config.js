@@ -1,4 +1,4 @@
-const { Metadata, Setting, Author, Social } = require("./config");
+const { Metadata, Setting, Author, Social } = require("./gatsby");
 const { ContainerWidth } = require("./src/enums/container.ts");
 
 const { join } = require("path");
