@@ -23,7 +23,7 @@ const Post = ({ data, pageContext }: IPageProps) => {
 
 export const query = graphql`
   query PostQuery($id: String) {
-    allMdx(filter: { id: { eq: $id } }) {
+    post: allMdx(filter: { id: { eq: $id } }) {
       edges {
         node {
           frontmatter {

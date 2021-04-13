@@ -3,13 +3,17 @@ const createSchemaCustomization = ({ actions, schema }) => {
   const postTypeDefs = [
     schema.buildObjectType({
       name: "Mdx",
-      fields: {
+      frontmatter: {
         title: "String!",
-        date: "Date",
+        date: "Date!",
         tags: "[String!]!",
         thumbnail: "String!",
-        excerpt: "String!",
+        excerpt: "String",
         publish: "Boolean"
+      },
+      fields: {
+        path: "String!",
+        slug: "String!"
       },
       interfaces: ["Node"]
     })
