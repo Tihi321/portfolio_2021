@@ -3,7 +3,8 @@ import { select } from "@storybook/addon-knobs";
 import { Meta } from "@storybook/react";
 import React, { useState } from "react";
 
-import { PROJECTS } from "@projects";
+import { PROJECTS } from "~ts/projects";
+
 import { ProjectList as ProjectListComponent } from "../ProjectList";
 import { ProjectsList as ProjectsListComponent } from "../ProjectsList";
 import { TagButtonsFeaturedList as TagButtonsFeaturedListComponent } from "../TagButtonsFeaturedList";
@@ -12,7 +13,7 @@ import { TagButtonsList as TagButtonsListComponent } from "../TagButtonsList";
 export const ProjectList = () => {
   const index = Array.from(
     { length: PROJECTS.length },
-    (initValue, indexValue) => indexValue
+    (_initValue, indexValue) => indexValue
   );
 
   const selected = select("Project", index, index[0], "OPTIONS");

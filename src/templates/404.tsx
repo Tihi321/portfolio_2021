@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-import { CenterContainer, Layout, InternalLink } from "@components";
-import { InternalLinks } from "@enums";
-import { textColor } from "@themes";
+import { CenterContainer } from "~ts/components/Containers";
+import { Layout } from "~ts/components/Layout";
+import { InternalLink } from "~ts/components/Links";
+import { EInternalLinks } from "~ts/enums";
+import { textColor } from "~ts/themes";
 
 const TitleStyled = styled.h1`
   margin: 20px 0;
@@ -15,7 +17,7 @@ const NotFoundPage = () => (
   <Layout title="Page Not Found">
     <CenterContainer>
       <TitleStyled>Page not found</TitleStyled>
-      <InternalLink to={InternalLinks.HOME}>Go home</InternalLink>
+      <InternalLink to={EInternalLinks.HOME}>Go home</InternalLink>
     </CenterContainer>
   </Layout>
 );

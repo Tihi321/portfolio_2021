@@ -3,10 +3,9 @@ import { boolean, select, text } from "@storybook/addon-knobs";
 import { Meta } from "@storybook/react";
 import React from "react";
 
-import {
-  EFeaturedButtonType,
-  FeaturedButton as FeaturedButtonComponent
-} from "../FeaturedButton";
+import { EFeaturedButtonType } from "~ts/enums";
+
+import { FeaturedButton as FeaturedButtonComponent } from "../FeaturedButton";
 import {
   FeaturedTagButton as FeaturedTagButtonComponent,
   TagButton as TagButtonComponent

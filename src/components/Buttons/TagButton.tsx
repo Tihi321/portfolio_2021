@@ -1,9 +1,11 @@
-import { IStyledProps } from "@typings";
 import React from "react";
 import styled from "styled-components";
 
-import { resetButtonStyles } from "@styles";
-import { ETagType, TagText, ETagContainerType, TagContainer } from "@components";
+import { TagText } from "~ts/components/Common";
+import { TagContainer } from "~ts/components/Containers";
+import { ETagContainerType, ETagType } from "~ts/enums";
+import { resetButtonStyles } from "~ts/styles";
+import { IStyledProps } from "~ts/typings";
 
 interface ITagButtonProps extends IStyledProps {
   text: string;

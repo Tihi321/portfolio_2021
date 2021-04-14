@@ -1,11 +1,12 @@
-import { IStyledProps } from "@typings";
 import { Link as GatsbyLink } from "gatsby";
 import React from "react";
 import styled, { css } from "styled-components";
 
-import { resetLinkStyles } from "@styles";
-import { linkColor, textColor } from "@themes";
-import { ETextSizes, ITextSizes, TextSize } from "@components";
+import { TextSize } from "~ts/components/Common";
+import { ETextSizes } from "~ts/enums";
+import { resetLinkStyles } from "~ts/styles";
+import { linkColor, textColor } from "~ts/themes";
+import { IStyledProps, ITextSizes } from "~ts/typings";
 
 interface ILinkProps extends ITextSizes, IStyledProps {
   children: React.ReactNode;

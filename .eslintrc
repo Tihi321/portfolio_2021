@@ -13,23 +13,25 @@
         "paths": ["."],
         "extensions": [".ts",".tsx", ".d.ts"]
       },
-      "alias": [
-        ["@src", "./src"],
-        ["@blocks", "./src/blocks"],
-        ["@components", "./src/components"],
-        ["@typings", "./src/typings"],
-        ["@enums", "./src/enums"],
-        ["@hooks", "./src/hooks"],
-        ["@pages", "./src/pages"],
-        ["@projects", "./src/projects"],
-        ["@store", "./src/store"],
-        ["@styles", "./src/styles"],
-        ["@templates", "./src/templates"],
-        ["@themes", "./src/themes"],
-        ["@utils", "./src/utils"],
-        ["@posts", "./content/posts"],
-        ["@images", "./content/images"]
-      ]
+      "alias": {
+        "map": [
+          ["~ts/blocks", "./src/blocks"],
+          ["~ts/components", "./src/components"],
+          ["~ts/typings", "./src/typings"],
+          ["~ts/enums", "./src/enums"],
+          ["~ts/hooks", "./src/hooks"],
+          ["~ts/pages", "./src/pages"],
+          ["~ts/projects", "./src/projects"],
+          ["~ts/store", "./src/store"],
+          ["~ts/styles", "./src/styles"],
+          ["~ts/templates", "./src/templates"],
+          ["~ts/themes", "./src/themes"],
+          ["~ts/utils", "./src/utils"],
+          ["~ts/posts", "./content/posts"],
+          ["~ts/images", "./content/images"]
+        ],
+        "extensions": [".ts",".tsx", ".d.ts"]
+      }
     }
   },
   "env": {
@@ -55,8 +57,7 @@
     "i18next", 
     "react-hooks", 
     "jsx-a11y",
-    "@typescript-eslint",
-    "eslint-import-resolver-alias"
+    "@typescript-eslint"
   ],
   "rules": {
     "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],

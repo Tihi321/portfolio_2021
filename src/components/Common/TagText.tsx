@@ -1,21 +1,15 @@
-import { IStyledProps } from "@typings";
 import React from "react";
 import styled from "styled-components";
 
-import { EBreakpoints, ESide } from "@enums";
-import { tagsResponsiveFontStyles } from "@styles";
+import { EBreakpoints, ESide, ETagType } from "~ts/enums";
+import { tagsResponsiveFontStyles } from "~ts/styles";
 import {
   tagPrimaryTextColor,
   tagSecondaryTextColor,
   tagTertiaryTextColor
-} from "@themes";
-import { media } from "@utils";
-
-export enum ETagType {
-  Primary = "primary",
-  Secondary = "secondary",
-  Tertiary = "tertiary"
-}
+} from "~ts/themes";
+import { IStyledProps } from "~ts/typings";
+import { media } from "~ts/utils";
 
 interface ITextProps extends IStyledProps {
   text: string;

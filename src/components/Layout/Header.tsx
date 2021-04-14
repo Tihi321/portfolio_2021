@@ -1,13 +1,14 @@
-import Logo from "@images/logo.inline.svg";
 import React from "react";
 import styled from "styled-components";
 
-import { EBreakpoints, InternalLinks } from "@enums";
-import { useMediaQuery } from "@hooks";
-import { getTheme, switchTheme, useSelector, useStore } from "@store";
-import { logoBackgroundColor, logoForegroundColor } from "@themes";
-import { media } from "@utils";
-import { FeaturedButton, ETextSizes, InternalLink } from "@components";
+import { FeaturedButton } from "~ts/components/Buttons";
+import { InternalLink } from "~ts/components/Links";
+import { EBreakpoints, EInternalLinks, ETextSizes } from "~ts/enums";
+import { useMediaQuery } from "~ts/hooks";
+import Logo from "~ts/images/logo.inline.svg";
+import { getTheme, switchTheme, useSelector, useStore } from "~ts/store";
+import { logoBackgroundColor, logoForegroundColor } from "~ts/themes";
+import { media } from "~ts/utils";
 
 const LogoStyled = styled(Logo)`
   width: 126px;
@@ -48,12 +49,12 @@ export const Header = () => {
 
   return (
     <HeaderStyled>
-      <InternalLink to={InternalLinks.HOME}>
+      <InternalLink to={EInternalLinks.HOME}>
         <LogoStyled />
       </InternalLink>
       {isTablet && (
         <HeaderLinksGroupStyled>
-          <BlogLinkStyled size={ETextSizes.Medium} to={InternalLinks.BLOG}>
+          <BlogLinkStyled size={ETextSizes.Medium} to={EInternalLinks.BLOG}>
             Blog
           </BlogLinkStyled>
           <ThemeButtonStyled onClick={() => dispatch(switchTheme())}>

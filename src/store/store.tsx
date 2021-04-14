@@ -1,6 +1,12 @@
 import React, { createContext, useContext, useReducer } from "react";
 
-import { initialState, reducer, TState } from "./reducers";
+import { ETheme } from "~ts/enums";
+
+import { initialState, reducer } from "./reducers";
+
+export type TState = {
+  theme: ETheme;
+};
 
 type TSelector = (state: TState) => any;
 

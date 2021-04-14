@@ -1,16 +1,16 @@
-import { IStyledProps } from "@typings";
 import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 
-import { EBreakpoints, ESide } from "@enums";
+import { Heading } from "~ts/components/Common";
+import { EBreakpoints, EHeadingSizes, ESide } from "~ts/enums";
 import {
   featuredHeadingResponsiveFontStyles,
   resetLinkStyles
-} from "@styles";
-import { linkColor, textColor } from "@themes";
-import { media } from "@utils";
-import { EHeadingSizes, Heading, THeadingSizes } from "@components";
+} from "~ts/styles";
+import { linkColor, textColor } from "~ts/themes";
+import { IStyledProps, THeadingSizes } from "~ts/typings";
+import { media } from "~ts/utils";
 
 interface IHeadingLinkProps extends IStyledProps {
   text: string;

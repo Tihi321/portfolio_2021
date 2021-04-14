@@ -1,8 +1,9 @@
-import { IStyledProps } from "@typings";
 import React from "react";
 import styled from "styled-components";
 
-import { ETextSizes, ITextSizes, TextSize } from "@components";
+import { TextSize } from "~ts/components/Common";
+import { ETextSizes } from "~ts/enums";
+import { IStyledProps, ITextSizes } from "~ts/typings";
 
 interface ITextProps extends ITextSizes, IStyledProps {
   text: string;

@@ -1,5 +1,5 @@
-const ContainerWidth = 860;
+const CONTAINER_WIDTH = 860;
 
 module.exports = {
-  ContainerWidth
+  CONTAINER_WIDTH
 };

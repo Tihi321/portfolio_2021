@@ -1,10 +1,12 @@
-import { IStyledProps } from "@typings";
 import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 
-import { resetFontStyles, resetLinkStyles } from "@styles";
-import { ETagType, TagText, ETagContainerType, TagContainer } from "@components";
+import { TagText } from "~ts/components/Common";
+import { TagContainer } from "~ts/components/Containers";
+import { ETagContainerType, ETagType } from "~ts/enums";
+import { resetFontStyles, resetLinkStyles } from "~ts/styles";
+import { IStyledProps } from "~ts/typings";
 
 interface ILinkProps extends IStyledProps {
   text: string;

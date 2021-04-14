@@ -3,21 +3,22 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@src": ["src"],
-      "@blocks": ["src/blocks"],
-      "@components": ["src/components"],
-      "@typings": ["src/typings"],
-      "@enums": ["src/enums"],
-      "@hooks": ["src/hooks"],
-      "@pages": ["src/pages"],
-      "@projects": ["src/projects"],
-      "@store": ["src/store"],
-      "@styles": ["src/styles"],
-      "@templates": ["src/templates"],
-      "@themes": ["src/themes"],
-      "@utils": ["src/utils"],
-      "@posts": ["content/posts"],
-      "@images": ["content/images"]
+      "~ts/blocks": ["src/blocks"],
+      "~ts/blocks/*": ["src/blocks/*"],
+      "~ts/components": ["src/components"],
+      "~ts/components/*": ["src/components/*"],
+      "~ts/typings": ["src/typings"],
+      "~ts/enums": ["src/enums"],
+      "~ts/hooks": ["src/hooks"],
+      "~ts/pages": ["src/pages"],
+      "~ts/projects": ["src/projects"],
+      "~ts/store": ["src/store"],
+      "~ts/styles": ["src/styles"],
+      "~ts/templates": ["src/templates"],
+      "~ts/themes": ["src/themes"],
+      "~ts/utils": ["src/utils"],
+      "~ts/posts": ["content/posts"],
+      "~ts/images": ["content/images"]
     },
     "typeRoots": ["./src/typings/modules", "node_modules/@types"]
   }

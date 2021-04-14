@@ -1,6 +1,6 @@
 import { useMediaQuery as useResponsive } from "react-responsive";
 
-import { createMediaQueryCommand, TUseMediaProps } from "@utils";
+import { createMediaQueryCommand, TUseMediaProps } from "~ts/utils";
 
 export const useMediaQuery: TUseMediaProps = (breakpoint, side) =>
   useResponsive({

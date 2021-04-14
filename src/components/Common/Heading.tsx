@@ -1,18 +1,6 @@
-import { IStyledProps } from "@typings";
 import React from "react";
 
-export enum EHeadingSizes {
-  Large = "large",
-  Medium = "medium",
-  Regular = "regular",
-  Small = "small"
-}
-
-export type THeadingSizes =
-  | EHeadingSizes.Large
-  | EHeadingSizes.Medium
-  | EHeadingSizes.Regular
-  | EHeadingSizes.Small;
+import { IStyledProps, THeadingSizes } from "~ts/typings";
 
 interface IHeadingProps extends IStyledProps {
   size: THeadingSizes;

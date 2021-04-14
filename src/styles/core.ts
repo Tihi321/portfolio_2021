@@ -1,6 +1,6 @@
 import { css } from "styled-components";
 
-import { CoreStylesClass, EBreakpoints, ESide } from "@enums";
+import { CoreStylesClass, EBreakpoints, ESide } from "~ts/enums";
 import {
   asideBackgroundColor,
   asideColor,
@@ -11,8 +11,9 @@ import {
   markBackgroundColor,
   markColor,
   textColor
-} from "@themes";
-import { media } from "@utils";
+} from "~ts/themes";
+import { media } from "~ts/utils";
+
 import {
   blockquoteResponsiveFontStyles,
   bodyResponsiveFontStyles,

@@ -1,15 +1,10 @@
-import { IContainerProps } from "@typings";
 import React from "react";
 import { createGlobalStyle } from "styled-components";
 import { Normalize } from "styled-normalize";
 
-import {
-  coreStyles,
-  headingStyles,
-  tableStyles,
-  textStyles
-} from "@styles";
-import { LayoutContainer, MaxWidthContainer } from "@components";
+import { LayoutContainer, MaxWidthContainer } from "~ts/components/Containers";
+import { coreStyles, headingStyles, tableStyles, textStyles } from "~ts/styles";
+import { IContainerProps } from "~ts/typings";
 
 const CoreStyle = createGlobalStyle`
   ${coreStyles}

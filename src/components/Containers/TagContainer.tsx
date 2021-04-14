@@ -1,13 +1,9 @@
-import { IStyledProps } from "@typings";
 import React from "react";
 import styled from "styled-components";
 
-import { featuredTagColor } from "@themes";
-
-export enum ETagContainerType {
-  Primary = "primary",
-  Secondary = "secondary"
-}
+import { ETagContainerType } from "~ts/enums";
+import { featuredTagColor } from "~ts/themes";
+import { IStyledProps } from "~ts/typings";
 
 interface IContainerProps extends IStyledProps {
   children: React.ReactNode;

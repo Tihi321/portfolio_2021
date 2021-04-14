@@ -1,17 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 
-import { EProjectFields, TProject } from "@projects";
-import { TagButton, ETextSizes, TextSize, Link } from "@components";
+import { TagButton } from "~ts/components/Buttons";
+import { TextSize } from "~ts/components/Common";
+import { Link } from "~ts/components/Links";
+import { EProjectFields, EProjectsTableType, ETextSizes } from "~ts/enums";
+import { TProject } from "~ts/typings";
+
 import { BodyRow } from "./BodyRow";
 import { HeaderCell } from "./HeaderCell";
 import { HeaderRow } from "./HeaderRow";
 import { EmptyRowCell, RowCell } from "./RowCell";
-
-export enum EProjectsTableType {
-  Regular = "regular",
-  Compact = "compact"
-}
 
 const TableStyled = styled.table`
   padding: 2px 0;

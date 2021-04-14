@@ -2,8 +2,10 @@ import { boolean, select, text } from "@storybook/addon-knobs";
 import { Meta } from "@storybook/react";
 import React from "react";
 
-import netwokNodesImage from "@images/network-nodes.svg";
-import { EHeadingSizes, THeadingSizes, ETextSizes, TTextSizes } from "@components";
+import { EHeadingSizes, ETextSizes } from "~ts/enums";
+import netwokNodesImage from "~ts/images/network-nodes.svg";
+import { THeadingSizes, TTextSizes } from "~ts/typings";
+
 import {
   FeaturedHeadingLink as FeaturedHeadingLinkComponent,
   HeadingLink as HeadingLinkComponent

@@ -1,4 +1,5 @@
-import { Breakpoints, EBreakpoints, ESide } from "../enums";
+import { Breakpoints, EBreakpoints, ESide } from "~ts/enums";
+
 import { media } from "./responsive";
 
 test("It should return correct media string for size in desktop range", () => {

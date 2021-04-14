@@ -1,24 +1,26 @@
 import React, { useMemo, useState } from "react";
 import styled from "styled-components";
 
+import { TextSize } from "~ts/components/Common";
+import { ColumnsContainer } from "~ts/components/Containers";
+import { Layout } from "~ts/components/Layout";
 import {
-  ETextSizes,
-  TextSize,
-  ColumnsContainer,
-  Layout,
   ProjectsList,
   TagButtonsFeaturedList,
-  TagButtonsList,
+  TagButtonsList
+} from "~ts/components/List";
+import { ProjectsTable } from "~ts/components/Table";
+import {
+  EBreakpoints,
+  EProjectFields,
   EProjectsTableType,
-  ProjectsTable,
-} from "@components";
-
-import { EBreakpoints } from "@enums";
-import { useMediaQuery } from "@hooks";
-import { EProjectFields, PROJECTS } from "@projects";
-import { resetButtonStyles } from "@styles";
-import { textColor } from "@themes";
-import { media } from "@utils";
+  ETextSizes
+} from "~ts/enums";
+import { useMediaQuery } from "~ts/hooks";
+import { PROJECTS } from "~ts/projects";
+import { resetButtonStyles } from "~ts/styles";
+import { textColor } from "~ts/themes";
+import { media } from "~ts/utils";
 
 const TagsContainerTabletStyled = styled.div`
   display: flex;
@@ -111,7 +113,7 @@ const Works = () => {
           PROJECTS.reduce(
             (allTechs, project) => [
               ...allTechs,
-              ...project[EProjectFields.Techonolgies],
+              ...project[EProjectFields.Techonolgies]
             ],
             [] as string[]
           )
@@ -125,7 +127,7 @@ const Works = () => {
   const onTagSelect = (tag: string) => {
     setSelectedTagTech(tag);
     setSelectedProjects(
-      PROJECTS.filter((project) => project[EProjectFields.Tags].includes(tag))
+      PROJECTS.filter(project => project[EProjectFields.Tags].includes(tag))
     );
   };
 
@@ -133,7 +135,7 @@ const Works = () => {
     setSelectedTagTech(tech);
 
     setSelectedProjects(
-      PROJECTS.filter((project) =>
+      PROJECTS.filter(project =>
         project[EProjectFields.Techonolgies].includes(tech)
       )
     );
@@ -149,7 +151,7 @@ const Works = () => {
     title: "Tags",
     selected: selectedTagTech,
     onTagSelect,
-    onClearTagsSelect: onClearTagsTechSelect,
+    onClearTagsSelect: onClearTagsTechSelect
   };
 
   const techProps = {
@@ -157,7 +159,7 @@ const Works = () => {
     title: "Technologies",
     selected: selectedTagTech,
     onTagSelect: onTechnologySelect,
-    onClearTagsSelect: onClearTagsTechSelect,
+    onClearTagsSelect: onClearTagsTechSelect
   };
 
   return (

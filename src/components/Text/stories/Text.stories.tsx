@@ -2,7 +2,9 @@ import { select, text } from "@storybook/addon-knobs";
 import { Meta } from "@storybook/react";
 import React from "react";
 
-import { ETextSizes, TTextSizes } from "@components";
+import { ETextSizes } from "~ts/enums";
+import { TTextSizes } from "~ts/typings";
+
 import { Paragraph as ParagraphComponent } from "../Paragraph";
 
 export const Paragraph = () => {

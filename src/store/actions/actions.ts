@@ -1,4 +1,5 @@
-import { ETheme } from "../reducers";
+import { ETheme } from "~ts/enums";
+
 import { EActionTypes } from "./types";
 
 export const setTheme = (theme: ETheme) => ({

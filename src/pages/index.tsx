@@ -2,9 +2,10 @@ import { graphql } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 
-import { Layout, InternalLink } from "@components";
-import { InternalLinks } from "@enums";
-import { textColor } from "@themes";
+import { Layout } from "~ts/components/Layout";
+import { InternalLink } from "~ts/components/Links";
+import { EInternalLinks } from "~ts/enums";
+import { textColor } from "~ts/themes";
 
 const TitleStyled = styled.h1`
   margin: 20px 0;
@@ -45,7 +46,7 @@ const Home = ({ data }: { data: TSiteMetaWithBlog }) => {
       <TitleStyled>{siteTitle}</TitleStyled>
       <div>
         Links:
-        <InternalLink to={InternalLinks.WORKS}>Works</InternalLink>
+        <InternalLink to={EInternalLinks.WORKS}>Works</InternalLink>
       </div>
       <p>{siteDescription}</p>
       <p>{posts.map(post => post.node.frontmatter.title)}</p>

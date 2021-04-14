@@ -1,9 +1,10 @@
-import { IStyledProps } from "@typings";
 import React from "react";
 import styled from "styled-components";
 
-import { removeListkStyles } from "@styles";
-import { FeaturedTagButton } from "@components";
+import { FeaturedTagButton } from "~ts/components/Buttons";
+import { removeListkStyles } from "~ts/styles";
+import { IStyledProps } from "~ts/typings";
+
 import { ListTitle } from "./ListTitle";
 
 const TagButtonsFeaturedListStyled = styled.div`
