@@ -1,6 +1,6 @@
+import { IContainerProps } from "@typings";
 import React from "react";
 
-import { IContainerProps } from "../../definitions";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { SEO } from "./SEO";

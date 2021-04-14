@@ -1,7 +1,7 @@
+import { IStyledProps } from "@typings";
 import React from "react";
 import styled from "styled-components";
 
-import { IStyledProps } from "../../definitions";
 import { removeListkStyles } from "../../styles";
 import { TagButton } from "../Buttons";
 import { ListTitle } from "./ListTitle";

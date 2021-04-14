@@ -1,9 +1,10 @@
+import { IContainerProps } from "@typings";
 import React from "react";
 import { ThemeProvider } from "styled-components";
 
-import { IContainerProps } from "../../definitions";
-import { ETheme, getTheme, useSelector } from "../../store";
-import { darkTheme, lightTheme } from "../index";
+import { ETheme, getTheme, useSelector } from "@store";
+import { darkTheme } from "../styles/dark";
+import { lightTheme } from "../styles/light";
 
 export const ThemeContainer = ({ children }: IContainerProps) => {
   const theme = useSelector(getTheme);

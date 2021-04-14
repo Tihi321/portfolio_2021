@@ -12,7 +12,24 @@
       "node": {
         "paths": ["."],
         "extensions": [".ts",".tsx", ".d.ts"]
-      }
+      },
+      "alias": [
+        ["@src", "./src"],
+        ["@blocks", "./src/blocks"],
+        ["@components", "./src/components"],
+        ["@typings", "./src/typings"],
+        ["@enums", "./src/enums"],
+        ["@hooks", "./src/hooks"],
+        ["@pages", "./src/pages"],
+        ["@projects", "./src/projects"],
+        ["@store", "./src/store"],
+        ["@styles", "./src/styles"],
+        ["@templates", "./src/templates"],
+        ["@themes", "./src/themes"],
+        ["@utils", "./src/utils"],
+        ["@posts", "./content/posts"],
+        ["@images", "./content/images"]
+      ]
     }
   },
   "env": {
@@ -38,7 +55,8 @@
     "i18next", 
     "react-hooks", 
     "jsx-a11y",
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "eslint-import-resolver-alias"
   ],
   "rules": {
     "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],

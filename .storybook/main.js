@@ -1,3 +1,5 @@
+const { resolve } = require("path");
+
 module.exports = {
   stories: [
     "../content/posts/**/*.stories.mdx",
@@ -43,6 +45,23 @@ module.exports = {
       },
     });
     config.resolve.extensions.push(".ts", ".tsx");
+    config.resolve.alias = {...config.resolve.alias, ...{
+      "@src": resolve(__dirname, '../src'),
+      "@blocks": resolve(__dirname, '../src/blocks/'),
+      "@components": resolve(__dirname, '../src/components/'),
+      "@typings": resolve(__dirname, '../src/typings/'),
+      "@enums": resolve(__dirname, '../src/enums/'),
+      "@hooks": resolve(__dirname, '../src/hooks/'),
+      "@pages": resolve(__dirname, '../src/pages/'),
+      "@projects": resolve(__dirname, '../src/projects/'),
+      "@store": resolve(__dirname, '../src/store/'),
+      "@styles": resolve(__dirname, '../src/styles/'),
+      "@templates": resolve(__dirname, '../src/templates/'),
+      "@themes": resolve(__dirname, '../src/themes/'),
+      "@utils": resolve(__dirname, '../src/utils/'),
+      "@posts": resolve(__dirname, '../content/posts/'),
+      "@images": resolve(__dirname, '../content/images/'),
+    }};
     return config
   },
 }

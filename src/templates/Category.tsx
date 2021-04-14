@@ -1,7 +1,6 @@
+import { IPostsPageQuery, IPostsPagination } from "@typings";
 import { graphql } from "gatsby";
 import React from "react";
-
-import { IPostsPageQuery, IPostsPagination } from "../definitions";
 
 interface IPageContext extends IPostsPagination {
   tag: string;

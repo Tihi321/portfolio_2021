@@ -2,10 +2,9 @@ import { graphql } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 
-import { Layout } from "../components/Layout";
-import { InternalLink } from "../components/Links";
-import { InternalLinks } from "../enums";
-import { textColor } from "../themes";
+import { Layout, InternalLink } from "@components";
+import { InternalLinks } from "@enums";
+import { textColor } from "@themes";
 
 const TitleStyled = styled.h1`
   margin: 20px 0;

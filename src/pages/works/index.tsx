@@ -1,21 +1,24 @@
 import React, { useMemo, useState } from "react";
 import styled from "styled-components";
 
-import { ETextSizes, TextSize } from "../../components/Common";
-import { ColumnsContainer } from "../../components/Containers";
-import { Layout } from "../../components/Layout";
 import {
+  ETextSizes,
+  TextSize,
+  ColumnsContainer,
+  Layout,
   ProjectsList,
   TagButtonsFeaturedList,
-  TagButtonsList
-} from "../../components/List";
-import { EProjectsTableType, ProjectsTable } from "../../components/Table";
-import { EBreakpoints } from "../../enums";
-import { useMediaQuery } from "../../hooks";
-import { EProjectFields, PROJECTS } from "../../projects";
-import { resetButtonStyles } from "../../styles";
-import { textColor } from "../../themes";
-import { media } from "../../utils";
+  TagButtonsList,
+  EProjectsTableType,
+  ProjectsTable,
+} from "@components";
+
+import { EBreakpoints } from "@enums";
+import { useMediaQuery } from "@hooks";
+import { EProjectFields, PROJECTS } from "@projects";
+import { resetButtonStyles } from "@styles";
+import { textColor } from "@themes";
+import { media } from "@utils";
 
 const TagsContainerTabletStyled = styled.div`
   display: flex;
@@ -88,13 +91,14 @@ const ClearAllButtonStyled = styled.button`
 const Works = () => {
   const [selectedProjects, setSelectedProjects] = useState(PROJECTS);
   const [selectedTagTech, setSelectedTagTech] = useState("");
+
   const tags: string[] = useMemo(
     () =>
       Array.from(
         new Set(
           PROJECTS.reduce(
             (allTags, project) => [...allTags, ...project[EProjectFields.Tags]],
-            []
+            [] as string[]
           )
         )
       ),
@@ -107,9 +111,9 @@ const Works = () => {
           PROJECTS.reduce(
             (allTechs, project) => [
               ...allTechs,
-              ...project[EProjectFields.Techonolgies]
+              ...project[EProjectFields.Techonolgies],
             ],
-            []
+            [] as string[]
           )
         )
       ),
@@ -118,18 +122,18 @@ const Works = () => {
   const isTablet = useMediaQuery(EBreakpoints.TABLET);
   const isLaptop = useMediaQuery(EBreakpoints.LAPTOP);
 
-  const onTagSelect = tag => {
+  const onTagSelect = (tag: string) => {
     setSelectedTagTech(tag);
     setSelectedProjects(
-      PROJECTS.filter(project => project[EProjectFields.Tags].includes(tag))
+      PROJECTS.filter((project) => project[EProjectFields.Tags].includes(tag))
     );
   };
 
-  const onTechnologySelect = tech => {
+  const onTechnologySelect = (tech: string) => {
     setSelectedTagTech(tech);
 
     setSelectedProjects(
-      PROJECTS.filter(project =>
+      PROJECTS.filter((project) =>
         project[EProjectFields.Techonolgies].includes(tech)
       )
     );
@@ -145,7 +149,7 @@ const Works = () => {
     title: "Tags",
     selected: selectedTagTech,
     onTagSelect,
-    onClearTagsSelect: onClearTagsTechSelect
+    onClearTagsSelect: onClearTagsTechSelect,
   };
 
   const techProps = {
@@ -153,7 +157,7 @@ const Works = () => {
     title: "Technologies",
     selected: selectedTagTech,
     onTagSelect: onTechnologySelect,
-    onClearTagsSelect: onClearTagsTechSelect
+    onClearTagsSelect: onClearTagsTechSelect,
   };
 
   return (

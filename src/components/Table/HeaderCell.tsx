@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { ETextSizes, TextSize } from "../Common";
+import { ETextSizes, TextSize } from "@components";
 
 const HeaderCellStyled = styled.th`
   display: flex;

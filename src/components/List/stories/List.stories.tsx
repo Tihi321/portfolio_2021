@@ -3,7 +3,7 @@ import { select } from "@storybook/addon-knobs";
 import { Meta } from "@storybook/react";
 import React, { useState } from "react";
 
-import { PROJECTS } from "../../../projects";
+import { PROJECTS } from "@projects";
 import { ProjectList as ProjectListComponent } from "../ProjectList";
 import { ProjectsList as ProjectsListComponent } from "../ProjectsList";
 import { TagButtonsFeaturedList as TagButtonsFeaturedListComponent } from "../TagButtonsFeaturedList";

@@ -70,7 +70,45 @@ const plugins = [
     }
   },
   "gatsby-plugin-sharp",
-  "gatsby-transformer-sharp"
+  "gatsby-transformer-sharp",
+  {
+    resolve: "gatsby-plugin-react-svg",
+    options: {
+      rule: {
+        include: /\.inline\.svg$/,
+        omitKeys: [
+          "xmlnsDc",
+          "xmlnsCc",
+          "xmlnsRdf",
+          "xmlnsSvg",
+          "xmlnsSodipodi",
+          "xmlnsInkscape"
+        ]
+      }
+    }
+  },
+  {
+    resolve: `gatsby-plugin-alias-imports`,
+    options: {
+      alias: {
+        "@src": "src",
+        "@blocks": "src/blocks",
+        "@components": "src/components",
+        "@typings": "src/typings",
+        "@enums": "src/enums",
+        "@hooks": "src/hooks",
+        "@pages": "src/pages",
+        "@projects": "src/projects",
+        "@store": "src/store",
+        "@styles": "src/styles",
+        "@templates": "src/templates",
+        "@themes": "src/themes",
+        "@utils": "src/utils",
+        "@posts": "content/posts",
+        "@images": "content/images"
+      }
+    }
+  }
 ];
 
 module.exports = {

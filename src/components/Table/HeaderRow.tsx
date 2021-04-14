@@ -1,9 +1,9 @@
+import { IContainerProps } from "@typings";
 import React from "react";
 import styled from "styled-components";
 
-import { IContainerProps } from "../../definitions";
-import { EBreakpoints } from "../../enums";
-import { media } from "../../utils";
+import { EBreakpoints } from "@enums";
+import { media } from "@utils";
 import { Row } from "./Row";
 
 const HeaderRowStyled = styled(Row)`

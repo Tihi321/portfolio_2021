@@ -1,3 +1,4 @@
+import { ELanguage } from "@enums";
 import { boolean, select } from "@storybook/addon-knobs";
 import { Meta } from "@storybook/react";
 import { PrismTheme } from "prism-react-renderer";
@@ -17,7 +18,7 @@ import vsDark from "prism-react-renderer/themes/vsDark";
 import vsLight from "prism-react-renderer/themes/vsLight";
 import React from "react";
 
-import { Code as CodeComponent, ELanguage } from "../Code";
+import { Code as CodeComponent } from "../Code";
 
 const exampleReactCode = `
 function Example() {
@@ -194,7 +195,7 @@ export const CodeBlock = () => {
       codeString={getCode(languagetype, liveEditor)}
       language={languagetype}
       live={liveEditor}
-      customTheme={customTheme !== EThemes.None && getThemeObject(customTheme)}
+      customTheme={customTheme !== EThemes.None ? getThemeObject(customTheme) : undefined}
     />
   );
 };

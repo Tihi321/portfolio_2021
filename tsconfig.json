@@ -1,0 +1,24 @@
+{
+  "extends": "./base-tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@src": ["src"],
+      "@blocks": ["src/blocks"],
+      "@components": ["src/components"],
+      "@typings": ["src/typings"],
+      "@enums": ["src/enums"],
+      "@hooks": ["src/hooks"],
+      "@pages": ["src/pages"],
+      "@projects": ["src/projects"],
+      "@store": ["src/store"],
+      "@styles": ["src/styles"],
+      "@templates": ["src/templates"],
+      "@themes": ["src/themes"],
+      "@utils": ["src/utils"],
+      "@posts": ["content/posts"],
+      "@images": ["content/images"]
+    },
+    "typeRoots": ["./src/typings/modules", "node_modules/@types"]
+  }
+}

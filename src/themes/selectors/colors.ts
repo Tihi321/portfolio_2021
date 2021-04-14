@@ -1,6 +1,7 @@
+import { ThemeProps } from "styled-components";
 import { createSelector } from "reselect";
 
-const themeColors = state => state.theme.colors;
+const themeColors = (state: ThemeProps<any>) => state.theme.colors;
 
 export const focusColor = createSelector(themeColors, colors => colors.focus);
 

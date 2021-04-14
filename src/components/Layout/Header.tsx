@@ -1,14 +1,20 @@
+import Logo from "@images/logo.inline.svg";
 import React from "react";
 import styled from "styled-components";
 
-import { EBreakpoints, InternalLinks } from "../../enums";
-import { useMediaQuery } from "../../hooks";
-import { getTheme, switchTheme, useSelector, useStore } from "../../store";
-import { media } from "../../utils";
-import { FeaturedButton } from "../Buttons";
-import { ETextSizes } from "../Common";
-import { Logo } from "../Icons";
-import { InternalLink } from "../Links";
+import { EBreakpoints, InternalLinks } from "@enums";
+import { useMediaQuery } from "@hooks";
+import { getTheme, switchTheme, useSelector, useStore } from "@store";
+import { logoBackgroundColor, logoForegroundColor } from "@themes";
+import { media } from "@utils";
+import { FeaturedButton, ETextSizes, InternalLink } from "@components";
+
+const LogoStyled = styled(Logo)`
+  width: 126px;
+  height: 130px;
+  --logo-background-color: ${logoBackgroundColor};
+  --logo-text-color: ${logoForegroundColor};
+`;
 
 const HeaderStyled = styled.header`
   display: flex;
@@ -43,7 +49,7 @@ export const Header = () => {
   return (
     <HeaderStyled>
       <InternalLink to={InternalLinks.HOME}>
-        <Logo />
+        <LogoStyled />
       </InternalLink>
       {isTablet && (
         <HeaderLinksGroupStyled>
