@@ -1,8 +1,9 @@
-import { IContainerProps } from "@typings";
 import React from "react";
 import styled from "styled-components";
 
-import { ETextSizes, TextSize } from "@components";
+import { TextSize } from "~ts/components/Common";
+import { ETextSizes } from "~ts/enums";
+import { IContainerProps } from "~ts/typings";
 
 interface IProjectListItemProps extends IContainerProps {
   text: string;

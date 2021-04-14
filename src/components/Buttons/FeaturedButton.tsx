@@ -1,22 +1,14 @@
-import { IContainerProps, IStyledProps } from "@typings";
 import React from "react";
 import styled from "styled-components";
 
-import { EBreakpoints, ESide } from "@enums";
+import { EBreakpoints, EFeaturedButtonType, ESide } from "~ts/enums";
 import {
   featuredButtonResponsiveFontStyles,
   resetButtonStyles
-} from "@styles";
-import {
-  featuredButtonBackgroundColor,
-  featuredButtonColor
-} from "@themes";
-import { media } from "@utils";
-
-export enum EFeaturedButtonType {
-  Regular = "regular",
-  Wide = "wide"
-}
+} from "~ts/styles";
+import { featuredButtonBackgroundColor, featuredButtonColor } from "~ts/themes";
+import { IContainerProps, IStyledProps } from "~ts/typings";
+import { media } from "~ts/utils";
 
 interface IFeaturedButtonProps extends IStyledProps, IContainerProps {
   type?: EFeaturedButtonType;

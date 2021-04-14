@@ -1,4 +1,5 @@
-import { EProjectFields, TProject } from "./types";
+import { EProjectFields } from "~ts/enums";
+import { TProject } from "~ts/typings";
 
 export const PROJECTS: TProject[] = [
   {

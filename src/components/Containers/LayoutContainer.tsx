@@ -1,6 +1,7 @@
-import { IContainerProps } from "@typings";
 import React from "react";
 import styled from "styled-components";
+
+import { IContainerProps } from "~ts/typings";
 
 const LayoutContainerStyled = styled.div`
   display: grid;

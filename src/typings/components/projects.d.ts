@@ -1,11 +1,4 @@
-export enum EProjectFields {
-  Name = "name",
-  Type = "type",
-  Techonolgies = "tech",
-  Repository = "repo",
-  Showcase = "demo",
-  Tags = "tags"
-}
+import { EProjectFields } from "~ts/enums";
 
 export type TProject = {
   [EProjectFields.Name]: string;

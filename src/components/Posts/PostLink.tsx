@@ -1,14 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-import { EHeadingSizes, BottomLineContainer, HeadingLink, ImageLink, TagLink } from "@components";
-
-export enum EPostLinkSizes {
-  Regular = "regular",
-  Small = "small"
-}
-
-export type TPostLinkSizes = EPostLinkSizes.Regular | EPostLinkSizes.Small;
+import { BottomLineContainer } from "~ts/components/Containers";
+import { HeadingLink, ImageLink, TagLink } from "~ts/components/Links";
+import { EHeadingSizes, EPostLinkSizes } from "~ts/enums";
+import { TPostLinkSizes } from "~ts/typings";
 
 interface ILinkProps {
   text: string;

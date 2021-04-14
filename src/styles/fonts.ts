@@ -1,7 +1,7 @@
 import { css } from "styled-components";
 
-import { EBreakpoints } from "@enums";
-import { EFonts, themeFonts } from "@themes";
+import { EBreakpoints } from "~ts/enums";
+import { EFonts, themeFonts } from "~ts/themes";
 
 const responsiveFontStyles = (key: string, breakpoint: EBreakpoints) => css`
   font-size: ${props => themeFonts(props)[key][breakpoint].fontSize};

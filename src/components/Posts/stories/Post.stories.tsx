@@ -2,13 +2,14 @@ import { select, text } from "@storybook/addon-knobs";
 import { Meta } from "@storybook/react";
 import React from "react";
 
-import netwokNodesImage from "@images/network-nodes.svg";
+import { EPostLinkSizes } from "~ts/enums";
+import netwokNodesImage from "~ts/images/network-nodes.svg";
+import { TPostLinkSizes } from "~ts/typings";
+
 import {
-  EPostLinkSizes,
   FeaturedPostLink as FeaturedPostLinkComponent,
-  PostLink as PostLinkComponent,
-  TPostLinkSizes
-} from "@components";
+  PostLink as PostLinkComponent
+} from "../PostLink";
 
 export const PostLink = () => {
   const postTitleText = text("Post Title", "Post title text", "OPTIONS");

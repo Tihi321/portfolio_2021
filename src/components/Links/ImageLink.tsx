@@ -1,9 +1,9 @@
-import { IStyledProps } from "@typings";
 import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 
-import { resetLinkStyles } from "@styles";
+import { resetLinkStyles } from "~ts/styles";
+import { IStyledProps } from "~ts/typings";
 
 interface IImageLinkProps extends IStyledProps {
   alt: string;

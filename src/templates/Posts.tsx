@@ -1,6 +1,7 @@
-import { IPostsPageQuery, IPostsPagination } from "@typings";
 import { graphql } from "gatsby";
 import React from "react";
+
+import { IPostsPageQuery, IPostsPagination } from "~ts/typings";
 
 interface IPageContext extends IPostsPagination {
   tags: {

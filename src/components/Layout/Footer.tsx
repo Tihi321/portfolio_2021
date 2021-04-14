@@ -2,18 +2,22 @@ import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 
+import { FeaturedButton } from "~ts/components/Buttons";
+import { TextSize } from "~ts/components/Common";
+import { InternalLink, Link } from "~ts/components/Links";
 import {
   CONTACT,
   EBreakpoints,
+  EFeaturedButtonType,
+  EInternalLinks,
   ESide,
-  EZIndex,
-  InternalLinks
-} from "@enums";
-import { useMediaQuery } from "@hooks";
-import { getTheme, switchTheme, useSelector, useStore } from "@store";
-import { backgroundColor } from "@themes";
-import { media } from "@utils";
-import { EFeaturedButtonType, FeaturedButton, ETextSizes, TextSize, InternalLink, Link } from "@components";
+  ETextSizes,
+  EZIndex
+} from "~ts/enums";
+import { useMediaQuery } from "~ts/hooks";
+import { getTheme, switchTheme, useSelector, useStore } from "~ts/store";
+import { backgroundColor } from "~ts/themes";
+import { media } from "~ts/utils";
 
 const FooterStyled = styled.footer`
   display: flex;
@@ -99,7 +103,7 @@ export const Footer = () => {
         <FooterLinkStyled to={CONTACT.MAIL}>Mail</FooterLinkStyled>
         <FooterLinkStyled to={CONTACT.GITHUB}>Github</FooterLinkStyled>
         <FooterLinkStyled to={CONTACT.LINKEDIN}>Linkedin</FooterLinkStyled>
-        {isMobile && <InternalLink to={InternalLinks.BLOG}>Blog</InternalLink>}
+        {isMobile && <InternalLink to={EInternalLinks.BLOG}>Blog</InternalLink>}
       </FooterLinksGroupStyled>
       <FooterAuthorStyled>
         © {new Date().getFullYear()} {site.siteMetadata.author.name}

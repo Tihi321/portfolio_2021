@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import { EZIndex } from "../../enums";
-import { EProjectFields, TProject } from "../../projects";
-import { WideButton } from "../Buttons";
+import { WideButton } from "~ts/components/Buttons";
+import { EProjectFields, EZIndex } from "~ts/enums";
+import { TProject } from "~ts/typings";
+
 import { ProjectList } from "./ProjectList";
 
 const ProjectsListStyled = styled.div`
@@ -29,11 +30,15 @@ interface IProjectsListProps {
 }
 
 export const ProjectsList = ({ projects }: IProjectsListProps) => {
-  const [selectedProject, setSelectedProject] = useState(undefined);
+  const [selectedProject, setSelectedProject]: [
+    undefined | TProject,
+    React.Dispatch<React.SetStateAction<undefined | TProject>>
+  ] = useState();
 
   const handleSelectedProject = (name: string) => {
     setSelectedProject(
-      projects.find(project => project[EProjectFields.Name] === name)
+      projects.find(project => project[EProjectFields.Name] === name) ||
+        undefined
     );
   };
 

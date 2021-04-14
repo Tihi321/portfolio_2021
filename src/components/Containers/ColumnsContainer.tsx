@@ -1,9 +1,9 @@
-import { IContainerProps } from "@typings";
 import React from "react";
 import styled from "styled-components";
 
-import { EBreakpoints } from "@enums";
-import { media } from "@utils";
+import { EBreakpoints } from "~ts/enums";
+import { IContainerProps } from "~ts/typings";
+import { media } from "~ts/utils";
 
 const ColumnsContainerStyled = styled.div`
   display: grid;

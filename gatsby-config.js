@@ -1,5 +1,5 @@
 const { Metadata, Setting, Author, Social } = require("./gatsby");
-const { ContainerWidth } = require("./src/enums/container.ts");
+const { CONTAINER_WIDTH } = require("./src/enums/container.ts");
 
 const { join } = require("path");
 
@@ -63,7 +63,7 @@ const plugins = [
         {
           resolve: "gatsby-remark-images",
           options: {
-            maxWidth: ContainerWidth
+            maxWidth: CONTAINER_WIDTH
           }
         }
       ]
@@ -91,21 +91,20 @@ const plugins = [
     resolve: `gatsby-plugin-alias-imports`,
     options: {
       alias: {
-        "@src": "src",
-        "@blocks": "src/blocks",
-        "@components": "src/components",
-        "@typings": "src/typings",
-        "@enums": "src/enums",
-        "@hooks": "src/hooks",
-        "@pages": "src/pages",
-        "@projects": "src/projects",
-        "@store": "src/store",
-        "@styles": "src/styles",
-        "@templates": "src/templates",
-        "@themes": "src/themes",
-        "@utils": "src/utils",
-        "@posts": "content/posts",
-        "@images": "content/images"
+        "~ts/blocks": "src/blocks",
+        "~ts/components": "src/components",
+        "~ts/typings": "src/typings",
+        "~ts/enums": "src/enums",
+        "~ts/hooks": "src/hooks",
+        "~ts/pages": "src/pages",
+        "~ts/projects": "src/projects",
+        "~ts/store": "src/store",
+        "~ts/styles": "src/styles",
+        "~ts/templates": "src/templates",
+        "~ts/themes": "src/themes",
+        "~ts/utils": "src/utils",
+        "~ts/posts": "content/posts",
+        "~ts/images": "content/images"
       }
     }
   }

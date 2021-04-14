@@ -1,6 +1,7 @@
-import { IContainerProps } from "@typings";
 import { preToCodeBlock } from "mdx-utils";
 import React from "react";
+
+import { IContainerProps } from "~ts/typings";
 
 import { Code } from "./Code";
 

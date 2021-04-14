@@ -1,12 +1,12 @@
-import { IStyledProps } from "@typings";
 import React from "react";
 import styled from "styled-components";
 
-import { EBreakpoints, ESide } from "@enums";
-import { resetButtonStyles } from "@styles";
-import { wideButtonColor } from "@themes";
-import { media } from "@utils";
-import { ETextSizes, TextSize } from "@components";
+import { TextSize } from "~ts/components/Common";
+import { EBreakpoints, ESide, ETextSizes } from "~ts/enums";
+import { resetButtonStyles } from "~ts/styles";
+import { wideButtonColor } from "~ts/themes";
+import { IStyledProps } from "~ts/typings";
+import { media } from "~ts/utils";
 
 interface IButtonProps extends IStyledProps {
   text: string;

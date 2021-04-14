@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import { select } from '@storybook/addon-knobs';
-import { ETheme, useStore, setTheme } from '../../src/store';
+import { useStore, setTheme } from '../../src/store';
+import { ETheme } from '../../src/enums';
 
 export interface IThemeContainerProps {
   children: React.ReactNode;

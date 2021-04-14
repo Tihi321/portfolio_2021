@@ -1,8 +1,10 @@
-import { IContainerProps } from "@typings";
 import React from "react";
 import { ThemeProvider } from "styled-components";
 
-import { ETheme, getTheme, useSelector } from "@store";
+import { ETheme } from "~ts/enums";
+import { getTheme, useSelector } from "~ts/store";
+import { IContainerProps } from "~ts/typings";
+
 import { darkTheme } from "../styles/dark";
 import { lightTheme } from "../styles/light";
 

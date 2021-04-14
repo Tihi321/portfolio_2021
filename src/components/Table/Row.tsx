@@ -1,9 +1,9 @@
-import { IContainerProps, IStyledProps } from "@typings";
 import React from "react";
 import styled, { css } from "styled-components";
 
-import { EBreakpoints } from "@enums";
-import { media } from "@utils";
+import { EBreakpoints } from "~ts/enums";
+import { IContainerProps, IStyledProps } from "~ts/typings";
+import { media } from "~ts/utils";
 
 const gridItemsRepeatStyles = (items: number) => css`
   grid-template-columns: minmax(40px, 25%) repeat(${items}, minmax(40px, 1fr)) minmax(

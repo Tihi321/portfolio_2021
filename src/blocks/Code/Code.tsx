@@ -1,11 +1,13 @@
-import { ICodeProps } from "@typings";
 import Highlight, { defaultProps } from "prism-react-renderer";
 import lightTheme from "prism-react-renderer/themes/duotoneLight";
 import darkTheme from "prism-react-renderer/themes/palenight";
 import React from "react";
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from "react-live";
 
-import { ETheme, getTheme, useSelector } from "@store";
+import { ETheme } from "~ts/enums";
+import { getTheme, useSelector } from "~ts/store";
+import { ICodeProps } from "~ts/typings";
+
 import { Line } from "./Line";
 import { LineContent } from "./LineContent";
 import { LineNo } from "./LineNo";

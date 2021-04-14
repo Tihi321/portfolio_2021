@@ -1,8 +1,8 @@
-import { IContainerProps } from "@typings";
 import React from "react";
 import styled from "styled-components";
 
-import { bottomLineBorderColor } from "@themes";
+import { bottomLineBorderColor } from "~ts/themes";
+import { IContainerProps } from "~ts/typings";
 
 const BottomLineContainerStyled = styled.div`
   padding: 2px 0;

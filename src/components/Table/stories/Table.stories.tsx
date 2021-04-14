@@ -3,11 +3,10 @@ import { select } from "@storybook/addon-knobs";
 import { Meta } from "@storybook/react";
 import React from "react";
 
-import { PROJECTS } from "@projects";
-import {
-  EProjectsTableType,
-  ProjectsTable as ProjectsTableComponent
-} from "../ProjectsTable";
+import { EProjectsTableType } from "~ts/enums";
+import { PROJECTS } from "~ts/projects";
+
+import { ProjectsTable as ProjectsTableComponent } from "../ProjectsTable";
 
 export const ProjectsTable = () => {
   const types = [EProjectsTableType.Regular, EProjectsTableType.Compact];

@@ -1,4 +1,4 @@
-import { EBreakpoints } from "@enums";
+import { EBreakpoints } from "~ts/enums";
 
 export enum EFonts {
   Body = "body",

@@ -1,13 +1,7 @@
+import { ETheme } from "~ts/enums";
+
 import { EActionTypes, TAction } from "../actions";
-
-export enum ETheme {
-  Dark = "dark",
-  Light = "light"
-}
-
-export type TState = {
-  theme: ETheme;
-};
+import { TState } from "../store";
 
 export const initialState: TState = {
   theme: ETheme.Light

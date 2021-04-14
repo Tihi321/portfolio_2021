@@ -1,16 +1,16 @@
-import { IStyledProps } from "@typings";
 import React from "react";
 import styled, { css } from "styled-components";
 
-import { EBreakpoints, ESide } from "@enums";
+import { EBreakpoints, ESide, ETextSizes } from "~ts/enums";
 import {
   largeFontThemeResponsiveFontStyles,
   mediumFontThemeResponsiveFontStyles,
   regularFontThemeResponsiveFontStyles,
   smallFontThemeResponsiveFontStyles,
   tinyFontThemeResponsiveFontStyles
-} from "@styles";
-import { media } from "@utils";
+} from "~ts/styles";
+import { IStyledProps, ITextSizes } from "~ts/typings";
+import { media } from "~ts/utils";
 
 const largeStyles = css`
   ${largeFontThemeResponsiveFontStyles(EBreakpoints.MOBILE)};
@@ -46,20 +46,6 @@ const tinyStyles = css`
     ${tinyFontThemeResponsiveFontStyles(EBreakpoints.LAPTOP)}
   }
 `;
-
-export enum ETextSizes {
-  Large = "large",
-  Medium = "medium",
-  Regular = "regular",
-  Small = "small",
-  Tiny = "tiny"
-}
-
-export type TTextSizes = ETextSizes;
-
-export interface ITextSizes {
-  size?: TTextSizes;
-}
 
 interface ITextSizeProps extends ITextSizes, IStyledProps {
   children?: React.ReactNode;
