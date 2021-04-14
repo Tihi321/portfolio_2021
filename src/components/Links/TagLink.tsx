@@ -1,11 +1,10 @@
+import { IStyledProps } from "@typings";
 import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 
-import { IStyledProps } from "../../definitions";
-import { resetFontStyles, resetLinkStyles } from "../../styles";
-import { ETagType, TagText } from "../Common";
-import { ETagContainerType, TagContainer } from "../Containers";
+import { resetFontStyles, resetLinkStyles } from "@styles";
+import { ETagType, TagText, ETagContainerType, TagContainer } from "@components";
 
 interface ILinkProps extends IStyledProps {
   text: string;
@@ -41,7 +40,7 @@ export const FeaturedTagLink = ({
 }: ILinkProps) => (
   <TagContainer
     className={className}
-    type={active && ETagContainerType.Secondary}
+    type={active ? ETagContainerType.Secondary : undefined}
   >
     <LinkStyled className={className} to={to}>
       <TagText

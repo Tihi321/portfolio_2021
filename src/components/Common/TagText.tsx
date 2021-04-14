@@ -1,15 +1,15 @@
+import { IStyledProps } from "@typings";
 import React from "react";
 import styled from "styled-components";
 
-import { IStyledProps } from "../../definitions";
-import { EBreakpoints, ESide } from "../../enums";
-import { tagsResponsiveFontStyles } from "../../styles";
+import { EBreakpoints, ESide } from "@enums";
+import { tagsResponsiveFontStyles } from "@styles";
 import {
   tagPrimaryTextColor,
   tagSecondaryTextColor,
   tagTertiaryTextColor
-} from "../../themes";
-import { media } from "../../utils";
+} from "@themes";
+import { media } from "@utils";
 
 export enum ETagType {
   Primary = "primary",

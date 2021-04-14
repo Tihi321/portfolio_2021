@@ -1,17 +1,17 @@
+import { IContainerProps, IStyledProps } from "@typings";
 import React from "react";
 import styled from "styled-components";
 
-import { IContainerProps, IStyledProps } from "../../definitions";
-import { EBreakpoints, ESide } from "../../enums";
+import { EBreakpoints, ESide } from "@enums";
 import {
   featuredButtonResponsiveFontStyles,
   resetButtonStyles
-} from "../../styles";
+} from "@styles";
 import {
   featuredButtonBackgroundColor,
   featuredButtonColor
-} from "../../themes";
-import { media } from "../../utils";
+} from "@themes";
+import { media } from "@utils";
 
 export enum EFeaturedButtonType {
   Regular = "regular",

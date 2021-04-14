@@ -1,11 +1,9 @@
-/// <reference path="../../../definitions/modules/images/svg.d.ts" />
 import { boolean, select, text } from "@storybook/addon-knobs";
 import { Meta } from "@storybook/react";
 import React from "react";
 
-import netwokNodesImage from "../../../../content/images/network-nodes.svg";
-import { EHeadingSizes, THeadingSizes } from "../../Common/Heading";
-import { ETextSizes, TTextSizes } from "../../Common/TextSize";
+import netwokNodesImage from "@images/network-nodes.svg";
+import { EHeadingSizes, THeadingSizes, ETextSizes, TTextSizes } from "@components";
 import {
   FeaturedHeadingLink as FeaturedHeadingLinkComponent,
   HeadingLink as HeadingLinkComponent

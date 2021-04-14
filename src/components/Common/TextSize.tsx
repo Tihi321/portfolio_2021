@@ -1,16 +1,16 @@
+import { IStyledProps } from "@typings";
 import React from "react";
 import styled, { css } from "styled-components";
 
-import { IStyledProps } from "../../definitions";
-import { EBreakpoints, ESide } from "../../enums";
+import { EBreakpoints, ESide } from "@enums";
 import {
   largeFontThemeResponsiveFontStyles,
   mediumFontThemeResponsiveFontStyles,
   regularFontThemeResponsiveFontStyles,
   smallFontThemeResponsiveFontStyles,
   tinyFontThemeResponsiveFontStyles
-} from "../../styles";
-import { media } from "../../utils";
+} from "@styles";
+import { media } from "@utils";
 
 const largeStyles = css`
   ${largeFontThemeResponsiveFontStyles(EBreakpoints.MOBILE)};

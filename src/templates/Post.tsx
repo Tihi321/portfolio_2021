@@ -1,7 +1,6 @@
+import { IPostPageQuery } from "@typings";
 import { graphql } from "gatsby";
 import React from "react";
-
-import { IPostPageQuery } from "../definitions";
 
 interface IPageProps {
   data: IPostPageQuery;

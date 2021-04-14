@@ -1,14 +1,13 @@
+import { IStyledProps } from "@typings";
 import React from "react";
 import styled from "styled-components";
 
-import { IStyledProps } from "../../definitions";
-import { EBreakpoints, ESide } from "../../enums";
-import { EProjectFields, TProject } from "../../projects";
-import { smallFontThemeResponsiveFontStyles } from "../../styles";
-import { backgroundColor } from "../../themes";
-import { media } from "../../utils";
-import { EFeaturedButtonType, FeaturedButton } from "../Buttons";
-import { ETextSizes, TagText, TextSize } from "../Common";
+import { EBreakpoints, ESide } from "@enums";
+import { EProjectFields, TProject } from "@projects";
+import { smallFontThemeResponsiveFontStyles } from "@styles";
+import { backgroundColor } from "@themes";
+import { media } from "@utils";
+import { EFeaturedButtonType, FeaturedButton, ETextSizes, TagText, TextSize } from "@components";
 import { ListItem } from "./ListItem";
 
 const ProjectListStyled = styled.div`
@@ -96,28 +95,26 @@ export const ProjectList = ({
                 </ListItem>
               );
             case EProjectFields.Repository:
-              return (
-                <ListItem
-                  key={`cell--${EProjectFields.Repository}-${
-                    project[EProjectFields.Repository].name
-                  }-${cellIndex}}`}
-                  text={EProjectFields.Repository}
-                >
-                  <TextSize size={ETextSizes.Regular}>
-                    {project[EProjectFields.Repository].name}
-                  </TextSize>
-                </ListItem>
-              );
+              return <ListItem
+                key={`cell--${EProjectFields.Repository}-${
+                  project[EProjectFields.Repository]?.name
+                }-${cellIndex}}`}
+                text={EProjectFields.Repository}
+              >
+                <TextSize size={ETextSizes.Regular}>
+                  {project[EProjectFields.Repository]?.name}
+                </TextSize>
+              </ListItem>
             case EProjectFields.Showcase:
               return (
                 <ListItem
                   key={`cell--${EProjectFields.Showcase}-${
-                    project[EProjectFields.Showcase].name
+                    project[EProjectFields.Showcase]?.name
                   }-${cellIndex}}`}
                   text={EProjectFields.Showcase}
                 >
                   <TextSize size={ETextSizes.Regular}>
-                    {project[EProjectFields.Showcase].name}
+                    {project[EProjectFields.Showcase]?.name}
                   </TextSize>
                 </ListItem>
               );

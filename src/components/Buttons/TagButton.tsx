@@ -1,10 +1,9 @@
+import { IStyledProps } from "@typings";
 import React from "react";
 import styled from "styled-components";
 
-import { IStyledProps } from "../../definitions";
-import { resetButtonStyles } from "../../styles";
-import { ETagType, TagText } from "../Common";
-import { ETagContainerType, TagContainer } from "../Containers";
+import { resetButtonStyles } from "@styles";
+import { ETagType, TagText, ETagContainerType, TagContainer } from "@components";
 
 interface ITagButtonProps extends IStyledProps {
   text: string;
@@ -40,7 +39,7 @@ export const FeaturedTagButton = ({
   <TagButtonStyled onClick={onClick}>
     <TagContainer
       className={className}
-      type={active && ETagContainerType.Secondary}
+      type={active ? ETagContainerType.Secondary : undefined}
     >
       <TagText
         text={text}

@@ -1,7 +1,7 @@
+import { IContainerProps } from "@typings";
 import { preToCodeBlock } from "mdx-utils";
 import React from "react";
 
-import { IContainerProps } from "../../definitions";
 import { Code } from "./Code";
 
 export const PreWrapper = (preProps: IContainerProps) => {

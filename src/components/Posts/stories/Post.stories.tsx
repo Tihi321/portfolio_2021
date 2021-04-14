@@ -1,15 +1,14 @@
-/// <reference path="../../../definitions/modules/images/svg.d.ts" />
 import { select, text } from "@storybook/addon-knobs";
 import { Meta } from "@storybook/react";
 import React from "react";
 
-import netwokNodesImage from "../../../../content/images/network-nodes.svg";
+import netwokNodesImage from "@images/network-nodes.svg";
 import {
   EPostLinkSizes,
   FeaturedPostLink as FeaturedPostLinkComponent,
   PostLink as PostLinkComponent,
   TPostLinkSizes
-} from "../PostLink";
+} from "@components";
 
 export const PostLink = () => {
   const postTitleText = text("Post Title", "Post title text", "OPTIONS");

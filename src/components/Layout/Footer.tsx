@@ -8,14 +8,12 @@ import {
   ESide,
   EZIndex,
   InternalLinks
-} from "../../enums";
-import { useMediaQuery } from "../../hooks";
-import { getTheme, switchTheme, useSelector, useStore } from "../../store";
-import { backgroundColor } from "../../themes";
-import { media } from "../../utils";
-import { EFeaturedButtonType, FeaturedButton } from "../Buttons";
-import { ETextSizes, TextSize } from "../Common";
-import { InternalLink, Link } from "../Links";
+} from "@enums";
+import { useMediaQuery } from "@hooks";
+import { getTheme, switchTheme, useSelector, useStore } from "@store";
+import { backgroundColor } from "@themes";
+import { media } from "@utils";
+import { EFeaturedButtonType, FeaturedButton, ETextSizes, TextSize, InternalLink, Link } from "@components";
 
 const FooterStyled = styled.footer`
   display: flex;

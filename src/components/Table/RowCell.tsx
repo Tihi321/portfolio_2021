@@ -1,7 +1,6 @@
+import { IContainerProps } from "@typings";
 import React from "react";
 import styled from "styled-components";
-
-import { IContainerProps } from "../../definitions";
 
 const RowCellStyled = styled.td`
   display: flex;

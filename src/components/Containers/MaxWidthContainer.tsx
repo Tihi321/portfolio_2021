@@ -1,8 +1,8 @@
+import { IContainerProps } from "@typings";
 import React from "react";
 import styled from "styled-components";
 
-import { IContainerProps } from "../../definitions";
-import { ContainerWidth } from "../../enums";
+import { ContainerWidth } from "@enums";
 
 const MaxWidthContainerStyled = styled.div`
   max-width: ${ContainerWidth}px;

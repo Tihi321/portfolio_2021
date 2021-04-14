@@ -3,7 +3,7 @@ import { select } from "@storybook/addon-knobs";
 import { Meta } from "@storybook/react";
 import React from "react";
 
-import { PROJECTS } from "../../../projects";
+import { PROJECTS } from "@projects";
 import {
   EProjectsTableType,
   ProjectsTable as ProjectsTableComponent

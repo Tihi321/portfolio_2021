@@ -1,6 +1,7 @@
 import { Breakpoints, EBreakpoints, ESide } from "../enums";
 
 export type TMediaProps = (breakpoint: EBreakpoints, side?: ESide) => string;
+export type TUseMediaProps = (breakpoint: EBreakpoints, side?: ESide) => boolean;
 
 export const createMediaQueryCommand: TMediaProps = (breakpoint, side) => {
   switch (side) {

@@ -1,9 +1,9 @@
 import { MDXProvider as ReactMDXProvider } from "@mdx-js/react";
+import { IContainerProps } from "@typings";
 import React from "react";
 
-import { PreWrapper } from "../../blocks/Code";
-import { IContainerProps } from "../../definitions";
-import { Table } from "../Table";
+import { PreWrapper } from "@blocks";
+import { Table } from "@components";
 
 const components = {
   table: Table,
