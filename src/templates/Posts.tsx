@@ -1,45 +1,32 @@
 import { graphql } from "gatsby";
 import React from "react";
 
-import { IPostsPageQuery, IPostsPagination } from "~ts/typings";
+import { Posts } from "~ts/components/Layout";
+import { IPostsProps } from "~ts/typings";
 
-interface IPageContext extends IPostsPagination {
-  tags: {
-    tag: string;
-    path: string;
-  }[];
-}
-
-interface IPageProps {
-  data: IPostsPageQuery;
-  pageContext: IPageContext;
-}
-
-const Posts = ({ data, pageContext }: IPageProps) => {
-  console.log(data);
-  console.log(pageContext);
-
-  return <div>Posts</div>;
-};
+const PostsPage = ({ data, pageContext }: IPostsProps) => (
+  <Posts context={pageContext} posts={data.data.posts} />
+);
 
 export const query = graphql`
   query PostsQuery($limit: Int, $skip: Int) {
-    posts: allMdx(
+    data: allMdx(
       limit: $limit
       skip: $skip
       sort: { order: DESC, fields: frontmatter___date }
     ) {
-      edges {
-        node {
-          frontmatter {
-            title
-            tags
-            thumbnail {
-              publicURL
-            }
+      posts: nodes {
+        frontmatter {
+          title
+          tags
+          thumbnail {
+            publicURL
           }
-          fields {
-            path
+        }
+        fields {
+          path
+          readingTime {
+            text
           }
         }
       }
@@ -47,4 +34,4 @@ export const query = graphql`
   }
 `;
 
-export default Posts;
+export default PostsPage;

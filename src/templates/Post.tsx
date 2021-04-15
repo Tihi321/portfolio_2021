@@ -1,41 +1,51 @@
 import { graphql } from "gatsby";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 import React from "react";
 
-import { IPostPageQuery } from "~ts/typings";
+import { Layout } from "~ts/components/Layout";
+import { IPostPageQuery, TPostLink, TTagLink } from "~ts/typings";
 
 interface IPageProps {
   data: IPostPageQuery;
   pageContext: {
-    tags: {
-      tag: string;
-      path: string;
-    }[];
-    paged: number;
+    tags: TTagLink[];
+    previous: TPostLink | null;
+    next: TPostLink | null;
   };
 }
 
-const Post = ({ data, pageContext }: IPageProps) => {
+const PostPage = ({ data, pageContext }: IPageProps) => {
   console.log(data);
   console.log(pageContext);
 
-  return <div>Post</div>;
+  return (
+    <Layout
+      title={data.post.frontmatter.title}
+      description={data.post.frontmatter.excerpt}
+    >
+      <MDXRenderer>{data.post.body}</MDXRenderer>
+    </Layout>
+  );
 };
 
 export const query = graphql`
   query PostQuery($id: String) {
-    post: allMdx(filter: { id: { eq: $id } }) {
-      edges {
-        node {
-          frontmatter {
-            title
-            thumbnail {
-              publicURL
-            }
-          }
+    post: mdx(id: { eq: $id }) {
+      fields {
+        readingTime {
+          text
         }
       }
+      frontmatter {
+        title
+        excerpt
+        thumbnail {
+          publicURL
+        }
+      }
+      body
     }
   }
 `;
 
-export default Post;
+export default PostPage;
