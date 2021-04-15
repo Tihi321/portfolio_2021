@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 
 interface ISEOProps {
   title: string;
+  description?: string;
 }
 
 interface IPageQuery {
@@ -18,7 +19,7 @@ interface IPageQuery {
   };
 }
 
-export const SEO = ({ title }: ISEOProps) => {
+export const SEO = ({ title, description }: ISEOProps) => {
   const { site }: IPageQuery = useStaticQuery(
     graphql`
       query {
@@ -42,7 +43,7 @@ export const SEO = ({ title }: ISEOProps) => {
       meta={[
         {
           name: `description`,
-          content: site.siteMetadata.description
+          content: description || site.siteMetadata.description
         },
         {
           property: `og:title`,

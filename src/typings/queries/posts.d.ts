@@ -1,36 +1,38 @@
+export type TPost = {
+  frontmatter: {
+    title: string;
+    tags: string[];
+    thumbnail: {
+      publicURL: string;
+    };
+  };
+  fields: {
+    path: string;
+    readingTime: {
+      text: string;
+    };
+  };
+};
+
 export interface IPostsPageQuery {
   data: {
-    posts: {
-      edges: {
-        node: {
-          frontmatter: {
-            title: string;
-            tags: string[];
-            thumbnail: {
-              publicURL: string;
-            };
-          };
-          fields: {
-            path: string;
-          };
-        };
-      }[];
-    };
+    posts: TPost[];
   };
 }
 export interface IPostPageQuery {
-  data: {
-    post: {
-      edges: {
-        node: {
-          frontmatter: {
-            title: string;
-            thumbnail: {
-              publicURL: string;
-            };
-          };
-        };
-      }[];
+  post: {
+    fields: {
+      readingTime: {
+        text: string;
+      };
     };
+    frontmatter: {
+      title: string;
+      excerpt: string;
+      thumbnail: {
+        publicURL: string;
+      };
+    };
+    body: string;
   };
 }
