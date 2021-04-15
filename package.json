@@ -40,6 +40,7 @@
     "gatsby-plugin-sitemap": "^3.1.0",
     "gatsby-plugin-styled-components": "^4.1.0",
     "gatsby-remark-images": "^4.2.0",
+    "gatsby-remark-reading-time": "^1.1.0",
     "gatsby-source-filesystem": "^3.1.0",
     "gatsby-transformer-sharp": "^3.1.0",
     "lodash": "^4.17.21",

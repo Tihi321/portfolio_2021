@@ -8,11 +8,12 @@ import { SEO } from "./SEO";
 
 interface ILayoutProps extends IContainerProps {
   title: string;
+  description?: string;
 }
 
-export const Layout = ({ children, title }: ILayoutProps) => (
+export const Layout = ({ children, title, description }: ILayoutProps) => (
   <>
-    <SEO title={title} />
+    <SEO title={title} description={description} />
     <Header />
     <main>{children}</main>
     <Footer />

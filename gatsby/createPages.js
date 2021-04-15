@@ -16,13 +16,14 @@ const createPages = async ({ graphql, actions }) => {
   // Posts Page
   const result = await graphql(`
     query {
-      allMdx {
+      posts: allMdx {
         nodes {
           fields {
             path
           }
           frontmatter {
             tags
+            title
           }
           id
         }
@@ -33,12 +34,13 @@ const createPages = async ({ graphql, actions }) => {
   let postTags = [];
   let allPosts = [];
 
-  result.data.allMdx.nodes.forEach(
-    ({ fields: { path }, id, frontmatter: { tags } }) => {
+  result.data.posts.nodes.forEach(
+    ({ fields: { path }, id, frontmatter: { tags, title } }) => {
       postTags = [...postTags, ...tags];
       allPosts = [
         ...allPosts,
         {
+          title,
           path,
           tags,
           id
@@ -47,7 +49,9 @@ const createPages = async ({ graphql, actions }) => {
     }
   );
 
-  allPosts.forEach(({ path, tags, id }) => {
+  allPosts.forEach(({ path, tags, id }, index) => {
+    const previous = index === allPosts.length - 1 ? null : allPosts[index + 1];
+    const next = index === 0 ? null : allPosts[index - 1];
     createPage({
       path,
       component: join(templatesPath, "Post.tsx"),
@@ -56,7 +60,19 @@ const createPages = async ({ graphql, actions }) => {
         tags: tags.map(tag => ({
           tag,
           src: createTagURI(tag)
-        }))
+        })),
+        previous: previous
+          ? {
+              title: previous.title,
+              path: previous.path
+            }
+          : null,
+        next: next
+          ? {
+              title: next.title,
+              path: next.path
+            }
+          : null
       }
     });
   });
