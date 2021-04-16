@@ -7,5 +7,5 @@ export interface TPostLink extends TPath {
 }
 
 export interface TTagLink extends TPath {
-  tag: string;
+  name: string;
 }
