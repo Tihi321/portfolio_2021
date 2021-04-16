@@ -58,8 +58,8 @@ const createPages = async ({ graphql, actions }) => {
       context: {
         id,
         tags: tags.map(tag => ({
-          tag,
-          src: createTagURI(tag)
+          name: tag,
+          path: createTagURI(tag)
         })),
         previous: previous
           ? {
@@ -78,12 +78,12 @@ const createPages = async ({ graphql, actions }) => {
   });
 
   const allTags = Array.from(new Set(postTags)).map(tag => ({
-    tag,
+    name: tag,
     path: createTagURI(tag)
   }));
 
-  allTags.forEach(({ tag, path }) => {
-    const tagPosts = allPosts.filter(({ tags }) => tags.includes(tag));
+  allTags.forEach(({ name, path }) => {
+    const tagPosts = allPosts.filter(({ tags }) => tags.includes(name));
 
     createPagedPageCallback({
       callback: createPage,
@@ -92,7 +92,7 @@ const createPages = async ({ graphql, actions }) => {
       path,
       component: join(templatesPath, "Category.tsx"),
       context: {
-        tag,
+        tag: name,
         tags: allTags
       }
     });

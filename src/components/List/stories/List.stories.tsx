@@ -7,8 +7,8 @@ import { PROJECTS } from "~ts/projects";
 
 import { ProjectList as ProjectListComponent } from "../ProjectList";
 import { ProjectsList as ProjectsListComponent } from "../ProjectsList";
-import { TagButtonsFeaturedList as TagButtonsFeaturedListComponent } from "../TagButtonsFeaturedList";
-import { TagButtonsList as TagButtonsListComponent } from "../TagButtonsList";
+import { TagButtonsFeaturedList as TagButtonsFeaturedListComponent } from "../TagFeaturedList";
+import { TagButtonsList as TagButtonsListComponent } from "../TagList";
 
 export const ProjectList = () => {
   const index = Array.from(
