@@ -3,9 +3,11 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import React from "react";
 import styled from "styled-components";
 
+import { LineContainer } from "~ts/components/Containers";
 import { Layout } from "~ts/components/Layout";
+import { ArrowLink } from "~ts/components/Links";
 import { PostHeader } from "~ts/components/Posts";
-import { EBreakpoints, ESide } from "~ts/enums";
+import { EArrowLinkSides, EBreakpoints, ESide } from "~ts/enums";
 import { IPostPageQuery, TPostLink, TTagLink } from "~ts/typings";
 import { media } from "~ts/utils";
 
@@ -26,25 +28,55 @@ const PostHeaderStyled = styled(PostHeader)`
   }
 `;
 
-const PostPage = ({ data, pageContext }: IPageProps) => {
-  console.log(data);
-  console.log(pageContext);
+const PostFooterStyled = styled(LineContainer)`
+  display: flex;
+  margin-top: 30px;
 
-  return (
-    <Layout
+  ${media(EBreakpoints.LAPTOP, ESide.UP)} {
+    margin-top: 50px;
+  }
+`;
+
+const ArrowLinkNextStyled = styled(ArrowLink)`
+  margin-left: auto;
+`;
+
+const ContentContainerStyled = styled.article`
+  display: grid;
+`;
+
+const PostPage = ({ data, pageContext }: IPageProps) => (
+  <Layout
+    title={data.post.frontmatter.title}
+    description={data.post.frontmatter.excerpt}
+  >
+    <PostHeaderStyled
       title={data.post.frontmatter.title}
-      description={data.post.frontmatter.excerpt}
-    >
-      <PostHeaderStyled
-        title={data.post.frontmatter.title}
-        imageLink={data.post.frontmatter.thumbnail.publicURL}
-        readingTime={data.post.fields.readingTime.text}
-        tags={pageContext.tags}
-      />
+      imageLink={data.post.frontmatter.thumbnail.publicURL}
+      readingTime={data.post.fields.readingTime.text}
+      tags={pageContext.tags}
+    />
+    <ContentContainerStyled>
       <MDXRenderer>{data.post.body}</MDXRenderer>
-    </Layout>
-  );
-};
+    </ContentContainerStyled>
+    <PostFooterStyled>
+      {pageContext.previous && (
+        <ArrowLink
+          text={pageContext.previous.title}
+          to={pageContext.previous.path}
+          side={EArrowLinkSides.Left}
+        />
+      )}
+      {pageContext.next && (
+        <ArrowLinkNextStyled
+          text={pageContext.next.title}
+          to={pageContext.next.path}
+          side={EArrowLinkSides.Right}
+        />
+      )}
+    </PostFooterStyled>
+  </Layout>
+);
 
 export const query = graphql`
   query PostQuery($id: String) {

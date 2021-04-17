@@ -133,7 +133,7 @@ export const textStyles = css`
     transition: transform 0.1s ease;
 
     &:hover {
-      transform: rotate(2deg);
+      transform: brightness(0.8);
     }
   }
 
