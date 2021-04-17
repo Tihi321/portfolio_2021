@@ -1,6 +1,7 @@
 const META_DATA = {
   TITLE: "Portfolio 2021",
   DESCRIPTION: "Programming portfolio website",
+  INTRO: "Hi, I'm Tihomir. I build products with TypeScript, React, and Node.",
   SITE_URL: "https://localhost://8000"
 };
 

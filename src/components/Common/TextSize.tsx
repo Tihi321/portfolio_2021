@@ -54,6 +54,7 @@ interface ITextSizeProps extends ITextSizes, IStyledProps {
 const FontSizesStyled = styled(({ children, ...props }: ITextSizeProps) => (
   <span {...props}>{children}</span>
 ))`
+  display: inline-block;
   ${props => {
     switch (props.size) {
       case ETextSizes.Large:
