@@ -9,7 +9,8 @@ const createSchemaCustomization = ({ actions, schema }) => {
         tags: "[String!]!",
         thumbnail: "String!",
         excerpt: "String",
-        publish: "Boolean"
+        featured: "Boolean!",
+        publish: "Boolean!"
       },
       fields: {
         path: "String!",

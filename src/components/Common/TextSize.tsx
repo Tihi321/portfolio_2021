@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 
 import { EBreakpoints, ESide, ETextSizes } from "~ts/enums";
 import {
+  hugeFontThemeResponsiveFontStyles,
   largeFontThemeResponsiveFontStyles,
   mediumFontThemeResponsiveFontStyles,
   regularFontThemeResponsiveFontStyles,
@@ -11,6 +12,13 @@ import {
 } from "~ts/styles";
 import { IStyledProps, ITextSizes } from "~ts/typings";
 import { media } from "~ts/utils";
+
+const hugeStyles = css`
+  ${hugeFontThemeResponsiveFontStyles(EBreakpoints.MOBILE)};
+  ${media(EBreakpoints.LAPTOP, ESide.UP)} {
+    ${hugeFontThemeResponsiveFontStyles(EBreakpoints.LAPTOP)}
+  }
+`;
 
 const largeStyles = css`
   ${largeFontThemeResponsiveFontStyles(EBreakpoints.MOBILE)};
@@ -57,6 +65,8 @@ const FontSizesStyled = styled(({ children, ...props }: ITextSizeProps) => (
   display: inline-block;
   ${props => {
     switch (props.size) {
+      case ETextSizes.Huge:
+        return hugeStyles;
       case ETextSizes.Large:
         return largeStyles;
       case ETextSizes.Medium:

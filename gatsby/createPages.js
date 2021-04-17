@@ -108,6 +108,14 @@ const createPages = async ({ graphql, actions }) => {
       tags: allTags
     }
   });
+
+  createPage({
+    path: "/",
+    component: join(templatesPath, "Home.tsx"),
+    context: {
+      tags: allTags
+    }
+  });
 };
 
 module.exports = {

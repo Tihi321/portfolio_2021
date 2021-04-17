@@ -11,13 +11,14 @@ export const Paragraph = () => {
   const tagText = text("Text", "Vue Template Vars", "OPTIONS");
 
   const sizes = [
+    ETextSizes.Huge,
     ETextSizes.Large,
     ETextSizes.Medium,
     ETextSizes.Regular,
     ETextSizes.Small
   ];
 
-  const linkSize = select("Size", sizes, sizes[2], "OPTIONS");
+  const linkSize = select("Size", sizes, sizes[3], "OPTIONS");
 
   return <ParagraphComponent size={linkSize as TTextSizes} text={tagText} />;
 };
