@@ -20,13 +20,14 @@ export const PostLink = () => {
 
   return (
     <PostLinkComponent
+      readingTime="1min read"
       text={postTitleText}
       to="./"
       size={headingSize as TPostLinkSizes}
       tags={[
-        { to: "./", text: "javascript" },
-        { to: "./", text: "node" },
-        { to: "./", text: "typescript" }
+        { path: "./", name: "javascript" },
+        { path: "./", name: "node" },
+        { path: "./", name: "typescript" }
       ]}
     />
   );
@@ -37,13 +38,14 @@ export const FeaturedPostLink = () => {
 
   return (
     <FeaturedPostLinkComponent
+      readingTime="1min read"
       text={postTitleText}
       to="./"
       imageLink={netwokNodesImage}
       tags={[
-        { to: "./", text: "javascript" },
-        { to: "./", text: "node" },
-        { to: "./", text: "typescript" }
+        { path: "./", name: "javascript" },
+        { path: "./", name: "node" },
+        { path: "./", name: "typescript" }
       ]}
     />
   );

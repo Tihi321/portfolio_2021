@@ -1,11 +1,14 @@
 import React from "react";
+import styled from "styled-components";
 
 import { IContainerProps } from "~ts/typings";
 
-import { TableWrapper } from "./TableWrapper";
+const TableWrapperStyled = styled.div`
+  overflow-x: auto;
+`;
 
 export const Table = ({ children }: IContainerProps) => (
-  <TableWrapper>
+  <TableWrapperStyled>
     <table>{children}</table>
-  </TableWrapper>
+  </TableWrapperStyled>
 );
