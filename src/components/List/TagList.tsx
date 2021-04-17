@@ -1,38 +1,54 @@
 import React from "react";
 import styled from "styled-components";
 
+import { EBreakpoints } from "~ts/enums";
 import { removeListkStyles } from "~ts/styles";
 import {
   ITagButtonsListProps,
   ITagLinkListProps,
   ITagListProps
 } from "~ts/typings";
+import { media } from "~ts/utils";
 
 import { TagButton } from "../Buttons";
 import { TagLink } from "../Links";
 import { ListTitle } from "./ListTitle";
 
-const TagButtonsListStyled = styled.div`
-  margin: 0;
+const ListTitleStyled = styled(ListTitle)`
+  text-align: center;
+
+  ${media(EBreakpoints.LAPTOP)} {
+    text-align: start;
+  }
 `;
 
 const TagListStyled = styled.ul`
   ${removeListkStyles}
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  ${media(EBreakpoints.LAPTOP)} {
+    flex-direction: column;
+  }
 `;
 
 const ListItemStyled = styled.li`
   margin-bottom: 0;
-`;
+  margin-right: 10px;
 
-const TagButtonStyled = styled(TagButton)`
-  padding: 0;
+  ${media(EBreakpoints.LAPTOP)} {
+    margin-right: 0;
+  }
 `;
 
 export const TagList = ({ className, title, children }: ITagListProps) => (
-  <TagButtonsListStyled className={className}>
-    <ListTitle title={title} />
+  <div className={className}>
+    <ListTitleStyled title={title} />
     <TagListStyled>{children}</TagListStyled>
-  </TagButtonsListStyled>
+  </div>
 );
 
 export const TagLinkList = ({
@@ -61,7 +77,7 @@ export const TagButtonsList = ({
   <TagList className={className} title={title}>
     {tags.map((tag, index) => (
       <ListItemStyled key={`tag--${tag}-${index}`}>
-        <TagButtonStyled
+        <TagButton
           text={tag}
           active={selected === tag}
           onClick={() =>

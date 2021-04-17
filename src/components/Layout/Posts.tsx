@@ -1,6 +1,10 @@
 import React from "react";
 
-import { ColumnsContainer } from "~ts/components/Containers";
+import {
+  ColumnsContainer,
+  TagsContainerMobileStyled,
+  TagsContainerTabletStyled
+} from "~ts/components/Containers";
 import { FeaturedPostLink, PostLink } from "~ts/components/Posts";
 import { EBreakpoints, EPostLinkSizes } from "~ts/enums";
 import { useMediaQuery } from "~ts/hooks";
@@ -22,21 +26,23 @@ export const Posts = ({ posts, context }: IPostsProps) => {
   return (
     <Layout title={context?.tag || "Blog"}>
       <ColumnsContainer>
-        <div>
-          {isTablet ? (
+        {isTablet ? (
+          <TagsContainerTabletStyled>
             <TagLinkList
               tags={context.tags}
               title="Categories"
               selected={context?.tag}
             />
-          ) : (
+          </TagsContainerTabletStyled>
+        ) : (
+          <TagsContainerMobileStyled>
             <TagLinkFeaturedList
               tags={context.tags}
               title="Categories"
               selected={context?.tag}
             />
-          )}
-        </div>
+          </TagsContainerMobileStyled>
+        )}
         <div>
           {posts.map((post, index) =>
             index === 0 ? (

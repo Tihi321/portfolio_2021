@@ -31,10 +31,6 @@ const ListItemStyled = styled.li`
   margin: 0;
 `;
 
-const TagButtonStyled = styled(FeaturedTagButton)`
-  margin: 0;
-`;
-
 export const TagFeaturedList = ({
   className,
   title,
@@ -76,7 +72,7 @@ export const TagButtonsFeaturedList = ({
   <TagFeaturedList className={className} title={title}>
     {tags.map((tag, index) => (
       <ListItemStyled key={`tag--${tag}-${index}`}>
-        <TagButtonStyled
+        <FeaturedTagButton
           text={tag}
           active={selected === tag}
           onClick={() =>
