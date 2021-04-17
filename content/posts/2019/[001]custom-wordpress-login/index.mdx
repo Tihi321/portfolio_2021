@@ -11,7 +11,7 @@ Hi, here is a quick tip on how to create custom login url on your WordPress. Bef
 
 Let’s start, the first thing we need to do is change default login url that WordPress points to when somebody wants to enter wp-admin and is not logged in. Bots usually try to access the login page by going to wp-admin directly. For that, we can use a hook that filters login url. We also want to change logout url, where a user should be redirected on logout.
 
-```PHP
+```php
 class Login {
   /**
   * Register all the hooks
@@ -29,7 +29,7 @@ class Login {
 
 In our callback function, we can return any url that we want, just to point out all callbacks for filters need to be public. In this example snippet we use home url, so each time someone not logged in tries to access wp-admin, WordPress will redirect him to home url.
 
-```PHP
+```php
 public function custom_login_url( string $login_url, string $redirect, bool $force_reauth ) : string {
    return \home_url( '/' );
 }
@@ -37,7 +37,7 @@ public function custom_login_url( string $login_url, string $redirect, bool $for
 
 For logout we use the name of our custom-login.php file, we don’t need to hide url from already logged in users.
 
-```PHP
+```php
 public function custom_logout_url( string $logout_url, string $redirect ) : string {
    return \home_url( '/custom-login.php' );
 }

@@ -5,22 +5,20 @@ import {
   TagsContainerMobileStyled,
   TagsContainerTabletStyled
 } from "~ts/components/Containers";
+import { Layout } from "~ts/components/Layout";
+import { TagLinkFeaturedList, TagLinkList } from "~ts/components/List";
 import { FeaturedPostLink, PostLink } from "~ts/components/Posts";
 import { EBreakpoints, EPostLinkSizes } from "~ts/enums";
 import { useMediaQuery } from "~ts/hooks";
 import { IPostsContext, TPost } from "~ts/typings";
-
-import { TagLinkFeaturedList, TagLinkList } from "../List";
-import { Layout } from "./Layout";
+import { connectTagLinks } from "~ts/utils";
 
 interface IPostsProps {
   posts: TPost[];
   context: IPostsContext;
 }
 
-export const Posts = ({ posts, context }: IPostsProps) => {
-  console.log(posts);
-  console.log(context);
+export const PostsPage = ({ posts, context }: IPostsProps) => {
   const isTablet = useMediaQuery(EBreakpoints.TABLET);
 
   return (
@@ -51,6 +49,8 @@ export const Posts = ({ posts, context }: IPostsProps) => {
                 imageLink={post.frontmatter.thumbnail.publicURL}
                 to={post.fields.path}
                 text={post.frontmatter.title}
+                readingTime={post.fields.readingTime.text}
+                tags={connectTagLinks(context.tags)(post.frontmatter.tags)}
               />
             ) : (
               <PostLink
@@ -58,6 +58,8 @@ export const Posts = ({ posts, context }: IPostsProps) => {
                 to={post.fields.path}
                 text={post.frontmatter.title}
                 size={EPostLinkSizes.Small}
+                readingTime={post.fields.readingTime.text}
+                tags={connectTagLinks(context.tags)(post.frontmatter.tags)}
               />
             )
           )}

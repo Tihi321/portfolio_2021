@@ -1,11 +1,11 @@
 import { graphql } from "gatsby";
 import React from "react";
 
-import { Posts } from "~ts/components/Layout";
+import { PostsPage } from "~ts/components/Posts";
 import { IPostsProps } from "~ts/typings";
 
 const CategoryPage = ({ data, pageContext }: IPostsProps) => (
-  <Posts context={pageContext} posts={data.data.posts} />
+  <PostsPage context={pageContext} posts={data.data.posts} />
 );
 
 export const query = graphql`

@@ -1,15 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
+import { TextSize } from "~ts/components/Common";
 import { BottomLineContainer } from "~ts/components/Containers";
 import { HeadingLink, ImageLink, TagLink } from "~ts/components/Links";
-import { EHeadingSizes, EPostLinkSizes } from "~ts/enums";
-import { TPostLinkSizes } from "~ts/typings";
+import { EHeadingSizes, EPostLinkSizes, ETextSizes } from "~ts/enums";
+import { TPostLinkSizes, TTagLink } from "~ts/typings";
 
 interface ILinkProps {
   text: string;
   to: string;
-  tags?: { to: string; text: string }[];
+  tags?: TTagLink[];
+  readingTime: string;
 }
 
 interface IPostLinkProps extends ILinkProps {
@@ -32,13 +34,21 @@ const ImageLinkStyled = styled(ImageLink)`
   margin-bottom: 5px;
 `;
 
-const FeaturedPostLinkContainer = styled.div``;
+const PostLinkFooterStyled = styled.div`
+  display: flex;
+  align-items: baseline;
+`;
+
+const ReadingTimeStyled = styled(TextSize)`
+  margin-left: auto;
+`;
 
 export const PostLink = ({
   text,
   to,
   size = EPostLinkSizes.Regular,
-  tags = []
+  tags = [],
+  readingTime
 }: IPostLinkProps) => (
   <BottomLineContainer>
     <HeadingLinkStyled
@@ -50,14 +60,19 @@ export const PostLink = ({
           : EHeadingSizes.Regular
       }
     />
-    {tags &&
-      tags.map((tag, index) => (
-        <TagLinkStyled
-          key={`${text}-${tag.text}-${index}`}
-          to={tag.to}
-          text={tag.text}
-        />
-      ))}
+    <PostLinkFooterStyled>
+      {tags &&
+        tags.map((tag, index) => (
+          <TagLinkStyled
+            key={`${text}-${tag.name}-${index}`}
+            to={tag.path}
+            text={tag.name}
+          />
+        ))}
+      <ReadingTimeStyled size={ETextSizes.Tiny}>
+        {readingTime}
+      </ReadingTimeStyled>
+    </PostLinkFooterStyled>
   </BottomLineContainer>
 );
 
@@ -65,10 +80,17 @@ export const FeaturedPostLink = ({
   text,
   to,
   imageLink,
+  readingTime,
   tags = []
 }: IFeaturedPostLinkProps) => (
-  <FeaturedPostLinkContainer>
+  <div>
     <ImageLinkStyled alt={text} to={to} src={imageLink} />
-    <PostLink text={text} to={to} size={EPostLinkSizes.Regular} tags={tags} />
-  </FeaturedPostLinkContainer>
+    <PostLink
+      readingTime={readingTime}
+      text={text}
+      to={to}
+      size={EPostLinkSizes.Regular}
+      tags={tags}
+    />
+  </div>
 );

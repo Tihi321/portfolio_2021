@@ -13,7 +13,7 @@ React is built on properties, basically, you can pass to any child component any
 But it can also cause some issues. Let’s say you have an input field that you are passing to the child component. In child components, you are mapping through some data and attaching the input field to that data.
 
 
-```Javascript
+```jsx
 items.map((item, index) => (
   <div className="repeater__options-item" key={item.id}>
     <CustomInput
@@ -26,7 +26,7 @@ items.map((item, index) => (
 
 Now the issue here is, every time the user interacts with Input, this map is re-rendered, the component is re-rendered and the user loses focus of the input, To solve this we need to use useMemo hook.
 
-```Javascript
+```javascript
 const MemoCustomInput = useMemo(() => CustomInput, []);
 ```
 
