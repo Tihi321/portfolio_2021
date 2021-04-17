@@ -55,6 +55,7 @@ const PostPage = ({ data, pageContext }: IPageProps) => (
       imageLink={data.post.frontmatter.thumbnail.publicURL}
       readingTime={data.post.fields.readingTime.text}
       tags={pageContext.tags}
+      date={data.post.frontmatter.date}
     />
     <ContentContainerStyled>
       <MDXRenderer>{data.post.body}</MDXRenderer>
@@ -87,7 +88,7 @@ export const query = graphql`
         }
       }
       frontmatter {
-        date(formatString: "Do MMMM YYYY")
+        date(formatString: "DD.MM.YYYY")
         title
         excerpt
         thumbnail {
