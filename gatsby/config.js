@@ -8,6 +8,7 @@ const {
 const Metadata = {
   title: META_DATA.TITLE,
   description: META_DATA.DESCRIPTION,
+  intro: META_DATA.INTRO,
   siteUrl: META_DATA.SITE_URL
 };
 
