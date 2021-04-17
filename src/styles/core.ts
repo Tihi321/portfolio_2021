@@ -27,6 +27,8 @@ import {
 export const coreStyles = css`
   * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
   #___gatsby,
   #gatsby-focus-wrapper {
@@ -64,7 +66,7 @@ export const headingStyles = css`
   h4,
   h5,
   h6 {
-    margin: 0px;
+    margin: 0;
   }
 
   h1 {
@@ -115,7 +117,7 @@ export const textStyles = css`
   dl,
   p {
     padding-bottom: 30px;
-    margin: 0px;
+    margin: 0;
     ${bodyResponsiveFontStyles(EBreakpoints.MOBILE)};
     ${media(EBreakpoints.LAPTOP, ESide.UP)} {
       ${bodyResponsiveFontStyles(EBreakpoints.LAPTOP)}
@@ -176,7 +178,7 @@ export const textStyles = css`
 export const tableStyles = css`
   ul,
   ol {
-    padding: 0px;
+    padding: 0;
     margin: 0px 0px 25px 20px;
     list-style-position: outside;
     list-style-image: none;
@@ -188,7 +190,7 @@ export const tableStyles = css`
     }
   }
   li {
-    margin-bottom: 0px;
+    margin-bottom: 0;
     ${media(EBreakpoints.LAPTOP, ESide.UP)} {
       margin-bottom: 5px;
     }

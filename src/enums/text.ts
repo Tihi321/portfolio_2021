@@ -1,4 +1,5 @@
 export enum ETextSizes {
+  Huge = "huge",
   Large = "large",
   Medium = "medium",
   Regular = "regular",

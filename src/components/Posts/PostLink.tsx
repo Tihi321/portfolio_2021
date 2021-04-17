@@ -22,6 +22,10 @@ interface IFeaturedPostLinkProps extends ILinkProps {
   imageLink: string;
 }
 
+const BottomLineContainerStyled = styled(BottomLineContainer)`
+  margin-bottom: 10px;
+`;
+
 const HeadingLinkStyled = styled(HeadingLink)`
   padding-bottom: 0;
 `;
@@ -51,7 +55,7 @@ export const PostLink = ({
   tags = [],
   readingTime
 }: IPostLinkProps) => (
-  <BottomLineContainer>
+  <BottomLineContainerStyled>
     <HeadingLinkStyled
       text={text}
       to={to}
@@ -74,7 +78,7 @@ export const PostLink = ({
         {readingTime}
       </ReadingTimeStyled>
     </PostLinkFooterStyled>
-  </BottomLineContainer>
+  </BottomLineContainerStyled>
 );
 
 export const FeaturedPostLink = ({

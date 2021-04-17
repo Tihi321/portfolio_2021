@@ -7,7 +7,7 @@ import { IContainerProps, IStyledProps } from "~ts/typings";
 interface IBottomLineContainerProps extends IContainerProps, IStyledProps {}
 
 const BottomLineContainerStyled = styled.div`
-  padding: 2px 0;
+  padding: 4px 0;
   border-bottom: 1px solid ${bottomLineBorderColor};
 `;
 

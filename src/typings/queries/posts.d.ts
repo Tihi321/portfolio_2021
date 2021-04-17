@@ -27,6 +27,7 @@ export interface IPostPageQuery {
       };
     };
     frontmatter: {
+      date: string;
       title: string;
       excerpt: string;
       thumbnail: {
