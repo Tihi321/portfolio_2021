@@ -57,6 +57,7 @@ export const PostHeader = () => {
 
   return (
     <PostHeaderComponent
+      date="21.10.2020"
       readingTime="1min read"
       title={postTitleText}
       imageLink={netwokNodesImage}
