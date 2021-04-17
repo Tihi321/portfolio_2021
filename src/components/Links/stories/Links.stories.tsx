@@ -2,11 +2,10 @@ import { boolean, select, text } from "@storybook/addon-knobs";
 import { Meta } from "@storybook/react";
 import React from "react";
 
-import { EArrowLinkSides, EHeadingSizes, ETextSizes } from "~ts/enums";
+import { EHeadingSizes, ETextSizes } from "~ts/enums";
 import netwokNodesImage from "~ts/images/network-nodes.svg";
 import { THeadingSizes, TTextSizes } from "~ts/typings";
 
-import { ArrowLink as ArrowLinkComponent } from "../ArrowLink";
 import {
   FeaturedHeadingLink as FeaturedHeadingLinkComponent,
   HeadingLink as HeadingLinkComponent
@@ -59,16 +58,6 @@ export const FeaturedHeadingLink = () => {
   const tagText = text("Tag Text", "Blog", "OPTIONS");
 
   return <FeaturedHeadingLinkComponent text={tagText} to="./" />;
-};
-
-export const ArrowLink = () => {
-  const tagText = text("Link Text", "First post title", "OPTIONS");
-
-  const sides = [EArrowLinkSides.Left, EArrowLinkSides.Right];
-
-  const arrowSide = select("Side", sides, sides[0], "OPTIONS");
-
-  return <ArrowLinkComponent text={tagText} to="./" side={arrowSide} />;
 };
 
 export const ImageLink = () => {
