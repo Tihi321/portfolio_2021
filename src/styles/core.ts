@@ -129,7 +129,7 @@ export const textStyles = css`
   a {
     color: ${linkColor};
     text-decoration: none;
-    display: inline-block;
+    display: inline-flex;
     transition: transform 0.1s ease;
 
     &:hover {

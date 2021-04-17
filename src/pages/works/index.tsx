@@ -2,7 +2,11 @@ import React, { useMemo, useState } from "react";
 import styled from "styled-components";
 
 import { TextSize } from "~ts/components/Common";
-import { ColumnsContainer } from "~ts/components/Containers";
+import {
+  ColumnsContainer,
+  TagsContainerMobileStyled,
+  TagsContainerTabletStyled
+} from "~ts/components/Containers";
 import { Layout } from "~ts/components/Layout";
 import {
   ProjectsList,
@@ -22,21 +26,6 @@ import { resetButtonStyles } from "~ts/styles";
 import { textColor } from "~ts/themes";
 import { media } from "~ts/utils";
 
-const TagsContainerTabletStyled = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  ${media(EBreakpoints.LAPTOP)} {
-    align-items: flex-start;
-  }
-`;
-
-const TagsContainerMobileStyled = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
 const ClearAllButtonTextStyled = styled(TextSize)`
   text-transform: capitalize;
   font-style: italic;
@@ -49,33 +38,6 @@ const TagButtonsFeaturedListStyled = styled(TagButtonsFeaturedList)`
 
 const TagButtonsListStyled = styled(TagButtonsList)`
   padding-bottom: 10px;
-
-  ul {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    ${media(EBreakpoints.LAPTOP)} {
-      flex-direction: column;
-    }
-  }
-
-  li {
-    margin-right: 10px;
-
-    ${media(EBreakpoints.LAPTOP)} {
-      margin-right: 0;
-    }
-  }
-
-  h3 {
-    text-align: center;
-
-    ${media(EBreakpoints.LAPTOP)} {
-      text-align: start;
-    }
-  }
 `;
 
 const ClearAllButtonStyled = styled.button`
