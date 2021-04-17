@@ -36,6 +36,7 @@ const ImageLinkStyled = styled(ImageLink)`
 
 const PostLinkFooterStyled = styled.div`
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
 `;
 

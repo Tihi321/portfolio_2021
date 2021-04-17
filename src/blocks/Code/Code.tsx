@@ -14,7 +14,7 @@ import { LineNo } from "./LineNo";
 import { Pre } from "./Pre";
 
 const getThemeObject = (theme: ETheme) =>
-  theme === ETheme.Dark ? lightTheme : darkTheme;
+  theme === ETheme.Dark ? darkTheme : lightTheme;
 
 export const Code = ({
   codeString,
