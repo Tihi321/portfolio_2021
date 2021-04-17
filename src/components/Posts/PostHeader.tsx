@@ -7,17 +7,16 @@ import { FeaturedTagLink } from "~ts/components/Links";
 import { EHeadingSizes, ETextSizes } from "~ts/enums";
 import { IStyledProps, TTagLink } from "~ts/typings";
 
+import { FeaturedImage } from "../Images";
+
 interface IPostHeaderProps extends IStyledProps {
   tags: TTagLink[];
   title: string;
+  quote?: string;
   readingTime: string;
   imageLink: string;
   date: string;
 }
-
-const ImageStyled = styled.img`
-  display: block;
-`;
 
 const HeadingStyled = styled(Heading)`
   text-align: center;
@@ -35,6 +34,7 @@ const ReadingTimeDateStyled = styled(TextSize)`
 
 export const PostHeader = ({
   title,
+  quote,
   imageLink,
   readingTime,
   className,
@@ -43,7 +43,7 @@ export const PostHeader = ({
 }: IPostHeaderProps) => (
   <BottomLineContainer className={className}>
     <HeadingStyled size={EHeadingSizes.Large}>{title}</HeadingStyled>
-    <ImageStyled src={imageLink} />
+    <FeaturedImage quote={quote} src={imageLink} alt={title} />
     <PostLinkFooterStyled>
       {tags &&
         tags.map((tag, index) => (

@@ -30,6 +30,7 @@ export interface IPostPageQuery {
       date: string;
       title: string;
       excerpt: string;
+      quote?: string;
       thumbnail: {
         publicURL: string;
       };

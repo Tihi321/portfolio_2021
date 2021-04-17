@@ -4,7 +4,12 @@ import styled from "styled-components";
 import { TextSize } from "~ts/components/Common";
 import { BottomLineContainer } from "~ts/components/Containers";
 import { HeadingLink, ImageLink, TagLink } from "~ts/components/Links";
-import { EHeadingSizes, EPostLinkSizes, ETextSizes } from "~ts/enums";
+import {
+  EFeaturedImageSizes,
+  EHeadingSizes,
+  EPostLinkSizes,
+  ETextSizes
+} from "~ts/enums";
 import { TPostLinkSizes, TTagLink } from "~ts/typings";
 
 interface ILinkProps {
@@ -89,7 +94,12 @@ export const FeaturedPostLink = ({
   tags = []
 }: IFeaturedPostLinkProps) => (
   <div>
-    <ImageLinkStyled alt={text} to={to} src={imageLink} />
+    <ImageLinkStyled
+      alt={text}
+      to={to}
+      src={imageLink}
+      size={EFeaturedImageSizes.Small}
+    />
     <PostLink
       readingTime={readingTime}
       text={text}
