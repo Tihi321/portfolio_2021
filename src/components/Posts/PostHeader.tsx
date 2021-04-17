@@ -12,6 +12,7 @@ interface IPostHeaderProps extends IStyledProps {
   title: string;
   readingTime: string;
   imageLink: string;
+  date: string;
 }
 
 const ImageStyled = styled.img`
@@ -28,7 +29,7 @@ const PostLinkFooterStyled = styled.div`
   align-items: baseline;
 `;
 
-const ReadingTimeStyled = styled(TextSize)`
+const ReadingTimeDateStyled = styled(TextSize)`
   margin-left: auto;
 `;
 
@@ -37,6 +38,7 @@ export const PostHeader = ({
   imageLink,
   readingTime,
   className,
+  date,
   tags = []
 }: IPostHeaderProps) => (
   <BottomLineContainer className={className}>
@@ -52,9 +54,9 @@ export const PostHeader = ({
             active
           />
         ))}
-      <ReadingTimeStyled size={ETextSizes.Tiny}>
-        {readingTime}
-      </ReadingTimeStyled>
+      <ReadingTimeDateStyled size={ETextSizes.Tiny}>
+        {readingTime} - {date}
+      </ReadingTimeDateStyled>
     </PostLinkFooterStyled>
   </BottomLineContainer>
 );
