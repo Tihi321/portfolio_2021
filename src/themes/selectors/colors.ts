@@ -1,7 +1,8 @@
-import { ThemeProps } from "styled-components";
 import { createSelector } from "reselect";
+import { ThemeProps } from "styled-components";
 
 const themeColors = (state: ThemeProps<any>) => state.theme.colors;
+const sharedColors = (state: ThemeProps<any>) => state.theme.sharedColors;
 
 export const focusColor = createSelector(themeColors, colors => colors.focus);
 
@@ -29,6 +30,13 @@ export const textColor = createSelector(
   themeColors,
   colors => colors.fontColor
 );
+
+export const backdropColor = createSelector(
+  sharedColors,
+  colors => colors.backdrop
+);
+
+export const quoteColor = createSelector(sharedColors, colors => colors.white);
 
 export const backgroundColor = focusColor;
 export const logoBackgroundColor = primaryColor;

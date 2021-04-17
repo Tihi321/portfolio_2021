@@ -1,3 +1,4 @@
+import { sharedColors } from "./colors";
 import { fonts } from "./typography";
 
 export const darkTheme = {
@@ -9,5 +10,6 @@ export const darkTheme = {
     fontColor: "rgba(255, 255, 255, 1)",
     tertiarySemiTransparent: "rgba(153, 153, 153, 0.1)"
   },
+  sharedColors,
   fonts
 };

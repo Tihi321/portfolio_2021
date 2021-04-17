@@ -7,4 +7,5 @@ export * from "./code";
 export * from "./text";
 export * from "./projects";
 export * from "./store";
+export * from "./images";
 export { CONTAINER_WIDTH, CONTACT };

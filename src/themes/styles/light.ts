@@ -1,3 +1,4 @@
+import { sharedColors } from "./colors";
 import { fonts } from "./typography";
 
 export const lightTheme = {
@@ -9,5 +10,6 @@ export const lightTheme = {
     fontColor: "rgba(51, 51, 51, 1)",
     tertiarySemiTransparent: "rgba(102, 102, 102, 0.1)"
   },
+  sharedColors,
   fonts
 };

@@ -36,7 +36,7 @@ export const fonts = {
   },
   [EFonts.Heading01]: {
     [EBreakpoints.MOBILE]: {
-      fontSize: "32px",
+      fontSize: "26px",
       fontWeight: "700",
       lineHeight: "1.1"
     },
