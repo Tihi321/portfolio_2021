@@ -6,6 +6,7 @@ import { EPostLinkSizes } from "~ts/enums";
 import netwokNodesImage from "~ts/images/network-nodes.svg";
 import { TPostLinkSizes } from "~ts/typings";
 
+import { PostHeader as PostHeaderComponent } from "../PostHeader";
 import {
   FeaturedPostLink as FeaturedPostLinkComponent,
   PostLink as PostLinkComponent
@@ -41,6 +42,23 @@ export const FeaturedPostLink = () => {
       readingTime="1min read"
       text={postTitleText}
       to="./"
+      imageLink={netwokNodesImage}
+      tags={[
+        { path: "./", name: "javascript" },
+        { path: "./", name: "node" },
+        { path: "./", name: "typescript" }
+      ]}
+    />
+  );
+};
+
+export const PostHeader = () => {
+  const postTitleText = text("Post Title", "Post title text", "OPTIONS");
+
+  return (
+    <PostHeaderComponent
+      readingTime="1min read"
+      title={postTitleText}
       imageLink={netwokNodesImage}
       tags={[
         { path: "./", name: "javascript" },

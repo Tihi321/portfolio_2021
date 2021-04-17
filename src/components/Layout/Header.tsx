@@ -23,7 +23,7 @@ const HeaderStyled = styled.header`
   padding-bottom: 40px;
 
   ${media(EBreakpoints.TABLET)} {
-    padding-bottom: 80px;
+    padding-bottom: 60px;
     justify-content: space-between;
   }
 `;
