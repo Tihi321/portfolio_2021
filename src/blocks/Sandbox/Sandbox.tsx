@@ -44,7 +44,13 @@ export const Sandbox = ({
   title,
   src,
   style,
-  permissions = ["geolocation", "microphone", "camera", "midi"],
+  permissions = [
+    "geolocation",
+    "microphone",
+    "camera",
+    "midi",
+    "encrypted-media"
+  ],
   iframePermissions = ["allow-scripts", "allow-same-origin"]
 }: ISandboxProps) => (
   <SandboxStyled>
