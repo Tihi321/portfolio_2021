@@ -3,7 +3,13 @@ import React from "react";
 import styled, { css } from "styled-components";
 
 import { TextSize } from "~ts/components/Common";
-import { EArrowLinkSides, EBreakpoints, ESide, ETextSizes } from "~ts/enums";
+import {
+  EArrowLinkSides,
+  EBreakpoints,
+  ELinkType,
+  ESide,
+  ETextSizes
+} from "~ts/enums";
 import LeftArrow from "~ts/images/left-arrow.inline.svg";
 import RightArrow from "~ts/images/right-arrow.inline.svg";
 import { resetLinkStyles } from "~ts/styles";
@@ -12,12 +18,27 @@ import { IStyledProps, ITextSizes } from "~ts/typings";
 import { media } from "~ts/utils";
 
 interface ILinkProps extends ITextSizes, IStyledProps {
-  text: string;
+  text?: string;
   to: string;
   side?: EArrowLinkSides;
+  type?: ELinkType;
 }
 
-const InternalStyled = styled(GatsbyLink)`
+const LinkStyled = styled(({ children, to, type, ...props }) => {
+  if (type === ELinkType.External) {
+    return (
+      <a href={to} {...props}>
+        {children}
+      </a>
+    );
+  }
+
+  return (
+    <GatsbyLink to={to} {...props}>
+      {children}
+    </GatsbyLink>
+  );
+})`
   ${resetLinkStyles}
   cursor: pointer;
   display: inline-flex;
@@ -58,11 +79,12 @@ export const ArrowLink = ({
   to,
   className,
   side = EArrowLinkSides.Left,
-  size = ETextSizes.Small
+  size = ETextSizes.Small,
+  type = ELinkType.Internal
 }: ILinkProps) => (
-  <InternalStyled to={to} className={className}>
+  <LinkStyled type={type} to={to} className={className}>
     {side === EArrowLinkSides.Left && <LeftArrowStyled />}
-    <TextSize size={size}>{text}</TextSize>
+    {text && <TextSize size={size}>{text}</TextSize>}
     {side === EArrowLinkSides.Right && <RightArrowStyled />}
-  </InternalStyled>
+  </LinkStyled>
 );

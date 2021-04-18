@@ -112,7 +112,8 @@ const plugins = [
         "~ts/themes": "src/themes",
         "~ts/utils": "src/utils",
         "~ts/posts": "content/posts",
-        "~ts/images": "content/images"
+        "~ts/images": "content/images",
+        "~ts/gatsby": "gatsby"
       }
     }
   }

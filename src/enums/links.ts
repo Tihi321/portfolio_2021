@@ -4,6 +4,11 @@ export enum EInternalLinks {
   WORKS = "/works"
 }
 
+export enum ELinkType {
+  Internal = "internal",
+  External = "external"
+}
+
 export enum EPostLinkSizes {
   Regular = "regular",
   Small = "small"

@@ -134,10 +134,10 @@ export const textStyles = css`
     color: ${linkColor};
     text-decoration: none;
     display: inline-flex;
-    transition: transform 0.1s ease;
+    transition: filter 0.2s ease;
 
     &:hover {
-      transform: brightness(0.8);
+      filter: brightness(1.3);
     }
   }
 
