@@ -1,0 +1,158 @@
+---
+title: Svelte and Gutenberg SVG connection
+date: 2019-12-10
+tags: ["javascript", "svelte", "wordpress"]
+thumbnail: assets/svg-grid.svg
+excerpt: How to create an SVG grid block that provides a way to write SVG code on viewport with coordinates.
+quote: If you can dream it you can do it.
+quotebackground: rgba(168,57,65,0.9)
+featured: true
+publish: true
+---
+<HeadScript src="https://cdn.jsdelivr.net/gh/Tihi321/svelte-web-components/cdn/ts-path-grid.js" type="javascript" />
+
+The last article was about Svelte and Web components. Now here let's try to see how we can use Svelte within WordPress.
+
+## In Gutencraft's World
+
+Last year, WordPress added Gutenberg to the core, which is editor backend built on React, and we got a really awesome tool for creating editor experience.  With Gutenberg, we had to change our mindset, and start thinking of developing in blocks similar to React components. Although we are developing blocks on backend and frontend, on backend whole editor is made on React, on frontend we still use PHP templates. So if we have some part of the block on the frontend with more complex design, we need to consider is it worth adding the whole library. Now here is where Svlete can shine. with its robust animation features, reactive code, stores it is so versatile that it can replace in many cases a lot of different libraries, also the fact that it is compiler makes it a really good fit for Gutenberg.
+
+## SVG in a block
+
+Before we start to look and explain the code, let's show what we will be building. SVG grid block that provides a way to write SVG code on viewport with coordinates, the same way as CNC machinist can write G-code for CNC machine
+
+
+<div style={{ textAlign: "center", paddingBottom: "15px" }}>
+<GridBlock />
+<i style={{ paddingTop: "15px" }}>SVG Grig block</i>
+</div>
+
+
+But let's start from the beginning, now not all code needs explaining so here is [source code](https://github.com/Tihi321/ts-blocks/tree/master/src/blocks/custom/svg-grid/assets), if you are interested.
+
+
+```javascript
+import App from './app.svelte';
+
+export class SvgGrid {
+  constructor(defaultElement = '.js-block-svg-grid') {
+    this.defaultElement = document.querySelector(defaultElement);
+  }
+
+  init() {
+    const app = new App({
+      target: this.defaultElement,
+    });
+  }
+}
+```
+
+When DOM is loaded, we check if the block is present and dynamically import the SvgGrid class. We import the Svelte component and instantiate it. A Svelte component is a class, similar to React render function, it takes target element and it can receive props. By default Svelte exports whole components as default export, though we can export also other function from component with [context module tag](https://svelte.dev/docs#script_context_module).
+
+```javascript
+let vbx = '5';
+let vby = '5';
+let opacity = '1';
+let maxWidth = '200px';
+let height = 'auto';
+let content = '... Svg code goes here';
+```
+
+Because we don't need properties from outside we don't have any exports. With vbx and vby we define SVG viewport, opacity is grid opacity, maxWidth and height are for sizing the container of SVG element, and content is SVG elements like Path or Circle.
+
+```html
+<div class="block-svg-grid__fields">
+  <div class="block-svg-grid__field">
+    <div class="block-svg-grid__label">Max width</div>
+    <pre class="block-svg-grid__editable" bind:innerHTML={maxWidth} contenteditable="true" />
+  </div>
+  <div class="block-svg-grid__field">
+    <div class="block-svg-grid__label">Height</div>
+    <pre class="block-svg-grid__editable" bind:innerHTML={height} contenteditable="true" />
+  </div>
+  <div class="block-svg-grid__field">
+    <div class="block-svg-grid__label">Grid opacity</div>
+    <input class="block-svg-grid__input" bind:value={opacity} type="number" min="0" max="1" step="0.1" />
+  </div>
+  <div class="block-svg-grid__field">
+    <div class="block-svg-grid__label">Grid columns</div>
+    <input class="block-svg-grid__input" bind:value={vbx} type="number" max="100" min="5" />
+  </div>
+  <div class="block-svg-grid__field">
+    <div class="block-svg-grid__label">Grid rows</div>
+    <input class="block-svg-grid__input" bind:value={vby} type="number" max="100" min="5" />
+  </div>
+</div>
+<textarea bind:value={content} bind:this={textarea} class="block-svg-grid__code" rows="4" />
+```
+
+Here are all input elements for use. Using 2-way binding we just binded values to properties, to make them reactive. For a variety sake we used two different methods, we binded values from inputs, and because we can we binded innerHTML, which also works, but you will lose validation from the browser and it ads some HTML code to make it invalid between SVG tags, so it is not rendered.
+
+
+```html
+import Grid from './grid.svelte';
+
+<Grid
+    vbx={(vbx && vbx > 5) ? vbx : '5'}
+    vby={(vby && vby > 5) ? vby : '5'}
+    opacity={opacity}
+>
+  {@html content}
+</Grid>
+```
+
+We imported Grid component, and passed viewport properties, with a minimum value of 5, so the grid is not too small and opacity. Content is passed to a slot, rendered as HTML, though it still needs to be valid SVG syntax to be rendered.
+
+Now let's see the grid component, where all the logic lies.
+
+
+```javascript
+export let vbx = '5';
+export let vby = '5';
+export let opacity = '1';
+```
+
+Values that we want to use as properties, needs to have export before.
+
+```html
+<div class="svg-grid__outer">
+  <svg class="svg-grid" fill="#28536B" width="100%" viewBox="0 0 {vbx} {vbx}" style="overflow: visible;">
+    <g class="svg-grid__path" stroke="#609295" stroke-width="0.2" fill="transparent">
+      <slot></slot>
+    </g>
+    <g class="svg-grid__grid" style="opacity: {opacity};">{@html grid(vbx, vby)}</g>
+  </svg>
+</div>
+```
+
+We create an HTML template for the grid, Slots are inside the group tag, so we can put some default styling to stroke. Now because grid needs to be recalculated on every render, as a user can change grid dimensions on every step, we set it to function and render it as HTML, the same way as children.
+
+```javascript
+function grid(newVbx, newVby) {
+
+  // parse numbers taken as a string from input field.
+  const valX = parseInt(newVbx) + 1;
+  const valY = parseInt(newVby) + 1;
+
+  // create ranged arrayMap from 0 to vbx and vby
+  const elements = [...Array(valX)].map((el, inx) => {
+    return [...Array(valY)].map((el, iny) => {
+
+      // svg dots for coordinates
+      const circle = `<circle cx="${inx}" cy="${iny}" r="0.1"></circle>`;
+
+      // svg numbers for row and column
+      if (iny === 0 && inx === 0) return `<text x="${inx}" y="${iny - 1}">${inx}</text><text x="${inx - 1}" y="${iny}">${inx}</text>${circle}`;
+      if (inx === 0) return `<text x="${inx - 1}" y="${iny}">${iny}</text>${circle}`;
+      if (iny === 0) return `<text x="${inx}" y="${iny - 1}">${inx}</text>${circle}`;
+
+      return circle;
+    }).join('');
+  });
+  return elements.join('');
+};
+```
+
+Although it may look daunting, the grid function is pretty simple. We need to generate 2d array, so we need to have a loop for x and one fo the y values. We use [...Array(valX)]  to create array of valX empty elements, and the same technique for y values. For every point, we create a small circle to represent a coordinate point and on the edges, we need values to represent coordinates. In the end, we just return all elements as a string by joining an array, so ew can show it as HTML inside SVG.
+
+That is all for now and until next time, happy coding.

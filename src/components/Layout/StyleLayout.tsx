@@ -3,7 +3,13 @@ import { createGlobalStyle } from "styled-components";
 import { Normalize } from "styled-normalize";
 
 import { LayoutContainer, MaxWidthContainer } from "~ts/components/Containers";
-import { coreStyles, headingStyles, tableStyles, textStyles } from "~ts/styles";
+import {
+  coreStyles,
+  headingStyles,
+  inputStyles,
+  tableStyles,
+  textStyles
+} from "~ts/styles";
 import { IContainerProps } from "~ts/typings";
 
 const CoreStyle = createGlobalStyle`
@@ -11,6 +17,7 @@ const CoreStyle = createGlobalStyle`
   ${headingStyles}
   ${textStyles}
   ${tableStyles}
+  ${inputStyles}
 `;
 
 export const StyleLayout = ({ children }: IContainerProps) => (

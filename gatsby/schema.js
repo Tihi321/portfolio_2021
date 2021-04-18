@@ -10,6 +10,7 @@ const createSchemaCustomization = ({ actions, schema }) => {
         thumbnail: "String!",
         excerpt: "String",
         quote: "String",
+        quotebackground: "String",
         featured: "Boolean!",
         publish: "Boolean!"
       },

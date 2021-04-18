@@ -31,6 +31,7 @@ export interface IPostPageQuery {
       title: string;
       excerpt: string;
       quote?: string;
+      quotebackground?: string;
       thumbnail: {
         publicURL: string;
       };

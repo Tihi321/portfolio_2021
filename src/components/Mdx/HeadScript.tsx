@@ -3,10 +3,15 @@ import { Helmet } from "react-helmet";
 
 interface IHeadScriptProps {
   src: string;
+  type?: string;
 }
 
-export const HeadScript = ({ src }: IHeadScriptProps) => (
+export const HeadScript = ({ src, type = "javascript" }: IHeadScriptProps) => (
   <Helmet>
-    <script type="text/javascript" src={src} />
+    {type === "javascript" ? (
+      <script type="text/javascript" src={src} />
+    ) : (
+      <link rel="stylesheet" type="text/css" href={src} />
+    )}
   </Helmet>
 );
