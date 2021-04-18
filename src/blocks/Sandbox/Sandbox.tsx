@@ -27,7 +27,7 @@ export type EPermissions =
   | "microphone"
   | "camera"
   | "midi"
-  | "vr"
+  | "encrypted-media"
   | "en";
 
 export type EIframePermissions = "allow-scripts" | "allow-same-origin";
@@ -45,7 +45,7 @@ export const Sandbox = ({
   title,
   src,
   style,
-  permissions = ["geolocation", "microphone", "camera", "midi", "vr", "en"],
+  permissions = ["geolocation", "microphone", "camera", "midi", "en"],
   iframePermissions = ["allow-scripts", "allow-same-origin"]
 }: ISandboxProps) => (
   <SandboxStyled>
