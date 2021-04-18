@@ -62,6 +62,12 @@ const plugins = [
       extensions: [".mdx", ".md"],
       gatsbyRemarkPlugins: [
         {
+          resolve: `gatsby-remark-copy-linked-files`,
+          options: {
+            ignoreFileExtensions: [`png`, `jpg`, `jpeg`, `bmp`, `tiff`]
+          }
+        },
+        {
           resolve: "gatsby-remark-images",
           options: {
             maxWidth: CONTAINER_WIDTH
