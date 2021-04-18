@@ -1,5 +1,5 @@
 const { CONTAINER_WIDTH } = require("./container.ts");
-const { CONTACT } = require("../../gatsby/constants");
+const { CONTACT } = require("~ts/gatsby/constants");
 
 export * from "./style";
 export * from "./links";

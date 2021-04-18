@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 
 import {
   ColumnsContainer,
@@ -8,10 +9,26 @@ import {
 import { Layout } from "~ts/components/Layout";
 import { TagLinkFeaturedList, TagLinkList } from "~ts/components/List";
 import { FeaturedPostLink, PostLink } from "~ts/components/Posts";
-import { EBreakpoints, EPostLinkSizes } from "~ts/enums";
+import { EBreakpoints, EPostLinkSizes, ESide } from "~ts/enums";
 import { useMediaQuery } from "~ts/hooks";
 import { IPostsContext, TPost } from "~ts/typings";
-import { connectTagLinks } from "~ts/utils";
+import { connectTagLinks, media } from "~ts/utils";
+
+import { PostsPagination } from "./PostsPagination";
+
+const PostsContainerStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const PostsPaginationStyled = styled(PostsPagination)`
+  padding-top: 30px;
+  margin-top: auto;
+
+  ${media(EBreakpoints.LAPTOP, ESide.UP)} {
+    padding-top: 50px;
+  }
+`;
 
 interface IPostsProps {
   posts: TPost[];
@@ -41,7 +58,7 @@ export const PostsPage = ({ posts, context }: IPostsProps) => {
             />
           </TagsContainerMobileStyled>
         )}
-        <div>
+        <PostsContainerStyled>
           {posts.map((post, index) =>
             index === 0 ? (
               <FeaturedPostLink
@@ -63,7 +80,8 @@ export const PostsPage = ({ posts, context }: IPostsProps) => {
               />
             )
           )}
-        </div>
+          <PostsPaginationStyled context={context} />
+        </PostsContainerStyled>
       </ColumnsContainer>
     </Layout>
   );

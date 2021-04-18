@@ -102,7 +102,7 @@ const createPages = async ({ graphql, actions }) => {
     callback: createPage,
     postsPerPage: POSTS_PER_PAGE,
     numOfPosts: allPosts.length,
-    path: "posts",
+    path: "/posts",
     component: join(templatesPath, "Posts.tsx"),
     context: {
       tags: allTags

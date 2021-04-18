@@ -18,7 +18,9 @@
       "~ts/themes": ["src/themes"],
       "~ts/utils": ["src/utils"],
       "~ts/posts": ["content/posts"],
-      "~ts/images": ["content/images"]
+      "~ts/images": ["content/images"],
+      "~ts/gatsby": ["content/gatsby"],
+      "~ts/gatsby/*": ["content/gatsby/*"]
     },
     "typeRoots": ["./src/typings/modules", "node_modules/@types"]
   }

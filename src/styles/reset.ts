@@ -13,7 +13,7 @@ export const resetButtonStyles = css`
 
 export const resetLinkStyles = css`
   &:hover {
-    transform: unset;
+    filter: unset;
   }
 `;
 

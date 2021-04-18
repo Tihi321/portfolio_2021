@@ -60,6 +60,7 @@ module.exports = {
       "~ts/utils": resolve(__dirname, '../src/utils/'),
       "~ts/posts": resolve(__dirname, '../content/posts/'),
       "~ts/images": resolve(__dirname, '../content/images/'),
+      "~ts/gatsby": resolve(__dirname, '../gatsby/'),
     }};
     return config
   },

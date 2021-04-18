@@ -4,7 +4,7 @@ import { EActionTypes, TAction } from "../actions";
 import { TState } from "../store";
 
 export const initialState: TState = {
-  theme: ETheme.Light
+  theme: ETheme.Dark
 };
 
 export const reducer = (state: TState, { type, payload }: TAction) => {
