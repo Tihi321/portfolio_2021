@@ -7,6 +7,7 @@ import {
   coreStyles,
   headingStyles,
   inputStyles,
+  mdxStyles,
   tableStyles,
   textStyles
 } from "~ts/styles";
@@ -18,6 +19,7 @@ const CoreStyle = createGlobalStyle`
   ${textStyles}
   ${tableStyles}
   ${inputStyles}
+  ${mdxStyles}
 `;
 
 export const StyleLayout = ({ children }: IContainerProps) => (

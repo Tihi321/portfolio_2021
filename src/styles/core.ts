@@ -208,3 +208,16 @@ export const inputStyles = css`
     color: ${textColor};
   }
 `;
+
+export const mdxStyles = css`
+  .centered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .spaced {
+    padding: 15px 0;
+  }
+`;

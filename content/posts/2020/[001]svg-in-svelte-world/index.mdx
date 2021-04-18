@@ -108,9 +108,8 @@ function drive() {
 }
 ```
 
-![Road Trip](assets/svg-roadtrip.gif)
-
-<div style={{textAlign: "center", paddingTop: "15px", paddingBottom: "15px"}}>
+<div className="centered" >
+  <img className="spaced" src="assets/svg-roadtrip.gif" alt="Road Trip"/>
   <a href="https://svelte.dev/repl/2aab56cc59614dc28f291a8209249fa8?version=3.14.1">Source Code</a>
 </div>
 
@@ -118,7 +117,7 @@ function drive() {
 
 If we want to morph SVG paths, and we don't need a full animation library like [AnimeJs](https://animejs.com/) or [GSAP](https://greensock.com/gsap/) that have their own plugins for manipulation paths. We can use a morphing library like [Flubber](https://github.com/veltman/flubber) or [Polymorph](https://github.com/notoriousb1t/polymorph) which are specialized in path manipulation. Here is an example of how to use Polymorph within Svelte.
 
-<SandboxBlock title="Smile" src="https://glitch.com/embed/#!/embed/svelte-path-morph?path=src/components/app.html&previewSize=30&sidebarCollapsed=true" permissions={["geolocation", "microphone", "camera", "midi", "en", "encrypted-media"]}/>
+<SandboxBlock title="Smile" src="https://glitch.com/embed/#!/embed/svelte-path-morph?path=src/components/app.html&previewSize=30&sidebarCollapsed=true" permissions={["geolocation", "microphone", "camera", "midi", "encrypted-media"]}/>
 
 We use the interpolate function from Polymorph, This function takes 2 paths, and returns a function that takes a number between 0 and 1 and returns a timeline. The number represents a position on the timeline, example 0.5 is 50% point. This is perfect to combine with tweened function from Svelte as it interpolates between 2 numbers on some duration. So we use it to animate number from 0 to 1, that we inject in Polymorph timeline.
 
@@ -152,9 +151,9 @@ Interpolate function needs to be set after Dom has rendered, so we add it to onM
 
 If you combine all the techniques above, you can easily create raining animation like in bottom example.
 
-<SandboxBlock style={{height: "410px"}} title="Rain" src="https://glitch.com/embed/#!/embed/svelte-rain-animation?path=src/components/app.html&previewSize=100&sidebarCollapsed=true" permissions={["geolocation", "microphone", "camera", "midi", "en", "encrypted-media"]}/>
+<SandboxBlock style={{height: "410px"}} title="Rain" src="https://glitch.com/embed/#!/embed/svelte-rain-animation?path=src/components/app.html&previewSize=100&sidebarCollapsed=true" permissions={["geolocation", "microphone", "camera", "midi", "encrypted-media"]}/>
 
-<div style={{textAlign: "center", paddingTop: "15px", paddingBottom: "15px"}}>
+<div className="centered spaced">
   <a href="https://svelte.dev/repl/b01660b90e714334861dd6e0e1faff61?version=3.14.1">Source Code</a>
 </div>
 
