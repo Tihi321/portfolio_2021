@@ -25,7 +25,7 @@ const FeaturedImageStyled = styled(({ alt, ...props }) => (
   object-fit: cover;
   width: 100%;
   height: 58vw;
-  max-height: ${props => props.maxHeight};
+  max-height: ${props => props.maxheight};
 `;
 
 const FeaturedImageContainerStyled = styled(({ children, ...props }) => (
@@ -67,7 +67,7 @@ export const FeaturedImage = ({
   return (
     <FeaturedImageContainerStyled loaded={loaded}>
       <FeaturedImageStyled
-        maxHeight={FEATURED_IMAGE_MAX_HEIGHT[size]}
+        maxheight={FEATURED_IMAGE_MAX_HEIGHT[size]}
         src={src}
         alt={alt}
         className={className}

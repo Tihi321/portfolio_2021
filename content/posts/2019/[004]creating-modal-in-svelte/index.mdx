@@ -1,0 +1,127 @@
+---
+title: Creating Modal in Svelte
+date: 2019-11-21
+tags: ["javascript", "svelte"]
+thumbnail: assets/penguin-modal.svg
+excerpt: In this article, you are going to see how easy and quickly you can create modal as a web component in Svelte.
+quote: Simplicity is the keynote of all true elegance.
+featured: true
+publish: true
+---
+<HeadScript src="https://cdn.jsdelivr.net/gh/Tihi321/svelte-web-components/cdn/random-quote.js" />
+
+In this article, you are going to see how easy and quickly you can create modal as a web component in Svelte. First, a quick intro to svelte, just a small paragraph in case you are unfamiliar with it.
+
+## TLDR Svelte
+
+As it says in their [docs](https://svelte.dev/docs) Svelte is a tool for building fast web applications. Same as React or Vue, in fact, it is a mix of both, though what makes it different is that it is a compiler just like a typescript. And like typescript, it is compiled to vanilla javascript in the end. Being a compiler, it can add some syntax that is not native to javascript, though there is not much of it and it can be absorbed rather quick, the syntax is borrowed a lot from Vue. For a compiler, there is Rollup and Webpack setup. I personally used a loader with Webpack and here is a good [template](https://github.com/sveltejs/template-webpack) to start with. Although there are not a lot of tutorials, compared to other frameworks, you can go through their [docs](https://svelte.dev/docs) and [interactive tutorials](https://svelte.dev/tutorial/basics) on their website, they are really good and fun to go through.
+
+As here we are going to use web components, If you want to export them and you are using Webpack, you just need to add a set custom element to true under options for the loader or manually register tag element with customElements.define('tag-name', SvelteComponent).
+
+```javascript
+{
+  test: /\.svelte$/,
+  use: {
+    loader: 'svelte-loader',
+    options: {
+      emitCss: true,
+      hotReload: true,
+      customElement: true
+     }
+  }
+}
+```
+
+<div style={{ textAlign: "center", paddingBottom: "15px" }}>
+<ts-random-quote></ts-random-quote>
+<i style={{ paddingTop: "15px" }}>Random quotes Svelte example block</i>
+</div>
+
+
+## Here comes the modal
+
+As we want to create modal as a web component, we need to be aware of some limitations. Because web components are using shadow dom for styling, we cannot style components from the outside, Styles can read custom properties so we can use them to modify style a bit. And one limitation of Svelte is that we cannot use built-in animations in web components, but we can create our own custom animations, and that feature of Svelte is really powerful.
+
+Now that we understand a bit about Svelte, let’s start with what we want to achieve. We would like to have a modal that can be revealed with javascript, like something for which we used classes before. Also, we want to know when modal closed so we can do something in response to that, an example would be to add overflow hidden to the body when modal is visible, and when it closes we would like to remove the overflow from the body element. Maybe also to have some options for styling it.
+
+Ok, let’s go through the properties first.
+
+```javascript
+export let show = false;
+export let zindex = 1;
+export let duration = 350;
+export let background = 'rgba(0,0,0,0.5)';
+```
+
+As we can see, we have show attribute for the dynamic reveal of the modal. Duration is for animation and the other is for styling. Even though we cannot style web components from outside, we can add variety also though attributes.
+
+```jsx
+{#if show}
+<div
+  style="background-color: {background}; z-index:{zindex};"
+  transition:fade="{{ transitionDuration: duration }}"
+  bind:this={modalElement}
+  class="modal"
+  on:click|stopPropagation={modalOnClose}>
+  <div class="container">
+    <slot>Modal</slot>
+  </div>
+</div>
+{/if}
+```
+
+Here is demonstrated how modal is revealed, and unlike React, we can still manipulate animation transition in and out even though remove an element from the render. For transition we define function callback fade and pass in property transitionDuration with the value of property duration with a default value of 350, which can be changed on the DOM element.
+
+```javascript
+ import { quintIn } from 'svelte/easing';
+...
+  function fade(node, { transitionDuration }) {
+    return {
+      duration; transitionDuration,
+      tick: time => {
+        const eased = quintIn(time);
+        node.style.opacity = eased;
+      }
+    };
+  }
+```
+
+Inside the fade function, we receive a node element as the first argument and as a second object of any custom arguments we passed in. In our case a single argument of transitionDuration we used for the duration of the animation. From callback function, we returned object that is going to be used to create animation, with a duration of transition and tick function. Tick function has time parameter received from svelte and in that function we manipulate style of the element. The time variable goes from 0 to 1 in duration that we specified, in our case, it goes from 0 to 1 in 350ms. We passed time through quintIn function from Svelte, which offsets the time and acts similar to timing property in css animations. Svlete website has examples of all easing functions for animations that can be used. Animations are one of the most powerful features of Svelte and are something I am most excited about.
+
+
+```javascript
+let modalElement;
+
+let event = new CustomEvent("close", {
+   detail: {
+     show,
+  },
+   composed: true
+   }
+);
+
+function modalOnClose(e) {
+  if (e.target !== modalElement) {
+    return;
+}
+
+  // show will allways be false, though if we needed to send dynamic data this would update the value. 
+  event.detail.show = show;
+
+  // dispatch close event.
+  e.target.dispatchEvent(event);
+
+  show = false;
+}
+```
+
+Here we see modalElement variable, which became a modal node, through binding this of modal on top example. Modal is used as a wrapper for ant content we want. So we want to make sure that the user clicked on modal and not on any of the children and event just bubbled. So that is why we are comparing if the target clicked is a modal element.
+Now that we determined that modal is clicked we want to dispatch a custom close event, so a user can add an event listener to check when modal is closed. On custom events it is important to set composed to true, as this allows the event to pass through shadow dom boundary. In the end, we just close modal by setting show variable to false.
+
+## Summary
+
+In this example, we can see, how Svelte could be used to quickly create small, self-contained parts of the UI. We can use them eather in DOM or in other frameworks. Svelte comes without any overhead, as it compiles to vanilla javascript and has really powerful animations features. Although it will not replace React, Vue or Angular, I feel it has a place its place in the world among them.
+
+You can check source code and more web components on [github repo](https://github.com/Tihi321/web-components).
+
+Until next time, happy coding.

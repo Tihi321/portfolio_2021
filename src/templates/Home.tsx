@@ -131,7 +131,7 @@ export const query = graphql`
     data: allMdx(
       filter: { frontmatter: { featured: { eq: true } } }
       limit: 3
-      sort: { fields: frontmatter___date, order: ASC }
+      sort: { fields: frontmatter___date, order: DESC }
     ) {
       posts: nodes {
         fields {
