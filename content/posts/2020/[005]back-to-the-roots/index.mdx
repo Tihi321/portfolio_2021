@@ -1,0 +1,163 @@
+---
+title: Back to the Roots
+date: 2020-10-18
+tags: ["javascript", "typescript", "web components"]
+thumbnail: assets/roots.svg
+excerpt: Guide on how to use web components native Api-s through example of stylized image component.
+quote: When The Roots Are Deep There Is No Reason To Fear The Wind.
+quotebackground: rgba(217, 93, 57, 0.7)
+featured: true
+publish: true
+---
+
+In the past we talked about using Svelte for creating web components. In this article we will try to understand how web components work and how to create them in native/vanilla way. In the end we will compare them with Svelte or any other frontend framework.
+
+## Theory
+
+First, a bit of theory, what are web components ? Web components are a standard for creating native html components/tags which we can use inside html. Browsers gives us that possibility by exposing different API-s through window object.
+
+Three main API-s at the moment are:
+
+- Custom Elements
+- Shadow DOM
+- HTML Templates
+
+## Custom Elements
+
+ A set of JavaScript APIs that allow you to define custom elements and their behaviour, which can then be used as desired in your user interface.
+
+ ## Shadow DOM
+
+ A set of JavaScript APIs for attaching an encapsulated "shadow" DOM tree to an element — which is rendered separately from the main document DOM — and controlling associated functionality. In this way, you can keep an element's features private, so they can be scripted and styled without the fear of collision with other parts of the document.
+
+ ## HTML Templates
+
+ The [template](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template) and [slot](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot) elements enable you to write markup templates that are not displayed in the rendered page. These can then be reused multiple times as the basis of a custom element's structure.
+
+ ## Example
+
+ Now lets move the theory into practice, and see on the example just how to use all of the APIs to create stylized image component, element that takes the source of the image and applies the image effects to them.
+
+ ```typescript
+class StylizedImageComponent extends HTMLElement {
+  constructor() {
+    super();
+  }
+
+  static get observedAttributes(): string[] {
+    return [];
+  }
+
+  attributeChangedCallback(name: string, oldValue: string, newValue: string) {}
+
+  connectedCallback() {}
+
+  disconnectedCallback() {}
+
+  static register() {
+  customElements.define("styled-image", StylizedImageComponent);
+  }
+}
+```
+
+This part of the code shows how to utilize the Custom Element API. Here we are extending class provided by windows object HTMLElement, which contains all the functionality we need to create our component. We have three lifecycle hooks/methods, if anyone have experience with frameworks like VUE or React, it works similar way to how they behave in those frameworks. 
+
+Method connectedCallback is function that is called the moment element enters the DOM and usually is used for adding listeners in the component.
+
+Method disconectedCallback is called when element is removed from DOM and usually is used for cleanup of the listeners in the component.
+
+Method attributeChangedCallback is fired when any of the attribute provided to our component is updated and it depends on static getter observedAttributes, so any of the attributes we will need to update, their name needs to returned in the array from getter. It receives three argument, name of the attribute that is updated, old value and new value, we can based on the name add switch statement and update what we would like according tho the name of the attribute.
+
+ ```javascript
+attributeChangedCallback(name, oldValue, newValue) {
+  switch (name) {
+    case 'src':
+      this.hideElement();
+      this.setSrc(newValue);
+      this.showElement();
+    break;
+    case 'effect':
+      this.effect = newValue;
+      this.removeEffect(oldValue);
+      this.setEffect(newValue);
+    break;
+}
+```
+
+This method is only called when attributes are updated on the attributes that are tracked, so any of the starting attributes passed that does not need to be tracked are going to be worked on in constructor or connectedCallback method.
+
+ ```javascript
+constructor() {
+  super();
+  const src = this.hasAttribute('src') ? this.getAttribute('src') : '';
+  this.effect = this.hasAttribute('effect') ? this.getAttribute('effect') : '';
+
+  if (src) {
+    this.setSrc(src);
+  }
+
+  if (this.effect) {
+    this.setEffect(this.effect);
+  }
+}
+```
+
+As we can see in the constructor we are checking if attributes exist and then setting them. Because our class extends HTMLElement it has all the methods element from DOM has, so we can use hasAttributes and getAttributes from our class. Of course we need to remember how to operate on DOM elements, after a long time working in React or similar frameworks :-).
+
+In the static method register, we can see method define from customElements object, which is also provided to us from the window, in that method we define name of our tag that will be used inside of HTML and we provide Class component which extends HTMLElement, whether we extend it directly or use any of the other Classes that do that, (eg. HTMLParagraphElement). The name of the tag needs to contain two or more words, so it does not clash with already existing html tags.
+
+ ```javascript
+if (!this.shadowRoot) {
+  this.attachShadow({mode: 'open'});
+  this.shadowRoot.appendChild(stiliziraniTemplate.content.cloneNode(true));
+  this.ImageContainer = this.shadowRoot.querySelector('.image');
+}
+```
+
+Here we can see how we can use Shadow DOM, to open shadow DOM, we create shadowRoot by calling attachShadow method, we pass [mode](https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot/mode) object as first property, it can be "open" or "closed", and automatically we get shadowRoot, but our new DOM is empty, We clone content from our template and that is passed to shadowRoot with method appendChild. Now every time we want to update DOM in our component we need to use shadowRoot as we can see in the last line where we are targeting image container element from our template.
+
+```javascript
+const template = document.createElement('template');
+template.innerHTML = `
+<style>
+  .image {
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    width: 400px;
+    height: 400px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border: 15px solid steelblue;
+    transition: opacity 0.5s ease;
+  }
+  .show {
+    opacity: 1;
+  }
+</style>
+<div class="image">
+  <slot name="title"></slot>
+</div>
+`;
+```
+
+We create template the same way we create any element, we just pass in the name of the tag as template, as any child of that tag is not rendered so we can put all the html content inside including styles and that will not be visible to the user. That variable is passed to sadowRoot. We can see new tag name slot, it is placeholder for any of the html passed from parent DOM to our component, we can have multiple placeholders with different names, if we omit name it will behave as default placeholder, it works in similar way to slots from VUE or Svelte.
+
+Now we understand how we can send attributes to the component, but to send information from component, just like the regular DOM elements we use Events Api, similar way how it is used in Svelte or VUE, we just dispatch our custom event with desired information.
+
+ ```javascript
+connectedCallback() {
+  this.dispatchEvent(new CustomEvent('onMount', {detail: "information"}));
+}
+```
+
+Now sure this was very simplified, as with web components we can create and extend HTML as we want. In this [repository](https://github.com/Tihi321/web-components) you can the [full code](https://github.com/Tihi321/web-components/blob/master/src/StylizedImageComponent/index.ts) for the component and many more examples, like native [forEach loop](https://github.com/Tihi321/web-components/blob/master/src/ForEachComponent/index.ts) tag or [lazy loaded image](https://github.com/Tihi321/web-components/blob/master/src/LazyImageComponent/index.ts).
+
+## Conclusion
+
+In the end I still prefer using Svelte for web components, as it gives better experience for writing html, CSS and as a bonus you get reactivity. Also Svelte does not give extra dependency as frameworks like VUE, React or Angular, so web components are smaller.
+
+Now we can finally have styled checkbox :-)
