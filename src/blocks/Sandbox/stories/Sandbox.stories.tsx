@@ -20,8 +20,8 @@ export const Sandbox = () => {
   const microphone = boolean("microphone", true, "OPTIONS");
   const camera = boolean("camera", true, "OPTIONS");
   const midi = boolean("midi", true, "OPTIONS");
-  const vrPermission = boolean("vr", true, "OPTIONS");
   const enPermission = boolean("en", true, "OPTIONS");
+  const encryptedMedia = boolean("encrypted-media", false, "OPTIONS");
 
   let permissions: EPermissions[] = [];
 
@@ -41,12 +41,12 @@ export const Sandbox = () => {
     permissions = [...permissions, "midi"];
   }
 
-  if (vrPermission) {
-    permissions = [...permissions, "vr"];
-  }
-
   if (enPermission) {
     permissions = [...permissions, "en"];
+  }
+
+  if (encryptedMedia) {
+    permissions = [...permissions, "encrypted-media"];
   }
 
   let iframePermissions: EIframePermissions[] = [];
