@@ -1,0 +1,150 @@
+---
+title: R2-D3 Chart wars
+date: 2020-01-26
+tags: ["javascript", "svg"]
+thumbnail: assets/blue-robot.svg
+excerpt: Exploring possibilities of d3 data visualization library, through the code of simple line chart.
+quote: It's not the destination, it's the journey.
+quotebackground: rgba(255, 214, 10, 0.5)
+featured: true
+publish: true
+---
+
+In this article, we are going to explore how to represent data with charts, using SVG and [D3.js library](https://d3js.org/).. **D3.js** is a JavaScript library for manipulating documents based on data. **D3** helps you bring data to life using HTML, SVG, and CSS. Basically, it is [JQuery](https://jquery.com/) for data.
+
+## Intro
+
+D3 tends to be a long fluid chain of function calls.
+
+```javascript
+d3.select("body")
+    .append("svg")
+    .append("text")
+    .text("Hello World")
+    .attr("x", "100")
+    .attr("y", "100");
+```
+
+As we can see in the example, we used a select method to select body element and append an SVG to the body. We did not have to create an SVG element, d3 did that for us, we can continue the chain and append any SVG element to it. We added text element and added text to it. Text element needs to have a position or else they are invisible.
+
+## Data
+
+Although you can create and manipulate DOM elements with d3, the most important and powerful part of d3 is data manipulation. D3 stands for data-driven documents, implicit in this idea is that data is separate from the document or for that visualization. Data can dynamically change and visualization needs to adapt to that change. 
+
+When data is bound to a selection of nodes, each element in the data array is paired with the corresponding node in the selection. If there are a different number of nodes and data items, we can use d3 lifecycle methods enter and exit.  Using those methods, you can create new nodes for incoming data and remove outgoing nodes that are no longer needed.
+
+```javascript
+// update
+const selection = d3.select("body")
+  .selectAll("p")
+  .data([4, 8, 15, 16, 23, 42])
+    .style("font-size",(d, i) => d + "px")
+    .text(() => (d, i) => "I’m number " + d + "!");
+
+// enter
+selection.enter()
+  .append("p")
+    .style("font-size",(d, i) => d + "px")
+    .text((d, i) => "I’m nmber " + d + "!");
+
+// exit
+selection.exit().remove();
+```
+
+In this example, we select all p elements in the body and let's assume that there are 2 of them. We than appends text to the nodes. Because we only have 2 p elements and 6 data items, we will only update 2 elements in DOM and the rest of the data is ignored. For the rest of the data we are using enter method, in there we are appending new p elements for the rest of the data, and on exit, we are removing them if data changes to have fewer items than nodes in selection. We can see a style method similar to JQuery, what is different is that we can pass function instead of value, the first property is data and the second is index, so in this case property d is number from the array item which we can use to influence return value for style.
+
+## Example
+
+<SandboxBlock style={{height: "700px"}} title="Line chart" src="https://glitch.com/embed/#!/embed/d3-line-simple-chart?path=src/components/line-chart.js&previewSize=100&sidebarCollapsed=false" />
+
+Now we are going to go step by step in creating this simple line chart.
+
+```javascript
+const dataGroup = d3
+  .select(".chart")
+  .append("svg")
+  .attr("width", width + margin)
+  .attr("height", height + 2 * margin)
+  .append("g")
+  .attr("transform", "translate(" + margin + ", " + margin + ")");
+```
+
+First, we are selecting an element from DOM with a class chart, and appending SVG to that element, we add width and height to that SVG and append group to that SVG element, we move it a bit from the edge of SVG with translate.
+
+```javascript
+const parseTime = d3.timeParse("%m/%d/%Y");
+
+data.forEach(function(d) {
+  d.date = parseTime(d.date);
+});
+```
+
+Here we are creating dates from strings with timeParse function, and just add how date looks in a string from our data - "10/25/2018"
+
+```javascript
+const x = d3
+  .scaleTime()
+  .domain(
+    d3.extent(data, function(d) {
+      return d.date;
+    })
+  )
+  .range([0, width]);
+
+const y = d3
+  .scaleLinear()
+  .domain(
+    d3.extent(data, function(d) {
+      return d.value;
+    })
+  )
+  .range([height, 0])
+  .nice();
+```
+
+Functions scaleTime and scaleLinear, are part of scales inside of d3. They construct new scales with the specified domain and range. scaleTime returns representative dates from the scale’s [domain](https://github.com/d3/d3-scale/blob/v2.2.2/README.md#time_domain). Full list of the [scale functions](https://github.com/d3/d3/blob/master/API.md). We specify domain and range. The domain is input values, and they are going to be mapped to output range values that are going to be shown. For a domain we are using extent function, that returns the [minimum](https://github.com/d3/d3-array/blob/v1.2.4/README.md#min) and [maximum](https://github.com/d3/d3-array/blob/v1.2.4/README.md#max) value in the given array using natural order. The first domain is for x and is mapped from 0 to width so we get values extending to the end. The second domain for y is mapped from height to 0, and it is important to not go from 0 to height. That way values are going from bottom to the top. At the end with a nice function, we are getting that ticks are shown on the edge. These are going to represent data on axes.
+
+```javascript
+dataGroup
+  .append("path")
+  .data([data])
+  .attr("fill", "none")
+  .attr("stroke", "red")
+  .attr("d", lineVar);
+```
+
+We append the path to SVG, style the line and add previous data to d attribute so we have coordinates for the line path.
+
+```javascript
+const xAxis = d3.axisBottom(x).tickFormat(d3.timeFormat("%Y-%m-%d"));
+
+const xAxisGroup = dataGroup
+  .append("g")
+  .attr("class", "xAxisGroup")
+  .attr("transform", "translate(0," + height + ")")
+  .call(xAxis)
+  .selectAll("text")
+  .attr("y", 0)
+  .attr("x", 9)
+  .attr("dy", ".35em")
+  .attr("transform", "rotate(45)")
+  .style("text-anchor", "start");
+```
+
+Here we are setting x-axis.  After adding xAxis data to a group, we select all text nodes inside all ticks and rotate them. Because date text is long, and by rotating them we get more space.
+
+```javascript
+const yAxis = d3.axisLeft(y);
+const yAxisGroup = dataGroup
+  .append("g")
+  .attr("class", "yAxisGroup")
+  .call(yAxis);
+```
+
+We do the same for the y-axis. Except for the y-axis, we don't need to use any transformation, aa data provided is already a simple number.
+
+<SandboxBlock style={{height: "700px"}} title="Line chart" src="https://glitch.com/embed/#!/embed/d3-line-simple-chart?path=src/components/line-chart.js&previewSize=0&sidebarCollapsed=false" />
+
+This may be a simple example, though d3.js is a really powerful library for data visualization. Check more [examples](https://github.com/d3/d3/wiki/Gallery) on their [Github page](https://github.com/d3/d3).
+
+That is all for now and until next time, happy coding.
