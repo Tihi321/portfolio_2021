@@ -4,16 +4,8 @@ import styled from "styled-components";
 
 import { BottomLineContainer } from "~ts/components/Containers";
 import { ArrowLink, InternalLink } from "~ts/components/Links";
-import {
-  EArrowLinkSides,
-  EBreakpoints,
-  ELinkType,
-  ESide,
-  ETextSizes
-} from "~ts/enums";
-import { linkColor, textColor } from "~ts/themes";
+import { EArrowLinkSides } from "~ts/enums";
 import { IPostsContext, IStyledProps } from "~ts/typings";
-import { media } from "~ts/utils";
 
 const { createPaginatedURI } = require("~ts/gatsby/utils");
 
