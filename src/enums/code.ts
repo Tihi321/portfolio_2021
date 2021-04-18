@@ -1,5 +1,6 @@
 export enum ELanguage {
   CSS = "css",
+  BASH = "bash",
   JAVASCRIPT = "javascript",
   JSX = "jsx",
   GIT = "git",
