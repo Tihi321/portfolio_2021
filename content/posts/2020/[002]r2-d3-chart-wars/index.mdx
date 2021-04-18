@@ -6,7 +6,7 @@ thumbnail: assets/blue-robot.svg
 excerpt: Exploring possibilities of d3 data visualization library, through the code of simple line chart.
 quote: It's not the destination, it's the journey.
 quotebackground: rgba(255, 214, 10, 0.5)
-featured: true
+featured: false
 publish: true
 ---
 
@@ -18,11 +18,11 @@ D3 tends to be a long fluid chain of function calls.
 
 ```javascript
 d3.select("body")
-    .append("svg")
-    .append("text")
-    .text("Hello World")
-    .attr("x", "100")
-    .attr("y", "100");
+  .append("svg")
+  .append("text")
+  .text("Hello World")
+  .attr("x", "100")
+  .attr("y", "100");
 ```
 
 As we can see in the example, we used a select method to select body element and append an SVG to the body. We did not have to create an SVG element, d3 did that for us, we can continue the chain and append any SVG element to it. We added text element and added text to it. Text element needs to have a position or else they are invisible.
