@@ -7,6 +7,8 @@ import {
   backgroundColor,
   blockquoteColor,
   codeBackgroundColor,
+  inputBackgroundColor,
+  inputColor,
   linkColor,
   markBackgroundColor,
   markColor,
@@ -194,5 +196,15 @@ export const tableStyles = css`
     ${media(EBreakpoints.LAPTOP, ESide.UP)} {
       margin-bottom: 5px;
     }
+  }
+`;
+
+export const inputStyles = css`
+  input,
+  textarea {
+    padding: 5px;
+    border: 2px solid ${inputColor};
+    background: ${inputBackgroundColor};
+    color: ${textColor};
   }
 `;

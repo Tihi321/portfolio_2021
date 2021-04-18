@@ -13,6 +13,7 @@ interface IPostHeaderProps extends IStyledProps {
   tags: TTagLink[];
   title: string;
   quote?: string;
+  quotebackground?: string;
   readingTime: string;
   imageLink: string;
   date: string;
@@ -35,6 +36,7 @@ const ReadingTimeDateStyled = styled(TextSize)`
 export const PostHeader = ({
   title,
   quote,
+  quotebackground,
   imageLink,
   readingTime,
   className,
@@ -43,7 +45,12 @@ export const PostHeader = ({
 }: IPostHeaderProps) => (
   <BottomLineContainer className={className}>
     <HeadingStyled size={EHeadingSizes.Large}>{title}</HeadingStyled>
-    <FeaturedImage quote={quote} src={imageLink} alt={title} />
+    <FeaturedImage
+      quote={quote}
+      src={imageLink}
+      alt={title}
+      quotebackground={quotebackground}
+    />
     <PostLinkFooterStyled>
       {tags &&
         tags.map((tag, index) => (

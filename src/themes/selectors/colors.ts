@@ -36,6 +36,11 @@ export const backdropColor = createSelector(
   colors => colors.backdrop
 );
 
+export const quoteBGColor = createSelector(
+  sharedColors,
+  colors => colors.quoteBackground
+);
+
 export const quoteColor = createSelector(sharedColors, colors => colors.white);
 
 export const backgroundColor = focusColor;
@@ -44,6 +49,8 @@ export const logoForegroundColor = focusColor;
 export const featuredButtonBackgroundColor = primaryColor;
 export const featuredButtonColor = focusColor;
 export const linkColor = secondaryColor;
+export const inputColor = secondaryColor;
+export const inputBackgroundColor = tertiarySemiTransparenColor;
 export const tagButtonColor = tertiaryColor;
 export const tagPrimaryTextColor = tertiaryColor;
 export const tagSecondaryTextColor = secondaryColor;

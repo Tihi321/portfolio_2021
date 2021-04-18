@@ -5,10 +5,11 @@ tags: ["javascript", "svelte"]
 thumbnail: assets/penguin-modal.svg
 excerpt: In this article, you are going to see how easy and quickly you can create modal as a web component in Svelte.
 quote: Simplicity is the keynote of all true elegance.
+quotebackground: rgb(33,114,118,0.6)
 featured: true
 publish: true
 ---
-<HeadScript src="https://cdn.jsdelivr.net/gh/Tihi321/svelte-web-components/cdn/random-quote.js" />
+<HeadScript src="https://cdn.jsdelivr.net/gh/Tihi321/svelte-web-components/cdn/ts-random-quote.js" type="javascript" />
 
 In this article, you are going to see how easy and quickly you can create modal as a web component in Svelte. First, a quick intro to svelte, just a small paragraph in case you are unfamiliar with it.
 
@@ -31,11 +32,14 @@ As here we are going to use web components, If you want to export them and you a
   }
 }
 ```
-
-<div style={{ textAlign: "center", paddingBottom: "15px" }}>
-<ts-random-quote></ts-random-quote>
-<i style={{ paddingTop: "15px" }}>Random quotes Svelte example block</i>
+<div style={{
+  textAlign: "center",
+  paddingBottom: "15px"
+}}>
+  <ts-random-quote></ts-random-quote>
+  <i style={{ paddingTop: "15px" }}>Random quotes <a href="https://svelte.dev/">Svelte</a> example</i>
 </div>
+
 
 
 ## Here comes the modal

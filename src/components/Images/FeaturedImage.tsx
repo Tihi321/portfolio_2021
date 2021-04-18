@@ -6,7 +6,7 @@ import {
   ETextSizes,
   FEATURED_IMAGE_MAX_HEIGHT
 } from "~ts/enums";
-import { backdropColor, quoteColor } from "~ts/themes";
+import { backdropColor, quoteBGColor, quoteColor } from "~ts/themes";
 import { IStyledProps } from "~ts/typings";
 
 import { TextSize } from "../Common";
@@ -15,6 +15,7 @@ interface IFeaturedImageProps extends IStyledProps {
   src: string;
   alt: string;
   quote?: string;
+  quotebackground?: string;
   size?: EFeaturedImageSizes;
 }
 
@@ -50,9 +51,15 @@ const QuoteStyled = styled.span`
   justify-content: center;
 `;
 
-const QuoteTextStyled = styled(TextSize)`
+const QuoteTextStyled = styled(({ children, ...props }) => (
+  <TextSize {...props}>{children}</TextSize>
+))`
   max-width: 82%;
   text-align: center;
+  padding: 5px;
+  background-color: ${props =>
+    props.quotebackground ? props.quotebackground : quoteBGColor};
+  display: inline-block;
 `;
 
 export const FeaturedImage = ({
@@ -60,7 +67,8 @@ export const FeaturedImage = ({
   alt,
   size = EFeaturedImageSizes.Regular,
   className,
-  quote
+  quote,
+  quotebackground
 }: IFeaturedImageProps) => {
   const [loaded, setLoaded] = useState("false");
 
@@ -75,7 +83,12 @@ export const FeaturedImage = ({
       />
       {quote && (
         <QuoteStyled>
-          <QuoteTextStyled size={ETextSizes.Regular}>{quote}</QuoteTextStyled>
+          <QuoteTextStyled
+            quotebackground={quotebackground}
+            size={ETextSizes.Regular}
+          >
+            {quote}
+          </QuoteTextStyled>
         </QuoteStyled>
       )}
     </FeaturedImageContainerStyled>
