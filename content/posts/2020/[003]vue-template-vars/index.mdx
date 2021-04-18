@@ -1,0 +1,97 @@
+---
+title: Vue Template Vars
+date: 2020-03-14
+tags: ["javascript", "vue"]
+thumbnail: assets/green-vue.svg
+excerpt: Article explains Vue template vars library that tackles long return object from setup in VUE Composition Api. It explains how it uses reactivity object to work.
+quote: It’s kind of fun to do the impossible.
+quotebackground: rgba(47, 48, 97, 0.5)
+featured: true
+publish: true
+---
+
+As a lot of VUE fans, I can't wait for VUE 3 this year. As someone with [React](https://reactjs.org/) background that is used to using hooks for extracting logic I am really excited for new [Composition API](https://composition-api.vuejs.org/). While exploring new features and working with new workflow i found myself returning a lot of variables, first from hooks then from setup for template.
+
+In this article i will explain a [Vue template vars](https://www.npmjs.com/package/vue-template-vars) little library I created to tackle that long return object. First on the issue, [Vue Composition API](https://composition-api.vuejs.org/) uses setup function in main object for entry point. In setup function you can create data/state, use lifecycle hooks and manipulate data, so the function can be quite big. Though you can manage that if you move most of the logic in hooks. But if you want to use data from setup function inside of template you will need them in return object..So even if you move most of the logic out to the hooks, you can still have long return object. 
+
+## Example
+
+```javascript
+return {
+    playerId,
+    chatMesages,
+    playersData,
+    playerName,
+    opponentName,
+    turnPlayerSign,
+    turnPlayerName,
+    availableGames,
+    gameStarted,
+    gameAvailable,
+    gameQuadrants,
+    gameStatus,
+    gameStatusType,
+    registerPlayer,
+    sendMessage,
+    gameCreate,
+    gameJoin,
+    gameMove,
+    gameLeave,
+    gameReset,
+    gameRestarted,
+    backToHome
+};
+```
+
+Now before we start with library we need to know a bit of reactivity. Basically every reactive value Vue converts to an object. Here is a great [video explanation](https://www.youtube.com/watch?v=7Cjb7Xj8fEI) on how exactly reactivity work from [VUE Mastery](https://www.vuemastery.com/), if you would like to know more on that and i highly recommend to watch it. What is good about that is that objects are passed by reference and we can have references on multiple places. 
+
+And that is how [Vue template vars](https://www.npmjs.com/package/vue-template-vars) work, it creates vue data, saves reference to that data in templateVars object and return it to you if want to manipulate it.. Here you can see example on how templateRef function works. You pass starting value and name of the variable that you will call inside the template.
+
+```javascript
+function templateRef(value, templateKey) {
+    templateVars[templateKey] = ref(value);
+    return templateVars[templateKey];
+}
+```
+
+As we can see we save reference to data object in templateVars under name for template. And because we can spread object we in the end just spread it in return and get all those variables from templateVars in template.
+
+```javascript
+const count = templateRef(0, "count");
+
+ const inc = () => {
+      count.value++;
+};
+```
+
+And we also return that reactive object back so you can use and manipulate with it, and because it is passed as reference when you update value it will be updated also in return object. Of Course if you need to just return value to a template, usually in case of computed data, you dont need to take that variable
+
+```javascript
+templateComputed(() => count.value + 2, "computedCount");
+```
+
+In the end from first return object, using this technique we can refactor our code.
+
+## Example After
+
+```javascript
+return {
+    ...templateVars,
+    registerPlayer,
+    sendMessage,
+    gameCreate,
+    gameJoin,
+    gameMove,
+    gameLeave,
+    gameRestarted,
+    backToHome
+};
+```
+
+As you can see most important part is that you just spread return object, and all key will be available inside the template.
+
+<SandboxBlock style={{width: "100%"}} title="Vue Template vars" src="https://codesandbox.io/embed/vue-template-vars-example-7m9xe?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.vue&theme=dark" permissions={[]} />
+
+### BONUS
+
+Also because we use state in hooks and we return everything to template, we have no need for this scope so we can basically use functional components. 
