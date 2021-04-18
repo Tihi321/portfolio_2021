@@ -1,7 +1,7 @@
 ---
 title: Vue Template Vars
 date: 2020-03-14
-tags: ["javascript", "vue"]
+tags: ["typescript", "vue"]
 thumbnail: assets/green-vue.svg
 excerpt: Article explains Vue template vars library that tackles long return object from setup in VUE Composition Api. It explains how it uses reactivity object to work.
 quote: It’s kind of fun to do the impossible.
@@ -47,8 +47,8 @@ Now before we start with library we need to know a bit of reactivity. Basically 
 
 And that is how [Vue template vars](https://www.npmjs.com/package/vue-template-vars) work, it creates vue data, saves reference to that data in templateVars object and return it to you if want to manipulate it.. Here you can see example on how templateRef function works. You pass starting value and name of the variable that you will call inside the template.
 
-```javascript
-function templateRef(value, templateKey) {
+```typescript
+function templateRef(value: TemplateRefValue, templateKey: TemplateKey): TemplateVar {
     templateVars[templateKey] = ref(value);
     return templateVars[templateKey];
 }
