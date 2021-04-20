@@ -25,7 +25,7 @@ const LinkStyles = css`
 `;
 
 const LinkStyled = styled(({ to, children, ...props }) => (
-  <a src={to} {...props}>
+  <a href={to} {...props}>
     {children}
   </a>
 ))`
