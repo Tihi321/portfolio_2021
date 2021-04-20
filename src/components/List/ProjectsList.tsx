@@ -17,7 +17,6 @@ const ProjectListStyled = styled(ProjectList)`
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 10px;
   z-index: ${EZIndex.PROJECT_LIST};
 `;
 
