@@ -49,6 +49,8 @@ const PostPage = ({ data, pageContext }: IPageProps) => (
   <Layout
     title={data.post.frontmatter.title}
     description={data.post.frontmatter.excerpt}
+    imageUrl={data.post.frontmatter.thumbnail.publicURL}
+    pageUrl={data.post.fields.path}
   >
     <PostHeaderStyled
       title={data.post.frontmatter.title}
@@ -88,6 +90,7 @@ export const query = graphql`
         readingTime {
           text
         }
+        path
       }
       frontmatter {
         date(formatString: "DD.MM.YYYY")

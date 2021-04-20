@@ -25,6 +25,7 @@ export interface IPostPageQuery {
       readingTime: {
         text: string;
       };
+      path: string;
     };
     frontmatter: {
       date: string;
