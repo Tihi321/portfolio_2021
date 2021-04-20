@@ -60,6 +60,7 @@ const PostPage = ({ data, pageContext }: IPageProps) => (
       date={data.post.frontmatter.date}
       quote={data.post.frontmatter.quote}
       quotebackground={data.post.frontmatter.quotebackground}
+      pageUrl={data.post.fields.path}
     />
     <ContentContainerStyled>
       <MDXRenderer>{data.post.body}</MDXRenderer>
