@@ -11,7 +11,7 @@
 
 1.  **Development**
 
-    Site is created with <a href="https://www.gatsbyjs.com/">Gatsby</a> static site generator. It is written in <a href="https://www.typescriptlang.org/">Typescript</a>. For displaying and developing <a href="https://reactjs.org/">React</a> components site uses <a href="https://storybook.js.org/">Storybook</a>. <a href="https://jestjs.io/">Jest</a> was used as a testing library.
+    Blog is created with <a href="https://www.gatsbyjs.com/">Gatsby</a> static site generator. It is written in <a href="https://www.typescriptlang.org/">Typescript</a>. For displaying and developing <a href="https://tihi321.github.io/portfolio_2021">components</a> site uses <a href="https://storybook.js.org/">Storybook</a>. Tests are done with <a href="https://jestjs.io/">Jest Framework</a>.
 
 
 2.  **Deployment**
@@ -32,8 +32,8 @@
 
 4.  **Resources**
 
-    - [Components](https://tihi321.github.io/portfolio_2021/?path=/story/components-buttons--featured-button)
+    - [Components](https://tihi321.github.io/portfolio_2021)
 
-    - [Website](https://www.tihomir-selak.from.hr/)
+    - [Website](https://www.tihomir-selak.from.hr)
 
     - [Blog](https://www.tihomir-selak.from.hr/posts)
