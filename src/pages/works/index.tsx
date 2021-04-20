@@ -26,6 +26,10 @@ import { resetButtonStyles } from "~ts/styles";
 import { textColor } from "~ts/themes";
 import { media } from "~ts/utils";
 
+const SiteDisclaimerStyled = styled.div`
+  margin-top: 50px;
+`;
+
 const ClearAllButtonTextStyled = styled(TextSize)`
   text-transform: capitalize;
   font-style: italic;
@@ -159,6 +163,28 @@ const Works = () => {
           </>
         )}
       </ColumnsContainer>
+      <SiteDisclaimerStyled>
+        <h2>About Blog</h2>
+        This blog is created with <a href="https://www.gatsbyjs.com/">
+          Gatsby
+        </a>{" "}
+        static site generator. It is written in{" "}
+        <a href="https://www.typescriptlang.org/">Typescript</a>. For displaying
+        and developing{" "}
+        <a href="https://tihi321.github.io/portfolio_2021">components</a> site
+        uses <a href="https://storybook.js.org/">Storybook</a>. Tests are done
+        with <a href="https://jestjs.io/">Jest Framework</a>. Source code for
+        this website is publicly available on{" "}
+        <a href="https://github.com/Tihi321/portfolio_2021">github</a>. For
+        making static build, site uses{" "}
+        <a href="https://github.com/features/actions">Github Actions</a> which
+        in the end deploy the static files to{" "}
+        <a href="https://www.netlify.com/">Netlify</a> to be served on the
+        domain{" "}
+        <a href="https://www.tihomir-selak.from.hr/">
+          www.tihomir-selak.from.hr
+        </a>
+      </SiteDisclaimerStyled>
     </Layout>
   );
 };
