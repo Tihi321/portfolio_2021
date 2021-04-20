@@ -44,6 +44,8 @@ export const quoteBGColor = createSelector(
 export const quoteColor = createSelector(sharedColors, colors => colors.white);
 
 export const backgroundColor = focusColor;
+export const socialBackgroundColor = focusColor;
+export const sociaColor = textColor;
 export const logoBackgroundColor = primaryColor;
 export const logoForegroundColor = focusColor;
 export const featuredButtonBackgroundColor = primaryColor;

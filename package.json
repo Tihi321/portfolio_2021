@@ -52,6 +52,7 @@
     "react-helmet": "^6.1.0",
     "react-live": "^2.2.3",
     "react-responsive": "^8.2.0",
+    "react-share": "^4.4.0",
     "reselect": "^4.0.0",
     "styled-components": "^5.2.1",
     "styled-normalize": "^8.0.7"
