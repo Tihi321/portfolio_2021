@@ -23,7 +23,8 @@ const ProjectListStyled = styled.div`
 `;
 
 const ListStyled = styled.dl`
-  margin: 20px 0;
+  height: 80%;
+  overflow: auto;
 `;
 
 const TagTextStyled = styled(TagText)`
@@ -38,7 +39,7 @@ const HeaderStyled = styled.span`
   display: block;
   position: sticky;
   top: 0;
-  padding-bottom: 15px;
+  padding: 10px;
   background-color: ${backgroundColor};
 `;
 

@@ -11,7 +11,7 @@
 
 1.  **Development**
 
-    Site is created with <a href="https://www.gatsbyjs.com/">Gatsby</a> static site generator. It is written in <a href="https://www.typescriptlang.org/">Typescript</a>. For displaying and developing <a href="https://reactjs.org/">React</a> components site uses <a href="https://storybook.js.org/">Storybook</a>. <a href="https://jestjs.io/">Jest</a> was used for as a testing library.
+    Site is created with <a href="https://www.gatsbyjs.com/">Gatsby</a> static site generator. It is written in <a href="https://www.typescriptlang.org/">Typescript</a>. For displaying and developing <a href="https://reactjs.org/">React</a> components site uses <a href="https://storybook.js.org/">Storybook</a>. <a href="https://jestjs.io/">Jest</a> was used as a testing library.
 
 
 2.  **Deployment**
