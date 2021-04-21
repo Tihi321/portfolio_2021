@@ -14,25 +14,14 @@ import { TagButton } from "../Buttons";
 import { TagLink } from "../Links";
 import { ListTitle } from "./ListTitle";
 
-const ListTitleStyled = styled(ListTitle)`
-  text-align: center;
-
-  ${media(EBreakpoints.LAPTOP)} {
-    text-align: start;
-  }
-`;
-
 const TagListStyled = styled.ul`
   ${removeListkStyles}
 
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
 
-  ${media(EBreakpoints.LAPTOP)} {
-    flex-direction: column;
-  }
 `;
 
 const ListItemStyled = styled.li`
@@ -46,7 +35,7 @@ const ListItemStyled = styled.li`
 
 export const TagList = ({ className, title, children }: ITagListProps) => (
   <div className={className}>
-    <ListTitleStyled title={title} />
+    <ListTitle title={title} />
     <TagListStyled>{children}</TagListStyled>
   </div>
 );

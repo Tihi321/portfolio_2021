@@ -43,6 +43,7 @@ export const quoteBGColor = createSelector(
 
 export const quoteColor = createSelector(sharedColors, colors => colors.white);
 
+export const rowBorderColor = tertiaryColor;
 export const backgroundColor = focusColor;
 export const socialBackgroundColor = focusColor;
 export const sociaColor = textColor;
@@ -64,5 +65,7 @@ export const blockquoteColor = secondaryColor;
 export const asideColor = secondaryColor;
 export const asideBackgroundColor = tertiarySemiTransparenColor;
 export const codeBackgroundColor = tertiarySemiTransparenColor;
+export const projectTitleBackgroundColor = tertiarySemiTransparenColor;
+export const projectBorderColor = secondaryColor;
 export const markColor = focusColor;
 export const markBackgroundColor = secondaryColor;

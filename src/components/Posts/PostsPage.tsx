@@ -1,11 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import {
-  ColumnsContainer,
-  TagsContainerMobileStyled,
-  TagsContainerTabletStyled
-} from "~ts/components/Containers";
+import { ColumnsContainer } from "~ts/components/Containers";
 import { Layout } from "~ts/components/Layout";
 import { TagLinkFeaturedList, TagLinkList } from "~ts/components/List";
 import { FeaturedPostLink, PostLink } from "~ts/components/Posts";
@@ -15,6 +11,11 @@ import { IPostsContext, TPost } from "~ts/typings";
 import { connectTagLinks, media } from "~ts/utils";
 
 import { PostsPagination } from "./PostsPagination";
+
+const TagsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 const PostsContainerStyled = styled.div`
   display: flex;
@@ -36,28 +37,26 @@ interface IPostsProps {
 }
 
 export const PostsPage = ({ posts, context }: IPostsProps) => {
-  const isTablet = useMediaQuery(EBreakpoints.TABLET);
+  const isLaptop = useMediaQuery(EBreakpoints.LAPTOP);
 
   return (
     <Layout title={context?.tag || "Blog"}>
       <ColumnsContainer>
-        {isTablet ? (
-          <TagsContainerTabletStyled>
+        <TagsContainer>
+          {isLaptop ? (
             <TagLinkList
               tags={context.tags}
               title="Categories"
               selected={context?.tag}
             />
-          </TagsContainerTabletStyled>
-        ) : (
-          <TagsContainerMobileStyled>
+          ) : (
             <TagLinkFeaturedList
               tags={context.tags}
               title="Categories"
               selected={context?.tag}
             />
-          </TagsContainerMobileStyled>
-        )}
+          )}
+        </TagsContainer>
         <PostsContainerStyled>
           {posts.map((post, index) =>
             index === 0 ? (

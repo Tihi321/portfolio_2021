@@ -6,9 +6,18 @@ import React, { useState } from "react";
 import { PROJECTS } from "~ts/projects";
 
 import { ProjectList as ProjectListComponent } from "../ProjectList";
+import { ProjectsButtonList as ProjectsButtonListComponent } from "../ProjectsButtonList";
 import { ProjectsList as ProjectsListComponent } from "../ProjectsList";
 import { TagButtonsFeaturedList as TagButtonsFeaturedListComponent } from "../TagFeaturedList";
 import { TagButtonsList as TagButtonsListComponent } from "../TagList";
+
+export const ProjectsList = () => (
+  <ProjectsListComponent
+    onTagSelect={action("onTagSelect - Projects Table")}
+    onTechSelect={action("onTechSelect - Projects Table")}
+    projects={PROJECTS}
+  />
+);
 
 export const ProjectList = () => {
   const index = Array.from(
@@ -26,7 +35,9 @@ export const ProjectList = () => {
   );
 };
 
-export const ProjectsList = () => <ProjectsListComponent projects={PROJECTS} />;
+export const ProjectsButtonList = () => (
+  <ProjectsButtonListComponent projects={PROJECTS} />
+);
 
 export const TagButtonsList = () => {
   const tags = ["Project", "Open Source"];
@@ -37,7 +48,7 @@ export const TagButtonsList = () => {
       title="Tags"
       tags={tags}
       selected={selectedTag}
-      onTagSelect={tag => setSelectedTag(tag)}
+      onTagSelect={(tag) => setSelectedTag(tag)}
       onClearTagsSelect={() => setSelectedTag("")}
     />
   );
@@ -52,14 +63,14 @@ export const TagButtonsFeaturedList = () => {
       title="Tech"
       tags={tags}
       selected={selectedTag}
-      onTagSelect={tag => setSelectedTag(tag)}
+      onTagSelect={(tag) => setSelectedTag(tag)}
       onClearTagsSelect={() => setSelectedTag("")}
     />
   );
 };
 
 const meta = {
-  title: "Components/List"
+  title: "Components/List",
 };
 
 export default meta as Meta;
