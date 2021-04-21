@@ -6,8 +6,3 @@ export enum EProjectFields {
   Showcase = "demo",
   Tags = "tags"
 }
-
-export enum EProjectsTableType {
-  Regular = "regular",
-  Compact = "compact"
-}

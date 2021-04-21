@@ -2,45 +2,48 @@ import React, { useMemo, useState } from "react";
 import styled from "styled-components";
 
 import { TextSize } from "~ts/components/Common";
-import {
-  ColumnsContainer,
-  TagsContainerMobileStyled,
-  TagsContainerTabletStyled
-} from "~ts/components/Containers";
+import { ColumnsContainer } from "~ts/components/Containers";
 import { Layout } from "~ts/components/Layout";
 import {
-  ProjectsList,
+  ProjectsButtonList,
   TagButtonsFeaturedList,
   TagButtonsList
 } from "~ts/components/List";
-import { ProjectsTable } from "~ts/components/Table";
-import {
-  EBreakpoints,
-  EProjectFields,
-  EProjectsTableType,
-  ETextSizes
-} from "~ts/enums";
+import { ProjectsList } from "~ts/components/List/ProjectsList";
+import { EBreakpoints, EProjectFields, ESide, ETextSizes } from "~ts/enums";
 import { useMediaQuery } from "~ts/hooks";
 import { PROJECTS } from "~ts/projects";
 import { resetButtonStyles } from "~ts/styles";
 import { textColor } from "~ts/themes";
 import { media } from "~ts/utils";
 
-const SiteDisclaimerStyled = styled.div`
-  margin-top: 50px;
+const TagsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
-const ClearAllButtonTextStyled = styled(TextSize)`
-  text-transform: capitalize;
-  font-style: italic;
-  font-weight: 700;
-`;
-
-const TagButtonsFeaturedListStyled = styled(TagButtonsFeaturedList)`
-  padding-bottom: 10px;
+const StickyContainer = styled.div`
+  position: sticky;
+  top: 20px;
 `;
 
 const TagButtonsListStyled = styled(TagButtonsList)`
+  padding-bottom: 10px;
+`;
+
+const SiteTitleStyled = styled.h2`
+  text-align: center;
+`;
+
+const SiteDisclaimerStyled = styled.div`
+  padding-bottom: 20px;
+
+  ${media(EBreakpoints.LAPTOP, ESide.UP)} {
+    padding-bottom: 50px;
+  }
+`;
+
+const TagButtonsFeaturedListStyled = styled(TagButtonsFeaturedList)`
   padding-bottom: 10px;
 `;
 
@@ -48,12 +51,17 @@ const ClearAllButtonStyled = styled.button`
   ${resetButtonStyles}
   color: ${textColor};
   cursor: pointer;
+  text-align: left;
+
   &:focus {
     outline: none;
   }
-  ${media(EBreakpoints.LAPTOP)} {
-    margin-top: 10px;
-  }
+`;
+
+const ClearAllButtonTextStyled = styled(TextSize)`
+  text-transform: capitalize;
+  font-style: italic;
+  font-weight: 700;
 `;
 
 const Works = () => {
@@ -130,41 +138,8 @@ const Works = () => {
 
   return (
     <Layout title="Works">
-      <ColumnsContainer>
-        {isTablet ? (
-          <>
-            <TagsContainerTabletStyled>
-              <TagButtonsListStyled {...tagsProps} />
-              <TagButtonsListStyled {...techProps} />
-              <ClearAllButtonStyled onClick={onClearTagsTechSelect}>
-                <ClearAllButtonTextStyled size={ETextSizes.Tiny}>
-                  Clear All
-                </ClearAllButtonTextStyled>
-              </ClearAllButtonStyled>
-            </TagsContainerTabletStyled>
-            <ProjectsTable
-              type={
-                isLaptop
-                  ? EProjectsTableType.Regular
-                  : EProjectsTableType.Compact
-              }
-              projects={selectedProjects}
-              onTagSelect={onTagSelect}
-              onTechSelect={onTechnologySelect}
-            />
-          </>
-        ) : (
-          <>
-            <TagsContainerMobileStyled>
-              <TagButtonsFeaturedListStyled {...tagsProps} />
-              <TagButtonsFeaturedListStyled {...techProps} />
-            </TagsContainerMobileStyled>
-            <ProjectsList projects={selectedProjects} />
-          </>
-        )}
-      </ColumnsContainer>
       <SiteDisclaimerStyled>
-        <h2>About Blog</h2>
+        <SiteTitleStyled>About Blog</SiteTitleStyled>
         This blog is created with <a href="https://www.gatsbyjs.com/">
           Gatsby
         </a>{" "}
@@ -185,6 +160,35 @@ const Works = () => {
           www.tihomir-selak.from.hr
         </a>
       </SiteDisclaimerStyled>
+      <ColumnsContainer>
+        {isLaptop ? (
+          <TagsContainer>
+            <StickyContainer>
+              <TagButtonsListStyled {...tagsProps} />
+              <TagButtonsListStyled {...techProps} />
+              <ClearAllButtonStyled onClick={onClearTagsTechSelect}>
+                <ClearAllButtonTextStyled size={ETextSizes.Tiny}>
+                  Clear
+                </ClearAllButtonTextStyled>
+              </ClearAllButtonStyled>
+            </StickyContainer>
+          </TagsContainer>
+        ) : (
+          <TagsContainer>
+            <TagButtonsFeaturedListStyled {...tagsProps} />
+            <TagButtonsFeaturedListStyled {...techProps} />
+          </TagsContainer>
+        )}
+        {isTablet ? (
+          <ProjectsList
+            projects={selectedProjects}
+            onTagSelect={onTagSelect}
+            onTechSelect={onTechnologySelect}
+          />
+        ) : (
+          <ProjectsButtonList projects={selectedProjects} />
+        )}
+      </ColumnsContainer>
     </Layout>
   );
 };

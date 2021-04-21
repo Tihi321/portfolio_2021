@@ -1,4 +1,4 @@
 export * from "./ProjectList";
-export * from "./ProjectsList";
+export * from "./ProjectsButtonList";
 export * from "./TagFeaturedList";
 export * from "./TagList";

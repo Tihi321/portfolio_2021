@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { TagButton } from "~ts/components/Buttons";
 import { TextSize } from "~ts/components/Common";
 import { Link } from "~ts/components/Links";
-import { EProjectFields, EProjectsTableType, ETextSizes } from "~ts/enums";
+import { EProjectFields, ETextSizes } from "~ts/enums";
 import { TProject } from "~ts/typings";
 
 import { BodyRow } from "./BodyRow";
@@ -28,28 +28,18 @@ interface IProjectsTableProps {
   onTagSelect: (tag: string) => void;
   onTechSelect: (tech: string) => void;
   projects: TProject[];
-  type?: EProjectsTableType;
 }
 
 export const ProjectsTable = ({
   onTagSelect,
   onTechSelect,
-  projects,
-  type = EProjectsTableType.Regular
+  projects
 }: IProjectsTableProps) => (
   <TableStyled>
     <TableHeadStyled>
       <HeaderRow>
         {Object.values(EProjectFields).map(value => (
-          <HeaderCell
-            key={value}
-            text={value}
-            size={
-              type === EProjectsTableType.Regular
-                ? ETextSizes.Medium
-                : ETextSizes.Regular
-            }
-          />
+          <HeaderCell key={value} text={value} size={ETextSizes.Medium} />
         ))}
       </HeaderRow>
     </TableHeadStyled>
@@ -147,13 +137,7 @@ export const ProjectsTable = ({
                         project[EProjectFields.Name]
                       }-${rowIndex}-${cellIndex}}`}
                     >
-                      <TextSize
-                        size={
-                          type === EProjectsTableType.Regular
-                            ? ETextSizes.Regular
-                            : ETextSizes.Small
-                        }
-                      >
+                      <TextSize size={ETextSizes.Regular}>
                         {project[EProjectFields.Name]}
                       </TextSize>
                     </RowCell>
