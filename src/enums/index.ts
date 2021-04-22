@@ -8,4 +8,5 @@ export * from "./text";
 export * from "./projects";
 export * from "./store";
 export * from "./images";
+export * from "./localStorage";
 export { CONTAINER_WIDTH, CONTACT };
