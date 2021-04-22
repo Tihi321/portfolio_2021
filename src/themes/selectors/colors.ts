@@ -65,6 +65,7 @@ export const blockquoteColor = secondaryColor;
 export const asideColor = secondaryColor;
 export const asideBackgroundColor = tertiarySemiTransparenColor;
 export const codeBackgroundColor = tertiarySemiTransparenColor;
+export const modalBackgroundColor = tertiarySemiTransparenColor;
 export const projectTitleBackgroundColor = tertiarySemiTransparenColor;
 export const projectBorderColor = secondaryColor;
 export const markColor = focusColor;
