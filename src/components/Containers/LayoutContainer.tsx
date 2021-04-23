@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { useLocalStorage } from "ts-use";
 
-import { useLocalStorage } from "~ts/hooks";
 import { IContainerProps } from "~ts/typings";
 
 import { GdrpModal } from "../Modals";
