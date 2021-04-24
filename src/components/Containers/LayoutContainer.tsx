@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useLocalStorage } from "ts-use";
 
@@ -8,6 +8,7 @@ import { IContainerProps } from "~ts/typings";
 import { isTheme } from "~ts/utils";
 
 import { GdrpModal } from "../Modals";
+import { RevealContainer } from "./RevealContainer";
 
 const LayoutContainerStyled = styled.div`
   display: grid;
@@ -15,7 +16,16 @@ const LayoutContainerStyled = styled.div`
   grid-template-rows: max-content 1fr max-content;
 `;
 
+const LoaderContainer = styled.div`
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const LayoutContainer = ({ children }: IContainerProps) => {
+  const [showLoader, setShowLoader] = useState(true);
   const { dispatch } = useStore();
   const { data: isGdprCompliant, setLocalStorage } = useLocalStorage(
     LocalStorageKeys.Gdpr,
@@ -31,12 +41,20 @@ export const LayoutContainer = ({ children }: IContainerProps) => {
     if (theme && isTheme(theme as string)) {
       dispatch(setTheme(theme as ETheme));
     }
+
+    setShowLoader(false);
   }, [theme]);
 
+  if (showLoader) {
+    return <LoaderContainer />;
+  }
+
   return (
-    <LayoutContainerStyled>
-      {!isGdprCompliant && <GdrpModal onClick={onGdprAgree} />}
-      {children}
-    </LayoutContainerStyled>
+    <RevealContainer>
+      <LayoutContainerStyled>
+        {!isGdprCompliant && <GdrpModal onClick={onGdprAgree} />}
+        {children}
+      </LayoutContainerStyled>
+    </RevealContainer>
   );
 };
