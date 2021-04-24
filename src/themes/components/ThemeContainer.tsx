@@ -2,7 +2,7 @@ import React from "react";
 import { ThemeProvider } from "styled-components";
 
 import { ETheme } from "~ts/enums";
-import { getTheme, useSelector } from "~ts/store";
+import { getTheme, useSelector, withThemeProvider } from "~ts/store";
 import { IContainerProps } from "~ts/typings";
 
 import { darkTheme } from "../styles/dark";
@@ -14,3 +14,5 @@ export const ThemeContainer = ({ children }: IContainerProps) => {
 
   return <ThemeProvider theme={themeData}>{children}</ThemeProvider>;
 };
+
+export default withThemeProvider(ThemeContainer);

@@ -4,9 +4,9 @@ import styled from "styled-components";
 import { FeaturedButton } from "~ts/components/Buttons";
 import { InternalLink } from "~ts/components/Links";
 import { EBreakpoints, EInternalLinks, ETextSizes } from "~ts/enums";
-import { useMediaQuery } from "~ts/hooks";
+import { useMediaQuery, useSwitchTheme } from "~ts/hooks";
 import Logo from "~ts/images/logo.inline.svg";
-import { getTheme, switchTheme, useSelector, useStore } from "~ts/store";
+import { getTheme, useSelector } from "~ts/store";
 import { logoBackgroundColor, logoForegroundColor } from "~ts/themes";
 import { media } from "~ts/utils";
 
@@ -44,7 +44,7 @@ const ThemeButtonStyled = styled(FeaturedButton)`
 
 export const Header = () => {
   const theme = useSelector(getTheme);
-  const { dispatch } = useStore();
+  const { switchTheme } = useSwitchTheme();
   const isTablet = useMediaQuery(EBreakpoints.TABLET);
 
   return (
@@ -57,7 +57,7 @@ export const Header = () => {
           <BlogLinkStyled size={ETextSizes.Medium} to={EInternalLinks.BLOG}>
             Blog
           </BlogLinkStyled>
-          <ThemeButtonStyled onClick={() => dispatch(switchTheme())}>
+          <ThemeButtonStyled onClick={() => switchTheme()}>
             {theme}
           </ThemeButtonStyled>
         </HeaderLinksGroupStyled>

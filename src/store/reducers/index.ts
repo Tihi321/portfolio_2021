@@ -1,4 +1,5 @@
 import { ETheme } from "~ts/enums";
+import { getSwitchedTheme } from "~ts/utils";
 
 import { EActionTypes, TAction } from "../actions";
 import { TState } from "../store";
@@ -17,7 +18,7 @@ export const reducer = (state: TState, { type, payload }: TAction) => {
     case EActionTypes.ThemeSwitch:
       return {
         ...state,
-        theme: state.theme === ETheme.Light ? ETheme.Dark : ETheme.Light
+        theme: getSwitchedTheme(state.theme)
       };
     default:
       throw new Error();

@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import { select } from '@storybook/addon-knobs';
-import { useStore, setTheme } from '../../src/store';
+import { useStore, setTheme, withThemeProvider } from '../../src/store';
 import { ETheme } from '../../src/enums';
 
 export interface IThemeContainerProps {
@@ -22,3 +22,5 @@ export const ThemeSwitcher = ({children}: IThemeContainerProps) => {
 
   return <>{children}</>;
 }
+
+export default withThemeProvider(ThemeSwitcher);

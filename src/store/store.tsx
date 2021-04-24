@@ -1,4 +1,8 @@
-import React, { createContext, useContext, useReducer } from "react";
+import {
+  useReducerSelector,
+  useReducerStore,
+  withReducerProvider
+} from "ts-use";
 
 import { ETheme } from "~ts/enums";
 
@@ -8,44 +12,10 @@ export type TState = {
   theme: ETheme;
 };
 
-type TSelector = (state: TState) => any;
+const useStore = useReducerStore;
 
-type TInitialState = {
-  state: TState;
-  dispatch: any;
-};
+const useSelector = useReducerSelector;
 
-const ContextInitialState: TInitialState = {
-  state: initialState,
-  dispatch: () => null
-};
+const withThemeProvider = withReducerProvider(reducer, initialState);
 
-const StateContext = createContext(ContextInitialState);
-
-interface IProviderProps {
-  children: React.ReactNode;
-}
-
-const Provider = ({ children }: IProviderProps) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
-
-  return (
-    <StateContext.Provider value={{ state, dispatch }}>
-      {children}
-    </StateContext.Provider>
-  );
-};
-
-const useStore = () => {
-  const { state, dispatch } = useContext(StateContext);
-
-  return { state, dispatch };
-};
-
-const useSelector = (selector: TSelector) => {
-  const { state } = useStore();
-
-  return selector(state);
-};
-
-export { useStore, Provider, useSelector };
+export { useStore, useSelector, withThemeProvider };

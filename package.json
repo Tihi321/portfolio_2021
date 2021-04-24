@@ -56,7 +56,7 @@
     "reselect": "^4.0.0",
     "styled-components": "^5.2.1",
     "styled-normalize": "^8.0.7",
-    "ts-use": "^1.0.1"
+    "ts-use": "^1.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.13.13",

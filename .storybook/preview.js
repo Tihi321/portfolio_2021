@@ -2,10 +2,9 @@ import { action, withActions } from "@storybook/addon-actions";
 import React from "react";
 import { withKnobs } from '@storybook/addon-knobs';
 
-import { ThemeSwitcher } from "./components/ThemeSwitcher";
+import ThemeSwitcher from "./components/ThemeSwitcher";
 import { StyleLayout } from "../src/components/Layout";
 import { CoreStylesClass } from "../src/enums";
-import { Provider } from '../src/store';
 import { ThemeContainer } from "../src/themes";
 
 export const parameters = {
@@ -34,7 +33,6 @@ export const decorators = [
   withActions,
   (Story) => {
     return (
-      <Provider>
         <ThemeSwitcher>
           <ThemeContainer>
             <div className={CoreStylesClass}>
@@ -50,7 +48,6 @@ export const decorators = [
             </div>
           </ThemeContainer>
         </ThemeSwitcher>
-      </Provider>
     );
   },
 ];
