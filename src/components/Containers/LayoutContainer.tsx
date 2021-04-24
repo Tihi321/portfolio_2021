@@ -10,7 +10,7 @@ import { isTheme } from "~ts/utils";
 import { GdrpModal } from "../Modals";
 import { RevealContainer } from "./RevealContainer";
 
-const LayoutContainerStyled = styled.div`
+const RevealContainerStyled = styled(RevealContainer)`
   display: grid;
   height: 100%;
   grid-template-rows: max-content 1fr max-content;
@@ -50,11 +50,9 @@ export const LayoutContainer = ({ children }: IContainerProps) => {
   }
 
   return (
-    <RevealContainer>
-      <LayoutContainerStyled>
-        {!isGdprCompliant && <GdrpModal onClick={onGdprAgree} />}
-        {children}
-      </LayoutContainerStyled>
-    </RevealContainer>
+    <RevealContainerStyled>
+      {!isGdprCompliant && <GdrpModal onClick={onGdprAgree} />}
+      {children}
+    </RevealContainerStyled>
   );
 };

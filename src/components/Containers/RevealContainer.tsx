@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
-import { IContainerProps } from "~ts/typings";
+import { IContainerProps, IStyledProps } from "~ts/typings";
 
 const revealComponentAnimation = keyframes`
   from {
@@ -17,6 +17,13 @@ const RevealContainerStyled = styled.div`
   animation: ${revealComponentAnimation} 1s ease-out;
 `;
 
-export const RevealContainer = ({ children }: IContainerProps) => (
-  <RevealContainerStyled>{children}</RevealContainerStyled>
+interface IRevealContainerProps extends IContainerProps, IStyledProps {}
+
+export const RevealContainer = ({
+  children,
+  className
+}: IRevealContainerProps) => (
+  <RevealContainerStyled className={className}>
+    {children}
+  </RevealContainerStyled>
 );
