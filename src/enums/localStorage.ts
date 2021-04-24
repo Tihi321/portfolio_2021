@@ -1,3 +1,4 @@
 export enum LocalStorageKeys {
-  Gdpr = "gdpr"
+  Gdpr = "ts/gdpr",
+  Theme = "ts/theme"
 }

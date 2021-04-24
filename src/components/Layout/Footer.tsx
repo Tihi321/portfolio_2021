@@ -14,8 +14,8 @@ import {
   ETextSizes,
   EZIndex
 } from "~ts/enums";
-import { useMediaQuery } from "~ts/hooks";
-import { getTheme, switchTheme, useSelector, useStore } from "~ts/store";
+import { useMediaQuery, useSwitchTheme } from "~ts/hooks";
+import { getTheme, useSelector } from "~ts/store";
 import { backgroundColor } from "~ts/themes";
 import { media } from "~ts/utils";
 
@@ -93,7 +93,7 @@ export const Footer = () => {
   );
 
   const theme = useSelector(getTheme);
-  const { dispatch } = useStore();
+  const { switchTheme } = useSwitchTheme();
 
   const isMobile = useMediaQuery(EBreakpoints.MOBILE, ESide.MIDDLE);
 
@@ -112,7 +112,7 @@ export const Footer = () => {
         <ThemeButtonContainerStyled>
           <FeaturedButton
             type={EFeaturedButtonType.Wide}
-            onClick={() => dispatch(switchTheme())}
+            onClick={() => switchTheme()}
           >
             <ThemeButtonTextStyled size={ETextSizes.Medium}>
               {theme}

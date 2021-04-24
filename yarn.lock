@@ -18818,10 +18818,10 @@ ts-pnp@^1.1.6:
   resolved "https://registry.yarnpkg.com/ts-pnp/-/ts-pnp-1.2.0.tgz#a500ad084b0798f1c3071af391e65912c86bca92"
   integrity sha512-csd+vJOb/gkzvcCHgTGSChYpy5f1/XKNsmvBGO4JXS+z1v2HobugDz4s1IeFXM3wZB44uczs+eazB5Q/ccdhQw==
 
-ts-use@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/ts-use/-/ts-use-1.0.1.tgz#d1183a139dc4f8488849e1ce566c1bcbffcc172a"
-  integrity sha512-lpqD7Mkm9/u9Cv4ZTpXDe8KnqNkhRM0YUCYEKRVwcWyFUXmCuiW911TX9Iq5qguZ2JTR3ytxCAxGLlk4g7JxGQ==
+ts-use@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/ts-use/-/ts-use-1.0.4.tgz#83c5fd4b413c578e52f2ca39e6b37bde9c11b1fd"
+  integrity sha512-+A++8maiY9ssojR2+gA6r7FXtiQYXZ8dyfbvKA32Ug8zGMPDs78/bxTXKcTYM1i781wqFS8Vl8yXXNKBoHALSA==
   dependencies:
     lodash "^4.17.21"
     react "^17.0.1"
