@@ -32,6 +32,7 @@ const HomeContainerStyled = styled.div`
 `;
 
 const TitleStyled = styled(TextSize)`
+  line-height: 1.4;
   ${media(EBreakpoints.TABLET, ESide.UP)} {
     grid-column: 1 / span 4;
   }
@@ -101,7 +102,7 @@ const HomePage = ({ data, pageContext }: IHomePageProps) => (
         {data.site.siteMetadata.intro}
       </TitleStyled>
       <FeaturedPostsContainerStyled>
-        <Heading size={EHeadingSizes.Medium}>Featured Posts</Heading>
+        <Heading size={EHeadingSizes.Regular}>Featured Posts</Heading>
         {data.data.posts.map(post => (
           <PostLink
             key={post.frontmatter.title}
