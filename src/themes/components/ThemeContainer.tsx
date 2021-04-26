@@ -10,7 +10,7 @@ import { lightTheme } from "../styles/light";
 
 export const ThemeContainer = ({ children }: IContainerProps) => {
   const theme = useSelector(getTheme);
-  const themeData = theme === ETheme.Dark ? darkTheme : lightTheme;
+  const themeData = theme === ETheme.Light ? lightTheme : darkTheme;
 
   return <ThemeProvider theme={themeData}>{children}</ThemeProvider>;
 };

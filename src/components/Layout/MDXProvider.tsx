@@ -4,8 +4,10 @@ import React from "react";
 import { Code, PreWrapper } from "~ts/blocks/Code";
 import { Grid } from "~ts/blocks/Grid";
 import { Sandbox } from "~ts/blocks/Sandbox";
-import { HeadScript, Table } from "~ts/components/Mdx";
+import { Table } from "~ts/components/Mdx";
 import { IContainerProps } from "~ts/typings";
+
+import { HeadScript } from "./HeadScript";
 
 const components = {
   table: Table,

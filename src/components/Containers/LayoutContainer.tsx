@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useLocalStorage } from "ts-use";
 
 import { ETheme, LocalStorageKeys } from "~ts/enums";
-import { setTheme, useStore } from "~ts/store";
+import { initialState, setTheme, useStore } from "~ts/store";
 import { IContainerProps } from "~ts/typings";
 import { isTheme } from "~ts/utils";
 
@@ -31,14 +31,17 @@ export const LayoutContainer = ({ children }: IContainerProps) => {
     LocalStorageKeys.Gdpr,
     false
   );
-  const { data: theme } = useLocalStorage(LocalStorageKeys.Theme, false);
+  const { data: theme } = useLocalStorage(
+    LocalStorageKeys.Theme,
+    initialState.theme
+  );
 
   const onGdprAgree = () => {
     setLocalStorage(true);
   };
 
   useEffect(() => {
-    if (theme && isTheme(theme as string)) {
+    if (isTheme(theme as string)) {
       dispatch(setTheme(theme as ETheme));
     }
 

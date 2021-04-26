@@ -22,6 +22,14 @@ const plugins = [
   {
     resolve: "gatsby-source-filesystem",
     options: {
+      name: "assets",
+      path: `${__dirname}/content/assets/`
+    },
+    __key: "assets"
+  },
+  {
+    resolve: "gatsby-source-filesystem",
+    options: {
       name: "posts",
       path: `${__dirname}/content/posts/`
     },
@@ -31,7 +39,8 @@ const plugins = [
     resolve: "gatsby-plugin-root-import",
     options: {
       src: join(__dirname, "src"),
-      images: join(__dirname, "content/images")
+      images: join(__dirname, "content/images"),
+      assets: join(__dirname, "content/assets")
     }
   },
   "gatsby-plugin-styled-components",
@@ -40,7 +49,7 @@ const plugins = [
   "gatsby-plugin-sitemap",
   "gatsby-plugin-optimize-svgs",
   {
-    resolve: `gatsby-plugin-google-fonts`,
+    resolve: "gatsby-plugin-google-fonts",
     options: {
       fonts: ["lato:400,400i,700"],
       display: "swap"
@@ -62,9 +71,9 @@ const plugins = [
       extensions: [".mdx", ".md"],
       gatsbyRemarkPlugins: [
         {
-          resolve: `gatsby-remark-copy-linked-files`,
+          resolve: "gatsby-remark-copy-linked-files",
           options: {
-            ignoreFileExtensions: [`png`, `jpg`, `jpeg`, `bmp`, `tiff`]
+            ignoreFileExtensions: ["png", "jpg", "jpeg", "bmp", "tiff", "riv"]
           }
         },
         {
@@ -96,7 +105,7 @@ const plugins = [
     }
   },
   {
-    resolve: `gatsby-plugin-alias-imports`,
+    resolve: "gatsby-plugin-alias-imports",
     options: {
       alias: {
         "~ts/blocks": "src/blocks",
@@ -113,6 +122,7 @@ const plugins = [
         "~ts/utils": "src/utils",
         "~ts/posts": "content/posts",
         "~ts/images": "content/images",
+        "~ts/assets": "content/assets",
         "~ts/gatsby": "gatsby"
       }
     }
