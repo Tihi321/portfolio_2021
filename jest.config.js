@@ -27,6 +27,7 @@ module.exports = {
     "^~ts/utils(.*)$": "<rootDir>/src/utils/$1",
     "^~ts/posts(.*)$": "<rootDir>/content/posts/$1",
     "^~ts/images(.*)$": "<rootDir>/content/images/$1",
+    "^~ts/assets(.*)$": "<rootDir>/content/assets/$1",
     "^~ts/gatsby(.*)$": "<rootDir>/gatsby/$1"
   },
   testPathIgnorePatterns: [`node_modules`, `.cache`, `public`],

@@ -1,4 +1,5 @@
 const { resolve } = require("path");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   stories: [
@@ -15,6 +16,17 @@ module.exports = {
     "@storybook/addon-postcss",
   ],
   webpackFinal: async config => {
+    config.plugins.push(
+      new CopyPlugin({
+        patterns: [
+          { from: resolve(__dirname, '../content/assets/'), to: resolve(__dirname, '../docs/static/assets/') },
+        ],
+        options: {
+          concurrency: 100,
+        },
+      })
+  );
+
     // Transpile Gatsby module because Gatsby includes un-transpiled ES6 code.
     config.module.rules[0].exclude = [/node_modules\/(?!(gatsby)\/)/];
     // use installed babel-loader which is v8.0-beta (which is meant to work with @babel/core@7)
@@ -44,6 +56,14 @@ module.exports = {
         ],
       },
     });
+    config.module.rules.push({
+      test: /\.(riv)$/,
+      loader: require.resolve("file-loader"),
+      options: {
+        regExp: /\/([a-z0-9]+)\/[a-z0-9]+\.riv$/i,
+        name: '[name].[ext]',
+      },
+    });
     config.resolve.extensions.push(".ts", ".tsx");
     config.resolve.alias = {...config.resolve.alias, ...{
       "~ts/blocks": resolve(__dirname, '../src/blocks/'),
@@ -60,6 +80,7 @@ module.exports = {
       "~ts/utils": resolve(__dirname, '../src/utils/'),
       "~ts/posts": resolve(__dirname, '../content/posts/'),
       "~ts/images": resolve(__dirname, '../content/images/'),
+      "~ts/assets": resolve(__dirname, '../content/assets/'),
       "~ts/gatsby": resolve(__dirname, '../gatsby/'),
     }};
     return config
