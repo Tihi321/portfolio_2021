@@ -46,6 +46,7 @@
     "gatsby-transformer-sharp": "^3.1.0",
     "lodash": "^4.17.21",
     "mdx-utils": "^0.2.0",
+    "path": "^0.12.7",
     "prism-react-renderer": "^1.2.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -54,10 +55,10 @@
     "react-responsive": "^8.2.0",
     "react-share": "^4.4.0",
     "reselect": "^4.0.0",
-    "rive-js": "0.7.7",
+    "rive-js": "^0.7.10",
     "styled-components": "^5.2.1",
     "styled-normalize": "^8.0.7",
-    "ts-use": "^1.0.6"
+    "ts-use": "^1.0.7"
   },
   "devDependencies": {
     "@babel/core": "^7.13.13",

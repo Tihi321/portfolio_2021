@@ -16,6 +16,10 @@ module.exports = {
     "@storybook/addon-postcss",
   ],
   webpackFinal: async config => {
+    config.node = {
+      fs: 'empty',
+      global: true,
+   };
     config.plugins.push(
       new CopyPlugin({
         patterns: [
@@ -83,6 +87,7 @@ module.exports = {
       "~ts/assets": resolve(__dirname, '../content/assets/'),
       "~ts/gatsby": resolve(__dirname, '../gatsby/'),
     }};
+
     return config
   },
 }

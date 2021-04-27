@@ -1,59 +1,104 @@
+import { isEmpty } from "lodash";
 import React, { useEffect, useRef, useState } from "react";
+import { Rive as RiveJs, RiveParameters } from "rive-js";
 import styled from "styled-components";
 
-import { IRiveObjectProps, RiveAnimation } from "./RiveAnimation";
+import { IStyledProps } from "~ts/typings";
 
 const CanvasStyled = styled.canvas`
   width: 100%;
   height: auto;
 `;
 
-interface IRiveProps extends IRiveObjectProps {
-  play?: boolean;
+class RiveInstance {
+  static run(params: RiveParameters): RiveJs {
+    return new RiveJs(params);
+  }
+}
+
+export interface IStateMachineInput {
+  name: string;
+  type: number;
+  fire: () => void;
+  value: number | boolean;
+}
+
+interface IRiveProps extends IStyledProps {
+  commands?: boolean;
+  autoplay?: boolean;
   pause?: boolean;
-  stop?: boolean;
+  src?: string;
+  artboard?: string;
+  animations?: string | string[];
+  stateMachine?: string;
+  onStateMachines?: (stateMachines: IStateMachineInput[]) => void;
 }
 
 export const Rive = (params: IRiveProps) => {
   const [loaded, setLoaded] = useState(false);
-  const riveObjectRef = useRef({});
+  const [stateMachines, setStateMachines] = useState(
+    [] as IStateMachineInput[]
+  );
+  const riveObjectRef = useRef({} as RiveJs);
   const animCanvasRef = useRef(null);
-  const riveObject = riveObjectRef.current as RiveAnimation;
+  const [play, setPlay] = useState(params.autoplay || false);
 
   useEffect(() => {
     const canvas = animCanvasRef.current;
 
     if (canvas && params.src) {
-      riveObjectRef.current = RiveAnimation.run({
+      riveObjectRef.current = RiveInstance.run({
         src: params.src,
         canvas,
         artboard: params.artboard,
         animations: params.animations,
-        layout: params.layout,
         autoplay: params.autoplay,
-        onload: params.onload,
-        onloaderror: params.onloaderror,
-        onplay: params.onplay,
-        onpause: params.onpause,
-        onstop: params.onstop,
-        onloop: params.onloop
+        stateMachines: params.stateMachine,
+        onload: () => {
+          if (params.stateMachine) {
+            setStateMachines(
+              riveObjectRef.current.stateMachineInputs(params.stateMachine)
+            );
+          }
+        }
       });
     }
 
     setLoaded(true);
   }, [animCanvasRef.current]);
 
-  if (loaded && riveObject && params.play) {
-    riveObject.play(params.animations);
-  }
+  useEffect(() => {
+    if (params.onStateMachines && !isEmpty(stateMachines)) {
+      params.onStateMachines(stateMachines);
+    }
+  }, [stateMachines]);
 
-  if (loaded && riveObject && params.pause) {
-    riveObject.pause(params.animations);
-  }
+  const onCanvasClick = () => {
+    if (!play) {
+      riveObjectRef.current.play(params.animations);
+      setPlay(!play);
 
-  if (loaded && riveObject && params.stop) {
-    riveObject.stop(params.animations);
-  }
+      return;
+    }
 
-  return <CanvasStyled ref={animCanvasRef} />;
+    if (params.pause) {
+      riveObjectRef.current.pause(params.animations);
+      setPlay(!play);
+
+      return;
+    }
+
+    riveObjectRef.current.stop(params.animations);
+    setPlay(!play);
+  };
+
+  return params.commands && loaded ? (
+    <CanvasStyled
+      className={params.className}
+      ref={animCanvasRef}
+      onClick={onCanvasClick}
+    />
+  ) : (
+    <CanvasStyled className={params.className} ref={animCanvasRef} />
+  );
 };

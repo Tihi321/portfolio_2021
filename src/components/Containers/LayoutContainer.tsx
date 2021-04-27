@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import styled from "styled-components";
 import { useLocalStorage } from "ts-use";
 
@@ -27,26 +27,33 @@ const LoaderContainer = styled.div`
 export const LayoutContainer = ({ children }: IContainerProps) => {
   const [showLoader, setShowLoader] = useState(true);
   const { dispatch } = useStore();
-  const { data: isGdprCompliant, setLocalStorage } = useLocalStorage(
-    LocalStorageKeys.Gdpr,
-    false
-  );
+  const {
+    data: isGdprCompliant,
+    setLocalStorage: setGdprLocalStorage
+  } = useLocalStorage(LocalStorageKeys.Gdpr, false);
   const { data: theme } = useLocalStorage(
     LocalStorageKeys.Theme,
     initialState.theme
   );
 
+  const memoizedTheme = useMemo(() => theme, [theme]);
+  const memoizedIsGdprCompliant = useMemo(() => isGdprCompliant, [
+    isGdprCompliant
+  ]);
+
   const onGdprAgree = () => {
-    setLocalStorage(true);
+    setGdprLocalStorage(true);
   };
 
   useEffect(() => {
-    if (isTheme(theme as string)) {
-      dispatch(setTheme(theme as ETheme));
+    if (isTheme(memoizedTheme as string)) {
+      dispatch(setTheme(memoizedTheme as ETheme));
     }
+  }, [memoizedTheme]);
 
+  useEffect(() => {
     setShowLoader(false);
-  }, [theme]);
+  }, [memoizedTheme, memoizedIsGdprCompliant]);
 
   if (showLoader) {
     return <LoaderContainer />;
@@ -54,7 +61,7 @@ export const LayoutContainer = ({ children }: IContainerProps) => {
 
   return (
     <RevealContainerStyled>
-      {!isGdprCompliant && <GdrpModal onClick={onGdprAgree} />}
+      {!memoizedIsGdprCompliant && <GdrpModal onClick={onGdprAgree} />}
       {children}
     </RevealContainerStyled>
   );

@@ -22,12 +22,20 @@ const CoreStyle = createGlobalStyle`
   ${mdxStyles}
 `;
 
-export const StyleLayout = ({ children }: IContainerProps) => (
+interface IStyleLayout extends IContainerProps {
+  withoutLayout?: boolean;
+}
+
+export const StyleLayout = ({ children, withoutLayout }: IStyleLayout) => (
   <>
     <Normalize />
     <CoreStyle />
     <MaxWidthContainer>
-      <LayoutContainer>{children}</LayoutContainer>
+      {withoutLayout ? (
+        <>{children}</>
+      ) : (
+        <LayoutContainer>{children}</LayoutContainer>
+      )}
     </MaxWidthContainer>
   </>
 );

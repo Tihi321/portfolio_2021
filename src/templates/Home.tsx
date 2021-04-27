@@ -1,7 +1,8 @@
 import { graphql } from "gatsby";
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
+import styled, { keyframes } from "styled-components";
 
+import { Dog } from "~ts/components/Animations";
 import { Heading, TextSize } from "~ts/components/Common";
 import { Layout } from "~ts/components/Layout";
 import { FeaturedHeadingLink } from "~ts/components/Links";
@@ -16,6 +17,27 @@ import {
 } from "~ts/enums";
 import { TTagLink } from "~ts/typings";
 import { connectTagLinks, media } from "~ts/utils";
+
+const animateFromLeft = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateX(50%) scale(0.5);
+  }
+  20% {
+    opacity: 0;
+    transform: translateX(50%) scale(0.5);
+  }
+
+  85% {
+    opacity: 1;
+    transform: translateX(0) scale(0.98);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+`;
 
 const HomeContainerStyled = styled.div`
   display: grid;
@@ -39,6 +61,27 @@ const TitleStyled = styled(TextSize)`
   ${media(EBreakpoints.LAPTOP, ESide.UP)} {
     grid-column: 1 / span 3;
   }
+`;
+
+const WelcomeAnimationStyled = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  ${media(EBreakpoints.TABLET, ESide.UP)} {
+    grid-column: 1 / span 4;
+  }
+  ${media(EBreakpoints.LAPTOP, ESide.UP)} {
+    grid-column: 4 / span 1;
+  }
+`;
+
+const DogContainerStyled = styled(({ children, ...props }) => (
+  <div {...props}>{children}</div>
+))`
+  opacity: 0;
+  transform: translateX(50%);
+  animation: ${animateFromLeft} 3s ease-out;
+  animation-fill-mode: forwards;
 `;
 
 const HomeLinksContainerStyled = styled.div`
@@ -95,32 +138,45 @@ interface IHomePageProps {
   };
 }
 
-const HomePage = ({ data, pageContext }: IHomePageProps) => (
-  <Layout title="Home">
-    <HomeContainerStyled>
-      <TitleStyled size={ETextSizes.Huge}>
-        {data.site.siteMetadata.intro}
-      </TitleStyled>
-      <FeaturedPostsContainerStyled>
-        <Heading size={EHeadingSizes.Regular}>Featured Posts</Heading>
-        {data.data.posts.map(post => (
-          <PostLink
-            key={post.frontmatter.title}
-            readingTime={post.fields.readingTime.text}
-            text={post.frontmatter.title}
-            to={post.fields.path}
-            size={EPostLinkSizes.Small}
-            tags={connectTagLinks(pageContext.tags)(post.frontmatter.tags)}
-          />
-        ))}
-      </FeaturedPostsContainerStyled>
-      <HomeLinksContainerStyled>
-        <FeaturedHeadingLink text="Blog" to={EInternalLinks.BLOG} />
-        <FeaturedHeadingLink text="Works" to={EInternalLinks.WORKS} />
-      </HomeLinksContainerStyled>
-    </HomeContainerStyled>
-  </Layout>
-);
+const HomePage = ({ data, pageContext }: IHomePageProps) => {
+  const [stopDogAnimation, setStopDogAnimation] = useState(false);
+
+  const onDogStopWalking = () => {
+    setStopDogAnimation(true);
+  };
+
+  return (
+    <Layout title="Home">
+      <HomeContainerStyled>
+        <TitleStyled size={ETextSizes.Huge}>
+          {data.site.siteMetadata.intro}
+        </TitleStyled>
+        <WelcomeAnimationStyled>
+          <DogContainerStyled onAnimationEnd={onDogStopWalking}>
+            <Dog stop={stopDogAnimation} />
+          </DogContainerStyled>
+        </WelcomeAnimationStyled>
+        <FeaturedPostsContainerStyled>
+          <Heading size={EHeadingSizes.Regular}>Featured Posts</Heading>
+          {data.data.posts.map(post => (
+            <PostLink
+              key={post.frontmatter.title}
+              readingTime={post.fields.readingTime.text}
+              text={post.frontmatter.title}
+              to={post.fields.path}
+              size={EPostLinkSizes.Small}
+              tags={connectTagLinks(pageContext.tags)(post.frontmatter.tags)}
+            />
+          ))}
+        </FeaturedPostsContainerStyled>
+        <HomeLinksContainerStyled>
+          <FeaturedHeadingLink text="Blog" to={EInternalLinks.BLOG} />
+          <FeaturedHeadingLink text="Works" to={EInternalLinks.WORKS} />
+        </HomeLinksContainerStyled>
+      </HomeContainerStyled>
+    </Layout>
+  );
+};
 
 export const query = graphql`
   {

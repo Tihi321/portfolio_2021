@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { InputElement } from "src/typings";
 import styled, { useTheme } from "styled-components";
 
+import { HeadScript } from "~ts/components/Layout";
 import { EBreakpoints, ESide } from "~ts/enums";
 import { secondaryColor } from "~ts/themes";
 import { media } from "~ts/utils";
@@ -70,47 +71,53 @@ export const Grid = () => {
   };
 
   return (
-    <SVGGridStyled>
-      <ts-path-grid
-        fill="transparent"
-        opacity={gridOpacity}
-        stroke={strokeColor}
-        strokewidth={0.5}
-        vbx={gridSize}
-        vby={gridSize}
-        path={gridPath}
+    <>
+      <HeadScript
+        src="https://cdn.jsdelivr.net/gh/Tihi321/svelte-web-components/cdn/ts-path-grid.js"
+        type="javascript"
       />
-      <SVGInputsContainerStyled>
-        <GridInputField>
-          <GridInputLabel>Grid opacity</GridInputLabel>
-          <GridInput
-            value={gridOpacity}
-            onChange={event => onChangeCallback(event, setGridOpacity)}
-            type="number"
-            min="0"
-            max="1"
-            step="0.1"
-          />
-        </GridInputField>
-        <GridInputField>
-          <GridInputLabel>Grid size</GridInputLabel>
-          <GridInput
-            value={gridSize}
-            onChange={event => onChangeCallback(event, setGridSize)}
-            type="number"
-            max="100"
-            min="5"
-          />
-        </GridInputField>
-        <GridTextareaField>
-          <GridInputLabel>Grid opacity</GridInputLabel>
-          <GridTextarea
-            value={gridPath}
-            onChange={event => onChangeCallback(event, setGridPath)}
-            rows={4}
-          />
-        </GridTextareaField>
-      </SVGInputsContainerStyled>
-    </SVGGridStyled>
+      <SVGGridStyled>
+        <ts-path-grid
+          fill="transparent"
+          opacity={gridOpacity}
+          stroke={strokeColor}
+          strokewidth={0.5}
+          vbx={gridSize}
+          vby={gridSize}
+          path={gridPath}
+        />
+        <SVGInputsContainerStyled>
+          <GridInputField>
+            <GridInputLabel>Grid opacity</GridInputLabel>
+            <GridInput
+              value={gridOpacity}
+              onChange={event => onChangeCallback(event, setGridOpacity)}
+              type="number"
+              min="0"
+              max="1"
+              step="0.1"
+            />
+          </GridInputField>
+          <GridInputField>
+            <GridInputLabel>Grid size</GridInputLabel>
+            <GridInput
+              value={gridSize}
+              onChange={event => onChangeCallback(event, setGridSize)}
+              type="number"
+              max="100"
+              min="5"
+            />
+          </GridInputField>
+          <GridTextareaField>
+            <GridInputLabel>Grid opacity</GridInputLabel>
+            <GridTextarea
+              value={gridPath}
+              onChange={event => onChangeCallback(event, setGridPath)}
+              rows={4}
+            />
+          </GridTextareaField>
+        </SVGInputsContainerStyled>
+      </SVGGridStyled>
+    </>
   );
 };
