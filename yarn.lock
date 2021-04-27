@@ -15048,6 +15048,14 @@ path-type@^4.0.0:
   resolved "https://registry.yarnpkg.com/path-type/-/path-type-4.0.0.tgz#84ed01c0a7ba380afe09d90a8c180dcd9d03043b"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
 
+path@^0.12.7:
+  version "0.12.7"
+  resolved "https://registry.yarnpkg.com/path/-/path-0.12.7.tgz#d4dc2a506c4ce2197eb481ebfcd5b36c0140b10f"
+  integrity sha1-1NwqUGxM4hl+tIHr/NWzbAFAsQ8=
+  dependencies:
+    process "^0.11.1"
+    util "^0.10.3"
+
 pbkdf2@^3.0.3:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/pbkdf2/-/pbkdf2-3.1.1.tgz#cb8724b0fada984596856d1a6ebafd3584654b94"
@@ -15760,7 +15768,7 @@ process-nextick-args@~2.0.0:
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
   integrity sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==
 
-process@^0.11.10:
+process@^0.11.1, process@^0.11.10:
   version "0.11.10"
   resolved "https://registry.yarnpkg.com/process/-/process-0.11.10.tgz#7332300e840161bda3e69a1d1d91a7d4bc16f182"
   integrity sha1-czIwDoQBYb2j5podHZGn1LwW8YI=
@@ -17029,10 +17037,17 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
-rive-js@0.7.7:
-  version "0.7.7"
-  resolved "https://registry.yarnpkg.com/rive-js/-/rive-js-0.7.7.tgz#19c6a3e10472fa71f9e1b2ea2d3779706fab21a5"
-  integrity sha512-LyTz4gSRHUEP8deXWmxMsa87L1h0cVVI5gnS+alPIeKGICCb1RyAblZ298LjH8m+sTLv2/vQrLFiLCPSmI4tBw==
+rive-canvas@0.7.3:
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/rive-canvas/-/rive-canvas-0.7.3.tgz#d7630d130db9a30c13dd7cb54dedaf0c09183a78"
+  integrity sha512-ijp2I2D0U1cM/MZIcma0sjFEPZo2ZhJgz79Wr4AdW5SBQP5Rtp0LTF3eZCESjnhGTJNWTSRlSUQsKP+e/rEczg==
+
+rive-js@^0.7.10:
+  version "0.7.10"
+  resolved "https://registry.yarnpkg.com/rive-js/-/rive-js-0.7.10.tgz#a36c2962715560d15607d0bd614e7549db721d70"
+  integrity sha512-PJAP3mT/4ZQgmGfByg4iUEZh8iH+coLeoXtPNz38+X0/yDbdgzc2Wr1qr9fA59y6Ygxvy6LtrRIwm3b6nFSdcw==
+  dependencies:
+    rive-canvas "0.7.3"
 
 rsvp@^4.8.4:
   version "4.8.5"
@@ -18840,10 +18855,10 @@ ts-pnp@^1.1.6:
   resolved "https://registry.yarnpkg.com/ts-pnp/-/ts-pnp-1.2.0.tgz#a500ad084b0798f1c3071af391e65912c86bca92"
   integrity sha512-csd+vJOb/gkzvcCHgTGSChYpy5f1/XKNsmvBGO4JXS+z1v2HobugDz4s1IeFXM3wZB44uczs+eazB5Q/ccdhQw==
 
-ts-use@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/ts-use/-/ts-use-1.0.6.tgz#fb8bf358842cfe36cd601271d7a2e372e31b683a"
-  integrity sha512-7abXW8PaTABflqtkSojFYKmf8ZE+hWU1nlzooFV3VmYdu6IuHs/riUEm/bPAp4By52keZPJ/0CipPDbPPlgSqw==
+ts-use@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/ts-use/-/ts-use-1.0.7.tgz#e68c410ad5eb4bd406acad214cb9b5caf4094f99"
+  integrity sha512-0Yq7FBzK15xYLSiV5Ln4BjGLYrcPwHDuWTrPTlyDNUobrl9xaqtb6LWeL0dlKDP5wSYheaMvWnC2kvzXOcGXFQ==
   dependencies:
     lodash "^4.17.21"
     react "^17.0.1"
@@ -19512,6 +19527,13 @@ util@0.10.3:
   integrity sha1-evsa/lCAUkZInj23/g7TeTNqwPk=
   dependencies:
     inherits "2.0.1"
+
+util@^0.10.3:
+  version "0.10.4"
+  resolved "https://registry.yarnpkg.com/util/-/util-0.10.4.tgz#3aa0125bfe668a4672de58857d3ace27ecb76901"
+  integrity sha512-0Pm9hTQ3se5ll1XihRic3FDIku70C+iHUdT/W926rSgHV5QgXsYbKZN8MSC3tJtSkhuROzvsQjAaFENRXr+19A==
+  dependencies:
+    inherits "2.0.3"
 
 util@^0.11.0:
   version "0.11.1"

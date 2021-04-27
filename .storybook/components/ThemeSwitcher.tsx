@@ -1,6 +1,6 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useMemo} from "react";
 import { select } from '@storybook/addon-knobs';
-import { useStore, setTheme, withThemeProvider } from '../../src/store';
+import { useStore, setTheme } from '../../src/store';
 import { ETheme } from '../../src/enums';
 
 export interface IThemeContainerProps {
@@ -18,9 +18,9 @@ export const ThemeSwitcher = ({children}: IThemeContainerProps) => {
   };
 
   const theme = select("Theme", themes, themes.Dark, ColorsId);
-  useEffect(() => dispatch(setTheme(theme)),[theme]);
+
+  const memoizedTheme = useMemo(() => theme, [theme]);
+  useEffect(() => dispatch(setTheme(memoizedTheme)),[memoizedTheme]);
 
   return <>{children}</>;
 }
-
-export default withThemeProvider(ThemeSwitcher);

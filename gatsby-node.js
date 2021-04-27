@@ -7,5 +7,14 @@ const {
 module.exports = {
   onCreateNode,
   createPages,
-  createSchemaCustomization
+  createSchemaCustomization,
+  onCreateWebpackConfig: ({ actions }) => {
+    actions.setWebpackConfig({
+      node: {
+        // eslint-disable-next-line id-length
+        fs: "empty",
+        global: true
+      }
+    });
+  }
 };

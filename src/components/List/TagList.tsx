@@ -21,7 +21,6 @@ const TagListStyled = styled.ul`
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
-
 `;
 
 const ListItemStyled = styled.li`

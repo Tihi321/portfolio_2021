@@ -9,4 +9,5 @@ export * from "./projects";
 export * from "./store";
 export * from "./images";
 export * from "./localStorage";
+export * from "./animations";
 export { CONTAINER_WIDTH, CONTACT };

@@ -48,7 +48,7 @@ export const TagButtonsList = () => {
       title="Tags"
       tags={tags}
       selected={selectedTag}
-      onTagSelect={(tag) => setSelectedTag(tag)}
+      onTagSelect={tag => setSelectedTag(tag)}
       onClearTagsSelect={() => setSelectedTag("")}
     />
   );
@@ -63,14 +63,14 @@ export const TagButtonsFeaturedList = () => {
       title="Tech"
       tags={tags}
       selected={selectedTag}
-      onTagSelect={(tag) => setSelectedTag(tag)}
+      onTagSelect={tag => setSelectedTag(tag)}
       onClearTagsSelect={() => setSelectedTag("")}
     />
   );
 };
 
 const meta = {
-  title: "Components/List",
+  title: "Components/List"
 };
 
 export default meta as Meta;
