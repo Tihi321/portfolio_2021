@@ -11,6 +11,7 @@ const PostsPage = ({ data, pageContext }: IPostsProps) => (
 export const query = graphql`
   query PostsQuery($limit: Int, $skip: Int) {
     data: allMdx(
+      filter: { frontmatter: { publish: { eq: true } } }
       limit: $limit
       skip: $skip
       sort: { order: DESC, fields: frontmatter___date }

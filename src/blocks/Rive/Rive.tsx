@@ -26,6 +26,7 @@ export interface IStateMachineInput {
 interface IRiveProps extends IStyledProps {
   commands?: boolean;
   autoplay?: boolean;
+  autoPlay?: boolean;
   pause?: boolean;
   src?: string;
   artboard?: string;
@@ -41,7 +42,7 @@ export const Rive = (params: IRiveProps) => {
   );
   const riveObjectRef = useRef({} as RiveJs);
   const animCanvasRef = useRef(null);
-  const [play, setPlay] = useState(params.autoplay || false);
+  const [play, setPlay] = useState(params.autoplay || params.autoPlay || false);
 
   useEffect(() => {
     const canvas = animCanvasRef.current;
@@ -52,7 +53,7 @@ export const Rive = (params: IRiveProps) => {
         canvas,
         artboard: params.artboard,
         animations: params.animations,
-        autoplay: params.autoplay,
+        autoplay: params.autoplay || params.autoPlay,
         stateMachines: params.stateMachine,
         onload: () => {
           if (params.stateMachine) {

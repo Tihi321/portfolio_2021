@@ -16,7 +16,7 @@ const createPages = async ({ graphql, actions }) => {
   // Posts Page
   const result = await graphql(`
     query {
-      posts: allMdx {
+      posts: allMdx(filter: { frontmatter: { publish: { eq: true } } }) {
         nodes {
           fields {
             path
