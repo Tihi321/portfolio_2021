@@ -31,6 +31,20 @@ export const PROJECTS: TProject[] = [
     [EProjectFields.Tags]: ["npm", "open source"]
   },
   {
+    [EProjectFields.Name]: "TSL Utils",
+    [EProjectFields.Type]: "Module",
+    [EProjectFields.Techonolgies]: ["utils", "typescript"],
+    [EProjectFields.Repository]: {
+      name: "Github",
+      link: "https://github.com/Tihi321/tsl-utils"
+    },
+    [EProjectFields.Showcase]: {
+      name: "Npm",
+      link: "https://www.npmjs.com/package/tsl-utils"
+    },
+    [EProjectFields.Tags]: ["npm", "open source"]
+  },
+  {
     [EProjectFields.Name]: "Vue Template Vars",
     [EProjectFields.Type]: "Module",
     [EProjectFields.Techonolgies]: ["vuejs", "typescript"],
