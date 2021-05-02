@@ -26,7 +26,7 @@ export const Loader = () => {
 
   return (
     <RiveComponent
-      src="/loader.riv"
+      src="https://cdn.jsdelivr.net/gh/Tihi321/portfolio_2021/docs/static/assets/loader.riv"
       commands={commands}
       pause={pause}
       autoplay={autoplay}
@@ -70,7 +70,7 @@ export const Dog = () => {
   return (
     <Fragment>
       <RiveComponent
-        src="/dog_home.riv"
+        src="https://cdn.jsdelivr.net/gh/Tihi321/portfolio_2021/docs/static/assets/dog_home.riv"
         autoplay
         stateMachine={RiveStates.DOG_WALKING_BLINK_THEME_STATE}
         onStateMachines={machines => {

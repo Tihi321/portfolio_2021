@@ -15,27 +15,28 @@ import {
   ESide,
   ETextSizes
 } from "~ts/enums";
+import { tinyFontThemeResponsiveFontStyles } from "~ts/styles";
 import { TTagLink } from "~ts/typings";
 import { connectTagLinks, media } from "~ts/utils";
 
 const animateFromLeft = keyframes`
   0% {
     opacity: 0;
-    transform: translateX(50%) scale(0.5);
+    transform: translate(50%, 10%) scale(0.5);
   }
   20% {
     opacity: 0;
-    transform: translateX(50%) scale(0.5);
+    transform: translate(50%, 10%) scale(0.5);
   }
 
-  85% {
+  90% {
     opacity: 1;
-    transform: translateX(0) scale(0.98);
+    transform: translate(0) scale(1);
   }
 
   100% {
     opacity: 1;
-    transform: translateX(0) scale(1);
+    transform: translate(0) scale(1);
   }
 `;
 
@@ -78,10 +79,23 @@ const WelcomeAnimationStyled = styled.div`
 const DogContainerStyled = styled(({ children, ...props }) => (
   <div {...props}>{children}</div>
 ))`
+  position: relative;
   opacity: 0;
   transform: translateX(50%);
   animation: ${animateFromLeft} 3s ease-out;
   animation-fill-mode: forwards;
+  &::after {
+    content: "Pet me";
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    pointer-events: none;
+    ${tinyFontThemeResponsiveFontStyles(EBreakpoints.MOBILE)};
+    opacity: ${props => (props.stop ? 1 : 0)};
+    transition: opacity 0.3s ease-in-out;
+  }
 `;
 
 const HomeLinksContainerStyled = styled.div`
@@ -152,7 +166,10 @@ const HomePage = ({ data, pageContext }: IHomePageProps) => {
           {data.site.siteMetadata.intro}
         </TitleStyled>
         <WelcomeAnimationStyled>
-          <DogContainerStyled onAnimationEnd={onDogStopWalking}>
+          <DogContainerStyled
+            stop={stopDogAnimation}
+            onAnimationEnd={onDogStopWalking}
+          >
             <Dog stop={stopDogAnimation} />
           </DogContainerStyled>
         </WelcomeAnimationStyled>
