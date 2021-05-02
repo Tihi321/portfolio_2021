@@ -1,8 +1,8 @@
 import { graphql, useStaticQuery } from "gatsby";
 import { useMemo } from "react";
-import { getNodes } from "src/utils";
 
 import { IFilesQuery, IUseFiles } from "~ts/typings";
+import { getNodes } from "~ts/utils";
 
 export const useImages: IUseFiles = name => {
   const data: IFilesQuery = useStaticQuery(graphql`
