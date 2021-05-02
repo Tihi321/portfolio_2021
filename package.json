@@ -58,7 +58,8 @@
     "rive-js": "^0.7.10",
     "styled-components": "^5.2.1",
     "styled-normalize": "^8.0.7",
-    "ts-use": "^1.0.7"
+    "ts-use": "^1.1.0",
+    "tsl-utils": "^1.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.13.13",

@@ -1,0 +1,27 @@
+---
+title: The spice of Rive
+date: 2021-05-02
+tags: ["animation", "rive", "react"]
+thumbnail: assets/the-spice-of-rive.svg
+excerpt: How to create aniamtion with Rive, free motion graphics for the web tool
+quote: We All Make Choices, But In The End Our Choices Make Us.
+quotebackground: rgba(25, 123, 189, 0.8)
+featured: false
+publish: false
+---
+
+[Rive](https://rive.app/), the motion graphics for web and mobile.
+
+One of the issues with trying any new technology is that not a lot of people tryied ti bofore you. The good this is that gatsby is flexible enough so you can develop it.
+
+## Intro
+
+### commands
+<AssetsBlock render={({file}) => () => <RiveBlock src={file.publicURL} commands={true} pause={true} />} name="loader" />
+
+
+
+
+### autoplay
+<AssetsBlock render={({file}) => () => <RiveBlock src={file.publicURL} autoPlay={true} />} name="loader" />
+

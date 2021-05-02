@@ -11,7 +11,7 @@ const CategoryPage = ({ data, pageContext }: IPostsProps) => (
 export const query = graphql`
   query CategoryQuery($tag: [String], $limit: Int, $skip: Int) {
     data: allMdx(
-      filter: { frontmatter: { tags: { in: $tag } } }
+      filter: { frontmatter: { tags: { in: $tag }, publish: { eq: true } } }
       limit: $limit
       skip: $skip
       sort: { order: DESC, fields: frontmatter___date }

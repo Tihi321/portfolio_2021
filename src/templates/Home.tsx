@@ -1,5 +1,5 @@
 import { graphql } from "gatsby";
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import styled, { keyframes } from "styled-components";
 
 import { Dog } from "~ts/components/Animations";
@@ -93,7 +93,7 @@ const DogContainerStyled = styled(({ children, ...props }) => (
     display: block;
     pointer-events: none;
     ${tinyFontThemeResponsiveFontStyles(EBreakpoints.MOBILE)};
-    opacity: ${props => (props.stop ? 1 : 0)};
+    opacity: ${props => (props.stop === "true" ? 1 : 0)};
     transition: opacity 0.3s ease-in-out;
   }
 `;
@@ -140,7 +140,10 @@ type TSiteMetaWithBlog = {
       intro: string;
     };
   };
-  data: {
+  featured: {
+    posts: TPostData[];
+  };
+  recent: {
     posts: TPostData[];
   };
 };
@@ -159,6 +162,11 @@ const HomePage = ({ data, pageContext }: IHomePageProps) => {
     setStopDogAnimation(true);
   };
 
+  const posts = useMemo(
+    () => [...data.featured.posts, ...data.recent.posts].slice(0, 3),
+    [data.featured.posts, data.recent.posts]
+  );
+
   return (
     <Layout title="Home">
       <HomeContainerStyled>
@@ -167,7 +175,7 @@ const HomePage = ({ data, pageContext }: IHomePageProps) => {
         </TitleStyled>
         <WelcomeAnimationStyled>
           <DogContainerStyled
-            stop={stopDogAnimation}
+            stop={`${stopDogAnimation}`}
             onAnimationEnd={onDogStopWalking}
           >
             <Dog stop={stopDogAnimation} />
@@ -175,7 +183,7 @@ const HomePage = ({ data, pageContext }: IHomePageProps) => {
         </WelcomeAnimationStyled>
         <FeaturedPostsContainerStyled>
           <Heading size={EHeadingSizes.Regular}>Featured Posts</Heading>
-          {data.data.posts.map(post => (
+          {posts.map(post => (
             <PostLink
               key={post.frontmatter.title}
               readingTime={post.fields.readingTime.text}
@@ -202,8 +210,28 @@ export const query = graphql`
         intro
       }
     }
-    data: allMdx(
-      filter: { frontmatter: { featured: { eq: true } } }
+    featured: allMdx(
+      filter: { frontmatter: { featured: { eq: true }, publish: { eq: true } } }
+      limit: 3
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
+      posts: nodes {
+        fields {
+          path
+          readingTime {
+            text
+          }
+        }
+        frontmatter {
+          title
+          tags
+        }
+      }
+    }
+    recent: allMdx(
+      filter: {
+        frontmatter: { featured: { eq: false }, publish: { eq: true } }
+      }
       limit: 3
       sort: { fields: frontmatter___date, order: DESC }
     ) {

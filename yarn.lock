@@ -18855,10 +18855,10 @@ ts-pnp@^1.1.6:
   resolved "https://registry.yarnpkg.com/ts-pnp/-/ts-pnp-1.2.0.tgz#a500ad084b0798f1c3071af391e65912c86bca92"
   integrity sha512-csd+vJOb/gkzvcCHgTGSChYpy5f1/XKNsmvBGO4JXS+z1v2HobugDz4s1IeFXM3wZB44uczs+eazB5Q/ccdhQw==
 
-ts-use@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/ts-use/-/ts-use-1.0.7.tgz#e68c410ad5eb4bd406acad214cb9b5caf4094f99"
-  integrity sha512-0Yq7FBzK15xYLSiV5Ln4BjGLYrcPwHDuWTrPTlyDNUobrl9xaqtb6LWeL0dlKDP5wSYheaMvWnC2kvzXOcGXFQ==
+ts-use@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/ts-use/-/ts-use-1.1.0.tgz#254994093c10e44a26c3261c2cadc0cef10d9120"
+  integrity sha512-3QYxbroai/O3E3PWTgTKkz/Xutny3WlbYUqi2Jk9WQW4JH/2H1W8Lw+46tg8fojg0CZNOBSNgVzvzYE/XgNbkQ==
   dependencies:
     lodash "^4.17.21"
     react "^17.0.1"
@@ -18872,6 +18872,13 @@ tsconfig-paths@^3.9.0:
     json5 "^1.0.1"
     minimist "^1.2.0"
     strip-bom "^3.0.0"
+
+tsl-utils@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/tsl-utils/-/tsl-utils-1.0.2.tgz#118e78dcc067474789c0d46e0def2b4663dba86f"
+  integrity sha512-SWryNftztko3IxlAi7f6Nn2MZesRTajaWfZUbRec7pxQoIAm3fYTBaCh2idS4p4rVEgeXHesdreAghbXdSc9Kg==
+  dependencies:
+    lodash "^4.17.21"
 
 tslib@^1.10.0, tslib@^1.8.1, tslib@^1.9.0:
   version "1.14.1"
