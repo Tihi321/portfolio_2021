@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import { useFiles } from "src/hooks";
 
+import { useFiles } from "~ts/hooks";
 import { TFiles } from "~ts/typings";
 
 interface IFilesProps {
