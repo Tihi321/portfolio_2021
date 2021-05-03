@@ -45,6 +45,7 @@
     "gatsby-source-filesystem": "^3.1.0",
     "gatsby-transformer-sharp": "^3.1.0",
     "lodash": "^4.17.21",
+    "lottie-react": "^2.1.0",
     "mdx-utils": "^0.2.0",
     "path": "^0.12.7",
     "prism-react-renderer": "^1.2.0",

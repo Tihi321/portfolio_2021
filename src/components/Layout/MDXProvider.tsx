@@ -3,8 +3,10 @@ import React from "react";
 
 import { Code, PreWrapper } from "~ts/blocks/Code";
 import { Grid } from "~ts/blocks/Grid";
+import { Lottie } from "~ts/blocks/Lottie";
 import { Rive } from "~ts/blocks/Rive";
 import { Sandbox } from "~ts/blocks/Sandbox";
+import { Youtube } from "~ts/blocks/Youtube";
 import { Table } from "~ts/components/Mdx";
 import { IContainerProps } from "~ts/typings";
 
@@ -21,6 +23,8 @@ const components = {
   AssetsBlock: Assets,
   FilesBlock: Files,
   ImagesBlock: Images,
+  YoutubeBlock: Youtube,
+  LottieBlock: Lottie,
   HeadScript
 };
 
