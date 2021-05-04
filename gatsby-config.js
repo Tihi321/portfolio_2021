@@ -30,6 +30,14 @@ const plugins = [
   {
     resolve: "gatsby-source-filesystem",
     options: {
+      name: "data",
+      path: `${__dirname}/content/data/`
+    },
+    __key: "data"
+  },
+  {
+    resolve: "gatsby-source-filesystem",
+    options: {
       name: "posts",
       path: `${__dirname}/content/posts/`
     },
@@ -123,6 +131,7 @@ const plugins = [
         "~ts/posts": "content/posts",
         "~ts/images": "content/images",
         "~ts/assets": "content/assets",
+        "~ts/data": "content/data",
         "~ts/gatsby": "gatsby"
       }
     }

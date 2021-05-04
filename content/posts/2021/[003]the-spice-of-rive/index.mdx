@@ -14,23 +14,19 @@ Welcome, in this article we will cover one of my favorite subjets, animations.We
 
 ## Intro
 Animation, more specific a motion graphics and design, defined a larged part of my life. Before web development, I worked many years in video production and large part of job was creating different animated graphics.
+
 <br />
-
 <YoutubeBlock videoId={"_KQ8aFCzSDI"} />
-
 <br />
 
 For that we used mostly [After Effects](https://www.adobe.com/products/aftereffects.html), which is defacto industry standard for [motion graphics](https://www.adobe.com/products/aftereffects/motion-graphics.html?promoid=L7NVTR46&mv=other) and [visual effects](https://www.adobe.com/products/aftereffects/vfx-visual-effects.html). And to this day it remains one of my favorite tools.
 
 <br />
-
 <YoutubeBlock videoId={"cR-tsqBJlBs"} />
-
-<br />
 <br />
 <br />
 
-## A New dawn
+## Yarn start
 
 After diving into web developement, love for animation stayed. I tryed different technologies which enables you to add them to web, from [SMIL](https://developer.mozilla.org/en-US/docs/Web/SVG/SVG_animation_with_SMIL), which is now deprecated, to [GSAP](https://greensock.com/gsap/) and [AnimeJS](https://animejs.com/). They are geared towards developers, so if you would like to create a banner or some motion in website, with prepared design and assets these are good quick choices. Though for that and even more, in general for animation in code I would recomend combination of [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) and [Svelte](https://svelte.dev/), a really fun way to move the web with code. More on that you can read in these [articles](https://www.tihomir-selak.from.hr/category/svelte), where I covered them in more detail.
 
@@ -39,11 +35,26 @@ After diving into web developement, love for animation stayed. I tryed different
 
 Though all of these tools above are not very helpfull in the process of design. When you are in the process of creating. So the process was, designers were creating animations in After effects and exporting in video format for us to implement, so it was double work. After a while we discovered [Lottie](https://airbnb.design/lottie/), which was opened sourced by Airbnb. How it works is that you have [Bodimovin](https://aescripts.com/bodymovin/), a free plugin for After Effects, and runtime implementation for different platforms. You create animation in After Effects and export it in [JSON](https://www.json.org/json-en.html) format, then refrence that file with lottie [runtime library](https://airbnb.design/lottie/#get-started) and voila, a magic.
 
+<br />
+<DataBlock render={({file}) => () => <LottieBlock data={file} autoplay={true} />} name="world" />
+<br />
 
+Now that was really impresive, you can use After Effects to create animations for web or mobile. Lottie do not support every feature of After Effects, as that would not be possible. You need to use shapes and create vector animations, but still that was a start of motion graphics for web. Now that sounds impressive, there are some drawbacks. Basically how lottie works is, it exports every frame from timeline in svg format, in paths, shapes and points. Basically you have svg player on the web, it can be interactive though it is still a player, and you need to use hacks to show interactivity. There is also one more drawback, as it exports every frame, files can be bigger. They are not comparable to sizes of other formats, like images, but they have to be parsed so there is a room for an improvement in that area. Also After Effects, is quite on a pricey side, after all it is industry standard for a reason. But if you need it only for web, and you do not need other tools from [Adobe](https://www.adobe.com/), surely we can find a better solution. 
 
+<br />
+<DataBlock render={({file}) => () => <LottieBlock data={file} autoplay={true} />} name="sherlock" />
+<br />
+<br />
 
+### The search continues
 
-When i saw that there was a tool which can replace After Effects at least for web, it is understatement to say that I was exited
+Now even before web days, I was searching for alternative to After Effects, but never could quite find it. There were some alternatives like  [Motion](https://www.apple.com/final-cut-pro/motion/) from Apple, but they were lacking a lot of features comparing to After Effects. [Blender](https://www.blender.org/) was another solution. It is also one of my favorite open source tools, and it has a plugin for [Lottie](https://gitlab.com/Tihi321/python-lottie) to which I contribted with my limited knowledge on Blender Python API. Though Blender is 3d software, and even with awesome 2d drawing suite in Greace Pencil it is not really suited for making animations for web.
+
+## Rive
+
+Finally I stumbled onto Flare, which was the first verion of Rive. It still availabe, but you are no longer able to register for Flare, it is there for transition period. It had the same core features as now Rive, it is web application, combination of [Figma](https://www.figma.com/) a design tool and [Animate](https://www.adobe.com/products/animate.html) layer based animation tool. It has all features needed to desing and animate, along with runtimes for web and mobile as with Lottie. That was a bingo, it ticked all the boxes, and it is free. The pricing is similar to Figma, as that it is focused on collaboration and teams.
+
+Now [Rive](https://rive.app/) has arived, it is in beta, but it ready for testing. In the rest of the article, we will explore how it can be used, and what are caveats of using it from design to deployment.
 
 
 
@@ -51,9 +62,14 @@ When i saw that there was a tool which can replace After Effects at least for we
 
 [Rive](https://rive.app/) - 
 
-One of the issues with trying any new technology is that not a lot of people tryied ti bofore you. The good this is that gatsby is flexible enough so you can develop it.
+One of the issues with trying any new technology is that not a lot of people tryed it bofore. And you can expect a lot of bugs and unfinished featured. And that was the case for js runtime.
 
-## Intro
+But good thing is taht this blog in on Gatsby and it is flexible enough so you can develop it.
+
+
+
+
+
 
 ### commands
 <AssetsBlock render={({file}) => () => <RiveBlock src={file.publicURL} commands={true} pause={true} />} name="loader" />
@@ -62,5 +78,5 @@ One of the issues with trying any new technology is that not a lot of people try
 
 
 ### autoplay
-<AssetsBlock render={({file}) => () => <RiveBlock src={file.publicURL} autoPlay={true} />} name="loader" />
+<AssetsBlock render={({file}) => () => <RiveBlock src={file.publicURL} autoplay={true} />} name="loader" />
 

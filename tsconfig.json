@@ -22,6 +22,8 @@
       "~ts/images/*": ["content/images/*"],
       "~ts/assets": ["content/assets"],
       "~ts/assets/*": ["content/assets/*"],
+      "~ts/data": ["content/data"],
+      "~ts/data/*": ["content/data/*"],
       "~ts/gatsby": ["content/gatsby"],
       "~ts/gatsby/*": ["content/gatsby/*"]
     },

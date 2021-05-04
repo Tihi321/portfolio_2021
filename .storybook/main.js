@@ -85,6 +85,7 @@ module.exports = {
       "~ts/posts": resolve(__dirname, '../content/posts/'),
       "~ts/images": resolve(__dirname, '../content/images/'),
       "~ts/assets": resolve(__dirname, '../content/assets/'),
+      "~ts/data": resolve(__dirname, '../content/data/'),
       "~ts/gatsby": resolve(__dirname, '../gatsby/'),
     }};
 
