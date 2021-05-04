@@ -68,6 +68,15 @@ object-assign
  * Available under the MIT license <https://github.com/bnjmnt4n/regjsgen/blob/master/LICENSE-MIT.txt>
  */
 
+/*!
+ Transformation Matrix v2.0
+ (c) Epistemex 2014-2015
+ www.epistemex.com
+ By Ken Fyrstenberg
+ Contributions by leeoniya.
+ License: MIT, header required.
+ */
+
 /*! https://mths.be/regenerate v1.4.2 by @mathias | MIT license */
 
 /*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
@@ -124,6 +133,8 @@ object-assign
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
+
+//! goToAndStop must be relative to the start of the current segment
 
 //! stable.js 0.1.8, https://github.com/Two-Screen/stable
 
