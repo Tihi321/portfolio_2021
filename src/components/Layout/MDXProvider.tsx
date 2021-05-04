@@ -9,6 +9,7 @@ import { Sandbox } from "~ts/blocks/Sandbox";
 import { Youtube } from "~ts/blocks/Youtube";
 import { Table } from "~ts/components/Mdx";
 import { IContainerProps } from "~ts/typings";
+import { Data } from "../Data";
 
 import { Assets, Files, Images } from "../Query";
 import { HeadScript } from "./HeadScript";
@@ -21,6 +22,7 @@ const components = {
   SandboxBlock: Sandbox,
   RiveBlock: Rive,
   AssetsBlock: Assets,
+  DataBlock: Data,
   FilesBlock: Files,
   ImagesBlock: Images,
   YoutubeBlock: Youtube,

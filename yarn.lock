@@ -3579,6 +3579,14 @@
     "@types/node" "*"
     form-data "^3.0.0"
 
+"@types/node-fetch@^2.5.10":
+  version "2.5.10"
+  resolved "https://registry.yarnpkg.com/@types/node-fetch/-/node-fetch-2.5.10.tgz#9b4d4a0425562f9fcea70b12cb3fcdd946ca8132"
+  integrity sha512-IpkX0AasN44hgEad0gEF/V6EgR5n69VEqPEgnmoM8GsIGro3PowbWs4tR6IhxUTyPLpOn+fiGG6nrQhcmoCuIQ==
+  dependencies:
+    "@types/node" "*"
+    form-data "^3.0.0"
+
 "@types/node@*", "@types/node@^14.14.10", "@types/node@^14.14.35":
   version "14.14.35"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.35.tgz#42c953a4e2b18ab931f72477e7012172f4ffa313"
@@ -18877,12 +18885,14 @@ ts-pnp@^1.1.6:
   resolved "https://registry.yarnpkg.com/ts-pnp/-/ts-pnp-1.2.0.tgz#a500ad084b0798f1c3071af391e65912c86bca92"
   integrity sha512-csd+vJOb/gkzvcCHgTGSChYpy5f1/XKNsmvBGO4JXS+z1v2HobugDz4s1IeFXM3wZB44uczs+eazB5Q/ccdhQw==
 
-ts-use@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/ts-use/-/ts-use-1.1.1.tgz#e02ad482c9a208f972efbd70d56acf1a03cdabd4"
-  integrity sha512-9wySDFgKXvuaR5PKmsxUz4TuR3HqElF23U/kzVujtvhaduzShnNvHAG+mGpyYycg5fUxrLavPjNjJdnWHvA3vQ==
+ts-use@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/ts-use/-/ts-use-1.1.2.tgz#4a7dd899fea6269d22c64db217384d42ae2107c9"
+  integrity sha512-Te+ffh6q3+qv/pXGGxWPEMXbCxcEMUA9fyTzlrab3HPdSE44Ss830O3Hvsm1UCz1c0dodLtNgzJXPzQc29IOEw==
   dependencies:
+    "@types/node-fetch" "^2.5.10"
     lodash "^4.17.21"
+    node-fetch "^2.6.1"
     react "^17.0.1"
     youtube-player "^5.5.2"
 

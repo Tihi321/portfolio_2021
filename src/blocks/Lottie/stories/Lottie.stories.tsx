@@ -2,7 +2,7 @@ import { boolean } from "@storybook/addon-knobs";
 import { Meta } from "@storybook/react";
 import React from "react";
 
-import worldAnimation from "~ts/assets/world.json";
+import worldAnimation from "~ts/data/world.json";
 
 import { Lottie } from "../Lottie";
 
