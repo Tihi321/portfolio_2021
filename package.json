@@ -27,6 +27,7 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
+    "@react-three/fiber": "^6.0.19",
     "babel-plugin-styled-components": "^1.12.0",
     "gatsby": "^3.1.2",
     "gatsby-plugin-alias-imports": "^1.0.5",
@@ -55,10 +56,12 @@
     "react-live": "^2.2.3",
     "react-responsive": "^8.2.0",
     "react-share": "^4.4.0",
+    "react-xr": "^1.1.0",
     "reselect": "^4.0.0",
     "rive-js": "^0.7.10",
     "styled-components": "^5.2.1",
     "styled-normalize": "^8.0.7",
+    "three": "^0.128.0",
     "ts-use": "^1.1.2",
     "tsl-utils": "^1.0.2"
   },
