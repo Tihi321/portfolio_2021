@@ -1,8 +1,9 @@
 import { MDXProvider as ReactMDXProvider } from "@mdx-js/react";
 import React from "react";
 
-import { Aframe, AFrameScene } from "~ts/blocks/Aframe";
+import { AFrame, AframeBlocks } from "~ts/blocks/Aframe";
 import { Code, PreWrapper } from "~ts/blocks/Code";
+import { Codepen } from "~ts/blocks/Codepen";
 import { Grid } from "~ts/blocks/Grid";
 import { Lottie } from "~ts/blocks/Lottie";
 import { ReactXR } from "~ts/blocks/ReactXR";
@@ -29,9 +30,10 @@ const components = {
   ImagesBlock: Images,
   YoutubeBlock: Youtube,
   LottieBlock: Lottie,
-  AFrameBlock: Aframe,
-  AFrameSceneBlock: AFrameScene,
-  ReactXRBlock: ReactXR,
+  AFrameBlock: AFrame,
+  AFrameBlocks: AframeBlocks,
+  ReactXRBlocks: ReactXR,
+  CodepenBlock: Codepen,
   HeadScript
 };
 

@@ -7,7 +7,7 @@ import {
   TImplementedComponents
 } from "../ReactXR";
 
-export const ReactXR = () => {
+export const ReactXRBlocks = () => {
   const blockNames: TImplementedComponents[] = ["Boxes"];
 
   const blocks = select("Blocks", blockNames, blockNames[0], "OPTIONS");

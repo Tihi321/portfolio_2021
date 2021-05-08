@@ -1,29 +1,49 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useMount } from "ts-use";
+
+import { registerComponents, registerPrimitives } from "../utils/register";
 
 declare let window: any;
 
-export const useAFrame = () => {
-  const [windowLoaded, setWindowLoaded] = useState(false);
-  const [aFrameLoaded, setAFrameLoaded] = useState(false);
+interface INamedObject {
+  name: string;
+  val: object;
+}
+export interface IUseAFrameProps {
+  components?: INamedObject[];
+  primitives?: INamedObject[];
+}
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (window && window.AFRAME) {
-        setWindowLoaded(true);
-        clearInterval(interval);
+export const useAFrame = (props: IUseAFrameProps) => {
+  let interval: any;
+
+  const mounted = useMount(
+    {
+      onPromise: resolve => {
+        interval = setInterval(() => {
+          if (window && window.AFRAME) {
+            clearInterval(interval);
+            resolve();
+          }
+        }, 500);
       }
-    }, 500);
-
-    return () => {
+    },
+    () => {
       clearInterval(interval);
-    };
-  }, []);
+    }
+  );
 
   useEffect(() => {
-    if (window && window.AFRAME) {
-      setAFrameLoaded(true);
-    }
-  }, [windowLoaded]);
+    if (mounted) {
+      if (props.components) {
+        registerComponents(props.components);
+      }
 
-  return { aFrameLoaded };
+      if (props.primitives) {
+        registerPrimitives(props.primitives);
+      }
+    }
+  }, [mounted]);
+
+  return { mounted };
 };
