@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styled, { keyframes } from "styled-components";
 
 import { HeadScript } from "~ts/components/Layout";
@@ -22,6 +22,36 @@ const AFrameElementStyled = styled.div`
   height: 500px;
   animation: ${revealComponentAnimation} 0.5s ease-out;
 `;
+
+interface IAFrameSceneProps extends IUseAFrameProps {
+  sceneHtml: string;
+}
+
+export const AFrameString = ({
+  sceneHtml,
+  components,
+  primitives
+}: IAFrameSceneProps) => {
+  const aFrameElement = useRef({} as any);
+  const { mounted } = useAFrame({ components, primitives });
+
+  useEffect(() => {
+    if (mounted) {
+      aFrameElement.current.insertAdjacentHTML("beforeend", sceneHtml);
+    }
+  }, [mounted]);
+
+  return (
+    <>
+      <HeadScript
+        src="https://aframe.io/releases/1.2.0/aframe.min.js"
+        type="javascript"
+        async
+      />
+      <AFrameElementStyled ref={aFrameElement} />
+    </>
+  );
+};
 
 interface IAFrameProps extends IUseAFrameProps, IContainerProps {}
 
