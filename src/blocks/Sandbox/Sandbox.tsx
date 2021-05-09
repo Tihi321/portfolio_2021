@@ -1,25 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
-import { EBreakpoints, ESide } from "~ts/enums";
 import { IStyledProps } from "~ts/typings";
-import { media } from "~ts/utils";
 
-const SandboxStyled = styled.div`
-  padding: 30px 0;
-
-  ${media(EBreakpoints.TABLET, ESide.UP)} {
-    padding: 50px 0;
-  }
+const SandboxStyled = styled(({ children, ...props }) => (
+  <div {...props}>{children}</div>
+))`
+  width: 100%;
+  min-height: 300px;
+  max-height: 500px;
+  height: 40vw;
+  opacity: ${props => (props.reveal === "true" ? 1 : 0)};
+  transition: opacity 0.5s ease;
+  transition-delay: 1s;
 `;
 
 const IframeStyled = styled.iframe`
   width: 100%;
-  border: 0;
-  border-radius: 4px;
-  overflow: hidden;
-  height: 58vw;
-  max-height: 500px;
+  height: 100%;
 `;
 
 export type EPermissions =
@@ -52,15 +50,19 @@ export const Sandbox = ({
     "encrypted-media"
   ],
   iframePermissions = ["allow-scripts", "allow-same-origin"]
-}: ISandboxProps) => (
-  <SandboxStyled>
-    <IframeStyled
-      className={className}
-      title={title}
-      style={style && style}
-      src={src}
-      allow={permissions.join("; ")}
-      sandbox={iframePermissions.join(" ")}
-    />
-  </SandboxStyled>
-);
+}: ISandboxProps) => {
+  const [reveal, setReveal] = useState(false);
+
+  return (
+    <SandboxStyled reveal={reveal.toString()} style={style}>
+      <IframeStyled
+        onLoad={() => setReveal(true)}
+        className={className}
+        title={title}
+        src={src}
+        allow={permissions.join("; ")}
+        sandbox={iframePermissions.join(" ")}
+      />
+    </SandboxStyled>
+  );
+};
