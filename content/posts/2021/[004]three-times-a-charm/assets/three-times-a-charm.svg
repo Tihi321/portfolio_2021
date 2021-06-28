@@ -1,0 +1,17 @@
+<svg width="1700" height="1073" viewBox="0 0 1700 1073" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1700" height="1073" fill="#EDEBD7"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M596.815 256.617L479.121 430.517H675.317L596.815 256.617Z" fill="#B9E9FF"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M675.317 430.517L849.502 256.617H596.25L675.317 430.517Z" fill="#4EADD9"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M849.501 256.617L675.316 430.517H1023.69L849.501 256.617Z" fill="#74C6EB"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M1219.88 430.517H1023.69L1102.19 256.617L1219.88 430.517Z" fill="#50ACD5"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M1102.19 256.617H849.5L1023.68 430.517L1102.19 256.617Z" fill="#3495BF"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M479.121 430.517H675.317L849.502 816.383L479.121 430.517Z" fill="#68C0E4"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M1023.69 430.517H675.316L849.501 816.383L1023.69 430.517Z" fill="#3F9AC6"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M1219.88 430.517H1023.68L849.5 816.383L1219.88 430.517Z" fill="#277BA0"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M849.502 816.383L479.121 430.517L596.816 256.617L1102.19 256.617L1219.88 430.517L849.502 816.383Z" stroke="black" stroke-width="1.39" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M479.121 430.517H1219.88" stroke="black" stroke-width="1.39" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M596.812 256.617L849.499 816.382" stroke="black" stroke-width="1.39" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1102.19 256.617L849.5 816.382" stroke="black" stroke-width="1.39" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M675.316 430.517L849.501 256.617" stroke="black" stroke-width="1.39" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1023.68 430.517L849.5 256.617" stroke="black" stroke-width="1.39" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
