@@ -1,0 +1,68 @@
+---
+title: Three times a charm
+date: 2021-06-28
+tags: ["animation", "threejs", "svelte", "typescript"]
+thumbnail: assets/three-times-a-charm.svg
+excerpt: How to combine threejs with svelte
+quote: Diligence is the mother of good luck. - Benjamin Franklin
+quotebackground: rgba(195, 60, 84, 0.8)
+featured: false
+publish: true
+---
+
+Welcome to another article, in this article we will cover a bit of [threejs](https://threejs.org/) and [svelte](https://svelte.dev/). How to connect them in a custom slider.
+
+## Intro
+
+Before i start with a covering technologies, i would like to start a with a bit of self promotion. I entered into a next chapter in my businness life with opening a company called [Kobilica](https://www.kobilica.hr/). All will stay the same, but now i can offer my services directly to the customers. And as a first project with threejs, i just used company website. So if you will have the need for any of my services feel free to contact me, the info is on the website.
+
+Ok, enough with shamless plug, now we can focus on meat of the article, threejs and svelte. This article will be separated into 2 main parts, and we will cover each of these technologies on its own, all whilte going through the code of [Kobilica](https://www.kobilica.hr/) website.
+
+## Threejs
+
+When researching [WebXR](https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API), and using [A-Frame](https://aframe.io/). I quickly realised that i might have bit more that i can chew. Basically i lacked the basics in technology that is at the core of the framwwork. So i desided to go back to the basics and learn how to use rendering engine.
+
+### Altenatives
+
+At the start i admit that i got a bit sidetracked. When researching threejs, there is a lot of comparisons with another rendering engine that works on the web, [Babylonjs](https://www.babylonjs.com/). An interesting part that caught my eye is that threejs and babylon are using different API to render graphics. Babylon uses [WebGPU](https://www.w3.org/TR/webgpu/), while three uses [WebGL](https://get.webgl.org/). Now it also states that WebGL is going to be deprecated, at that point i was undecided which is better choice to start with. Though in the end i just continued with threejs, and not only that but threejs has officialy started to work on it's own implementation of [WebGPU renderer](https://github.com/mrdoob/three.js/tree/dev/examples/jsm/renderers/webgpu). So although WebGPU is still long way from being supported, we can be assured that threejs will support it.
+
+### Basics
+
+Coming from frontend frameworks like React or Vue, i got used to virtual dom and rendering only when needed. It was a bit strange to understand, rendering engine that uses canvas element and render on each frame. Basically not having to worry about rerendering as it is happening regardless. Threejs is rendering engine that uses canvas and with help of browser's graphics card API adds image on the screen. Because it uses canvas and GPU it is more performant than updating DOM elements. That is why we don't have to worry about rerendering, we would start to worry if we have complex 3d geometry calculations, but here we are entering game developemnt teritory.
+But more on that later, let's start with basic terminology for threejs and 3D in general.
+
+### 3D
+
+Three as name stands is for rendering 3d graphics in the web. So we would need to quickly cover some basic 3D terminology, through threejs.
+
+#### Renderer
+
+Renderer is just technology that will be used to show somthing on the screen. In 3D software like [Blender](www.blender.org), you can use [Eeve](https://docs.blender.org/manual/en/latest/render/eevee/index.html) or [Cycles](https://docs.blender.org/manual/en/latest/render/cycles/index.html). In threejs, you just create Renderer class that it provides you. We will use WebGL renderer, define a size, pixel ratio and add it to html canvas element, to be able to display image.
+
+```typescript
+this.renderer = new WebGLRenderer({ alpha: true });
+this.renderer.setSize(this.elementWidth, this.elementHeight);
+this.renderer.setPixelRatio(devicePixelRatio);
+this.appElement.appendChild(this.renderer.domElement);
+```
+
+In the code above, we are setting the size of rendere to parent elements width and height, as we want to have custom size that can be updated on window resize.
+
+#### Scene
+
+In three like in [Blender](www.blender.org), we have at the start something that we call scene. Scene is just like in a movies, what we see, what is shown to the viewer. All objects that needs to be shown need to be part of the scene. And scene is rerendered on each frame, like a stop motion we move something on the scene and show that image to the viewer. Now if you do it 60 times per second it looks fluid. Tip. Scene in three, has a background and if you would like to remove it and show website background, you can set it to null.
+
+```typescript
+this.scene = new Scene();
+this.scene.background = null;
+```
+
+#### Camera
+
+Camera is object that is representing a window into the scene. What can been seen through the lens of the camera will become the image on the screen. Similarities between 3D and video never stop :-). In order for that camera to work it needs also to be part of the scene.
+
+```typescript
+this.camera = new PerspectiveCamera(75, this.elementWidth / this.elementHeight);
+```
+
+It accepts field of view, aspect ratio, and cut image far and near parameters. Also there is a lot more different cameras, in this example we are using perspective camera, as it is most common, it is camera with a view most natural to our eyes. With the FOV of 75 and asect
