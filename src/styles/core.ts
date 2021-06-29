@@ -220,4 +220,12 @@ export const mdxStyles = css`
   .spaced {
     padding: 15px 0;
   }
+
+  .full-width {
+    width: 100%;
+  }
+
+  .space-bottom {
+    padding-bottom: 30px;
+  }
 `;
