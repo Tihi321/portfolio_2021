@@ -3,6 +3,20 @@ import { TProject } from "~ts/typings";
 
 export const PROJECTS: TProject[] = [
   {
+    [EProjectFields.Name]: "Kobilica",
+    [EProjectFields.Type]: "Company",
+    [EProjectFields.Techonolgies]: ["svelte", "threejs", "typescript"],
+    [EProjectFields.Repository]: {
+      name: "Github",
+      link: "https://github.com/Tihi321/kobilica"
+    },
+    [EProjectFields.Showcase]: {
+      name: "Website",
+      link: "https://www.kobilica.hr/"
+    },
+    [EProjectFields.Tags]: ["netlify", "website"]
+  },
+  {
     [EProjectFields.Name]: "Ts Use",
     [EProjectFields.Type]: "Module",
     [EProjectFields.Techonolgies]: ["react", "hooks", "typescript"],
