@@ -50,8 +50,8 @@ const createPages = async ({ graphql, actions }) => {
   );
 
   allPosts.forEach(({ path, tags, id }, index) => {
-    const previous = index === allPosts.length - 1 ? null : allPosts[index + 1];
-    const next = index === 0 ? null : allPosts[index - 1];
+    const next = index === allPosts.length - 1 ? null : allPosts[index + 1];
+    const previous = index === 0 ? null : allPosts[index - 1];
     createPage({
       path,
       component: join(templatesPath, "Post.tsx"),
