@@ -8,13 +8,27 @@ export const PROJECTS: TProject[] = [
     [EProjectFields.Techonolgies]: ["svelte", "threejs", "typescript"],
     [EProjectFields.Repository]: {
       name: "Github",
-      link: "https://github.com/Tihi321/kobilica"
+      link: "https://github.com/Tihi321/kobilica",
     },
     [EProjectFields.Showcase]: {
       name: "Website",
-      link: "https://www.kobilica.hr/"
+      link: "https://www.kobilica.hr/",
     },
-    [EProjectFields.Tags]: ["netlify", "website"]
+    [EProjectFields.Tags]: ["netlify", "website"],
+  },
+  {
+    [EProjectFields.Name]: "Puzzles",
+    [EProjectFields.Type]: "Games web portal",
+    [EProjectFields.Techonolgies]: ["svelte", "typescript"],
+    [EProjectFields.Repository]: {
+      name: "Github",
+      link: "https://github.com/Tihi321/puzzles",
+    },
+    [EProjectFields.Showcase]: {
+      name: "Website",
+      link: "https://puzzles.tihomir-selak.from.hr/",
+    },
+    [EProjectFields.Tags]: ["netlify", "website", "crossword", "wordle"],
   },
   {
     [EProjectFields.Name]: "Ts Use",
@@ -22,27 +36,13 @@ export const PROJECTS: TProject[] = [
     [EProjectFields.Techonolgies]: ["react", "hooks", "typescript"],
     [EProjectFields.Repository]: {
       name: "Github",
-      link: "https://github.com/Tihi321/ts-use"
+      link: "https://github.com/Tihi321/ts-use",
     },
     [EProjectFields.Showcase]: {
       name: "Npm",
-      link: "https://www.npmjs.com/package/ts-use"
+      link: "https://www.npmjs.com/package/ts-use",
     },
-    [EProjectFields.Tags]: ["npm", "open source"]
-  },
-  {
-    [EProjectFields.Name]: "Ts Udp Discovery",
-    [EProjectFields.Type]: "Module",
-    [EProjectFields.Techonolgies]: ["node", "udp", "typescript"],
-    [EProjectFields.Repository]: {
-      name: "Github",
-      link: "https://github.com/Tihi321/ts-udp-discovery"
-    },
-    [EProjectFields.Showcase]: {
-      name: "Npm",
-      link: "https://www.npmjs.com/package/ts-udp-discovery"
-    },
-    [EProjectFields.Tags]: ["npm", "open source"]
+    [EProjectFields.Tags]: ["npm", "open source"],
   },
   {
     [EProjectFields.Name]: "TSL Utils",
@@ -50,27 +50,28 @@ export const PROJECTS: TProject[] = [
     [EProjectFields.Techonolgies]: ["utils", "typescript"],
     [EProjectFields.Repository]: {
       name: "Github",
-      link: "https://github.com/Tihi321/tsl-utils"
+      link: "https://github.com/Tihi321/tsl-utils",
     },
     [EProjectFields.Showcase]: {
       name: "Npm",
-      link: "https://www.npmjs.com/package/tsl-utils"
+      link: "https://www.npmjs.com/package/tsl-utils",
     },
-    [EProjectFields.Tags]: ["npm", "open source"]
+    [EProjectFields.Tags]: ["npm", "open source"],
   },
   {
-    [EProjectFields.Name]: "Vue Template Vars",
+    [EProjectFields.Name]: "Ts Components library",
     [EProjectFields.Type]: "Module",
-    [EProjectFields.Techonolgies]: ["vuejs", "typescript"],
+    [EProjectFields.Techonolgies]: ["svelte", "typescript", "web components"],
     [EProjectFields.Repository]: {
       name: "Github",
-      link: "https://github.com/Tihi321/vue-template-vars"
+      link: "https://github.com/Tihi321/ts-components-library",
     },
     [EProjectFields.Showcase]: {
-      name: "Npm",
-      link: "https://www.npmjs.com/package/vue-template-vars"
+      name: "Storybook",
+      link:
+        "https://tihi321.github.io/ts-components-library/?path=/story/components-common-accordion--default",
     },
-    [EProjectFields.Tags]: ["npm", "open source"]
+    [EProjectFields.Tags]: ["npm", "open source"],
   },
   {
     [EProjectFields.Name]: "Quizess",
@@ -78,13 +79,13 @@ export const PROJECTS: TProject[] = [
     [EProjectFields.Techonolgies]: ["php", "js", "react"],
     [EProjectFields.Repository]: {
       name: "Github",
-      link: "https://github.com/Tihi321/quizess"
+      link: "https://github.com/Tihi321/quizess",
     },
     [EProjectFields.Showcase]: {
       name: "Wordpress",
-      link: "https://wordpress.org/plugins/quizess/"
+      link: "https://wordpress.org/plugins/quizess/",
     },
-    [EProjectFields.Tags]: ["wordpress", "open source"]
+    [EProjectFields.Tags]: ["wordpress", "open source"],
   },
   {
     [EProjectFields.Name]: "MB Topbar",
@@ -92,13 +93,13 @@ export const PROJECTS: TProject[] = [
     [EProjectFields.Techonolgies]: ["php", "js", "react"],
     [EProjectFields.Repository]: {
       name: "Github",
-      link: "https://github.com/Tihi321/mb-topbar"
+      link: "https://github.com/Tihi321/mb-topbar",
     },
     [EProjectFields.Showcase]: {
       name: "Wordpress",
-      link: "https://wordpress.org/plugins/mb-topbar/"
+      link: "https://wordpress.org/plugins/mb-topbar/",
     },
-    [EProjectFields.Tags]: ["wordpress", "open source"]
+    [EProjectFields.Tags]: ["wordpress", "open source"],
   },
   {
     [EProjectFields.Name]: "Eightshift Development kit",
@@ -106,33 +107,13 @@ export const PROJECTS: TProject[] = [
     [EProjectFields.Techonolgies]: ["node", "php", "js"],
     [EProjectFields.Repository]: {
       name: "Github",
-      link: "https://github.com/infinum/eightshift-boilerplate"
+      link: "https://github.com/infinum/eightshift-boilerplate",
     },
     [EProjectFields.Showcase]: {
       name: "Docs",
-      link: "https://infinum.github.io/eightshift-docs/"
+      link: "https://infinum.github.io/eightshift-docs/",
     },
-    [EProjectFields.Tags]: ["open source", "contribution", "wordpress"]
-  },
-  {
-    [EProjectFields.Name]: "Eightshift",
-    [EProjectFields.Type]: "Website",
-    [EProjectFields.Techonolgies]: ["js", "php", "react"],
-    [EProjectFields.Showcase]: {
-      name: "Link",
-      link: "https://eightshift.com/"
-    },
-    [EProjectFields.Tags]: ["client", "wordpress"]
-  },
-  {
-    [EProjectFields.Name]: "Design Islands",
-    [EProjectFields.Type]: "Website",
-    [EProjectFields.Techonolgies]: ["js", "php", "react"],
-    [EProjectFields.Showcase]: {
-      name: "Link",
-      link: "https://design.infinum.com/"
-    },
-    [EProjectFields.Tags]: ["client", "wordpress"]
+    [EProjectFields.Tags]: ["open source", "contribution", "wordpress"],
   },
   {
     [EProjectFields.Name]: "Python Lottie",
@@ -140,8 +121,8 @@ export const PROJECTS: TProject[] = [
     [EProjectFields.Techonolgies]: ["python", "blender"],
     [EProjectFields.Repository]: {
       name: "Gitlab",
-      link: "https://gitlab.com/Tihi321/python-lottie"
+      link: "https://gitlab.com/Tihi321/python-lottie",
     },
-    [EProjectFields.Tags]: ["open source", "contribution"]
-  }
+    [EProjectFields.Tags]: ["open source", "contribution"],
+  },
 ];
