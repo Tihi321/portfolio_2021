@@ -72,7 +72,6 @@ const plugins = [
     }
   },
   "gatsby-remark-images",
-  "gatsby-remark-reading-time",
   {
     resolve: "gatsby-plugin-mdx",
     options: {
@@ -89,8 +88,7 @@ const plugins = [
           options: {
             maxWidth: CONTAINER_WIDTH
           }
-        },
-        "gatsby-remark-reading-time"
+        }
       ]
     }
   },

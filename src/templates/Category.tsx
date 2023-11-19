@@ -14,7 +14,6 @@ export const query = graphql`
       filter: { frontmatter: { tags: { in: $tag }, publish: { eq: true } } }
       limit: $limit
       skip: $skip
-      sort: { order: DESC, fields: frontmatter___date }
     ) {
       posts: nodes {
         frontmatter {

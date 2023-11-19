@@ -13,6 +13,14 @@ const onCreateNode = ({ node, getNode, actions }) => {
 
     createNodeField({
       node,
+      name: "readingTime",
+      value: {
+        text: "1 min"
+      }
+    });
+
+    createNodeField({
+      node,
       name: "path",
       value: path
     });
