@@ -8,7 +8,7 @@ import { EFeaturedButtonType } from "~ts/enums";
 import { FeaturedButton as FeaturedButtonComponent } from "../FeaturedButton";
 import {
   FeaturedTagButton as FeaturedTagButtonComponent,
-  TagButton as TagButtonComponent
+  TagButton as TagButtonComponent,
 } from "../TagButton";
 import { WideButton as WideButtonComponent } from "../WideButton";
 
@@ -20,10 +20,7 @@ export const FeaturedButton = () => {
   const buttonType = select("Size", types, types[2], "OPTIONS");
 
   return (
-    <FeaturedButtonComponent
-      type={buttonType}
-      onClick={action("onClick - Featured Button")}
-    >
+    <FeaturedButtonComponent type={buttonType} onClick={action("onClick - Featured Button")}>
       {buttonText}
     </FeaturedButtonComponent>
   );
@@ -56,16 +53,11 @@ export const FeaturedTagButton = () => {
 export const WideButton = () => {
   const buttonText = text("Button Text", "node", "OPTIONS");
 
-  return (
-    <WideButtonComponent
-      text={buttonText}
-      onClick={action("onClick - Tag Button")}
-    />
-  );
+  return <WideButtonComponent text={buttonText} onClick={action("onClick - Tag Button")} />;
 };
 
-const meta = {
-  title: "Components/Buttons"
+export default {
+  title: "Components/Buttons",
+  component: WideButton,
+  // other settings like decorators or parameters
 };
-
-export default meta as Meta;

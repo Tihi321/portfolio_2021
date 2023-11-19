@@ -13,7 +13,7 @@ import {
   EInternalLinks,
   EPostLinkSizes,
   ESide,
-  ETextSizes
+  ETextSizes,
 } from "~ts/enums";
 import { tinyFontThemeResponsiveFontStyles } from "~ts/styles";
 import { TTagLink } from "~ts/typings";
@@ -76,9 +76,7 @@ const WelcomeAnimationStyled = styled.div`
   }
 `;
 
-const DogContainerStyled = styled(({ children, ...props }) => (
-  <div {...props}>{children}</div>
-))`
+const DogContainerStyled = styled(({ children, ...props }) => <div {...props}>{children}</div>)`
   position: relative;
   opacity: 0;
   transform: translateX(50%);
@@ -93,7 +91,7 @@ const DogContainerStyled = styled(({ children, ...props }) => (
     display: block;
     pointer-events: none;
     ${tinyFontThemeResponsiveFontStyles(EBreakpoints.MOBILE)};
-    opacity: ${props => (props.stop === "true" ? 1 : 0)};
+    opacity: ${(props) => (props.stop === "true" ? 1 : 0)};
     transition: opacity 0.3s ease-in-out;
   }
 `;
@@ -170,20 +168,15 @@ const HomePage = ({ data, pageContext }: IHomePageProps) => {
   return (
     <Layout title="Home">
       <HomeContainerStyled>
-        <TitleStyled size={ETextSizes.Huge}>
-          {data.site.siteMetadata.intro}
-        </TitleStyled>
+        <TitleStyled size={ETextSizes.Huge}>{data.site.siteMetadata.intro}</TitleStyled>
         <WelcomeAnimationStyled>
-          <DogContainerStyled
-            stop={`${stopDogAnimation}`}
-            onAnimationEnd={onDogStopWalking}
-          >
+          <DogContainerStyled stop={`${stopDogAnimation}`} onAnimationEnd={onDogStopWalking}>
             <Dog stop={stopDogAnimation} />
           </DogContainerStyled>
         </WelcomeAnimationStyled>
         <FeaturedPostsContainerStyled>
           <Heading size={EHeadingSizes.Regular}>Featured Posts</Heading>
-          {posts.map(post => (
+          {posts.map((post) => (
             <PostLink
               key={post.frontmatter.title}
               readingTime={post.fields.readingTime.text}
@@ -204,7 +197,7 @@ const HomePage = ({ data, pageContext }: IHomePageProps) => {
 };
 
 export const query = graphql`
-  {
+  query pageCProjectsPersonalportfolio2021SrctemplatesHomeTsx3175230070 {
     site {
       siteMetadata {
         intro
@@ -213,7 +206,7 @@ export const query = graphql`
     featured: allMdx(
       filter: { frontmatter: { featured: { eq: true }, publish: { eq: true } } }
       limit: 3
-      sort: { fields: frontmatter___date, order: DESC }
+      sort: { frontmatter: { date: DESC } }
     ) {
       posts: nodes {
         fields {
@@ -229,11 +222,9 @@ export const query = graphql`
       }
     }
     recent: allMdx(
-      filter: {
-        frontmatter: { featured: { eq: false }, publish: { eq: true } }
-      }
+      filter: { frontmatter: { featured: { eq: false }, publish: { eq: true } } }
       limit: 3
-      sort: { fields: frontmatter___date, order: DESC }
+      sort: { frontmatter: { date: DESC } }
     ) {
       posts: nodes {
         fields {

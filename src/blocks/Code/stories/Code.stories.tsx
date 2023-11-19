@@ -1,20 +1,6 @@
 import { boolean, select } from "@storybook/addon-knobs";
 import { Meta } from "@storybook/react";
-import { PrismTheme } from "prism-react-renderer";
-import dracula from "prism-react-renderer/themes/dracula";
-import duotoneDark from "prism-react-renderer/themes/duotoneDark";
-import duotoneLight from "prism-react-renderer/themes/duotoneLight";
-import github from "prism-react-renderer/themes/github";
-import nightOwl from "prism-react-renderer/themes/nightOwl";
-import nightOwlLight from "prism-react-renderer/themes/nightOwlLight";
-import oceanicNext from "prism-react-renderer/themes/oceanicNext";
-import okaidia from "prism-react-renderer/themes/okaidia";
-import palenight from "prism-react-renderer/themes/palenight";
-import shadesOfPurple from "prism-react-renderer/themes/shadesOfPurple";
-import synthwave84 from "prism-react-renderer/themes/synthwave84";
-import ultramin from "prism-react-renderer/themes/ultramin";
-import vsDark from "prism-react-renderer/themes/vsDark";
-import vsLight from "prism-react-renderer/themes/vsLight";
+import { PrismTheme, themes } from "prism-react-renderer";
 import React from "react";
 
 import { ELanguage } from "~ts/enums";
@@ -111,42 +97,42 @@ enum EThemes {
   Synthwave84 = "synthwave84",
   Ultramin = "ultramin",
   VsDark = "vsDark",
-  VsLight = "vsLight"
+  VsLight = "vsLight",
 }
 
 const getThemeObject = (theme: EThemes): PrismTheme => {
   switch (theme) {
     case EThemes.Dracula:
-      return dracula;
+      return themes.dracula;
     case EThemes.DuotoneDark:
-      return duotoneDark;
+      return themes.duotoneDark;
     case EThemes.DuotoneLight:
-      return duotoneLight;
+      return themes.duotoneLight;
     case EThemes.Github:
-      return github;
+      return themes.github;
     case EThemes.NightOwl:
-      return nightOwl;
+      return themes.nightOwl;
     case EThemes.NightOwlLight:
-      return nightOwlLight;
+      return themes.nightOwlLight;
     case EThemes.OceanicNext:
-      return oceanicNext;
+      return themes.oceanicNext;
     case EThemes.Okaidia:
-      return okaidia;
+      return themes.okaidia;
     case EThemes.Palenight:
-      return palenight;
+      return themes.palenight;
     case EThemes.ShadesOfPurple:
-      return shadesOfPurple;
+      return themes.shadesOfPurple;
     case EThemes.Synthwave84:
-      return synthwave84;
+      return themes.synthwave84;
     case EThemes.Ultramin:
-      return ultramin;
+      return themes.ultramin;
     case EThemes.VsDark:
-      return vsDark;
+      return themes.vsDark;
     case EThemes.VsLight:
-      return vsLight;
+      return themes.vsLight;
 
     default:
-      return vsDark;
+      return themes.vsDark;
   }
 };
 
@@ -167,27 +153,13 @@ const getCode = (language: TCodeLanguages, live: boolean): string => {
 };
 
 export const CodeBlock = () => {
-  const languagetypes: TCodeLanguages[] = [
-    ELanguage.SCSS,
-    ELanguage.TSX,
-    ELanguage.JAVASCRIPT
-  ];
+  const languagetypes: TCodeLanguages[] = [ELanguage.SCSS, ELanguage.TSX, ELanguage.JAVASCRIPT];
 
   const themeTypes = Object.values(EThemes);
 
-  const languagetype = select(
-    "Language",
-    languagetypes,
-    languagetypes[0],
-    "OPTIONS"
-  );
+  const languagetype = select("Language", languagetypes, languagetypes[0], "OPTIONS");
 
-  const customTheme = select(
-    "Editor Theme",
-    themeTypes,
-    themeTypes[0],
-    "OPTIONS"
-  );
+  const customTheme = select("Editor Theme", themeTypes, themeTypes[0], "OPTIONS");
 
   const liveEditor = boolean("Live", false, "OPTIONS");
 
@@ -196,14 +168,12 @@ export const CodeBlock = () => {
       codeString={getCode(languagetype, liveEditor)}
       language={languagetype}
       live={liveEditor}
-      customTheme={
-        customTheme !== EThemes.None ? getThemeObject(customTheme) : undefined
-      }
+      customTheme={customTheme !== EThemes.None ? getThemeObject(customTheme) : undefined}
     />
   );
 };
 const meta = {
-  title: "Blocks/Code"
+  title: "Blocks/Code",
 };
 
 export default meta as Meta;
